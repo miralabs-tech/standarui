@@ -24,6 +24,13 @@
         "vitest": "^4.1.11",
       },
     },
+    "packages/core": {
+      "name": "@standarui/core",
+      "version": "0.0.0",
+      "peerDependencies": {
+        "@standarx/nav": "0.4.1",
+      },
+    },
   },
   "packages": {
     "@andrewbranch/untar.js": ["@andrewbranch/untar.js@1.0.4", "", {}, "sha512-pVXSwPsLuw8IGLo2Di0EaOfsk+ntVvpkk942J/sHYIkwvtKUakEcPh7HBgZ6tuimgzKSEHgCvO4XgQ05DEbwDw=="],
@@ -153,6 +160,8 @@
     "@sindresorhus/is": ["@sindresorhus/is@4.6.0", "", {}, "sha512-t09vSN3MdfsyCHoFcTRCH/iUtG7OJ0CsjzB8cjAmKc/va/kIgeDI/TxsigdncE/4be734m0cvIYwNaV4i2XqAw=="],
 
     "@standard-schema/spec": ["@standard-schema/spec@1.1.0", "", {}, "sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w=="],
+
+    "@standarui/core": ["@standarui/core@workspace:packages/core"],
 
     "@standarx/nav": ["@standarx/nav@0.4.1", "", { "peerDependencies": { "@angular/core": ">=20.0.0", "react": ">=18.3.0", "react-dom": ">=18.3.0", "svelte": ">=5.0.0", "vue": ">=3.3.0" }, "optionalPeers": ["@angular/core", "react", "react-dom", "svelte", "vue"] }, "sha512-GvM7hVBSDRrYHv31W0hROA248x6YphZ8LZ7m4Zls9aeqLoSwplBneOjrbhJKt7sqA1z0pXItORcdCuD/YrXqTA=="],
 
