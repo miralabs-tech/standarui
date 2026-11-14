@@ -1,0 +1,233 @@
+[
+  {
+    "name": "PaginationMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "notes": "Not defaulted, deliberately: left unset the resolved page direction governs, so a subtree inside an RTL region inherits instead of being reset to `ltr`.",
+        "source": "pagination.types.ts:50"
+      },
+      {
+        "name": "count",
+        "type": "number",
+        "notes": "Total number of paginated items. Required.",
+        "source": "pagination.types.ts:52"
+      },
+      {
+        "name": "page?",
+        "type": "number",
+        "notes": "Controlled. 1-based.",
+        "source": "pagination.types.ts:54"
+      },
+      {
+        "name": "defaultPage?",
+        "type": "number",
+        "source": "pagination.types.ts:55"
+      },
+      {
+        "name": "pageSize?",
+        "type": "number",
+        "notes": "Controlled.",
+        "source": "pagination.types.ts:57"
+      },
+      {
+        "name": "defaultPageSize?",
+        "type": "number",
+        "source": "pagination.types.ts:58"
+      },
+      {
+        "name": "siblingCount?",
+        "type": "number",
+        "notes": "Pages adjacent to the current one, on each side. Default 1; 0 is allowed.",
+        "source": "pagination.types.ts:60"
+      },
+      {
+        "name": "boundaryCount?",
+        "type": "number",
+        "notes": "Pages pinned at each end. Default 1.",
+        "source": "pagination.types.ts:62"
+      },
+      {
+        "name": "type?",
+        "type": "PaginationItemKind",
+        "notes": "`\"button\"` (default) or `\"link\"` — a crawlable pagination, one href per page.",
+        "source": "pagination.types.ts:64"
+      },
+      {
+        "name": "getPageUrl?",
+        "type": "((details: { page: number }) => string)",
+        "notes": "Required when `type === \"link\"`.",
+        "source": "pagination.types.ts:66"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "pagination.types.ts:67"
+      },
+      {
+        "name": "translations?",
+        "type": "PaginationTranslations",
+        "source": "pagination.types.ts:68"
+      },
+      {
+        "name": "intents?",
+        "type": "IntentScopeHost | null",
+        "notes": "Where LT/RT arrive from. `null` when the app runs no input system.",
+        "source": "pagination.types.ts:70"
+      },
+      {
+        "name": "onPageChange?",
+        "type": "((details: PaginationPageChangeDetails) => void)",
+        "notes": "Also fired *correctively*: a `count` that shrinks under the current page, or a page held out of bounds by a controlled consumer, is re-clamped by the machine's watch — the same re-settle policy as `tabs.syncTriggers`.",
+        "source": "pagination.types.ts:76"
+      },
+      {
+        "name": "onPageSizeChange?",
+        "type": "((details: PaginationPageSizeChangeDetails) => void)",
+        "source": "pagination.types.ts:77"
+      }
+    ]
+  },
+  {
+    "name": "PaginationComposedProps",
+    "extends": "UsePaginationProps, Omit<PartProps<\"nav\", UsePaginationProps>, \"children\">",
+    "rows": [
+      {
+        "name": "prevLabel?",
+        "type": "ReactNode",
+        "notes": "What the previous-page control shows. Content, never its name: the machine writes `aria-label=\"previous page\"` whatever is in here, so an inline SVG costs nothing and an empty control is a drawn one rather than a blank.",
+        "source": "composed.tsx:89"
+      },
+      {
+        "name": "nextLabel?",
+        "type": "ReactNode",
+        "notes": "The same, for the next-page control.",
+        "source": "composed.tsx:91"
+      },
+      {
+        "name": "renderItem?",
+        "type": "((page: number, defaults: ReactNode) => ReactNode)",
+        "notes": "Replaces the CHILDREN of a page cell, never the cell. `defaults` is what the layer would have rendered — the page number — and it is handed over so that **decorating** is the cheapest thing to do. Replacing it is the consumer's to do and costs nothing this time: the cell's accessible name is `aria-label` on the button, written by the machine, so a cell whose children are a spinner is still \"page 4\". That is a difference from every other `render*` in the composed layer, and it is worth stating rather than assuming.",
+        "source": "composed.tsx:101"
+      },
+      {
+        "name": "parts?",
+        "type": "PaginationParts",
+        "source": "composed.tsx:102"
+      }
+    ]
+  },
+  {
+    "name": "PaginationItemKind",
+    "definition": "\"button\" | \"link\"",
+    "rows": []
+  },
+  {
+    "name": "PaginationTranslations",
+    "rows": [
+      {
+        "name": "rootLabel?",
+        "type": "string",
+        "notes": "Defaults to `\"pagination\"`.",
+        "source": "pagination.types.ts:30"
+      },
+      {
+        "name": "prevTriggerLabel?",
+        "type": "string",
+        "notes": "Defaults to `\"previous page\"`.",
+        "source": "pagination.types.ts:32"
+      },
+      {
+        "name": "nextTriggerLabel?",
+        "type": "string",
+        "notes": "Defaults to `\"next page\"`.",
+        "source": "pagination.types.ts:34"
+      },
+      {
+        "name": "itemLabel?",
+        "type": "((details: { page: number; totalPages: number }) => string)",
+        "notes": "Defaults to `` `page ${page}` ``.",
+        "source": "pagination.types.ts:36"
+      }
+    ]
+  },
+  {
+    "name": "PaginationPageChangeDetails",
+    "rows": [
+      {
+        "name": "page",
+        "type": "number",
+        "source": "pagination.types.ts:10"
+      },
+      {
+        "name": "pageSize",
+        "type": "number",
+        "source": "pagination.types.ts:11"
+      }
+    ]
+  },
+  {
+    "name": "PaginationPageSizeChangeDetails",
+    "rows": [
+      {
+        "name": "pageSize",
+        "type": "number",
+        "source": "pagination.types.ts:15"
+      }
+    ]
+  },
+  {
+    "name": "UsePaginationProps",
+    "extends": "pagination.PaginationMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "PaginationParts",
+    "rows": [
+      {
+        "name": "item?",
+        "type": "| Omit< PaginationItemProps, \"page\" | \"id\" | \"ref\" | \"aria-labelledby\" | \"aria-describedby\" | \"aria-controls\" >",
+        "notes": "Applied to EVERY cell, hence no `page` — it identifies the cell — and no `id` **or IDREF**: one id repeated down a bar is a broken reference per cell, and one `aria-labelledby` repeated gives every cell the same name, which no dangling-IDREF check can see because the id it points at does resolve. `ref` goes for the same reason: a single ref held by N cells holds the last one.",
+        "source": "composed.tsx:64"
+      },
+      {
+        "name": "ellipsis?",
+        "type": "| Omit< PaginationEllipsisProps, \"index\" | \"id\" | \"ref\" | \"aria-labelledby\" | \"aria-describedby\" | \"aria-controls\" >",
+        "notes": "Applied to EVERY gap; `index` is the machine's, one per gap.",
+        "source": "composed.tsx:71"
+      },
+      {
+        "name": "prevTrigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:77"
+      },
+      {
+        "name": "nextTrigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:78"
+      }
+    ]
+  },
+  {
+    "name": "PaginationItemProps",
+    "rows": [
+      {
+        "name": "page",
+        "type": "number",
+        "source": "pagination.types.ts:40"
+      }
+    ]
+  },
+  {
+    "name": "PaginationEllipsisProps",
+    "rows": [
+      {
+        "name": "index",
+        "type": "number",
+        "notes": "Where this ellipsis sits in the page model — presentation only.",
+        "source": "pagination.types.ts:45"
+      }
+    ]
+  }
+]

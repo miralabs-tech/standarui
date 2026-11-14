@@ -1,0 +1,545 @@
+[
+  {
+    "name": "ColorPickerMachineProps",
+    "rows": [
+      {
+        "name": "value?",
+        "type": "string",
+        "notes": "A CSS colour string. Controlled when present — the machine reports, never writes.",
+        "source": "color-picker.types.ts:118",
+        "group": "value"
+      },
+      {
+        "name": "defaultValue?",
+        "type": "string",
+        "source": "color-picker.types.ts:119",
+        "group": "value"
+      },
+      {
+        "name": "onValueChange?",
+        "type": "((details: ColorPickerValueChangeDetails) => void)",
+        "source": "color-picker.types.ts:120",
+        "group": "value"
+      },
+      {
+        "name": "onValueChangeEnd?",
+        "type": "((details: ColorPickerValueChangeDetails) => void)",
+        "notes": "Once per gesture, with the colour the gesture aimed at — whether or not a controlled parent has answered yet; a gesture that writes nothing, or whose write lands back on the colour held (a drag brought back, B, Cancel), reports that colour — as the parent's own string when it holds it and that string parses.",
+        "source": "color-picker.types.ts:122",
+        "group": "value"
+      },
+      {
+        "name": "format?",
+        "type": "ColorFormat",
+        "source": "color-picker.types.ts:123",
+        "group": "value"
+      },
+      {
+        "name": "defaultFormat?",
+        "type": "ColorFormat",
+        "source": "color-picker.types.ts:124",
+        "group": "value"
+      },
+      {
+        "name": "onFormatChange?",
+        "type": "((details: ColorPickerFormatChangeDetails) => void)",
+        "source": "color-picker.types.ts:125",
+        "group": "value"
+      },
+      {
+        "name": "formats?",
+        "type": "readonly ColorFormat[]",
+        "notes": "What the format select offers. Defaults to all four.",
+        "source": "color-picker.types.ts:127",
+        "group": "value"
+      },
+      {
+        "name": "alpha?",
+        "type": "boolean",
+        "notes": "`false` pins alpha at 1 and takes the alpha channel out of the anatomy.",
+        "source": "color-picker.types.ts:129",
+        "group": "value"
+      },
+      {
+        "name": "open?",
+        "type": "boolean",
+        "source": "color-picker.types.ts:132",
+        "group": "surface"
+      },
+      {
+        "name": "defaultOpen?",
+        "type": "boolean",
+        "source": "color-picker.types.ts:133",
+        "group": "surface"
+      },
+      {
+        "name": "onOpenChange?",
+        "type": "((details: ColorPickerOpenChangeDetails) => void)",
+        "source": "color-picker.types.ts:134",
+        "group": "surface"
+      },
+      {
+        "name": "presentation?",
+        "type": "ColorPickerPresentationProp",
+        "source": "color-picker.types.ts:135",
+        "group": "surface"
+      },
+      {
+        "name": "placement?",
+        "type": "Placement",
+        "source": "color-picker.types.ts:136",
+        "group": "surface"
+      },
+      {
+        "name": "gap?",
+        "type": "number",
+        "source": "color-picker.types.ts:137",
+        "group": "surface"
+      },
+      {
+        "name": "offset?",
+        "type": "number",
+        "source": "color-picker.types.ts:138",
+        "group": "surface"
+      },
+      {
+        "name": "flip?",
+        "type": "boolean",
+        "source": "color-picker.types.ts:139",
+        "group": "surface"
+      },
+      {
+        "name": "shift?",
+        "type": "boolean",
+        "source": "color-picker.types.ts:140",
+        "group": "surface"
+      },
+      {
+        "name": "padding?",
+        "type": "number",
+        "source": "color-picker.types.ts:141",
+        "group": "surface"
+      },
+      {
+        "name": "strategy?",
+        "type": "\"absolute\" | \"fixed\"",
+        "source": "color-picker.types.ts:142",
+        "group": "surface"
+      },
+      {
+        "name": "boundary?",
+        "type": "(() => Rect)",
+        "source": "color-picker.types.ts:143",
+        "group": "surface"
+      },
+      {
+        "name": "modal?",
+        "type": "boolean",
+        "notes": "Defaults to `false` in `popup` and `true` in `sheet`; ignored in `inline`.",
+        "source": "color-picker.types.ts:145",
+        "group": "surface"
+      },
+      {
+        "name": "closeOnEscape?",
+        "type": "boolean",
+        "source": "color-picker.types.ts:146",
+        "group": "surface"
+      },
+      {
+        "name": "closeOnInteractOutside?",
+        "type": "boolean",
+        "source": "color-picker.types.ts:147",
+        "group": "surface"
+      },
+      {
+        "name": "restoreFocus?",
+        "type": "boolean",
+        "source": "color-picker.types.ts:148",
+        "group": "surface"
+      },
+      {
+        "name": "finalFocus?",
+        "type": "(() => HTMLElement | null)",
+        "source": "color-picker.types.ts:149",
+        "group": "surface"
+      },
+      {
+        "name": "onDismiss?",
+        "type": "((details: ColorPickerDismissDetails) => void)",
+        "source": "color-picker.types.ts:150",
+        "group": "surface"
+      },
+      {
+        "name": "parentId?",
+        "type": "string",
+        "notes": "The layer this picker opened from — adapters default it from their context.",
+        "source": "color-picker.types.ts:152",
+        "group": "surface"
+      },
+      {
+        "name": "persistentElements?",
+        "type": "(() => readonly HTMLElement[])",
+        "source": "color-picker.types.ts:153",
+        "group": "surface"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "color-picker.types.ts:156",
+        "group": "control"
+      },
+      {
+        "name": "readOnly?",
+        "type": "boolean",
+        "source": "color-picker.types.ts:157",
+        "group": "control"
+      },
+      {
+        "name": "invalid?",
+        "type": "boolean",
+        "source": "color-picker.types.ts:158",
+        "group": "control"
+      },
+      {
+        "name": "required?",
+        "type": "boolean",
+        "source": "color-picker.types.ts:159",
+        "group": "control"
+      },
+      {
+        "name": "name?",
+        "type": "string",
+        "source": "color-picker.types.ts:160",
+        "group": "control"
+      },
+      {
+        "name": "form?",
+        "type": "string",
+        "source": "color-picker.types.ts:161",
+        "group": "control"
+      },
+      {
+        "name": "variant?",
+        "type": "ColorPickerVariant",
+        "source": "color-picker.types.ts:162",
+        "group": "control"
+      },
+      {
+        "name": "step?",
+        "type": "number",
+        "notes": "One arrow key, in the unit of whichever channel it lands on.",
+        "source": "color-picker.types.ts:164",
+        "group": "control"
+      },
+      {
+        "name": "largeStep?",
+        "type": "number",
+        "notes": "Shift+arrow, PageUp/PageDown and the triggers. Absent, each channel takes a tenth of its own range — 10 on saturation, 36 on hue, 0.1 on alpha — because a flat ten would be a rounding error on a 0→360 channel.",
+        "source": "color-picker.types.ts:170",
+        "group": "control"
+      },
+      {
+        "name": "swatches?",
+        "type": "readonly string[]",
+        "source": "color-picker.types.ts:171",
+        "group": "control"
+      },
+      {
+        "name": "maxSwatches?",
+        "type": "number",
+        "source": "color-picker.types.ts:172",
+        "group": "control"
+      },
+      {
+        "name": "swatchColumns?",
+        "type": "number",
+        "notes": "Defaults to 12 on desktop and 6 on touch — see the density table (§8).",
+        "source": "color-picker.types.ts:174",
+        "group": "control"
+      },
+      {
+        "name": "loopSwatches?",
+        "type": "boolean",
+        "source": "color-picker.types.ts:175",
+        "group": "control"
+      },
+      {
+        "name": "eyedropper?",
+        "type": "ColorPickerEyedropper",
+        "notes": "The screen picker, imported from `@standarui/core/color-picker/eyedropper`; without it the part never renders, on any engine.",
+        "source": "color-picker.types.ts:177",
+        "group": "control"
+      },
+      {
+        "name": "labelledBy?",
+        "type": "string",
+        "source": "color-picker.types.ts:178",
+        "group": "control"
+      },
+      {
+        "name": "describedBy?",
+        "type": "string",
+        "source": "color-picker.types.ts:179",
+        "group": "control"
+      },
+      {
+        "name": "label?",
+        "type": "string",
+        "notes": "The accessible name of the surface when no `title` part is rendered.",
+        "source": "color-picker.types.ts:181",
+        "group": "control"
+      },
+      {
+        "name": "translations?",
+        "type": "ColorPickerTranslations",
+        "source": "color-picker.types.ts:182",
+        "group": "control"
+      },
+      {
+        "name": "intents?",
+        "type": "IntentScopeHost | null",
+        "source": "color-picker.types.ts:183",
+        "group": "control"
+      },
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "notes": "Not defaulted, deliberately: left unset the resolved page direction governs, so a subtree inside an RTL region inherits instead of being reset to `ltr`.",
+        "source": "color-picker.types.ts:185",
+        "group": "control"
+      }
+    ]
+  },
+  {
+    "name": "ColorPickerComposedProps",
+    "extends": "UseColorPickerProps, Omit<PartProps<\"div\", UseColorPickerProps>, \"children\" | \"title\">",
+    "rows": [
+      {
+        "name": "title?",
+        "type": "ReactNode",
+        "notes": "The panel's heading. Omitted, no title part is placed.",
+        "source": "composed.tsx:99"
+      },
+      {
+        "name": "cancelLabel?",
+        "type": "string",
+        "notes": "Names the sheet's cancel button, and placing it is what renders the part: `getCancelTriggerProps` writes no name of its own, so an unnamed one would be a control nothing announces.",
+        "source": "composed.tsx:105"
+      },
+      {
+        "name": "parts?",
+        "type": "ColorPickerParts",
+        "source": "composed.tsx:106"
+      }
+    ]
+  },
+  {
+    "name": "ColorPickerValueChangeDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "string",
+        "notes": "The colour formatted in the current format. The one exception is the end of a gesture (`onValueChangeEnd`) under a controlled parent: when the reported colour is the one the parent holds and that string parses, `value` is the parent's own string, unchanged, whatever its notation. The hidden input still submits the formatted colour.",
+        "source": "color-picker.types.ts:36"
+      },
+      {
+        "name": "color",
+        "type": "ColorValue",
+        "source": "color-picker.types.ts:37"
+      }
+    ]
+  },
+  {
+    "name": "ColorPickerFormatChangeDetails",
+    "rows": [
+      {
+        "name": "format",
+        "type": "ColorFormat",
+        "source": "color-picker.types.ts:45"
+      }
+    ]
+  },
+  {
+    "name": "ColorPickerOpenChangeDetails",
+    "rows": [
+      {
+        "name": "open",
+        "type": "boolean",
+        "source": "color-picker.types.ts:41"
+      }
+    ]
+  },
+  {
+    "name": "ColorPickerPresentationProp",
+    "definition": "\"auto\" | ColorPickerPresentation",
+    "rows": []
+  },
+  {
+    "name": "ColorPickerDismissDetails",
+    "rows": [
+      {
+        "name": "reason",
+        "type": "DismissReason",
+        "source": "color-picker.types.ts:49"
+      }
+    ]
+  },
+  {
+    "name": "ColorPickerVariant",
+    "definition": "\"well\" | \"wheel\"",
+    "rows": []
+  },
+  {
+    "name": "ColorPickerEyedropper",
+    "rows": [
+      {
+        "name": "detect",
+        "type": "(params: object): EffectCleanup",
+        "source": "color-picker.types.ts:111"
+      },
+      {
+        "name": "open",
+        "type": "(params: object): void",
+        "source": "color-picker.types.ts:112"
+      }
+    ]
+  },
+  {
+    "name": "ColorPickerTranslations",
+    "rows": [
+      {
+        "name": "closeLabel?",
+        "type": "string",
+        "notes": "Defaults to `\"Close\"`.",
+        "source": "color-picker.types.ts:71"
+      },
+      {
+        "name": "areaLabel?",
+        "type": "string",
+        "notes": "Defaults to `\"Saturation and brightness\"`.",
+        "source": "color-picker.types.ts:73"
+      },
+      {
+        "name": "formatSelectLabel?",
+        "type": "string",
+        "notes": "Defaults to `\"Color format\"`.",
+        "source": "color-picker.types.ts:75"
+      },
+      {
+        "name": "swatchGroupLabel?",
+        "type": "string",
+        "notes": "Defaults to `\"Color swatches\"`.",
+        "source": "color-picker.types.ts:77"
+      },
+      {
+        "name": "swatchTriggerLabel?",
+        "type": "string",
+        "notes": "Defaults to `\"Add current color\"`.",
+        "source": "color-picker.types.ts:79"
+      },
+      {
+        "name": "eyedropperLabel?",
+        "type": "string",
+        "notes": "Defaults to `\"Pick a color from the screen\"`.",
+        "source": "color-picker.types.ts:81"
+      },
+      {
+        "name": "channelLabel?",
+        "type": "((channel: ColorChannel) => string)",
+        "notes": "The name of one channel, used both for a slider with no `channelLabel` part and for the two visually hidden range inputs of the area. Defaults to `\"Hue\"`, `\"Saturation\"`, `\"Brightness\"`, `\"Opacity\"`, `\"Red\"`, `\"Green\"`, `\"Blue\"`, `\"Hex\"`.",
+        "source": "color-picker.types.ts:88"
+      },
+      {
+        "name": "areaValueText?",
+        "type": "| ((details: { readonly lead: \"saturation\" | \"brightness\"; readonly saturation: number; readonly brightness: number; readonly colorName: string; }) => string)",
+        "notes": "What the area announces. Defaults to `\"Saturation 40%, brightness 90%, <name>\"`, led by whichever axis the reader is on.",
+        "source": "color-picker.types.ts:93"
+      }
+    ]
+  },
+  {
+    "name": "UseColorPickerProps",
+    "extends": "colorPicker.ColorPickerMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "ColorPickerParts",
+    "rows": [
+      {
+        "name": "label?",
+        "type": "PartProps<\"span\">",
+        "source": "composed.tsx:71"
+      },
+      {
+        "name": "trigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:72"
+      },
+      {
+        "name": "triggerSwatch?",
+        "type": "PartProps<\"span\">",
+        "source": "composed.tsx:73"
+      },
+      {
+        "name": "valueText?",
+        "type": "PartProps<\"span\">",
+        "source": "composed.tsx:74"
+      },
+      {
+        "name": "backdrop?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:75"
+      },
+      {
+        "name": "positioner?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:76"
+      },
+      {
+        "name": "content?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:77"
+      },
+      {
+        "name": "title?",
+        "type": "PartProps<\"h2\">",
+        "source": "composed.tsx:78"
+      },
+      {
+        "name": "closeTrigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:79"
+      },
+      {
+        "name": "area?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:80"
+      },
+      {
+        "name": "formatSelect?",
+        "type": "PartProps<\"select\">",
+        "source": "composed.tsx:81"
+      },
+      {
+        "name": "cancelTrigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:82"
+      },
+      {
+        "name": "eyedropperTrigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:83"
+      },
+      {
+        "name": "arrow?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:84"
+      }
+    ]
+  },
+  {
+    "name": "ColorPickerPresentation",
+    "definition": "\"popup\" | \"sheet\" | \"inline\"",
+    "rows": []
+  }
+]

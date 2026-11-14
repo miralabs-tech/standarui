@@ -1,0 +1,72 @@
+[
+  {
+    "name": "ListMachineProps",
+    "rows": [
+      {
+        "name": "variant?",
+        "type": "ListVariant",
+        "notes": "Defaults to `\"inset\"`.",
+        "source": "list.ts:52"
+      }
+    ]
+  },
+  {
+    "name": "ListComposedProps",
+    "extends": "ListMachineProps, Omit<PartProps<\"div\", ListMachineProps>, \"children\">",
+    "rows": [
+      {
+        "name": "header?",
+        "type": "ReactNode",
+        "notes": "The section title, an `h3` over the group.",
+        "source": "composed.tsx:30"
+      },
+      {
+        "name": "children?",
+        "type": "ReactNode",
+        "notes": "The rows of the group, most often `ListItem`s.",
+        "source": "composed.tsx:32"
+      },
+      {
+        "name": "footer?",
+        "type": "ReactNode",
+        "notes": "The note under the group.",
+        "source": "composed.tsx:34"
+      },
+      {
+        "name": "parts?",
+        "type": "ListParts",
+        "source": "composed.tsx:35"
+      }
+    ]
+  },
+  {
+    "name": "ListVariant",
+    "definition": "\"inset\" | \"plain\"",
+    "rows": []
+  },
+  {
+    "name": "ListParts",
+    "rows": [
+      {
+        "name": "section?",
+        "type": "PartProps<\"section\">",
+        "source": "composed.tsx:20"
+      },
+      {
+        "name": "header?",
+        "type": "PartProps<\"h3\">",
+        "source": "composed.tsx:21"
+      },
+      {
+        "name": "group?",
+        "type": "PartProps<\"ul\">",
+        "source": "composed.tsx:22"
+      },
+      {
+        "name": "footer?",
+        "type": "PartProps<\"p\">",
+        "source": "composed.tsx:23"
+      }
+    ]
+  }
+]

@@ -1,0 +1,442 @@
+[
+  {
+    "name": "DatePickerMachineProps",
+    "rows": [
+      {
+        "name": "value?",
+        "type": "DateValue | null",
+        "notes": "A civil date and nothing finer: `commit` narrows every value to year, month and day, whichever child reported it, so the grid and the field cannot report two shapes of the same date. The consequence, stated because it used to be stated the other way round: a `date-field` given a time `granularity` inside a picker does **not** keep its own time. The picker *controls* the field's value, so the narrowed date is handed straight back and the time segments are cleared on every commit. A picker is a day picker; a time belongs to a field standing on its own, and to the `time-field` presentation the spec defers.",
+        "source": "date-picker.types.ts:100",
+        "group": "value"
+      },
+      {
+        "name": "defaultValue?",
+        "type": "DateValue | null",
+        "source": "date-picker.types.ts:101",
+        "group": "value"
+      },
+      {
+        "name": "onValueChange?",
+        "type": "((details: DatePickerValueChangeDetails) => void)",
+        "source": "date-picker.types.ts:102",
+        "group": "value"
+      },
+      {
+        "name": "clearable?",
+        "type": "boolean",
+        "notes": "Renders the `clearTrigger`; without it the part is inert furniture.",
+        "source": "date-picker.types.ts:104",
+        "group": "value"
+      },
+      {
+        "name": "open?",
+        "type": "boolean",
+        "source": "date-picker.types.ts:107",
+        "group": "openness"
+      },
+      {
+        "name": "defaultOpen?",
+        "type": "boolean",
+        "source": "date-picker.types.ts:108",
+        "group": "openness"
+      },
+      {
+        "name": "onOpenChange?",
+        "type": "((details: DatePickerOpenChangeDetails) => void)",
+        "source": "date-picker.types.ts:109",
+        "group": "openness"
+      },
+      {
+        "name": "presentation?",
+        "type": "DatePickerPresentationProp",
+        "source": "date-picker.types.ts:110",
+        "group": "openness"
+      },
+      {
+        "name": "closeOnSelect?",
+        "type": "boolean",
+        "notes": "A chosen day closes the surface. `false` keeps it out for a second choice.",
+        "source": "date-picker.types.ts:112",
+        "group": "openness"
+      },
+      {
+        "name": "placement?",
+        "type": "Placement",
+        "source": "date-picker.types.ts:115",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "gap?",
+        "type": "number",
+        "source": "date-picker.types.ts:116",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "offset?",
+        "type": "number",
+        "source": "date-picker.types.ts:117",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "flip?",
+        "type": "boolean",
+        "source": "date-picker.types.ts:118",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "shift?",
+        "type": "boolean",
+        "source": "date-picker.types.ts:119",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "padding?",
+        "type": "number",
+        "source": "date-picker.types.ts:120",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "matchWidth?",
+        "type": "boolean",
+        "notes": "`false` by default — the divergence from `select`, whose surface is a widened trigger. A month is seven cells wide whatever the field beside it measures.",
+        "source": "date-picker.types.ts:125",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "strategy?",
+        "type": "\"absolute\" | \"fixed\"",
+        "source": "date-picker.types.ts:126",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "boundary?",
+        "type": "(() => Rect)",
+        "source": "date-picker.types.ts:127",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "getAnchorRect?",
+        "type": "(() => Rect)",
+        "source": "date-picker.types.ts:128",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "notes": "Not defaulted, deliberately: left unset the resolved page direction governs, so a subtree inside an RTL region inherits instead of being reset to `ltr`.",
+        "source": "date-picker.types.ts:132",
+        "group": "relayed to the children"
+      },
+      {
+        "name": "locale?",
+        "type": "string",
+        "notes": "Pinned rather than read from the environment, for `date-field`'s reason: the locale decides the *order* of the segments and the wording of the trigger's caption, so a locale resolved from the browser would have the server and the client render different markup and hydration would say so.",
+        "source": "date-picker.types.ts:139",
+        "group": "relayed to the children"
+      },
+      {
+        "name": "today?",
+        "type": "DateValue",
+        "source": "date-picker.types.ts:140",
+        "group": "relayed to the children"
+      },
+      {
+        "name": "min?",
+        "type": "DateValue | null",
+        "source": "date-picker.types.ts:141",
+        "group": "relayed to the children"
+      },
+      {
+        "name": "max?",
+        "type": "DateValue | null",
+        "source": "date-picker.types.ts:142",
+        "group": "relayed to the children"
+      },
+      {
+        "name": "isDateUnavailable?",
+        "type": "((value: DateValue) => boolean)",
+        "source": "date-picker.types.ts:143",
+        "group": "relayed to the children"
+      },
+      {
+        "name": "readOnly?",
+        "type": "boolean",
+        "source": "date-picker.types.ts:144",
+        "group": "relayed to the children"
+      },
+      {
+        "name": "closeOnEscape?",
+        "type": "boolean",
+        "source": "date-picker.types.ts:147",
+        "group": "dismissal (the select's defaults)"
+      },
+      {
+        "name": "closeOnInteractOutside?",
+        "type": "boolean",
+        "source": "date-picker.types.ts:148",
+        "group": "dismissal (the select's defaults)"
+      },
+      {
+        "name": "preventOutsideActivation?",
+        "type": "boolean",
+        "source": "date-picker.types.ts:149",
+        "group": "dismissal (the select's defaults)"
+      },
+      {
+        "name": "modal?",
+        "type": "boolean",
+        "source": "date-picker.types.ts:150",
+        "group": "dismissal (the select's defaults)"
+      },
+      {
+        "name": "preventScroll?",
+        "type": "boolean",
+        "notes": "Defaults to the `sheet` presentation and is ignored in `popup`.",
+        "source": "date-picker.types.ts:152",
+        "group": "dismissal (the select's defaults)"
+      },
+      {
+        "name": "onDismiss?",
+        "type": "((details: DatePickerDismissDetails) => void)",
+        "source": "date-picker.types.ts:153",
+        "group": "dismissal (the select's defaults)"
+      },
+      {
+        "name": "parentId?",
+        "type": "string",
+        "notes": "The layer this picker opened from — required once either end is portalled, or a click inside the portalled surface reads as outside the layer that holds the trigger. Adapters default it from their layer context.",
+        "source": "date-picker.types.ts:159",
+        "group": "dismissal (the select's defaults)"
+      },
+      {
+        "name": "restoreFocus?",
+        "type": "boolean",
+        "source": "date-picker.types.ts:162",
+        "group": "focus"
+      },
+      {
+        "name": "finalFocus?",
+        "type": "(() => HTMLElement | null)",
+        "source": "date-picker.types.ts:163",
+        "group": "focus"
+      },
+      {
+        "name": "persistentElements?",
+        "type": "(() => readonly HTMLElement[])",
+        "source": "date-picker.types.ts:164",
+        "group": "focus"
+      },
+      {
+        "name": "name?",
+        "type": "string",
+        "source": "date-picker.types.ts:167",
+        "group": "form (the field's, relayed)"
+      },
+      {
+        "name": "form?",
+        "type": "string",
+        "source": "date-picker.types.ts:168",
+        "group": "form (the field's, relayed)"
+      },
+      {
+        "name": "required?",
+        "type": "boolean",
+        "source": "date-picker.types.ts:169",
+        "group": "form (the field's, relayed)"
+      },
+      {
+        "name": "invalid?",
+        "type": "boolean",
+        "source": "date-picker.types.ts:170",
+        "group": "form (the field's, relayed)"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "date-picker.types.ts:171",
+        "group": "form (the field's, relayed)"
+      },
+      {
+        "name": "label?",
+        "type": "string",
+        "notes": "`aria-label` for the trigger when nothing in it says what it opens.",
+        "source": "date-picker.types.ts:175",
+        "group": "naming"
+      },
+      {
+        "name": "labelledBy?",
+        "type": "string",
+        "notes": "`aria-labelledby` for the trigger and the field — what a `field` wires in.",
+        "source": "date-picker.types.ts:177",
+        "group": "naming"
+      },
+      {
+        "name": "describedBy?",
+        "type": "string",
+        "source": "date-picker.types.ts:178",
+        "group": "naming"
+      },
+      {
+        "name": "intents?",
+        "type": "IntentScopeHost | null",
+        "source": "date-picker.types.ts:179",
+        "group": "naming"
+      }
+    ]
+  },
+  {
+    "name": "DatePickerBaseComposedProps",
+    "extends": "Omit<UseDatePickerProps, \"clearable\">, Omit<PartProps<\"div\", UseDatePickerProps>, \"children\">",
+    "rows": [
+      {
+        "name": "prevLabel",
+        "type": "string",
+        "notes": "Names the button that pages backwards, and it is required: see the header.",
+        "source": "composed.tsx:92"
+      },
+      {
+        "name": "nextLabel",
+        "type": "string",
+        "notes": "Names the button that pages forwards, and it is required: see the header.",
+        "source": "composed.tsx:94"
+      },
+      {
+        "name": "parts?",
+        "type": "DatePickerParts",
+        "source": "composed.tsx:95"
+      }
+    ]
+  },
+  {
+    "name": "DatePickerComposedProps",
+    "definition": "DatePickerBaseComposedProps & DatePickerClearProps",
+    "rows": []
+  },
+  {
+    "name": "DatePickerValueChangeDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "DateValue | null",
+        "source": "date-picker.types.ts:15"
+      }
+    ]
+  },
+  {
+    "name": "DatePickerOpenChangeDetails",
+    "rows": [
+      {
+        "name": "open",
+        "type": "boolean",
+        "source": "date-picker.types.ts:19"
+      }
+    ]
+  },
+  {
+    "name": "DatePickerPresentationProp",
+    "definition": "\"auto\" | DatePickerPresentation",
+    "rows": []
+  },
+  {
+    "name": "DatePickerDismissDetails",
+    "rows": [
+      {
+        "name": "reason",
+        "type": "DismissReason",
+        "source": "date-picker.types.ts:27"
+      }
+    ]
+  },
+  {
+    "name": "UseDatePickerProps",
+    "extends": "datePicker.DatePickerMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "DatePickerParts",
+    "rows": [
+      {
+        "name": "label?",
+        "type": "PartProps<\"span\">",
+        "source": "composed.tsx:66"
+      },
+      {
+        "name": "field?",
+        "type": "DateFieldRootProps",
+        "notes": "The `DateFieldRoot` the picker drives. Its own id is the one part of this tree the picker's machine does not mint — the field runs a machine of its own — so this is where a consumer pins it, and where the parity table has to.",
+        "source": "composed.tsx:72"
+      },
+      {
+        "name": "control?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:73"
+      },
+      {
+        "name": "clearTrigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:74"
+      },
+      {
+        "name": "trigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:75"
+      },
+      {
+        "name": "backdrop?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:76"
+      },
+      {
+        "name": "positioner?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:77"
+      },
+      {
+        "name": "content?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:78"
+      },
+      {
+        "name": "calendarHeader?",
+        "type": "PartProps<\"div\">",
+        "notes": "The calendar's header, inside the surface — not the picker's own row.",
+        "source": "composed.tsx:80"
+      },
+      {
+        "name": "caption?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:81"
+      },
+      {
+        "name": "prevTrigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:82"
+      },
+      {
+        "name": "nextTrigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:83"
+      },
+      {
+        "name": "grid?",
+        "type": "PartProps<\"table\">",
+        "source": "composed.tsx:84"
+      },
+      {
+        "name": "weekdayRow?",
+        "type": "PartProps<\"tr\">",
+        "source": "composed.tsx:85"
+      }
+    ]
+  },
+  {
+    "name": "DatePickerClearProps",
+    "definition": "{ readonly clearable?: false | undefined; readonly clearLabel?: undefined } | { readonly clearable: true; readonly clearLabel: string }",
+    "rows": []
+  },
+  {
+    "name": "DatePickerPresentation",
+    "definition": "\"popup\" | \"sheet\"",
+    "rows": []
+  }
+]

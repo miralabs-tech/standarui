@@ -1,0 +1,288 @@
+[
+  {
+    "name": "DialogMachineProps",
+    "rows": [
+      {
+        "name": "role?",
+        "type": "DialogRole",
+        "notes": "`alertdialog` is what lets `alert-dialog` reuse this machine instead of forking it.",
+        "source": "dialog.types.ts:56"
+      },
+      {
+        "name": "open?",
+        "type": "boolean",
+        "notes": "Controlled.",
+        "source": "dialog.types.ts:58"
+      },
+      {
+        "name": "defaultOpen?",
+        "type": "boolean",
+        "source": "dialog.types.ts:59"
+      },
+      {
+        "name": "modal?",
+        "type": "boolean",
+        "source": "dialog.types.ts:60"
+      },
+      {
+        "name": "presentation?",
+        "type": "DialogPresentationProp",
+        "source": "dialog.types.ts:61"
+      },
+      {
+        "name": "trapFocus?",
+        "type": "boolean",
+        "notes": "Forced off when the dialog is not modal — there is nothing to trap against.",
+        "source": "dialog.types.ts:63"
+      },
+      {
+        "name": "restoreFocus?",
+        "type": "boolean",
+        "source": "dialog.types.ts:64"
+      },
+      {
+        "name": "preventScroll?",
+        "type": "boolean",
+        "notes": "Ignored when the dialog is not modal.",
+        "source": "dialog.types.ts:66"
+      },
+      {
+        "name": "closeOnEscape?",
+        "type": "boolean",
+        "notes": "Governs the gamepad `back` intent as well: B and Escape share one lock.",
+        "source": "dialog.types.ts:68"
+      },
+      {
+        "name": "closeOnInteractOutside?",
+        "type": "boolean",
+        "source": "dialog.types.ts:69"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "notes": "Disables the trigger, not the dialog.",
+        "source": "dialog.types.ts:71"
+      },
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "notes": "Not defaulted, deliberately: left unset the resolved page direction governs, so a subtree inside an RTL region inherits instead of being reset to `ltr`.",
+        "source": "dialog.types.ts:73"
+      },
+      {
+        "name": "initialFocus?",
+        "type": "(() => HTMLElement | null)",
+        "source": "dialog.types.ts:74"
+      },
+      {
+        "name": "finalFocus?",
+        "type": "(() => HTMLElement | null)",
+        "source": "dialog.types.ts:75"
+      },
+      {
+        "name": "persistentElements?",
+        "type": "(() => readonly HTMLElement[])",
+        "notes": "Nodes that live outside the surface but belong to it — Monaco and xterm mount widgets straight onto `body`. They are excluded from `hideOthers` and from the outside-detection, so they stay usable and clicking one does not dismiss.",
+        "source": "dialog.types.ts:81"
+      },
+      {
+        "name": "parentId?",
+        "type": "string",
+        "notes": "The layer this one opened from. Declared, because the DOM cannot tell once portalled.",
+        "source": "dialog.types.ts:83"
+      },
+      {
+        "name": "describedBy?",
+        "type": "string",
+        "source": "dialog.types.ts:84"
+      },
+      {
+        "name": "label?",
+        "type": "string",
+        "notes": "The accessible name used when no `title` part is rendered.",
+        "source": "dialog.types.ts:86"
+      },
+      {
+        "name": "intents?",
+        "type": "IntentScopeHost | null",
+        "notes": "Where the gamepad scope is pushed. The core owns no singleton, so the adapter hands the `InputSystem` in — same contract as `pushEngageScope`. Without one the gamepad drives nothing and the keyboard still works, because Escape comes from the dismissable layer and not from the bus.",
+        "source": "dialog.types.ts:93"
+      },
+      {
+        "name": "onOpenChange?",
+        "type": "((details: DialogOpenChangeDetails) => void)",
+        "source": "dialog.types.ts:94"
+      },
+      {
+        "name": "onDismiss?",
+        "type": "((details: DialogDismissDetails) => void)",
+        "source": "dialog.types.ts:95"
+      }
+    ]
+  },
+  {
+    "name": "DialogComposedProps",
+    "extends": "UseDialogProps",
+    "rows": [
+      {
+        "name": "trigger?",
+        "type": "ComposedTrigger",
+        "notes": "Handed to `DialogTrigger` as `render` — never as its children. The trigger *is* a `<button>`, and a button inside a button is `nested-interactive`. Left out, no trigger part is placed at all, which is the shape a dialog driven from a store takes: `open` on one side, no anchor on the other.",
+        "source": "composed.tsx:123"
+      },
+      {
+        "name": "title",
+        "type": "Exclude<ReactNode, null | undefined | boolean>",
+        "notes": "The surface's accessible name, and required for that reason — a dialog without one is a defect rather than a choice. The part is always placed, so the machine's `label` fallback is never what a composed dialog is named by: an empty title is not a dialog named by something else, it is a dialog named by nothing. `ReactNode` alone did not say that — it admits `null`, `undefined` and `false`, so `<Dialog title={cond && \"…\"}/>` typechecked its way to a nameless modal. Those three are excluded here. The empty *string* cannot be excluded by a type (`Exclude<string, \"\">` is still `string`), so it is refused at runtime below, in dev only, the way the machine's own name guards are.",
+        "source": "composed.tsx:137"
+      },
+      {
+        "name": "description?",
+        "type": "ReactNode",
+        "notes": "Wired to `aria-describedby` by the machine, once it has read the part.",
+        "source": "composed.tsx:139"
+      },
+      {
+        "name": "children?",
+        "type": "ReactNode",
+        "notes": "The body: the form, the list, whatever the question is about.",
+        "source": "composed.tsx:141"
+      },
+      {
+        "name": "actions?",
+        "type": "readonly ComposedAction[]",
+        "notes": "The row of answers. `cancel: true` becomes `AlertDialogCancel` — which is also where an alert dialog opens its focus — and everything else becomes `AlertDialogAction`, carrying `destructive` through to the attribute the sheet paints. `onPress` lands on the button's `onClick`, so it runs *before* the machine's own handler and a `preventDefault()` inside it keeps the surface open, which is the contract `getActionTriggerProps` publishes. The order is the array's, never sorted: the APG asks an alert to open its focus on the least destructive action and the machine does that by looking the cancel button up by id, so writing the confirm first — the way the sentence reads — costs nothing. **As many answers as the question has.** Each action carries its `index`, so the ids are distinct however long the row is — until 2026-09-05 the third button repeated the second one's id. A row with two ways out repeated it for one day longer: the cancel half is keyed from the *second* one on, because the first has to keep the id the initial-focus rule two paragraphs up resolves.",
+        "source": "composed.tsx:161"
+      },
+      {
+        "name": "closeLabel?",
+        "type": "string",
+        "notes": "Names the close button, and the part is placed only when it is given: the machine emits no accessible name for it (`getCloseTriggerProps` — id, type, state, click, and nothing else). Present, the part is rendered *empty* and carries `aria-label`, so the sheet draws the ✕ under `:empty` and a consumer who wants their own glyph reaches it through `parts.closeTrigger`. The empty string counts as absent, not as a name. The guard used to be `== null`, so `closeLabel=\"\"` placed a painted ✕ carrying `aria-label=\"\"` — a button with no name at all, which is the one outcome withholding the part exists to prevent.",
+        "source": "composed.tsx:174"
+      },
+      {
+        "name": "container?",
+        "type": "PortalProps[\"container\"]",
+        "source": "composed.tsx:175"
+      },
+      {
+        "name": "parts?",
+        "type": "DialogParts",
+        "source": "composed.tsx:176"
+      }
+    ]
+  },
+  {
+    "name": "DialogRole",
+    "definition": "\"dialog\" | \"alertdialog\"",
+    "rows": []
+  },
+  {
+    "name": "DialogPresentationProp",
+    "definition": "\"auto\" | DialogPresentation",
+    "rows": []
+  },
+  {
+    "name": "DialogOpenChangeDetails",
+    "rows": [
+      {
+        "name": "open",
+        "type": "boolean",
+        "source": "dialog.types.ts:20"
+      }
+    ]
+  },
+  {
+    "name": "DialogDismissDetails",
+    "rows": [
+      {
+        "name": "reason",
+        "type": "DismissReason",
+        "source": "dialog.types.ts:51"
+      }
+    ]
+  },
+  {
+    "name": "UseDialogProps",
+    "extends": "dialog.DialogMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "DialogParts",
+    "rows": [
+      {
+        "name": "trigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:71"
+      },
+      {
+        "name": "portal?",
+        "type": "DialogPortalProps",
+        "source": "composed.tsx:72"
+      },
+      {
+        "name": "backdrop?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:73"
+      },
+      {
+        "name": "positioner?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:74"
+      },
+      {
+        "name": "content?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:75"
+      },
+      {
+        "name": "title?",
+        "type": "PartProps<\"h2\">",
+        "source": "composed.tsx:76"
+      },
+      {
+        "name": "description?",
+        "type": "PartProps<\"p\">",
+        "source": "composed.tsx:77"
+      },
+      {
+        "name": "closeTrigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:78"
+      },
+      {
+        "name": "actions?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:79"
+      },
+      {
+        "name": "cancelTrigger?",
+        "type": "| Omit< PartProps<\"button\">, \"id\" | \"ref\" | \"aria-labelledby\" | \"aria-describedby\" | \"aria-controls\" >",
+        "notes": "Applied to EVERY cancel entry of `actions`, hence no `id` **and no IDREF**: one id repeated down a row is a broken reference per button, and one `aria-labelledby` repeated gives every button the same name — which no dangling-IDREF check can see, because the id it points at does resolve. `ref` goes for the same reason: a single ref held by N buttons ends up holding the last one.",
+        "source": "composed.tsx:88"
+      },
+      {
+        "name": "actionTrigger?",
+        "type": "| Omit< AlertDialogActionProps, | \"destructive\" | \"index\" | \"id\" | \"ref\" | \"aria-labelledby\" | \"aria-describedby\" | \"aria-controls\" >",
+        "notes": "Applied to EVERY non-cancel entry of `actions`. `destructive` is left out on top of the repeated-key list: it is the entry's own field, and one flag here would paint every action in the row destructive at once. `index` is left out for the sharper version of the same reason — it is applied last, so one value here would mint the same id for every button in the row, which is the exact defect the key was added to close.",
+        "source": "composed.tsx:102"
+      }
+    ]
+  },
+  {
+    "name": "DialogPresentation",
+    "definition": "\"center\" | \"sheet\"",
+    "rows": []
+  },
+  {
+    "name": "DialogPortalProps",
+    "extends": "Omit<PortalProps, \"children\">",
+    "rows": [
+      {
+        "name": "children?",
+        "type": "ReactNode",
+        "source": "dialog.tsx:144"
+      }
+    ]
+  }
+]

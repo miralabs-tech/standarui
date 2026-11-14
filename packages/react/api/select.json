@@ -1,0 +1,535 @@
+[
+  {
+    "name": "SelectMachineProps",
+    "rows": [
+      {
+        "name": "value?",
+        "type": "string | null",
+        "notes": "Single, `string | null`. Multi-select is `listbox`/`combobox` territory.",
+        "source": "select.types.ts:34",
+        "group": "value"
+      },
+      {
+        "name": "defaultValue?",
+        "type": "string | null",
+        "source": "select.types.ts:35",
+        "group": "value"
+      },
+      {
+        "name": "onValueChange?",
+        "type": "((details: SelectValueChangeDetails) => void)",
+        "source": "select.types.ts:36",
+        "group": "value"
+      },
+      {
+        "name": "open?",
+        "type": "boolean",
+        "notes": "Controlled.",
+        "source": "select.types.ts:40",
+        "group": "openness"
+      },
+      {
+        "name": "defaultOpen?",
+        "type": "boolean",
+        "source": "select.types.ts:41",
+        "group": "openness"
+      },
+      {
+        "name": "onOpenChange?",
+        "type": "((details: SelectOpenChangeDetails) => void)",
+        "source": "select.types.ts:42",
+        "group": "openness"
+      },
+      {
+        "name": "presentation?",
+        "type": "SelectPresentationProp",
+        "notes": "Defaults to `auto`, which the density resolves into `popup` or `sheet`.",
+        "source": "select.types.ts:44",
+        "group": "openness"
+      },
+      {
+        "name": "placement?",
+        "type": "Placement",
+        "source": "select.types.ts:47",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "gap?",
+        "type": "number",
+        "source": "select.types.ts:48",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "offset?",
+        "type": "number",
+        "source": "select.types.ts:49",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "flip?",
+        "type": "boolean",
+        "source": "select.types.ts:50",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "shift?",
+        "type": "boolean",
+        "source": "select.types.ts:51",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "padding?",
+        "type": "number",
+        "source": "select.types.ts:52",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "matchWidth?",
+        "type": "boolean",
+        "notes": "`true` by default — the select's divergence from the menu (ROADMAP): a surface of options is a widened trigger, so its width is the anchor's.",
+        "source": "select.types.ts:57",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "strategy?",
+        "type": "\"absolute\" | \"fixed\"",
+        "source": "select.types.ts:58",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "boundary?",
+        "type": "(() => Rect)",
+        "source": "select.types.ts:59",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "getAnchorRect?",
+        "type": "(() => Rect)",
+        "notes": "Anchor to a rect rather than an element — a caret, a canvas, a cell.",
+        "source": "select.types.ts:61",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "notes": "Not defaulted, deliberately: left unset the resolved page direction governs, so a subtree inside an RTL region inherits instead of being reset to `ltr`.",
+        "source": "select.types.ts:65",
+        "group": "collection"
+      },
+      {
+        "name": "loopFocus?",
+        "type": "boolean",
+        "source": "select.types.ts:66",
+        "group": "collection"
+      },
+      {
+        "name": "typeahead?",
+        "type": "boolean",
+        "source": "select.types.ts:67",
+        "group": "collection"
+      },
+      {
+        "name": "closeOnSelect?",
+        "type": "boolean",
+        "notes": "No per-item override, a deliberate divergence from the menu: a select that stays open after a choice is a setting of the surface, not of one item.",
+        "source": "select.types.ts:72",
+        "group": "collection"
+      },
+      {
+        "name": "highlightedValue?",
+        "type": "string | null",
+        "notes": "The keyboard cursor, not the selection: arrows and typeahead move it, and `value` only follows once a choice is committed.",
+        "source": "select.types.ts:74",
+        "group": "collection"
+      },
+      {
+        "name": "defaultHighlightedValue?",
+        "type": "string | null",
+        "source": "select.types.ts:75",
+        "group": "collection"
+      },
+      {
+        "name": "onHighlightChange?",
+        "type": "((details: SelectHighlightChangeDetails) => void)",
+        "source": "select.types.ts:76",
+        "group": "collection"
+      },
+      {
+        "name": "closeOnEscape?",
+        "type": "boolean",
+        "notes": "Governs the gamepad `back` intent as well: B and Escape share one lock.",
+        "source": "select.types.ts:80",
+        "group": "dismissal (the menu's defaults)"
+      },
+      {
+        "name": "closeOnInteractOutside?",
+        "type": "boolean",
+        "source": "select.types.ts:81",
+        "group": "dismissal (the menu's defaults)"
+      },
+      {
+        "name": "preventOutsideActivation?",
+        "type": "boolean",
+        "notes": "The click that closes the select must not activate what was under it.",
+        "source": "select.types.ts:83",
+        "group": "dismissal (the menu's defaults)"
+      },
+      {
+        "name": "modal?",
+        "type": "boolean",
+        "notes": "`false` — the menu's justification, verbatim: inert + scroll lock is the dialog's contract.",
+        "source": "select.types.ts:85",
+        "group": "dismissal (the menu's defaults)"
+      },
+      {
+        "name": "preventScroll?",
+        "type": "boolean",
+        "notes": "Defaults to the `sheet` presentation and is ignored in `popup`.",
+        "source": "select.types.ts:87",
+        "group": "dismissal (the menu's defaults)"
+      },
+      {
+        "name": "onDismiss?",
+        "type": "((details: SelectDismissDetails) => void)",
+        "source": "select.types.ts:88",
+        "group": "dismissal (the menu's defaults)"
+      },
+      {
+        "name": "parentId?",
+        "type": "string",
+        "notes": "The layer this select opened from — required once either end is portalled, or a click inside the portalled listbox reads as outside the surface that holds the trigger. Adapters default it from their layer context.",
+        "source": "select.types.ts:94",
+        "group": "dismissal (the menu's defaults)"
+      },
+      {
+        "name": "restoreFocus?",
+        "type": "boolean",
+        "notes": "On by default. Turned off, focus is left wherever the dismissal put it and `finalFocus` is never consulted.",
+        "source": "select.types.ts:98",
+        "group": "focus"
+      },
+      {
+        "name": "finalFocus?",
+        "type": "(() => HTMLElement | null)",
+        "notes": "Outranks the element that had focus when the select opened; ignored entirely while `restoreFocus` is off.",
+        "source": "select.types.ts:100",
+        "group": "focus"
+      },
+      {
+        "name": "name?",
+        "type": "string",
+        "source": "select.types.ts:103",
+        "group": "form"
+      },
+      {
+        "name": "form?",
+        "type": "string",
+        "source": "select.types.ts:104",
+        "group": "form"
+      },
+      {
+        "name": "required?",
+        "type": "boolean",
+        "source": "select.types.ts:105",
+        "group": "form"
+      },
+      {
+        "name": "invalid?",
+        "type": "boolean",
+        "source": "select.types.ts:106",
+        "group": "form"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "select.types.ts:107",
+        "group": "form"
+      },
+      {
+        "name": "selectionFlash?",
+        "type": "boolean",
+        "notes": "The selection blink. Popup only; off in `sheet` and under reduced motion.",
+        "source": "select.types.ts:111",
+        "group": "misc"
+      },
+      {
+        "name": "label?",
+        "type": "string",
+        "notes": "The accessible name of both halves when nothing else names them: the listbox stops borrowing the trigger's name, and the trigger — a `role=\"combobox\"`, which takes no name from its contents — gets one at all. Inside a `field`, prefer the field's label; `labelledBy` outranks this.",
+        "source": "select.types.ts:118",
+        "group": "misc"
+      },
+      {
+        "name": "describedBy?",
+        "type": "string",
+        "notes": "`aria-describedby` for the trigger — what a field's helper text wires in.",
+        "source": "select.types.ts:120",
+        "group": "misc"
+      },
+      {
+        "name": "labelledBy?",
+        "type": "string",
+        "notes": "`aria-labelledby` for the trigger, for a label `label[for]` cannot reach.",
+        "source": "select.types.ts:122",
+        "group": "misc"
+      },
+      {
+        "name": "persistentElements?",
+        "type": "(() => readonly HTMLElement[])",
+        "notes": "Spared by both the outside-interaction test and the modal inert treatment — what must stay live under an open listbox.",
+        "source": "select.types.ts:124",
+        "group": "misc"
+      },
+      {
+        "name": "intents?",
+        "type": "IntentScopeHost | null",
+        "notes": "The intent bus engage mode pushes its scope onto. `null` by default, so the pad is off until a host is supplied.",
+        "source": "select.types.ts:126",
+        "group": "misc"
+      }
+    ]
+  },
+  {
+    "name": "SelectComposedProps",
+    "extends": "UseSelectProps",
+    "rows": [
+      {
+        "name": "options",
+        "type": "readonly SelectEntry<V, Meta>[]",
+        "source": "composed.tsx:129"
+      },
+      {
+        "name": "placeholder?",
+        "type": "string",
+        "notes": "Shown by the trigger while nothing is selected.",
+        "source": "composed.tsx:131"
+      },
+      {
+        "name": "trigger?",
+        "type": "ComposedTrigger",
+        "notes": "Handed to `SelectTrigger` as `render` — never as its children. The trigger *is* a `<button>`, and a button inside a button is `nested-interactive`. The substitution brings the element **and its behaviour** with it — `ButtonRoot` infers `nativeButton` from what it actually renders — and the look follows the element too: `_select.scss:41` and `:84` are the library's only `select:trigger` rules and both stand behind `:not([data-part*=\" \"])`, so the pop-up form withholds itself the moment a second identity lands on the element. That is the composition point the sheet declares out loud (`_select.scss:29-32`, \"the button's sheet owns the form\"), not an accident of source order. The chevron cell is not gated and stays: `select:indicator` is a child, not the composed element.",
+        "source": "composed.tsx:146"
+      },
+      {
+        "name": "cancelLabel?",
+        "type": "ReactNode",
+        "notes": "The sheet's Cancel card. The part withholds itself in `popup` on its own, and `null` withholds it here — an empty `<button>` would have no accessible name, and `getCancelTriggerProps` writes none.",
+        "source": "composed.tsx:152"
+      },
+      {
+        "name": "container?",
+        "type": "PortalProps[\"container\"]",
+        "source": "composed.tsx:153"
+      },
+      {
+        "name": "keepMounted?",
+        "type": "boolean",
+        "notes": "`true` by default, as on `SelectRoot` — the collection is in the markup while closed.",
+        "source": "composed.tsx:155"
+      },
+      {
+        "name": "renderOption?",
+        "type": "| ((option: SelectOption<V, Meta>, defaults: ReactNode) => ReactNode)",
+        "notes": "Replaces the CHILDREN of an item, never the item. `defaults` is the row the layer would have rendered — indicator, symbol, text — and it is handed over so that **decorating** is the cheapest thing to do, not because replacing is impossible. Rendering something else instead of `defaults` is the consumer's to do and costs them three things: the part that names the option (`SelectItemText`), the selection checkmark, and the leading column those two share. Decorate as a **sibling** of `defaults`, never by wrapping it in an element: an item's children are its grid cells (`_select.scss:382`, `grid-template-columns` on `select:item`), so a wrapper collapses all three into one and a node with no `grid-column` of its own lands in the leading track.",
+        "source": "composed.tsx:171"
+      },
+      {
+        "name": "parts?",
+        "type": "SelectParts",
+        "source": "composed.tsx:174"
+      }
+    ]
+  },
+  {
+    "name": "SelectValueChangeDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "string | null",
+        "source": "select.types.ts:16"
+      }
+    ]
+  },
+  {
+    "name": "SelectOpenChangeDetails",
+    "rows": [
+      {
+        "name": "open",
+        "type": "boolean",
+        "source": "select.types.ts:20"
+      }
+    ]
+  },
+  {
+    "name": "SelectPresentationProp",
+    "definition": "\"auto\" | SelectPresentation",
+    "rows": []
+  },
+  {
+    "name": "SelectHighlightChangeDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "string | null",
+        "source": "select.types.ts:24"
+      }
+    ]
+  },
+  {
+    "name": "SelectDismissDetails",
+    "rows": [
+      {
+        "name": "reason",
+        "type": "DismissReason",
+        "source": "select.types.ts:28"
+      }
+    ]
+  },
+  {
+    "name": "UseSelectProps",
+    "extends": "select.SelectMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "SelectEntry",
+    "definition": "SelectOption<V, Meta> | ComposedGroup<SelectOption<V, Meta>> | ComposedSeparator",
+    "rows": []
+  },
+  {
+    "name": "SelectOption",
+    "definition": "Omit< CoreSelectItemProps, \"value\" | \"label\" > & ComposedDecoration<Meta> & { readonly value: V; readonly label: string; }",
+    "rows": []
+  },
+  {
+    "name": "SelectParts",
+    "rows": [
+      {
+        "name": "trigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:96"
+      },
+      {
+        "name": "valueText?",
+        "type": "SelectValueTextProps",
+        "source": "composed.tsx:97"
+      },
+      {
+        "name": "indicator?",
+        "type": "PartProps<\"span\">",
+        "source": "composed.tsx:98"
+      },
+      {
+        "name": "portal?",
+        "type": "SelectPortalProps",
+        "source": "composed.tsx:99"
+      },
+      {
+        "name": "backdrop?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:100"
+      },
+      {
+        "name": "positioner?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:101"
+      },
+      {
+        "name": "content?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:102"
+      },
+      {
+        "name": "itemGroup?",
+        "type": "Omit<SelectItemGroupProps, \"id\" | \"label\">",
+        "notes": "Applied to EVERY group — `id` and `label` are the entry's, one per group.",
+        "source": "composed.tsx:104"
+      },
+      {
+        "name": "itemGroupLabel?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:105"
+      },
+      {
+        "name": "item?",
+        "type": "| Omit< PartProps<\"div\">, \"id\" | \"ref\" | \"aria-labelledby\" | \"aria-describedby\" | \"aria-controls\" >",
+        "notes": "Applied to EVERY item, hence no `id` **and no IDREF**: one `id` repeated down a listbox is a broken IDREF per row, and one `aria-labelledby` repeated gives every option the same name — which `danglingIdRefs` cannot see, because the id it points at does resolve. `ref` goes for the same reason: a single ref held by N rows ends up holding the last one.",
+        "source": "composed.tsx:113"
+      },
+      {
+        "name": "itemText?",
+        "type": "PartProps<\"span\">",
+        "source": "composed.tsx:119"
+      },
+      {
+        "name": "itemIndicator?",
+        "type": "PartProps<\"span\">",
+        "source": "composed.tsx:120"
+      },
+      {
+        "name": "itemSymbol?",
+        "type": "PartProps<\"span\">",
+        "source": "composed.tsx:121"
+      },
+      {
+        "name": "separator?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:122"
+      },
+      {
+        "name": "cancelTrigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:123"
+      },
+      {
+        "name": "hiddenSelect?",
+        "type": "PartProps<\"select\">",
+        "source": "composed.tsx:124"
+      }
+    ]
+  },
+  {
+    "name": "SelectPresentation",
+    "definition": "\"popup\" | \"sheet\"",
+    "rows": []
+  },
+  {
+    "name": "SelectValueTextProps",
+    "extends": "PartProps<\"span\">",
+    "rows": [
+      {
+        "name": "placeholder?",
+        "type": "string",
+        "notes": "Shown while nothing is selected. `children` wins, then the captured label.",
+        "source": "select.tsx:148"
+      }
+    ]
+  },
+  {
+    "name": "SelectPortalProps",
+    "extends": "Omit<PortalProps, \"children\">",
+    "rows": [
+      {
+        "name": "children?",
+        "type": "ReactNode",
+        "source": "select.tsx:200"
+      }
+    ]
+  },
+  {
+    "name": "SelectItemGroupProps",
+    "rows": [
+      {
+        "name": "id",
+        "type": "string",
+        "notes": "Ties the group to its label. Any stable string the consumer owns.",
+        "source": "select.types.ts:307"
+      },
+      {
+        "name": "label?",
+        "type": "boolean",
+        "notes": "The group renders an `itemGroupLabel` part — wires `aria-labelledby`. Declared, never assumed: written blind, the attribute is a dead IDREF *and* no accessible name at once (same shape as `MenuItemGroupProps.label`).",
+        "source": "select.types.ts:313"
+      }
+    ]
+  }
+]

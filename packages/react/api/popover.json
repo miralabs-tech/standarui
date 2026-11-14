@@ -1,0 +1,360 @@
+[
+  {
+    "name": "PopoverMachineProps",
+    "rows": [
+      {
+        "name": "open?",
+        "type": "boolean",
+        "source": "popover.types.ts:22"
+      },
+      {
+        "name": "defaultOpen?",
+        "type": "boolean",
+        "source": "popover.types.ts:23"
+      },
+      {
+        "name": "modal?",
+        "type": "boolean",
+        "notes": "`false`, which is the inverse of the dialog and is the definition of a popover: the page behind it stays live, readable and clickable.",
+        "source": "popover.types.ts:28"
+      },
+      {
+        "name": "presentation?",
+        "type": "PopoverPresentationProp",
+        "source": "popover.types.ts:29"
+      },
+      {
+        "name": "placement?",
+        "type": "Placement",
+        "source": "popover.types.ts:32",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "gap?",
+        "type": "number",
+        "notes": "Air between the anchor and the surface. The arrow's depth is **added to this by the effect**, which measures the rendered node: `arrowSize` only ever clamps the cross axis, it never offsets the surface, so a popover that forgot the addition would drive its own tip into the anchor.",
+        "source": "popover.types.ts:39",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "offset?",
+        "type": "number",
+        "source": "popover.types.ts:40",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "flip?",
+        "type": "boolean",
+        "source": "popover.types.ts:41",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "shift?",
+        "type": "boolean",
+        "source": "popover.types.ts:42",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "padding?",
+        "type": "number",
+        "source": "popover.types.ts:43",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "arrowPadding?",
+        "type": "number",
+        "notes": "How far the arrow is kept from a corner, measured to its **box** edge.",
+        "source": "popover.types.ts:45",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "matchWidth?",
+        "type": "boolean",
+        "source": "popover.types.ts:46",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "strategy?",
+        "type": "\"absolute\" | \"fixed\"",
+        "source": "popover.types.ts:47",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "boundary?",
+        "type": "(() => Rect)",
+        "source": "popover.types.ts:48",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "getAnchorRect?",
+        "type": "(() => Rect)",
+        "notes": "Anchor to a rect instead of an element — a caret, a range, a point.",
+        "source": "popover.types.ts:50",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "autoFocus?",
+        "type": "boolean",
+        "source": "popover.types.ts:53",
+        "group": "focus, dismissal, the rest identical to `DialogMachineProps`"
+      },
+      {
+        "name": "trapFocus?",
+        "type": "boolean",
+        "notes": "Forced off when the popover is not modal — there is nothing to trap against.",
+        "source": "popover.types.ts:55",
+        "group": "focus, dismissal, the rest identical to `DialogMachineProps`"
+      },
+      {
+        "name": "restoreFocus?",
+        "type": "boolean",
+        "source": "popover.types.ts:56",
+        "group": "focus, dismissal, the rest identical to `DialogMachineProps`"
+      },
+      {
+        "name": "preventScroll?",
+        "type": "boolean",
+        "notes": "Ignored when the popover is not modal.",
+        "source": "popover.types.ts:58",
+        "group": "focus, dismissal, the rest identical to `DialogMachineProps`"
+      },
+      {
+        "name": "closeOnEscape?",
+        "type": "boolean",
+        "notes": "Governs the gamepad `back` intent as well: B and Escape share one lock.",
+        "source": "popover.types.ts:60",
+        "group": "focus, dismissal, the rest identical to `DialogMachineProps`"
+      },
+      {
+        "name": "closeOnInteractOutside?",
+        "type": "boolean",
+        "source": "popover.types.ts:61",
+        "group": "focus, dismissal, the rest identical to `DialogMachineProps`"
+      },
+      {
+        "name": "closeOnFocusOutside?",
+        "type": "boolean",
+        "notes": "Separate from the pointer lock, and only expressible since `interact-outside` stopped reporting a focus departure as a pointer one. A popover hung off a text field wants \"close on a click outside\" without \"close when the caret moves on\", and that combination is this pair of booleans.",
+        "source": "popover.types.ts:68",
+        "group": "focus, dismissal, the rest identical to `DialogMachineProps`"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "notes": "Disables the trigger, not the popover.",
+        "source": "popover.types.ts:70",
+        "group": "focus, dismissal, the rest identical to `DialogMachineProps`"
+      },
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "notes": "Not defaulted, deliberately: left unset the resolved page direction governs, so a subtree inside an RTL region inherits instead of being reset to `ltr`.",
+        "source": "popover.types.ts:72",
+        "group": "focus, dismissal, the rest identical to `DialogMachineProps`"
+      },
+      {
+        "name": "initialFocus?",
+        "type": "(() => HTMLElement | null)",
+        "source": "popover.types.ts:73",
+        "group": "focus, dismissal, the rest identical to `DialogMachineProps`"
+      },
+      {
+        "name": "finalFocus?",
+        "type": "(() => HTMLElement | null)",
+        "source": "popover.types.ts:74",
+        "group": "focus, dismissal, the rest identical to `DialogMachineProps`"
+      },
+      {
+        "name": "persistentElements?",
+        "type": "(() => readonly HTMLElement[])",
+        "source": "popover.types.ts:75",
+        "group": "focus, dismissal, the rest identical to `DialogMachineProps`"
+      },
+      {
+        "name": "parentId?",
+        "type": "string",
+        "source": "popover.types.ts:76",
+        "group": "focus, dismissal, the rest identical to `DialogMachineProps`"
+      },
+      {
+        "name": "describedBy?",
+        "type": "string",
+        "source": "popover.types.ts:77",
+        "group": "focus, dismissal, the rest identical to `DialogMachineProps`"
+      },
+      {
+        "name": "label?",
+        "type": "string",
+        "notes": "The accessible name used when no `title` part is rendered.",
+        "source": "popover.types.ts:79",
+        "group": "focus, dismissal, the rest identical to `DialogMachineProps`"
+      },
+      {
+        "name": "intents?",
+        "type": "IntentScopeHost | null",
+        "source": "popover.types.ts:80",
+        "group": "focus, dismissal, the rest identical to `DialogMachineProps`"
+      },
+      {
+        "name": "onOpenChange?",
+        "type": "((details: PopoverOpenChangeDetails) => void)",
+        "source": "popover.types.ts:81",
+        "group": "focus, dismissal, the rest identical to `DialogMachineProps`"
+      },
+      {
+        "name": "onDismiss?",
+        "type": "((details: PopoverDismissDetails) => void)",
+        "source": "popover.types.ts:82",
+        "group": "focus, dismissal, the rest identical to `DialogMachineProps`"
+      }
+    ]
+  },
+  {
+    "name": "PopoverComposedProps",
+    "extends": "UsePopoverProps",
+    "rows": [
+      {
+        "name": "trigger?",
+        "type": "ComposedTrigger",
+        "notes": "Handed to `PopoverTrigger` as `render` — never as its children. Optional, and the header says why: a popover driven from a store, or anchored at something that never opened it, has none.",
+        "source": "composed.tsx:111"
+      },
+      {
+        "name": "title?",
+        "type": "Exclude<ReactNode, null | boolean>",
+        "notes": "The surface's visible heading, and its accessible name once the machine has read the part. Optional: left out, no title part is placed and the machine names the surface from `label` instead — the two are exclusive, and this is the form that keeps `label` reachable. `null` and `false` are excluded because `ReactNode` admits them and `title={cond && \"…\"}` would otherwise place an *empty* `h2` — which is worse than no title: the machine reads the part, flips `hasTitle`, and points `aria-labelledby` at an element with nothing in it, so the surface loses the `label` it would otherwise have been named by. The empty string cannot be excluded by a type (`Exclude<string, \"\">` is still `string`) and is treated as absent at the placement below instead.",
+        "source": "composed.tsx:126"
+      },
+      {
+        "name": "description?",
+        "type": "ReactNode",
+        "notes": "Wired to `aria-describedby` by the machine, once it has read the part.",
+        "source": "composed.tsx:128"
+      },
+      {
+        "name": "children?",
+        "type": "ReactNode",
+        "notes": "The body of the surface: the form, the list, the row of buttons.",
+        "source": "composed.tsx:130"
+      },
+      {
+        "name": "closeLabel?",
+        "type": "string",
+        "notes": "Names the close button, and the part is placed only when it is given — see the header. Rendered empty, so the sheet paints the ✕.",
+        "source": "composed.tsx:135"
+      },
+      {
+        "name": "container?",
+        "type": "PortalProps[\"container\"]",
+        "source": "composed.tsx:136"
+      },
+      {
+        "name": "keepMounted?",
+        "type": "boolean",
+        "notes": "Re-declared rather than inherited: the mount is the adapter's, not the machine's, so it lives on `PopoverRootProps` and not on `PopoverMachineProps`. Forwarded through the rest, the way `select` and `menu` forward theirs.",
+        "source": "composed.tsx:142"
+      },
+      {
+        "name": "parts?",
+        "type": "PopoverParts",
+        "source": "composed.tsx:143"
+      }
+    ]
+  },
+  {
+    "name": "PopoverPresentationProp",
+    "definition": "\"auto\" | PopoverPresentation",
+    "rows": []
+  },
+  {
+    "name": "PopoverOpenChangeDetails",
+    "rows": [
+      {
+        "name": "open",
+        "type": "boolean",
+        "source": "popover.types.ts:14"
+      }
+    ]
+  },
+  {
+    "name": "PopoverDismissDetails",
+    "rows": [
+      {
+        "name": "reason",
+        "type": "DismissReason",
+        "source": "popover.types.ts:18"
+      }
+    ]
+  },
+  {
+    "name": "UsePopoverProps",
+    "extends": "popover.PopoverMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "PopoverParts",
+    "rows": [
+      {
+        "name": "trigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:94"
+      },
+      {
+        "name": "portal?",
+        "type": "PopoverPortalProps",
+        "source": "composed.tsx:95"
+      },
+      {
+        "name": "backdrop?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:96"
+      },
+      {
+        "name": "positioner?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:97"
+      },
+      {
+        "name": "content?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:98"
+      },
+      {
+        "name": "title?",
+        "type": "PartProps<\"h2\">",
+        "source": "composed.tsx:99"
+      },
+      {
+        "name": "description?",
+        "type": "PartProps<\"p\">",
+        "source": "composed.tsx:100"
+      },
+      {
+        "name": "closeTrigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:101"
+      },
+      {
+        "name": "arrow?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:102"
+      }
+    ]
+  },
+  {
+    "name": "PopoverPresentation",
+    "definition": "\"anchored\" | \"sheet\"",
+    "rows": []
+  },
+  {
+    "name": "PopoverPortalProps",
+    "extends": "Omit<PortalProps, \"children\">",
+    "rows": [
+      {
+        "name": "children?",
+        "type": "ReactNode",
+        "source": "popover.tsx:128"
+      }
+    ]
+  }
+]

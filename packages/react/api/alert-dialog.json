@@ -1,0 +1,20 @@
+[
+  {
+    "name": "AlertDialogComposedProps",
+    "extends": "Omit<DialogComposedProps, \"role\">",
+    "rows": [
+      {
+        "name": "title",
+        "type": "Exclude<ReactNode, null | undefined | boolean>",
+        "notes": "The question. Required here for the reason it is required on the dialog — the surface takes its accessible name from this part — and an alert has a second one on top: the title is the question the two buttons answer, so a nameless alert is an unanswerable one. Narrowed the same way, so `null`, `undefined` and `false` cannot reach it either.",
+        "source": "composed.tsx:35"
+      },
+      {
+        "name": "description",
+        "type": "Exclude<ReactNode, null | undefined | boolean>",
+        "notes": "The consequence, and required on an alert where it is optional on a dialog. The APG asks an `alertdialog` to point `aria-describedby` at the message that explains the alert, and the machine only wires that once the part is placed — so an alert without a description is one that announces its question and never its stakes. The comment here always said the title alone rarely can; the type says it now.",
+        "source": "composed.tsx:44"
+      }
+    ]
+  }
+]

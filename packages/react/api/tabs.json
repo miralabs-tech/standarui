@@ -1,0 +1,223 @@
+[
+  {
+    "name": "TabsMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "notes": "Not defaulted, deliberately: left unset the resolved page direction governs, so a subtree inside an RTL region inherits instead of being reset to `ltr`.",
+        "source": "tabs.types.ts:50"
+      },
+      {
+        "name": "orientation?",
+        "type": "Orientation",
+        "source": "tabs.types.ts:51"
+      },
+      {
+        "name": "value?",
+        "type": "string | null",
+        "notes": "Controlled. `null` is a value — it means no tab is selected.",
+        "source": "tabs.types.ts:53"
+      },
+      {
+        "name": "defaultValue?",
+        "type": "string | null",
+        "source": "tabs.types.ts:54"
+      },
+      {
+        "name": "activationMode?",
+        "type": "TabsActivationMode",
+        "source": "tabs.types.ts:55"
+      },
+      {
+        "name": "loopFocus?",
+        "type": "boolean",
+        "source": "tabs.types.ts:56"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "notes": "The whole tab list. Individual tabs disable themselves on the trigger.",
+        "source": "tabs.types.ts:58"
+      },
+      {
+        "name": "closable?",
+        "type": "boolean",
+        "notes": "Opens the close trigger, the `Delete` key and the middle click.",
+        "source": "tabs.types.ts:60"
+      },
+      {
+        "name": "lazyMount?",
+        "type": "boolean",
+        "notes": "A panel does not exist until its tab has been activated once.",
+        "source": "tabs.types.ts:62"
+      },
+      {
+        "name": "keepMounted?",
+        "type": "boolean",
+        "notes": "A panel stays rendered, `hidden`, after it is deactivated.",
+        "source": "tabs.types.ts:64"
+      },
+      {
+        "name": "scrollActiveIntoView?",
+        "type": "boolean",
+        "notes": "Brings the selected tab back into view when the list overflows.",
+        "source": "tabs.types.ts:66"
+      },
+      {
+        "name": "describedBy?",
+        "type": "string",
+        "notes": "Ids of the text describing this control — a `field` supplies them.",
+        "source": "tabs.types.ts:68"
+      },
+      {
+        "name": "intents?",
+        "type": "IntentScopeHost | null",
+        "notes": "Where LB/RB arrive from. `null` when the app runs no input system.",
+        "source": "tabs.types.ts:70"
+      },
+      {
+        "name": "onValueChange?",
+        "type": "((details: TabsValueChangeDetails) => void)",
+        "source": "tabs.types.ts:71"
+      },
+      {
+        "name": "onFocusChange?",
+        "type": "((details: TabsFocusChangeDetails) => void)",
+        "source": "tabs.types.ts:72"
+      },
+      {
+        "name": "onClose?",
+        "type": "((details: TabsCloseDetails) => void)",
+        "notes": "The consumer removes the tab; the machine only says which one and moves on.",
+        "source": "tabs.types.ts:74"
+      }
+    ]
+  },
+  {
+    "name": "TabsComposedProps",
+    "extends": "UseTabsProps, Omit<PartProps<\"div\", UseTabsProps>, \"children\">",
+    "rows": [
+      {
+        "name": "items",
+        "type": "readonly TabsItem[]",
+        "source": "composed.tsx:128"
+      },
+      {
+        "name": "parts?",
+        "type": "TabsParts",
+        "source": "composed.tsx:129"
+      }
+    ]
+  },
+  {
+    "name": "TabsActivationMode",
+    "definition": "\"automatic\" | \"manual\"",
+    "rows": []
+  },
+  {
+    "name": "TabsValueChangeDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "string | null",
+        "source": "tabs.types.ts:16"
+      }
+    ]
+  },
+  {
+    "name": "TabsFocusChangeDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "string | null",
+        "source": "tabs.types.ts:20"
+      }
+    ]
+  },
+  {
+    "name": "TabsCloseDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "string",
+        "source": "tabs.types.ts:24"
+      }
+    ]
+  },
+  {
+    "name": "UseTabsProps",
+    "extends": "tabs.TabsMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "TabsItem",
+    "rows": [
+      {
+        "name": "value",
+        "type": "string",
+        "source": "composed.tsx:69"
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "source": "composed.tsx:70"
+      },
+      {
+        "name": "content?",
+        "type": "ReactNode",
+        "notes": "The panel's content. A tab with an empty panel still has one to point at.",
+        "source": "composed.tsx:72"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "notes": "This tab alone. The whole list is disabled by `disabled` on the root.",
+        "source": "composed.tsx:74"
+      }
+    ]
+  },
+  {
+    "name": "TabsParts",
+    "rows": [
+      {
+        "name": "list?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:82"
+      },
+      {
+        "name": "indicator?",
+        "type": "PartProps<\"span\">",
+        "source": "composed.tsx:83"
+      },
+      {
+        "name": "scrollbar?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:84"
+      },
+      {
+        "name": "thumb?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:85"
+      },
+      {
+        "name": "trigger?",
+        "type": "| Omit< PartProps<\"button\", CoreTabsTriggerProps>, \"id\" | \"ref\" | \"aria-labelledby\" | \"aria-describedby\" | \"aria-controls\" >",
+        "notes": "Applied to EVERY tab, hence no `value`, `label` or `disabled` — the entry's own fields, already excluded through `Own` — and no `id` **or IDREF**: one id repeated down a list is a broken reference per tab, and one `aria-labelledby` repeated gives every tab the same name, which no dangling-IDREF check can see because the id it points at does resolve. `aria-controls` goes with them for a sharper reason than the others: the machine writes it only where the panel it names is provably in the same markup (`ssr.test.tsx:494-496`), and a fixed one here would undo exactly that guarantee. `ref` goes because a single ref held by N tabs ends up holding the last one.",
+        "source": "composed.tsx:97"
+      },
+      {
+        "name": "closeTrigger?",
+        "type": "| Omit< PartProps<\"button\", CoreTabsCloseTriggerProps>, \"id\" | \"ref\" | \"aria-labelledby\" | \"aria-describedby\" | \"aria-controls\" >",
+        "notes": "Applied to EVERY close button, and excluded for the same reasons. The `Own` parameter is not decoration here: `<button>` has a DOM attribute called `value`, typed `string | number | readonly string[]`, and without it the hatch would widen the part's own `value: string` — a spread applied last wins on the type as well as at runtime.",
+        "source": "composed.tsx:110"
+      },
+      {
+        "name": "content?",
+        "type": "| Omit< PartProps<\"div\", CoreTabsContentProps>, \"id\" | \"ref\" | \"aria-labelledby\" | \"aria-describedby\" | \"aria-controls\" >",
+        "notes": "Applied to EVERY panel, and excluded for the same reasons.",
+        "source": "composed.tsx:117"
+      }
+    ]
+  }
+]

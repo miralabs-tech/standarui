@@ -1,0 +1,76 @@
+[
+  {
+    "name": "FieldMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "source": "field.types.ts:6"
+      },
+      {
+        "name": "invalid?",
+        "type": "boolean",
+        "source": "field.types.ts:7"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "field.types.ts:8"
+      },
+      {
+        "name": "readOnly?",
+        "type": "boolean",
+        "source": "field.types.ts:9"
+      },
+      {
+        "name": "required?",
+        "type": "boolean",
+        "source": "field.types.ts:10"
+      },
+      {
+        "name": "group?",
+        "type": "boolean",
+        "notes": "Groups (`fieldset`/`legend`) instead of a single labelled control.",
+        "source": "field.types.ts:12"
+      }
+    ]
+  },
+  {
+    "name": "FieldComposedProps",
+    "extends": "UseFieldProps, Omit<PartProps<\"div\", UseFieldProps>, \"children\">",
+    "rows": [
+      {
+        "name": "children?",
+        "type": "ReactNode",
+        "notes": "The control this field names and describes.",
+        "source": "composed.tsx:35"
+      },
+      {
+        "name": "label?",
+        "type": "ReactNode",
+        "source": "composed.tsx:36"
+      },
+      {
+        "name": "requiredIndicator?",
+        "type": "ReactNode",
+        "notes": "Shown beside the label while `required` is true. Defaults to `\"*\"`.",
+        "source": "composed.tsx:38"
+      },
+      {
+        "name": "helperText?",
+        "type": "ReactNode",
+        "source": "composed.tsx:39"
+      },
+      {
+        "name": "errorText?",
+        "type": "ReactNode",
+        "source": "composed.tsx:40"
+      }
+    ]
+  },
+  {
+    "name": "UseFieldProps",
+    "extends": "field.FieldMachineProps, MachineRuntimeProps",
+    "rows": []
+  }
+]

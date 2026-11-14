@@ -1,0 +1,197 @@
+[
+  {
+    "name": "DateFieldMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "notes": "Not defaulted, deliberately: left unset the resolved page direction governs, so a subtree inside an RTL region inherits instead of being reset to `ltr`.",
+        "source": "date-field.types.ts:61"
+      },
+      {
+        "name": "value?",
+        "type": "DateFieldValue | null",
+        "source": "date-field.types.ts:62"
+      },
+      {
+        "name": "defaultValue?",
+        "type": "DateFieldValue | null",
+        "source": "date-field.types.ts:63"
+      },
+      {
+        "name": "min?",
+        "type": "DateValue",
+        "notes": "Compared on the date alone: a bound finer than a day is not a v1 promise.",
+        "source": "date-field.types.ts:65"
+      },
+      {
+        "name": "max?",
+        "type": "DateValue",
+        "source": "date-field.types.ts:66"
+      },
+      {
+        "name": "granularity?",
+        "type": "DateGranularity",
+        "source": "date-field.types.ts:67"
+      },
+      {
+        "name": "hourCycle?",
+        "type": "DateHourCycle",
+        "source": "date-field.types.ts:68"
+      },
+      {
+        "name": "placeholder?",
+        "type": "DateFieldValue",
+        "notes": "The date an empty segment steps from, and the one whose month decides how many days the day segment holds. Defaults to today, read once at init.",
+        "source": "date-field.types.ts:73"
+      },
+      {
+        "name": "locale?",
+        "type": "string",
+        "notes": "Pinned rather than read from the environment, the way `slider` and `progress` pin theirs: the locale decides the *order* of the segments here, so a locale resolved from the browser would have the server and the client render different children and hydration would say so.",
+        "source": "date-field.types.ts:80"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "date-field.types.ts:81"
+      },
+      {
+        "name": "invalid?",
+        "type": "boolean",
+        "source": "date-field.types.ts:82"
+      },
+      {
+        "name": "readOnly?",
+        "type": "boolean",
+        "source": "date-field.types.ts:83"
+      },
+      {
+        "name": "required?",
+        "type": "boolean",
+        "source": "date-field.types.ts:84"
+      },
+      {
+        "name": "name?",
+        "type": "string",
+        "source": "date-field.types.ts:85"
+      },
+      {
+        "name": "form?",
+        "type": "string",
+        "source": "date-field.types.ts:86"
+      },
+      {
+        "name": "describedBy?",
+        "type": "string",
+        "notes": "Ids of the text describing this control — a `field` supplies them.",
+        "source": "date-field.types.ts:88"
+      },
+      {
+        "name": "label?",
+        "type": "string",
+        "notes": "The group's own accessible name, for a field standing outside a `field`. The segments each name their unit and none of them names the whole, so without this — and without `labelledBy` — the `role=\"group\"` had no seam to be named through at all. `labelledBy` wins where both are given, which is what the accessible-name computation does anyway.",
+        "source": "date-field.types.ts:96"
+      },
+      {
+        "name": "labelledBy?",
+        "type": "string",
+        "notes": "Id of the element naming the group. A `div[role=\"group\"]` is not labelable, so `<label for>` cannot reach it and the field hands its own label's id here.",
+        "source": "date-field.types.ts:101"
+      },
+      {
+        "name": "intents?",
+        "type": "IntentScopeHost | null",
+        "notes": "The intent bus engage mode pushes its scope onto. `null` disables the pad.",
+        "source": "date-field.types.ts:103"
+      },
+      {
+        "name": "onValueChange?",
+        "type": "((details: DateFieldValueChangeDetails) => void)",
+        "source": "date-field.types.ts:104"
+      }
+    ]
+  },
+  {
+    "name": "DateFieldComposedProps",
+    "extends": "UseDateFieldProps, Omit<PartProps<\"div\", UseDateFieldProps>, \"children\">",
+    "rows": [
+      {
+        "name": "parts?",
+        "type": "DateFieldParts",
+        "source": "composed.tsx:51"
+      }
+    ]
+  },
+  {
+    "name": "DateFieldValue",
+    "extends": "DateValue",
+    "rows": [
+      {
+        "name": "hour?",
+        "type": "number",
+        "source": "date-field.types.ts:32"
+      },
+      {
+        "name": "minute?",
+        "type": "number",
+        "source": "date-field.types.ts:33"
+      },
+      {
+        "name": "second?",
+        "type": "number",
+        "source": "date-field.types.ts:34"
+      }
+    ]
+  },
+  {
+    "name": "DateGranularity",
+    "definition": "\"day\" | \"hour\" | \"minute\" | \"second\"",
+    "rows": []
+  },
+  {
+    "name": "DateHourCycle",
+    "definition": "\"h12\" | \"h23\"",
+    "rows": []
+  },
+  {
+    "name": "DateFieldValueChangeDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "DateFieldValue | null",
+        "source": "date-field.types.ts:56"
+      }
+    ]
+  },
+  {
+    "name": "UseDateFieldProps",
+    "extends": "dateField.DateFieldMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "DateFieldParts",
+    "rows": [
+      {
+        "name": "control?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:42"
+      },
+      {
+        "name": "incrementTrigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:43"
+      },
+      {
+        "name": "decrementTrigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:44"
+      },
+      {
+        "name": "hiddenInput?",
+        "type": "PartProps<\"input\">",
+        "source": "composed.tsx:45"
+      }
+    ]
+  }
+]

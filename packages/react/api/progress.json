@@ -1,0 +1,127 @@
+[
+  {
+    "name": "ProgressMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "source": "progress.types.ts:12"
+      },
+      {
+        "name": "value?",
+        "type": "number | null",
+        "notes": "`null` is indeterminate — a real value, not a missing one. Controlled.",
+        "source": "progress.types.ts:14"
+      },
+      {
+        "name": "defaultValue?",
+        "type": "number | null",
+        "source": "progress.types.ts:15"
+      },
+      {
+        "name": "min?",
+        "type": "number",
+        "source": "progress.types.ts:16"
+      },
+      {
+        "name": "max?",
+        "type": "number",
+        "source": "progress.types.ts:17"
+      },
+      {
+        "name": "orientation?",
+        "type": "Orientation",
+        "source": "progress.types.ts:18"
+      },
+      {
+        "name": "locale?",
+        "type": "string",
+        "source": "progress.types.ts:19"
+      },
+      {
+        "name": "formatOptions?",
+        "type": "Intl.NumberFormatOptions",
+        "notes": "Passed to `Intl.NumberFormat` for the value text. Percent by default.",
+        "source": "progress.types.ts:21"
+      },
+      {
+        "name": "onValueChange?",
+        "type": "((details: ProgressValueChangeDetails) => void)",
+        "source": "progress.types.ts:22"
+      }
+    ]
+  },
+  {
+    "name": "ProgressComposedProps",
+    "extends": "UseProgressProps, Omit<PartProps<\"div\", UseProgressProps>, \"children\">",
+    "rows": [
+      {
+        "name": "label?",
+        "type": "ReactNode",
+        "notes": "The caption above the bar. Left out, the component declares no accessible name and expects one from the root — see the note above on which of the two wins when both are given.",
+        "source": "composed.tsx:93"
+      },
+      {
+        "name": "circular?",
+        "type": "boolean",
+        "notes": "Renders `ProgressCircle > ProgressCircleTrack + ProgressCircleRange` in place of `ProgressTrack > ProgressRange`. The ring is an SVG on a fixed 100 × 100 viewBox with a radius of 42, sized by whatever `inline-size` the sheet gives it, so the flag changes the tree and never the value.",
+        "source": "composed.tsx:100"
+      },
+      {
+        "name": "parts?",
+        "type": "ProgressParts",
+        "source": "composed.tsx:101"
+      }
+    ]
+  },
+  {
+    "name": "ProgressValueChangeDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "number | null",
+        "source": "progress.types.ts:6"
+      }
+    ]
+  },
+  {
+    "name": "UseProgressProps",
+    "extends": "progress.ProgressMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "ProgressParts",
+    "rows": [
+      {
+        "name": "label?",
+        "type": "PartProps<\"span\">",
+        "source": "composed.tsx:77"
+      },
+      {
+        "name": "track?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:78"
+      },
+      {
+        "name": "range?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:79"
+      },
+      {
+        "name": "circle?",
+        "type": "PartProps<\"svg\">",
+        "source": "composed.tsx:80"
+      },
+      {
+        "name": "circleTrack?",
+        "type": "PartProps<\"circle\">",
+        "source": "composed.tsx:81"
+      },
+      {
+        "name": "circleRange?",
+        "type": "PartProps<\"circle\">",
+        "source": "composed.tsx:82"
+      }
+    ]
+  }
+]

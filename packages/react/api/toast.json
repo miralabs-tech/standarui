@@ -1,0 +1,420 @@
+[
+  {
+    "name": "ToastGroupMachineProps",
+    "rows": [
+      {
+        "name": "toaster",
+        "type": "Toaster",
+        "notes": "Required — the store this region renders. No default: there is nothing to invent.",
+        "source": "toast.types.ts:153"
+      },
+      {
+        "name": "hotkey?",
+        "type": "readonly string[]",
+        "notes": "Every entry must match: modifier flags by name (`\"altKey\"`…), everything else against `event.code` then `event.key`. Default `[\"F6\"]`, the APG's own key for moving to a notification region.",
+        "source": "toast.types.ts:159"
+      },
+      {
+        "name": "pauseOnInteraction?",
+        "type": "boolean",
+        "source": "toast.types.ts:160"
+      },
+      {
+        "name": "pauseOnPageIdle?",
+        "type": "boolean",
+        "source": "toast.types.ts:161"
+      },
+      {
+        "name": "topLayer?",
+        "type": "boolean",
+        "notes": "Default `true`: the region asks the Popover API for the top layer, which is the only way to sit above a modal `<dialog>`. `false` is for a region an app lays out itself — docked in a panel, or four of them in a documentation matrix — where being lifted out of the page is exactly wrong.",
+        "source": "toast.types.ts:168"
+      },
+      {
+        "name": "translations?",
+        "type": "ToastTranslations",
+        "source": "toast.types.ts:169"
+      },
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "source": "toast.types.ts:170"
+      },
+      {
+        "name": "intents?",
+        "type": "IntentScopeHost | null",
+        "notes": "Where the gamepad scope is pushed; the adapter hands its `InputSystem` in.",
+        "source": "toast.types.ts:172"
+      }
+    ]
+  },
+  {
+    "name": "ToastComposedProps",
+    "extends": "Omit<ToastGroupProps, \"children\" | \"render\" | \"asChild\">",
+    "rows": [
+      {
+        "name": "renderCard?",
+        "type": "((record: toast.ToastRecord, defaults: ReactNode) => ReactNode)",
+        "notes": "Handed each record and the card this layer would have rendered for it. Return the card to keep it, wrap it, or ignore it and build your own.",
+        "source": "composed.tsx:65"
+      },
+      {
+        "name": "parts?",
+        "type": "ToastParts",
+        "source": "composed.tsx:66"
+      }
+    ]
+  },
+  {
+    "name": "Toaster",
+    "rows": [
+      {
+        "name": "create",
+        "type": "(options: ToastOptions): string",
+        "source": "toast.types.ts:112"
+      },
+      {
+        "name": "update",
+        "type": "(id: string, options: Partial<Omit<ToastOptions, \"id\">>): void",
+        "source": "toast.types.ts:113"
+      },
+      {
+        "name": "dismiss",
+        "type": "(id?: string | undefined, reason?: ToastDismissReason | undefined): void",
+        "notes": "Without an id: every toast, visible and queued alike. `reason` is not in the spec's signature and has to be — it is the only way `onDismiss` can tell an Escape from a timeout, and the machine has that answer at the call site.",
+        "source": "toast.types.ts:119"
+      },
+      {
+        "name": "remove",
+        "type": "(id?: string | undefined): void",
+        "notes": "Skips the exit animation entirely. Without an id: all of them.",
+        "source": "toast.types.ts:121"
+      },
+      {
+        "name": "pause",
+        "type": "(reason?: string | undefined): void",
+        "notes": "Reason-counted, so hover and a hidden page cannot release each other's hold.",
+        "source": "toast.types.ts:123"
+      },
+      {
+        "name": "resume",
+        "type": "(reason?: string | undefined): void",
+        "source": "toast.types.ts:124"
+      },
+      {
+        "name": "promise",
+        "type": "<T>(promise: Promise<T>, options: ToastPromiseOptions<T>): Promise<T>",
+        "source": "toast.types.ts:125"
+      },
+      {
+        "name": "isVisible",
+        "type": "(id: string): boolean",
+        "notes": "Mounted — a toast still playing its exit is one of these.",
+        "source": "toast.types.ts:127"
+      },
+      {
+        "name": "getVisibleToasts",
+        "type": "(): readonly ToastRecord[]",
+        "notes": "Index 0 is the most recent, which is the front of the stack.",
+        "source": "toast.types.ts:129"
+      },
+      {
+        "name": "getQueuedCount",
+        "type": "(): number",
+        "source": "toast.types.ts:130"
+      },
+      {
+        "name": "placement",
+        "type": "ToastPlacement",
+        "source": "toast.types.ts:131"
+      },
+      {
+        "name": "overlap",
+        "type": "boolean",
+        "source": "toast.types.ts:132"
+      },
+      {
+        "name": "subscribe",
+        "type": "(callback: ToastSubscriber): () => void",
+        "notes": "Also the clock's gate: with no subscriber nothing is mounted, and a toast that expires without ever having been shown was never perceived.",
+        "source": "toast.types.ts:137"
+      }
+    ]
+  },
+  {
+    "name": "ToastTranslations",
+    "rows": [
+      {
+        "name": "regionLabel?",
+        "type": "((count: number) => string)",
+        "source": "toast.types.ts:147"
+      },
+      {
+        "name": "dismissLabel?",
+        "type": "string",
+        "source": "toast.types.ts:148"
+      }
+    ]
+  },
+  {
+    "name": "ToastGroupProps",
+    "extends": "UseToastGroupProps, Omit<PartProps<\"div\", UseToastGroupProps>, \"children\">, Omit<PortalProps, \"children\" | \"disabled\">",
+    "rows": [
+      {
+        "name": "portalled?",
+        "type": "boolean",
+        "notes": "Renders the region where it was written instead of on the body.",
+        "source": "toast.tsx:107"
+      },
+      {
+        "name": "children",
+        "type": "(record: toast.ToastRecord) => ReactNode",
+        "notes": "Handed every visible record, front first.",
+        "source": "toast.tsx:109"
+      }
+    ]
+  },
+  {
+    "name": "ToastRecord",
+    "rows": [
+      {
+        "name": "id",
+        "type": "string",
+        "source": "toast.types.ts:75"
+      },
+      {
+        "name": "type",
+        "type": "ToastType",
+        "source": "toast.types.ts:76"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "source": "toast.types.ts:77"
+      },
+      {
+        "name": "description",
+        "type": "string | undefined",
+        "source": "toast.types.ts:78"
+      },
+      {
+        "name": "duration",
+        "type": "number | null",
+        "source": "toast.types.ts:79"
+      },
+      {
+        "name": "closable",
+        "type": "boolean",
+        "source": "toast.types.ts:80"
+      },
+      {
+        "name": "action",
+        "type": "ToastActionOptions | undefined",
+        "source": "toast.types.ts:81"
+      },
+      {
+        "name": "politeness",
+        "type": "Politeness",
+        "source": "toast.types.ts:82"
+      },
+      {
+        "name": "status",
+        "type": "ToastStatus",
+        "source": "toast.types.ts:83"
+      },
+      {
+        "name": "meta",
+        "type": "Record<string, unknown> | undefined",
+        "source": "toast.types.ts:84"
+      },
+      {
+        "name": "version",
+        "type": "number",
+        "notes": "Bumped on every mutation of the record, and it is load-bearing twice over: it is what the context's `isEqual` compares, and it is what stops the announcer from repeating a toast that merely re-rendered.",
+        "source": "toast.types.ts:90"
+      }
+    ]
+  },
+  {
+    "name": "ToastParts",
+    "rows": [
+      {
+        "name": "root?",
+        "type": "Omit<PartProps<\"div\">, \"toast\">",
+        "source": "composed.tsx:47"
+      },
+      {
+        "name": "indicator?",
+        "type": "PartProps<\"span\">",
+        "notes": "The severity mark. Hand it a child and the sheet's own drawing steps aside — `:empty` is the whole guard — which is how a consumer keeps their icon set.",
+        "source": "composed.tsx:52"
+      },
+      {
+        "name": "title?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:53"
+      },
+      {
+        "name": "description?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:54"
+      },
+      {
+        "name": "actionTrigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:55"
+      },
+      {
+        "name": "closeTrigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:56"
+      }
+    ]
+  },
+  {
+    "name": "ToastOptions",
+    "rows": [
+      {
+        "name": "id?",
+        "type": "string",
+        "notes": "Defaults to a counter-derived `\"toast:n\"` — never random, so a server render matches.",
+        "source": "toast.types.ts:57"
+      },
+      {
+        "name": "type?",
+        "type": "ToastType",
+        "source": "toast.types.ts:58"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "notes": "Required: this is what the announcer says.",
+        "source": "toast.types.ts:60"
+      },
+      {
+        "name": "description?",
+        "type": "string",
+        "source": "toast.types.ts:61"
+      },
+      {
+        "name": "duration?",
+        "type": "number | null",
+        "notes": "ms, or `null` for sticky. Defaults to the toaster's, except `error`/`loading` → `null`.",
+        "source": "toast.types.ts:63"
+      },
+      {
+        "name": "closable?",
+        "type": "boolean",
+        "source": "toast.types.ts:64"
+      },
+      {
+        "name": "action?",
+        "type": "ToastActionOptions",
+        "source": "toast.types.ts:65"
+      },
+      {
+        "name": "politeness?",
+        "type": "Politeness",
+        "notes": "Overrides the politeness derived from the type (`error` speaks assertively).",
+        "source": "toast.types.ts:67"
+      },
+      {
+        "name": "onDismiss?",
+        "type": "((details: ToastDismissDetails) => void)",
+        "source": "toast.types.ts:68"
+      },
+      {
+        "name": "onRemove?",
+        "type": "(() => void)",
+        "source": "toast.types.ts:69"
+      },
+      {
+        "name": "meta?",
+        "type": "Record<string, unknown>",
+        "notes": "Opaque to the library, carried through to the app's own rendering.",
+        "source": "toast.types.ts:71"
+      }
+    ]
+  },
+  {
+    "name": "ToastDismissReason",
+    "definition": "\"timeout\" | \"close-trigger\" | \"escape\" | \"back\" | \"programmatic\" | \"action\"",
+    "rows": []
+  },
+  {
+    "name": "ToastPromiseOptions",
+    "rows": [
+      {
+        "name": "loading",
+        "type": "ToastOptions",
+        "source": "toast.types.ts:104"
+      },
+      {
+        "name": "success",
+        "type": "ToastOptions | ((value: T) => ToastOptions)",
+        "source": "toast.types.ts:105"
+      },
+      {
+        "name": "error",
+        "type": "ToastOptions | ((error: unknown) => ToastOptions)",
+        "source": "toast.types.ts:106"
+      }
+    ]
+  },
+  {
+    "name": "ToastPlacement",
+    "definition": "\"top\" | \"top-start\" | \"top-end\" | \"bottom\" | \"bottom-start\" | \"bottom-end\"",
+    "rows": []
+  },
+  {
+    "name": "ToastSubscriber",
+    "definition": "(toasts: readonly ToastRecord[]) => void",
+    "rows": []
+  },
+  {
+    "name": "UseToastGroupProps",
+    "extends": "toast.ToastGroupMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "ToastType",
+    "definition": "\"info\" | \"success\" | \"warning\" | \"error\" | \"loading\"",
+    "rows": []
+  },
+  {
+    "name": "ToastActionOptions",
+    "rows": [
+      {
+        "name": "label",
+        "type": "string",
+        "source": "toast.types.ts:49"
+      },
+      {
+        "name": "onClick",
+        "type": "(): void",
+        "source": "toast.types.ts:50"
+      },
+      {
+        "name": "dismissOnClick?",
+        "type": "boolean",
+        "notes": "Default `true`: activating the action closes the toast, with reason `\"action\"`.",
+        "source": "toast.types.ts:52"
+      }
+    ]
+  },
+  {
+    "name": "ToastStatus",
+    "definition": "\"visible\" | \"dismissing\"",
+    "rows": []
+  },
+  {
+    "name": "ToastDismissDetails",
+    "rows": [
+      {
+        "name": "reason",
+        "type": "ToastDismissReason",
+        "source": "toast.types.ts:45"
+      }
+    ]
+  }
+]

@@ -1,0 +1,172 @@
+[
+  {
+    "name": "InputMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "source": "input.types.ts:18"
+      },
+      {
+        "name": "value?",
+        "type": "string",
+        "source": "input.types.ts:19"
+      },
+      {
+        "name": "defaultValue?",
+        "type": "string",
+        "source": "input.types.ts:20"
+      },
+      {
+        "name": "type?",
+        "type": "string",
+        "source": "input.types.ts:21"
+      },
+      {
+        "name": "shape?",
+        "type": "InputShape",
+        "source": "input.types.ts:22"
+      },
+      {
+        "name": "placeholder?",
+        "type": "string",
+        "source": "input.types.ts:23"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "input.types.ts:24"
+      },
+      {
+        "name": "invalid?",
+        "type": "boolean",
+        "source": "input.types.ts:25"
+      },
+      {
+        "name": "readOnly?",
+        "type": "boolean",
+        "source": "input.types.ts:26"
+      },
+      {
+        "name": "required?",
+        "type": "boolean",
+        "source": "input.types.ts:27"
+      },
+      {
+        "name": "name?",
+        "type": "string",
+        "source": "input.types.ts:28"
+      },
+      {
+        "name": "form?",
+        "type": "string",
+        "source": "input.types.ts:29"
+      },
+      {
+        "name": "autoComplete?",
+        "type": "string",
+        "source": "input.types.ts:30"
+      },
+      {
+        "name": "inputMode?",
+        "type": "string",
+        "source": "input.types.ts:31"
+      },
+      {
+        "name": "maxLength?",
+        "type": "number",
+        "source": "input.types.ts:32"
+      },
+      {
+        "name": "describedBy?",
+        "type": "string",
+        "notes": "Ids of the text describing this control — a `field` supplies them.",
+        "source": "input.types.ts:34"
+      },
+      {
+        "name": "clearOnEscape?",
+        "type": "boolean",
+        "notes": "Escape empties the control. Off by default; a search field turns it on.",
+        "source": "input.types.ts:36"
+      },
+      {
+        "name": "defaultMasked?",
+        "type": "boolean",
+        "notes": "Starts masked when the type is `password`; the trigger flips it.",
+        "source": "input.types.ts:38"
+      },
+      {
+        "name": "onValueChange?",
+        "type": "((details: InputValueChangeDetails) => void)",
+        "source": "input.types.ts:39"
+      }
+    ]
+  },
+  {
+    "name": "InputBaseComposedProps",
+    "extends": "Omit<UseInputProps, \"type\">, Omit<PartProps<\"div\", UseInputProps>, \"children\">",
+    "rows": [
+      {
+        "name": "multiline?",
+        "type": "boolean",
+        "notes": "Renders `InputTextarea` in place of `InputControl`.",
+        "source": "composed.tsx:49"
+      },
+      {
+        "name": "parts?",
+        "type": "InputParts",
+        "source": "composed.tsx:50"
+      }
+    ]
+  },
+  {
+    "name": "InputComposedProps",
+    "definition": "InputBaseComposedProps & InputRevealProps",
+    "rows": []
+  },
+  {
+    "name": "InputShape",
+    "definition": "\"capsule\" | \"soft\" | \"rect\"",
+    "rows": []
+  },
+  {
+    "name": "InputValueChangeDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "string",
+        "source": "input.types.ts:6"
+      }
+    ]
+  },
+  {
+    "name": "UseInputProps",
+    "extends": "input.InputMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "InputParts",
+    "rows": [
+      {
+        "name": "control?",
+        "type": "PartProps<\"input\">",
+        "source": "composed.tsx:40"
+      },
+      {
+        "name": "textarea?",
+        "type": "PartProps<\"textarea\">",
+        "source": "composed.tsx:41"
+      },
+      {
+        "name": "visibilityTrigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:42"
+      }
+    ]
+  },
+  {
+    "name": "InputRevealProps",
+    "definition": "{ readonly type?: string | undefined; readonly revealLabel?: undefined } | { readonly type: \"password\"; readonly revealLabel: string }",
+    "rows": []
+  }
+]

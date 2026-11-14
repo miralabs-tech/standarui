@@ -1,0 +1,125 @@
+[
+  {
+    "name": "BreadcrumbMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "source": "breadcrumb.types.ts:10"
+      },
+      {
+        "name": "label?",
+        "type": "string",
+        "notes": "Accessible name of the `nav` landmark. Defaults to `\"Breadcrumb\"` — the consumer localises it, and two breadcrumbs on one page MUST carry two different labels or the landmarks are indistinguishable.",
+        "source": "breadcrumb.types.ts:16"
+      },
+      {
+        "name": "ellipsisLabel?",
+        "type": "string",
+        "notes": "Accessible name of the ellipsis button. Defaults to `\"Show hidden items\"`.",
+        "source": "breadcrumb.types.ts:18"
+      },
+      {
+        "name": "expanded?",
+        "type": "boolean",
+        "notes": "Controlled: present means the consumer owns the value.",
+        "source": "breadcrumb.types.ts:20"
+      },
+      {
+        "name": "defaultExpanded?",
+        "type": "boolean",
+        "source": "breadcrumb.types.ts:21"
+      },
+      {
+        "name": "onExpandedChange?",
+        "type": "((details: BreadcrumbExpandedChangeDetails) => void)",
+        "source": "breadcrumb.types.ts:22"
+      }
+    ]
+  },
+  {
+    "name": "BreadcrumbComposedProps",
+    "extends": "UseBreadcrumbProps, Omit<PartProps<\"nav\", UseBreadcrumbProps>, \"children\">",
+    "rows": [
+      {
+        "name": "items",
+        "type": "readonly BreadcrumbEntry[]",
+        "source": "composed.tsx:101"
+      },
+      {
+        "name": "parts?",
+        "type": "BreadcrumbParts",
+        "source": "composed.tsx:102"
+      }
+    ]
+  },
+  {
+    "name": "BreadcrumbExpandedChangeDetails",
+    "rows": [
+      {
+        "name": "expanded",
+        "type": "boolean",
+        "source": "breadcrumb.types.ts:6"
+      }
+    ]
+  },
+  {
+    "name": "UseBreadcrumbProps",
+    "extends": "breadcrumb.BreadcrumbMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "BreadcrumbEntry",
+    "rows": [
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "source": "composed.tsx:55"
+      },
+      {
+        "name": "href?",
+        "type": "string",
+        "notes": "Where this level points. Ignored on the last entry — see above.",
+        "source": "composed.tsx:57"
+      },
+      {
+        "name": "collapsed?",
+        "type": "boolean",
+        "notes": "Behind the fold. The reveal button is placed before the first of these.",
+        "source": "composed.tsx:59"
+      }
+    ]
+  },
+  {
+    "name": "BreadcrumbParts",
+    "rows": [
+      {
+        "name": "list?",
+        "type": "PartProps<\"ol\">",
+        "source": "composed.tsx:67"
+      },
+      {
+        "name": "ellipsis?",
+        "type": "PartProps<\"li\">",
+        "source": "composed.tsx:68"
+      },
+      {
+        "name": "ellipsisTrigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:69"
+      },
+      {
+        "name": "item?",
+        "type": "| Omit< PartProps<\"li\", CoreBreadcrumbItemProps>, \"id\" | \"ref\" | \"aria-labelledby\" | \"aria-describedby\" >",
+        "notes": "Applied to EVERY level, hence no `collapsed` — the entry's own field, already excluded through `Own` — and no `id` **or IDREF**: one id repeated down a list is a broken reference per level, and one `aria-labelledby` repeated gives every level the same name, which no dangling-IDREF check can see because the id it points at does resolve. `ref` goes because a single ref held by N items ends up holding the last one.",
+        "source": "composed.tsx:78"
+      },
+      {
+        "name": "link?",
+        "type": "| Omit< PartProps<\"a\", CoreBreadcrumbLinkProps>, \"id\" | \"ref\" | \"href\" | \"current\" | \"aria-labelledby\" | \"aria-describedby\" >",
+        "notes": "Applied to EVERY link, and excluded for the same reasons — plus `href` and `current`, which are the two the layer derives. A fixed `href` here would point every level at one place, and a fixed `current` would publish a trail with as many current levels as it has entries.",
+        "source": "composed.tsx:90"
+      }
+    ]
+  }
+]

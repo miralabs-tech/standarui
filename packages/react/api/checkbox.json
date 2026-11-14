@@ -1,0 +1,101 @@
+[
+  {
+    "name": "CheckboxMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "source": "checkbox.types.ts:13"
+      },
+      {
+        "name": "checked?",
+        "type": "CheckedState",
+        "source": "checkbox.types.ts:14"
+      },
+      {
+        "name": "defaultChecked?",
+        "type": "CheckedState",
+        "source": "checkbox.types.ts:15"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "checkbox.types.ts:16"
+      },
+      {
+        "name": "invalid?",
+        "type": "boolean",
+        "source": "checkbox.types.ts:17"
+      },
+      {
+        "name": "required?",
+        "type": "boolean",
+        "source": "checkbox.types.ts:18"
+      },
+      {
+        "name": "readOnly?",
+        "type": "boolean",
+        "source": "checkbox.types.ts:19"
+      },
+      {
+        "name": "name?",
+        "type": "string",
+        "notes": "Form association, straight through to the hidden native input.",
+        "source": "checkbox.types.ts:21"
+      },
+      {
+        "name": "value?",
+        "type": "string",
+        "source": "checkbox.types.ts:22"
+      },
+      {
+        "name": "form?",
+        "type": "string",
+        "source": "checkbox.types.ts:23"
+      },
+      {
+        "name": "describedBy?",
+        "type": "string",
+        "notes": "Ids of the text describing this control — a `field` supplies them.",
+        "source": "checkbox.types.ts:25"
+      },
+      {
+        "name": "onCheckedChange?",
+        "type": "((details: CheckboxCheckedChangeDetails) => void)",
+        "source": "checkbox.types.ts:26"
+      }
+    ]
+  },
+  {
+    "name": "CheckboxComposedProps",
+    "extends": "UseCheckboxProps, Omit<PartProps<\"label\", UseCheckboxProps>, \"children\">",
+    "rows": [
+      {
+        "name": "label?",
+        "type": "ReactNode",
+        "notes": "The visible text. Omit it only where something else names the box — see above.",
+        "source": "composed.tsx:38"
+      }
+    ]
+  },
+  {
+    "name": "CheckedState",
+    "definition": "boolean | \"indeterminate\"",
+    "rows": []
+  },
+  {
+    "name": "CheckboxCheckedChangeDetails",
+    "rows": [
+      {
+        "name": "checked",
+        "type": "CheckedState",
+        "source": "checkbox.types.ts:9"
+      }
+    ]
+  },
+  {
+    "name": "UseCheckboxProps",
+    "extends": "checkbox.CheckboxMachineProps, MachineRuntimeProps",
+    "rows": []
+  }
+]

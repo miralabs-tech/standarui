@@ -39,8 +39,8 @@ interface Timer {
 }
 
 /**
- * `error` and `loading` are sticky by default, and that is the parity line with
- * the reference app: its error strips stayed until someone dismissed them, and a spinner that
+ * `error` and `loading` are sticky by default, and that is the parity line with the
+ * reference app, whose error strips stayed until someone dismissed them: a spinner that
  * disappears on a five second clock is a lie about the work still running.
  */
 function defaultDuration(type: ToastType, fallback: number): number | null {

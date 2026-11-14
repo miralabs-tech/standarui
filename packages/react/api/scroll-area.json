@@ -1,0 +1,97 @@
+[
+  {
+    "name": "ScrollAreaMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "notes": "Not defaulted, deliberately: left unset the resolved page direction governs, so a subtree inside an RTL region inherits instead of being reset to `ltr`.",
+        "source": "scroll-area.types.ts:11"
+      },
+      {
+        "name": "orientation?",
+        "type": "ScrollAreaOrientation",
+        "notes": "Which bars are drawn; the sheet hides the overflow of an axis with no bar. Defaults to `vertical`.",
+        "source": "scroll-area.types.ts:13"
+      },
+      {
+        "name": "always?",
+        "type": "boolean",
+        "notes": "Keeps the bars visible instead of letting them fade after a scroll.",
+        "source": "scroll-area.types.ts:15"
+      },
+      {
+        "name": "hideDelay?",
+        "type": "number",
+        "notes": "How long the bars stay up after the last scroll, in ms.",
+        "source": "scroll-area.types.ts:17"
+      },
+      {
+        "name": "label?",
+        "type": "string",
+        "source": "scroll-area.types.ts:18"
+      },
+      {
+        "name": "labelledBy?",
+        "type": "string",
+        "source": "scroll-area.types.ts:19"
+      }
+    ]
+  },
+  {
+    "name": "ScrollAreaComposedProps",
+    "extends": "UseScrollAreaProps, Omit<PartProps<\"div\", UseScrollAreaProps>, \"children\">",
+    "rows": [
+      {
+        "name": "children?",
+        "type": "ReactNode",
+        "source": "composed.tsx:24"
+      },
+      {
+        "name": "parts?",
+        "type": "ScrollAreaParts",
+        "source": "composed.tsx:25"
+      }
+    ]
+  },
+  {
+    "name": "ScrollAreaOrientation",
+    "definition": "Orientation | \"both\"",
+    "rows": []
+  },
+  {
+    "name": "UseScrollAreaProps",
+    "extends": "scrollArea.ScrollAreaMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "ScrollAreaParts",
+    "rows": [
+      {
+        "name": "viewport?",
+        "type": "Omit<PartProps<\"div\">, \"id\" | \"ref\">",
+        "source": "composed.tsx:14"
+      },
+      {
+        "name": "content?",
+        "type": "Omit<PartProps<\"div\">, \"id\" | \"ref\">",
+        "source": "composed.tsx:15"
+      },
+      {
+        "name": "scrollbar?",
+        "type": "Omit<PartProps<\"div\">, \"id\" | \"ref\">",
+        "source": "composed.tsx:16"
+      },
+      {
+        "name": "thumb?",
+        "type": "Omit<PartProps<\"div\">, \"id\" | \"ref\">",
+        "source": "composed.tsx:17"
+      },
+      {
+        "name": "corner?",
+        "type": "Omit<PartProps<\"div\">, \"id\" | \"ref\">",
+        "source": "composed.tsx:18"
+      }
+    ]
+  }
+]

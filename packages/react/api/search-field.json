@@ -1,0 +1,203 @@
+[
+  {
+    "name": "SearchFieldMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "source": "search-field.types.ts:26"
+      },
+      {
+        "name": "value?",
+        "type": "string",
+        "source": "search-field.types.ts:27"
+      },
+      {
+        "name": "defaultValue?",
+        "type": "string",
+        "source": "search-field.types.ts:28"
+      },
+      {
+        "name": "shape?",
+        "type": "SearchFieldShape",
+        "source": "search-field.types.ts:29"
+      },
+      {
+        "name": "placeholder?",
+        "type": "string",
+        "source": "search-field.types.ts:30"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "search-field.types.ts:31"
+      },
+      {
+        "name": "invalid?",
+        "type": "boolean",
+        "source": "search-field.types.ts:32"
+      },
+      {
+        "name": "readOnly?",
+        "type": "boolean",
+        "source": "search-field.types.ts:33"
+      },
+      {
+        "name": "required?",
+        "type": "boolean",
+        "source": "search-field.types.ts:34"
+      },
+      {
+        "name": "name?",
+        "type": "string",
+        "source": "search-field.types.ts:35"
+      },
+      {
+        "name": "form?",
+        "type": "string",
+        "source": "search-field.types.ts:36"
+      },
+      {
+        "name": "autoComplete?",
+        "type": "string",
+        "source": "search-field.types.ts:37"
+      },
+      {
+        "name": "inputMode?",
+        "type": "string",
+        "notes": "Defaults to `search`, which is what puts a search key on a phone keyboard.",
+        "source": "search-field.types.ts:39"
+      },
+      {
+        "name": "maxLength?",
+        "type": "number",
+        "source": "search-field.types.ts:40"
+      },
+      {
+        "name": "describedBy?",
+        "type": "string",
+        "notes": "Ids of the text describing this control — a `field` supplies them.",
+        "source": "search-field.types.ts:42"
+      },
+      {
+        "name": "label?",
+        "type": "string",
+        "notes": "The accessible name of the control *and* of the `search` landmark. Never defaulted to a string: a library that ships \"Search\" ships it in English.",
+        "source": "search-field.types.ts:47"
+      },
+      {
+        "name": "clearLabel?",
+        "type": "string",
+        "notes": "The accessible name of the clear button. Defaults to `\"Clear search\"` — the one string this component ships, because the alternative is an icon-only button with no name at all (see the machine for why this and `label` differ).",
+        "source": "search-field.types.ts:53"
+      },
+      {
+        "name": "cancelLabel?",
+        "type": "string",
+        "notes": "The accessible name of the cancel button. Defaults to `\"Cancel search\"`, for the same reason `clearLabel` is defaulted — and the reason is stronger here: the clear button is out of the tab order, this one is a tab stop a keyboard user meets head-on.",
+        "source": "search-field.types.ts:60"
+      },
+      {
+        "name": "clearOnEscape?",
+        "type": "boolean",
+        "notes": "Escape empties the field. On by default here — that is the whole difference between this presentation and a text field — and it only ever consumes the key when there is something to clear.",
+        "source": "search-field.types.ts:66"
+      },
+      {
+        "name": "hotkey?",
+        "type": "SearchHotkeyPredicate",
+        "notes": "Opt-in activation shortcut, read once when the effect installs: pass it at mount. Absent means no document listener at all, which is why a page that did not ask keeps the browser's own find-in-page intact.",
+        "source": "search-field.types.ts:72"
+      },
+      {
+        "name": "onValueChange?",
+        "type": "((details: SearchFieldValueChangeDetails) => void)",
+        "source": "search-field.types.ts:73"
+      },
+      {
+        "name": "onCancel?",
+        "type": "(() => void)",
+        "notes": "The cancel gesture happened. It is an **addition** to `onValueChange` and never a replacement — the value went to the empty string, and a consumer filtering on the value has to see that or their list stays filtered — and it is fired **last**, after the focus has gone back to the control. That order is the contract: `onCancel` is the last word, so a consumer who moves the focus inside it (closing a search popover, say) keeps it. `api.cancel()` on an already-empty field fires this and *not* `onValueChange`: cancelling is an intention, not a change of value.",
+        "source": "search-field.types.ts:85"
+      }
+    ]
+  },
+  {
+    "name": "SearchFieldComposedProps",
+    "extends": "UseSearchFieldProps, Omit<PartProps<\"div\", UseSearchFieldProps>, \"children\">",
+    "rows": [
+      {
+        "name": "icon?",
+        "type": "ReactNode",
+        "notes": "The leading glyph of the capsule — an inline SVG, never a text character.",
+        "source": "composed.tsx:54"
+      },
+      {
+        "name": "cancel?",
+        "type": "boolean",
+        "notes": "Composes the cancel button beside the capsule. Off by default: desktop layouts draw none.",
+        "source": "composed.tsx:56"
+      },
+      {
+        "name": "parts?",
+        "type": "SearchFieldParts",
+        "source": "composed.tsx:57"
+      }
+    ]
+  },
+  {
+    "name": "SearchFieldShape",
+    "definition": "\"capsule\" | \"soft\" | \"rect\"",
+    "rows": []
+  },
+  {
+    "name": "SearchHotkeyPredicate",
+    "definition": "(event: KeyboardEvent) => boolean",
+    "rows": []
+  },
+  {
+    "name": "SearchFieldValueChangeDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "string",
+        "source": "search-field.types.ts:6"
+      }
+    ]
+  },
+  {
+    "name": "UseSearchFieldProps",
+    "extends": "searchField.SearchFieldMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "SearchFieldParts",
+    "rows": [
+      {
+        "name": "field?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:43"
+      },
+      {
+        "name": "indicator?",
+        "type": "PartProps<\"span\">",
+        "source": "composed.tsx:44"
+      },
+      {
+        "name": "control?",
+        "type": "PartProps<\"input\">",
+        "source": "composed.tsx:45"
+      },
+      {
+        "name": "clearTrigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:46"
+      },
+      {
+        "name": "cancelTrigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:47"
+      }
+    ]
+  }
+]

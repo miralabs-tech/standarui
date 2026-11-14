@@ -1,0 +1,110 @@
+[
+  {
+    "name": "ButtonMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "source": "button.types.ts:15"
+      },
+      {
+        "name": "type?",
+        "type": "\"button\" | \"submit\" | \"reset\"",
+        "source": "button.types.ts:16"
+      },
+      {
+        "name": "variant?",
+        "type": "ButtonVariant",
+        "source": "button.types.ts:17"
+      },
+      {
+        "name": "size?",
+        "type": "ButtonSize",
+        "source": "button.types.ts:18"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "button.types.ts:19"
+      },
+      {
+        "name": "loading?",
+        "type": "boolean",
+        "notes": "Busy: activation is refused, the label keeps its width and `aria-busy` says so.",
+        "source": "button.types.ts:23"
+      },
+      {
+        "name": "loadingText?",
+        "type": "string",
+        "notes": "Announced politely when `loading` turns on. Without it nothing is announced — a spinner appearing is not news a screen reader has to interrupt for.",
+        "source": "button.types.ts:28"
+      },
+      {
+        "name": "focusableWhenDisabled?",
+        "type": "boolean",
+        "notes": "Keeps the control focusable while disabled: `aria-disabled` instead of the native attribute. Off by default — a disabled button has no reason to stay in the tab order unless it is a toolbar item (APG).",
+        "source": "button.types.ts:34"
+      },
+      {
+        "name": "nativeButton?",
+        "type": "boolean",
+        "notes": "False when the root is not a real `<button>` (a substituted `<div>`, a card). The adapter sets it from what it renders; it decides who activates the control — the browser's click, or the press primitive's synthesised keyboard.",
+        "source": "button.types.ts:40"
+      },
+      {
+        "name": "onPress?",
+        "type": "((details: ButtonPressDetails) => void)",
+        "source": "button.types.ts:41"
+      }
+    ]
+  },
+  {
+    "name": "ButtonComposedProps",
+    "extends": "UseButtonProps, Omit<PartProps<\"button\", UseButtonProps>, \"children\">",
+    "rows": [
+      {
+        "name": "children?",
+        "type": "ReactNode",
+        "notes": "The label. Text, and text is the only thing that names a button.",
+        "source": "composed.tsx:25"
+      },
+      {
+        "name": "icon?",
+        "type": "ReactNode",
+        "notes": "The leading glyph — an inline SVG, never a text character.",
+        "source": "composed.tsx:27"
+      },
+      {
+        "name": "accessory?",
+        "type": "ReactNode",
+        "notes": "The trailing one: a chevron, a shortcut, a count.",
+        "source": "composed.tsx:29"
+      }
+    ]
+  },
+  {
+    "name": "ButtonVariant",
+    "definition": "\"filled\" | \"tinted\" | \"gray\" | \"plain\" | \"glass\"",
+    "rows": []
+  },
+  {
+    "name": "ButtonSize",
+    "definition": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
+    "rows": []
+  },
+  {
+    "name": "ButtonPressDetails",
+    "rows": [
+      {
+        "name": "originalEvent",
+        "type": "Event",
+        "source": "button.types.ts:11"
+      }
+    ]
+  },
+  {
+    "name": "UseButtonProps",
+    "extends": "button.ButtonMachineProps, MachineRuntimeProps",
+    "rows": []
+  }
+]

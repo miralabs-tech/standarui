@@ -1,0 +1,144 @@
+[
+  {
+    "name": "SidebarMachineProps",
+    "rows": [
+      {
+        "name": "label?",
+        "type": "string",
+        "notes": "The landmark's accessible name.",
+        "source": "sidebar.ts:69"
+      },
+      {
+        "name": "presentation?",
+        "type": "SidebarPresentation",
+        "notes": "Defaults to `\"auto\"`.",
+        "source": "sidebar.ts:71"
+      }
+    ]
+  },
+  {
+    "name": "SidebarComposedProps",
+    "extends": "Omit<PartProps<\"nav\", SidebarMachineProps>, \"children\">",
+    "rows": [
+      {
+        "name": "label",
+        "type": "string",
+        "notes": "The landmark's name, and the drawer's. Required: two landmarks must be told apart.",
+        "source": "composed.tsx:82"
+      },
+      {
+        "name": "presentation?",
+        "type": "SidebarMachineProps[\"presentation\"]",
+        "notes": "Defaults to `\"auto\"`.",
+        "source": "composed.tsx:84"
+      },
+      {
+        "name": "header?",
+        "type": "ReactNode",
+        "notes": "Above the content, outside what scrolls. A string or a number is placed in `SidebarHeaderLabel`, which a rail hides from the eye; anything else is placed as it is, and its text belongs in a `SidebarHeaderLabel` of its own.",
+        "source": "composed.tsx:90"
+      },
+      {
+        "name": "children?",
+        "type": "ReactNode",
+        "notes": "The sections, most often `SidebarBlock`s.",
+        "source": "composed.tsx:92"
+      },
+      {
+        "name": "footer?",
+        "type": "ReactNode",
+        "notes": "Under the content, outside what scrolls. A string or a number is placed in `SidebarFooterLabel`, as `header` is.",
+        "source": "composed.tsx:97"
+      },
+      {
+        "name": "open?",
+        "type": "boolean",
+        "notes": "Controls the drawer. The app owns it, since the trigger is not part of this component.",
+        "source": "composed.tsx:99"
+      },
+      {
+        "name": "defaultOpen?",
+        "type": "boolean",
+        "source": "composed.tsx:100"
+      },
+      {
+        "name": "onOpenChange?",
+        "type": "((details: { readonly open: boolean }) => void)",
+        "source": "composed.tsx:101"
+      },
+      {
+        "name": "drawerId?",
+        "type": "string",
+        "notes": "The dialog's id, to pin the drawer's ids for a server render.",
+        "source": "composed.tsx:103"
+      },
+      {
+        "name": "container?",
+        "type": "PortalProps[\"container\"]",
+        "source": "composed.tsx:104"
+      },
+      {
+        "name": "parts?",
+        "type": "SidebarParts",
+        "source": "composed.tsx:105"
+      }
+    ]
+  },
+  {
+    "name": "SidebarPresentation",
+    "definition": "\"auto\" | \"inline\" | \"drawer\"",
+    "rows": []
+  },
+  {
+    "name": "SidebarParts",
+    "rows": [
+      {
+        "name": "header?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:61"
+      },
+      {
+        "name": "headerLabel?",
+        "type": "PartProps<\"span\">",
+        "notes": "Placed when `header` is a string or a number.",
+        "source": "composed.tsx:63"
+      },
+      {
+        "name": "content?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:64"
+      },
+      {
+        "name": "footer?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:65"
+      },
+      {
+        "name": "footerLabel?",
+        "type": "PartProps<\"span\">",
+        "notes": "Placed when `footer` is a string or a number.",
+        "source": "composed.tsx:67"
+      },
+      {
+        "name": "portal?",
+        "type": "| { readonly container?: PortalProps[\"container\"] | undefined; readonly disabled?: boolean | undefined; }",
+        "source": "composed.tsx:68"
+      },
+      {
+        "name": "backdrop?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:74"
+      },
+      {
+        "name": "positioner?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:75"
+      },
+      {
+        "name": "drawer?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:76"
+      }
+    ]
+  }
+]

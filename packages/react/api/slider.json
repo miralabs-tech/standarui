@@ -1,0 +1,281 @@
+[
+  {
+    "name": "SliderMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "notes": "Not defaulted, deliberately: left unset the resolved page direction governs, so a subtree inside an RTL region inherits instead of being reset to `ltr`.",
+        "source": "slider.types.ts:53"
+      },
+      {
+        "name": "orientation?",
+        "type": "Orientation",
+        "notes": "Vertical reads from the bottom — the minimum sits at the foot of the track — and `ArrowUp` still raises the value whatever the direction.",
+        "source": "slider.types.ts:55"
+      },
+      {
+        "name": "min?",
+        "type": "number",
+        "source": "slider.types.ts:56"
+      },
+      {
+        "name": "max?",
+        "type": "number",
+        "source": "slider.types.ts:57"
+      },
+      {
+        "name": "step?",
+        "type": "number",
+        "source": "slider.types.ts:58"
+      },
+      {
+        "name": "largeStep?",
+        "type": "number",
+        "notes": "PageUp/PageDown and LT/RT. Defaults to a tenth of the range rather than ten steps: on a 0→1000 slider stepping by 1, ten steps is 10, which is useless.",
+        "source": "slider.types.ts:63"
+      },
+      {
+        "name": "minStepsBetweenThumbs?",
+        "type": "number",
+        "notes": "The gap adjacent thumbs must keep, counted in steps. Defaults to 0, which lets two thumbs land on the same value.",
+        "source": "slider.types.ts:65"
+      },
+      {
+        "name": "thumbAlignment?",
+        "type": "SliderThumbAlignment",
+        "notes": "`\"contain\"` keeps the thumb inside the control; `\"center\"` overhangs it.",
+        "source": "slider.types.ts:67"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "slider.types.ts:68"
+      },
+      {
+        "name": "readOnly?",
+        "type": "boolean",
+        "notes": "Blocks the pointer, the arrow keys and the pad's engage mode, and unlike `disabled` leaves the thumb focusable and its value submitted.",
+        "source": "slider.types.ts:70"
+      },
+      {
+        "name": "invalid?",
+        "type": "boolean",
+        "source": "slider.types.ts:71"
+      },
+      {
+        "name": "required?",
+        "type": "boolean",
+        "source": "slider.types.ts:72"
+      },
+      {
+        "name": "name?",
+        "type": "string",
+        "notes": "One hidden input per thumb, so a range slider submits this name once per value.",
+        "source": "slider.types.ts:74"
+      },
+      {
+        "name": "form?",
+        "type": "string",
+        "source": "slider.types.ts:75"
+      },
+      {
+        "name": "value?",
+        "type": "number | readonly number[]",
+        "notes": "A scalar is accepted for ergonomics; the machine only ever holds an array.",
+        "source": "slider.types.ts:77"
+      },
+      {
+        "name": "defaultValue?",
+        "type": "number | readonly number[]",
+        "source": "slider.types.ts:78"
+      },
+      {
+        "name": "marks?",
+        "type": "SliderMarks",
+        "source": "slider.types.ts:79"
+      },
+      {
+        "name": "locale?",
+        "type": "string",
+        "notes": "Pinned to `en-US` rather than read from the browser: a locale resolved from the environment formats the same number differently on the server and the client, and hydration says so.",
+        "source": "slider.types.ts:81"
+      },
+      {
+        "name": "formatOptions?",
+        "type": "Intl.NumberFormatOptions",
+        "source": "slider.types.ts:82"
+      },
+      {
+        "name": "getValueText?",
+        "type": "((details: SliderValueTextDetails) => string)",
+        "notes": "Wins over `formatOptions` when present — the whole string, per thumb.",
+        "source": "slider.types.ts:84"
+      },
+      {
+        "name": "describedBy?",
+        "type": "string",
+        "notes": "Ids of the text describing this control — a `field` supplies them.",
+        "source": "slider.types.ts:86"
+      },
+      {
+        "name": "labelledBy?",
+        "type": "string",
+        "notes": "Id of the element naming this control, used only when no `label` part is rendered — a `field` supplies its own label's id, because `<label for>` cannot name a `div[role=\"slider\"]`.",
+        "source": "slider.types.ts:92"
+      },
+      {
+        "name": "intents?",
+        "type": "IntentScopeHost | null",
+        "notes": "The intent bus engage mode pushes its scope onto. `null` disables the pad.",
+        "source": "slider.types.ts:94"
+      },
+      {
+        "name": "onValueChange?",
+        "type": "((details: SliderValueChangeDetails) => void)",
+        "source": "slider.types.ts:95"
+      },
+      {
+        "name": "onValueChangeEnd?",
+        "type": "((details: SliderValueChangeDetails) => void)",
+        "notes": "Once per gesture, with the value the gesture ended on.",
+        "source": "slider.types.ts:97"
+      }
+    ]
+  },
+  {
+    "name": "SliderComposedProps",
+    "extends": "UseSliderProps, Omit<PartProps<\"div\", UseSliderProps>, \"children\">",
+    "rows": [
+      {
+        "name": "label?",
+        "type": "ReactNode",
+        "notes": "Rendered as `SliderLabel`. Omitted, no label part exists and none is named.",
+        "source": "composed.tsx:64"
+      },
+      {
+        "name": "showValue?",
+        "type": "boolean",
+        "notes": "The formatted value, in the second grid column. On by default because the column is reserved whether or not anything fills it, and because the machine has already done the formatting — `locale`, `formatOptions` and `getValueText` all land in it without the consumer touching the string.",
+        "source": "composed.tsx:71"
+      },
+      {
+        "name": "ticks?",
+        "type": "boolean",
+        "notes": "Defaults to `true` as soon as `marks` is set, which is the only reading that makes the two props agree. Pass `false` to keep the scale and hide the ticks.",
+        "source": "composed.tsx:76"
+      },
+      {
+        "name": "parts?",
+        "type": "SliderParts",
+        "source": "composed.tsx:77"
+      }
+    ]
+  },
+  {
+    "name": "SliderThumbAlignment",
+    "definition": "\"contain\" | \"center\"",
+    "rows": []
+  },
+  {
+    "name": "SliderMarks",
+    "definition": "RangeMarks",
+    "rows": []
+  },
+  {
+    "name": "SliderValueTextDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "number",
+        "source": "slider.types.ts:47"
+      },
+      {
+        "name": "index",
+        "type": "number",
+        "source": "slider.types.ts:48"
+      }
+    ]
+  },
+  {
+    "name": "SliderValueChangeDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "number[]",
+        "source": "slider.types.ts:43"
+      }
+    ]
+  },
+  {
+    "name": "UseSliderProps",
+    "extends": "slider.SliderMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "SliderParts",
+    "rows": [
+      {
+        "name": "label?",
+        "type": "PartProps<\"span\">",
+        "source": "composed.tsx:50"
+      },
+      {
+        "name": "valueText?",
+        "type": "PartProps<\"span\">",
+        "source": "composed.tsx:51"
+      },
+      {
+        "name": "control?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:52"
+      },
+      {
+        "name": "track?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:53"
+      },
+      {
+        "name": "range?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:54"
+      },
+      {
+        "name": "markerGroup?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:55"
+      },
+      {
+        "name": "thumb?",
+        "type": "Omit<SliderThumbProps, \"index\">",
+        "source": "composed.tsx:56"
+      },
+      {
+        "name": "hiddenInput?",
+        "type": "Omit<SliderHiddenInputProps, \"index\">",
+        "source": "composed.tsx:57"
+      }
+    ]
+  },
+  {
+    "name": "SliderThumbProps",
+    "rows": [
+      {
+        "name": "index",
+        "type": "number",
+        "source": "slider.types.ts:180"
+      }
+    ]
+  },
+  {
+    "name": "SliderHiddenInputProps",
+    "extends": "PartProps<\"input\", slider.SliderThumbProps>",
+    "rows": [
+      {
+        "name": "index?",
+        "type": "number",
+        "source": "slider.tsx:202"
+      }
+    ]
+  }
+]

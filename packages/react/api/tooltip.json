@@ -1,0 +1,240 @@
+[
+  {
+    "name": "TooltipMachineProps",
+    "rows": [
+      {
+        "name": "open?",
+        "type": "boolean",
+        "source": "tooltip.types.ts:17"
+      },
+      {
+        "name": "defaultOpen?",
+        "type": "boolean",
+        "source": "tooltip.types.ts:18"
+      },
+      {
+        "name": "openDelay?",
+        "type": "number",
+        "notes": "How long a pointer has to rest on the trigger before the tooltip appears. Long enough that a pointer merely crossing the control never opens one.",
+        "source": "tooltip.types.ts:25",
+        "group": "delays"
+      },
+      {
+        "name": "warmDelay?",
+        "type": "number",
+        "notes": "The delay once the family is warm — a tooltip is up, or one was up within `warmDuration`. The long delay buys the user protection from tooltips they did not ask for; once they have stopped to read one, they have asked.",
+        "source": "tooltip.types.ts:31",
+        "group": "delays"
+      },
+      {
+        "name": "warmDuration?",
+        "type": "number",
+        "notes": "How long the family stays warm after the last tooltip closed.",
+        "source": "tooltip.types.ts:33",
+        "group": "delays"
+      },
+      {
+        "name": "placement?",
+        "type": "Placement",
+        "source": "tooltip.types.ts:36",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "gap?",
+        "type": "number",
+        "source": "tooltip.types.ts:37",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "offset?",
+        "type": "number",
+        "source": "tooltip.types.ts:38",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "flip?",
+        "type": "boolean",
+        "source": "tooltip.types.ts:39",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "shift?",
+        "type": "boolean",
+        "source": "tooltip.types.ts:40",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "padding?",
+        "type": "number",
+        "source": "tooltip.types.ts:41",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "strategy?",
+        "type": "\"absolute\" | \"fixed\"",
+        "source": "tooltip.types.ts:42",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "boundary?",
+        "type": "(() => Rect)",
+        "source": "tooltip.types.ts:43",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "closeOnEscape?",
+        "type": "boolean",
+        "notes": "Governs the gamepad `back` intent as well: B and Escape share one lock.",
+        "source": "tooltip.types.ts:47",
+        "group": "dismissal"
+      },
+      {
+        "name": "closeOnScroll?",
+        "type": "boolean",
+        "notes": "The anchor is moving out from under the surface; following it is worse.",
+        "source": "tooltip.types.ts:49",
+        "group": "dismissal"
+      },
+      {
+        "name": "longPress?",
+        "type": "boolean",
+        "notes": "Opt-in, and off by default on purpose: a touch device has no hover, so a tooltip there hides its content behind a gesture nothing advertises. Turn it on only where the same information is reachable another way.",
+        "source": "tooltip.types.ts:56",
+        "group": "dismissal"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "notes": "Disables the tooltip, not the trigger.",
+        "source": "tooltip.types.ts:58",
+        "group": "dismissal"
+      },
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "notes": "Not defaulted, deliberately: left unset the resolved page direction governs, so a subtree inside an RTL region inherits instead of being reset to `ltr`.",
+        "source": "tooltip.types.ts:60",
+        "group": "dismissal"
+      },
+      {
+        "name": "parentId?",
+        "type": "string",
+        "source": "tooltip.types.ts:61",
+        "group": "dismissal"
+      },
+      {
+        "name": "intents?",
+        "type": "IntentScopeHost | null",
+        "source": "tooltip.types.ts:62",
+        "group": "dismissal"
+      },
+      {
+        "name": "onOpenChange?",
+        "type": "((details: TooltipOpenChangeDetails) => void)",
+        "source": "tooltip.types.ts:63",
+        "group": "dismissal"
+      },
+      {
+        "name": "onDismiss?",
+        "type": "((details: TooltipDismissDetails) => void)",
+        "source": "tooltip.types.ts:64",
+        "group": "dismissal"
+      }
+    ]
+  },
+  {
+    "name": "TooltipComposedProps",
+    "extends": "UseTooltipProps",
+    "rows": [
+      {
+        "name": "trigger",
+        "type": "ComposedTrigger",
+        "notes": "Handed to `TooltipTrigger` as `render` — never as its children. The trigger *is* a `<button>`, and a button inside a button is `nested-interactive`. Required, unlike `<Dialog trigger>`: see the header — nothing anchors, nothing opens and nothing is described without it.",
+        "source": "composed.tsx:86"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "notes": "The phrase. Required, because a tooltip is only ever this one thing.",
+        "source": "composed.tsx:88"
+      },
+      {
+        "name": "container?",
+        "type": "PortalProps[\"container\"]",
+        "source": "composed.tsx:89"
+      },
+      {
+        "name": "keepMounted?",
+        "type": "boolean",
+        "notes": "Keeps the surface in the markup while closed, `hidden` by state rather than unmounted. Rides in `...root` to `TooltipRoot`, which is where the parts read it from — it is not a machine prop, and the machine never learns about it.",
+        "source": "composed.tsx:95"
+      },
+      {
+        "name": "parts?",
+        "type": "TooltipParts",
+        "source": "composed.tsx:96"
+      }
+    ]
+  },
+  {
+    "name": "TooltipOpenChangeDetails",
+    "rows": [
+      {
+        "name": "open",
+        "type": "boolean",
+        "source": "tooltip.types.ts:9"
+      }
+    ]
+  },
+  {
+    "name": "TooltipDismissDetails",
+    "rows": [
+      {
+        "name": "reason",
+        "type": "DismissReason",
+        "source": "tooltip.types.ts:13"
+      }
+    ]
+  },
+  {
+    "name": "UseTooltipProps",
+    "extends": "tooltip.TooltipMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "TooltipParts",
+    "rows": [
+      {
+        "name": "trigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:73"
+      },
+      {
+        "name": "portal?",
+        "type": "TooltipPortalProps",
+        "source": "composed.tsx:74"
+      },
+      {
+        "name": "positioner?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:75"
+      },
+      {
+        "name": "content?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:76"
+      }
+    ]
+  },
+  {
+    "name": "TooltipPortalProps",
+    "extends": "Omit<PortalProps, \"children\">",
+    "rows": [
+      {
+        "name": "children?",
+        "type": "ReactNode",
+        "source": "tooltip.tsx:111"
+      }
+    ]
+  }
+]

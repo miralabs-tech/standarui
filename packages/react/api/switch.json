@@ -1,0 +1,116 @@
+[
+  {
+    "name": "SwitchMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "notes": "Not defaulted, deliberately: left unset the resolved page direction governs, so a subtree inside an RTL region inherits instead of being reset to `ltr`.",
+        "source": "switch.types.ts:13"
+      },
+      {
+        "name": "checked?",
+        "type": "boolean",
+        "notes": "Controlled.",
+        "source": "switch.types.ts:15"
+      },
+      {
+        "name": "defaultChecked?",
+        "type": "boolean",
+        "source": "switch.types.ts:16"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "switch.types.ts:17"
+      },
+      {
+        "name": "invalid?",
+        "type": "boolean",
+        "source": "switch.types.ts:18"
+      },
+      {
+        "name": "required?",
+        "type": "boolean",
+        "source": "switch.types.ts:19"
+      },
+      {
+        "name": "readOnly?",
+        "type": "boolean",
+        "notes": "Blocks the toggle and the drag, and unlike `disabled` leaves the control focusable and still submitted with its form.",
+        "source": "switch.types.ts:21"
+      },
+      {
+        "name": "name?",
+        "type": "string",
+        "source": "switch.types.ts:22"
+      },
+      {
+        "name": "value?",
+        "type": "string",
+        "notes": "What the hidden input submits while checked. Defaults to `\"on\"`, as a checkbox does.",
+        "source": "switch.types.ts:24"
+      },
+      {
+        "name": "form?",
+        "type": "string",
+        "source": "switch.types.ts:25"
+      },
+      {
+        "name": "describedBy?",
+        "type": "string",
+        "notes": "Ids of the text describing this control — a `field` supplies them.",
+        "source": "switch.types.ts:27"
+      },
+      {
+        "name": "draggable?",
+        "type": "boolean",
+        "notes": "The iOS gesture: drag the thumb across the track. On by default.",
+        "source": "switch.types.ts:29"
+      },
+      {
+        "name": "size?",
+        "type": "SwitchSize",
+        "notes": "Pure presentation: `data-size` on the root, the sheet does the rest. Defaults to `\"md\"`.",
+        "source": "switch.types.ts:31"
+      },
+      {
+        "name": "onCheckedChange?",
+        "type": "((details: SwitchCheckedChangeDetails) => void)",
+        "source": "switch.types.ts:32"
+      }
+    ]
+  },
+  {
+    "name": "SwitchComposedProps",
+    "extends": "UseSwitchProps, Omit<PartProps<\"label\", UseSwitchProps>, \"children\">",
+    "rows": [
+      {
+        "name": "label?",
+        "type": "ReactNode",
+        "notes": "The visible text beside the control.",
+        "source": "composed.tsx:36"
+      }
+    ]
+  },
+  {
+    "name": "SwitchSize",
+    "definition": "\"sm\" | \"md\"",
+    "rows": []
+  },
+  {
+    "name": "SwitchCheckedChangeDetails",
+    "rows": [
+      {
+        "name": "checked",
+        "type": "boolean",
+        "source": "switch.types.ts:6"
+      }
+    ]
+  },
+  {
+    "name": "UseSwitchProps",
+    "extends": "switchMachine.SwitchMachineProps, MachineRuntimeProps",
+    "rows": []
+  }
+]

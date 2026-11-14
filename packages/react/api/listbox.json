@@ -1,0 +1,234 @@
+[
+  {
+    "name": "ListboxMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "notes": "Not defaulted, deliberately: left unset the resolved page direction governs, so a subtree inside an RTL region inherits instead of being reset to `ltr`.",
+        "source": "listbox.types.ts:24"
+      },
+      {
+        "name": "orientation?",
+        "type": "Orientation",
+        "source": "listbox.types.ts:25"
+      },
+      {
+        "name": "selectionMode?",
+        "type": "ListboxSelectionMode",
+        "source": "listbox.types.ts:26"
+      },
+      {
+        "name": "deselectable?",
+        "type": "boolean",
+        "notes": "Single mode: re-selecting the selected item clears it. Off by default.",
+        "source": "listbox.types.ts:28"
+      },
+      {
+        "name": "selectOnHighlight?",
+        "type": "boolean",
+        "notes": "The selection follows the focus, which is the native `<select>` model. Resolved default: on in single mode, off in multiple. An extend or a quiet move overrides it for that move alone.",
+        "source": "listbox.types.ts:34"
+      },
+      {
+        "name": "loopFocus?",
+        "type": "boolean",
+        "notes": "Off by default: a list does not wrap. A menu does, and says so.",
+        "source": "listbox.types.ts:36"
+      },
+      {
+        "name": "typeahead?",
+        "type": "boolean",
+        "source": "listbox.types.ts:37"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "listbox.types.ts:38"
+      },
+      {
+        "name": "label?",
+        "type": "string",
+        "notes": "The accessible name when no `label` part is rendered.",
+        "source": "listbox.types.ts:40"
+      },
+      {
+        "name": "intents?",
+        "type": "IntentScopeHost | null",
+        "source": "listbox.types.ts:41"
+      },
+      {
+        "name": "value?",
+        "type": "readonly string[]",
+        "source": "listbox.types.ts:43"
+      },
+      {
+        "name": "defaultValue?",
+        "type": "readonly string[]",
+        "source": "listbox.types.ts:44"
+      },
+      {
+        "name": "highlightedValue?",
+        "type": "string | null",
+        "source": "listbox.types.ts:45"
+      },
+      {
+        "name": "defaultHighlightedValue?",
+        "type": "string | null",
+        "source": "listbox.types.ts:46"
+      },
+      {
+        "name": "onValueChange?",
+        "type": "((details: ListboxValueChangeDetails) => void)",
+        "source": "listbox.types.ts:48"
+      },
+      {
+        "name": "onHighlightChange?",
+        "type": "((details: ListboxHighlightChangeDetails) => void)",
+        "source": "listbox.types.ts:49"
+      },
+      {
+        "name": "onSelect?",
+        "type": "((details: ListboxSelectDetails) => void)",
+        "notes": "Every user act of selection aimed at an item — a click, Space, the pad's A or X — whether or not the value ends up different.",
+        "source": "listbox.types.ts:54"
+      }
+    ]
+  },
+  {
+    "name": "ListboxComposedProps",
+    "extends": "UseListboxProps, Omit<PartProps<\"div\", UseListboxProps>, \"children\">",
+    "rows": [
+      {
+        "name": "options",
+        "type": "readonly ListboxEntry<Meta>[]",
+        "source": "composed.tsx:96"
+      },
+      {
+        "name": "renderOption?",
+        "type": "| ((option: ListboxOption<Meta>, defaults: ReactNode) => ReactNode)",
+        "notes": "Replaces a row's contents, and is handed what the layer would have rendered so a consumer can wrap rather than restate. The row itself — its `value`, its selection, its tab stop — stays the layer's.",
+        "source": "composed.tsx:102"
+      },
+      {
+        "name": "parts?",
+        "type": "ListboxParts",
+        "source": "composed.tsx:105"
+      }
+    ]
+  },
+  {
+    "name": "ListboxSelectionMode",
+    "definition": "\"single\" | \"multiple\"",
+    "rows": []
+  },
+  {
+    "name": "ListboxValueChangeDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "readonly string[]",
+        "source": "listbox.types.ts:11"
+      }
+    ]
+  },
+  {
+    "name": "ListboxHighlightChangeDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "string | null",
+        "source": "listbox.types.ts:15"
+      }
+    ]
+  },
+  {
+    "name": "ListboxSelectDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "string",
+        "source": "listbox.types.ts:19"
+      }
+    ]
+  },
+  {
+    "name": "UseListboxProps",
+    "extends": "listbox.ListboxMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "ListboxEntry",
+    "definition": "ListboxOption<Meta> | ComposedGroup<ListboxOption<Meta>>",
+    "rows": []
+  },
+  {
+    "name": "ListboxOption",
+    "extends": "ComposedDecoration<Meta>",
+    "rows": [
+      {
+        "name": "value",
+        "type": "string",
+        "source": "composed.tsx:64"
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "notes": "Drawn, and what the typeahead matches on — hence `string` and not `ReactNode`.",
+        "source": "composed.tsx:66"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "composed.tsx:67"
+      }
+    ]
+  },
+  {
+    "name": "ListboxParts",
+    "rows": [
+      {
+        "name": "label?",
+        "type": "PartProps<\"span\">",
+        "source": "composed.tsx:82"
+      },
+      {
+        "name": "content?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:83"
+      },
+      {
+        "name": "itemGroup?",
+        "type": "Row<\"div\">",
+        "notes": "Applied to EVERY group, hence no `id` — the entry's own field.",
+        "source": "composed.tsx:85"
+      },
+      {
+        "name": "itemGroupLabel?",
+        "type": "Row<\"span\">",
+        "source": "composed.tsx:86"
+      },
+      {
+        "name": "item?",
+        "type": "Row<\"div\">",
+        "notes": "Applied to EVERY row, hence no `value`, `label` or `disabled`.",
+        "source": "composed.tsx:88"
+      },
+      {
+        "name": "itemText?",
+        "type": "Row<\"span\">",
+        "source": "composed.tsx:89"
+      },
+      {
+        "name": "itemIndicator?",
+        "type": "Row<\"span\">",
+        "source": "composed.tsx:90"
+      }
+    ]
+  },
+  {
+    "name": "Row",
+    "definition": "Omit< PartProps<Element>, \"id\" | \"ref\" | \"aria-labelledby\" | \"aria-describedby\" >",
+    "rows": []
+  }
+]

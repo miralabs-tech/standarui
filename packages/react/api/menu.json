@@ -1,0 +1,550 @@
+[
+  {
+    "name": "MenuMachineProps",
+    "rows": [
+      {
+        "name": "open?",
+        "type": "boolean",
+        "source": "menu.types.ts:40"
+      },
+      {
+        "name": "defaultOpen?",
+        "type": "boolean",
+        "source": "menu.types.ts:41"
+      },
+      {
+        "name": "presentation?",
+        "type": "MenuPresentationProp",
+        "source": "menu.types.ts:42"
+      },
+      {
+        "name": "placement?",
+        "type": "Placement",
+        "notes": "Left undefined on purpose. A root menu falls back to `bottom-start` and a submenu to `right-start`, and which of the two applies is only known once the parent has been wired — so the resolution is a `computed`, not a default.",
+        "source": "menu.types.ts:50",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "gap?",
+        "type": "number",
+        "source": "menu.types.ts:51",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "offset?",
+        "type": "number",
+        "source": "menu.types.ts:52",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "flip?",
+        "type": "boolean",
+        "source": "menu.types.ts:53",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "shift?",
+        "type": "boolean",
+        "source": "menu.types.ts:54",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "padding?",
+        "type": "number",
+        "source": "menu.types.ts:55",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "matchWidth?",
+        "type": "boolean",
+        "source": "menu.types.ts:56",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "strategy?",
+        "type": "\"absolute\" | \"fixed\"",
+        "source": "menu.types.ts:57",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "boundary?",
+        "type": "(() => Rect)",
+        "source": "menu.types.ts:58",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "getAnchorRect?",
+        "type": "(() => Rect)",
+        "notes": "Anchor to a rect rather than an element — a caret, a canvas, a pointer.",
+        "source": "menu.types.ts:60",
+        "group": "positioning, handed straight to the positioner"
+      },
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "notes": "Not defaulted, deliberately: left unset the resolved page direction governs, so a subtree inside an RTL region inherits instead of being reset to `ltr`.",
+        "source": "menu.types.ts:64",
+        "group": "collection"
+      },
+      {
+        "name": "loopFocus?",
+        "type": "boolean",
+        "source": "menu.types.ts:65",
+        "group": "collection"
+      },
+      {
+        "name": "typeahead?",
+        "type": "boolean",
+        "source": "menu.types.ts:66",
+        "group": "collection"
+      },
+      {
+        "name": "closeOnSelect?",
+        "type": "boolean",
+        "notes": "Overridable per item through `getItemProps({ closeOnSelect })`.",
+        "source": "menu.types.ts:68",
+        "group": "collection"
+      },
+      {
+        "name": "highlightedValue?",
+        "type": "string | null",
+        "source": "menu.types.ts:69",
+        "group": "collection"
+      },
+      {
+        "name": "defaultHighlightedValue?",
+        "type": "string | null",
+        "source": "menu.types.ts:70",
+        "group": "collection"
+      },
+      {
+        "name": "closeOnEscape?",
+        "type": "boolean",
+        "source": "menu.types.ts:73",
+        "group": "dismissal"
+      },
+      {
+        "name": "closeOnInteractOutside?",
+        "type": "boolean",
+        "source": "menu.types.ts:74",
+        "group": "dismissal"
+      },
+      {
+        "name": "preventOutsideActivation?",
+        "type": "boolean",
+        "notes": "The native behaviour, and the one the reference app's own context menu had (parity M5): the click that closes a menu must not also activate whatever was under it.",
+        "source": "menu.types.ts:79",
+        "group": "dismissal"
+      },
+      {
+        "name": "modal?",
+        "type": "boolean",
+        "notes": "`false`, and that is a decision rather than an omission. `layer-stack` documents `modal` as \"inert plus scroll lock\" — the dialog's contract, and disproportionate for a menu. Confinement comes from the dismissable layer and the intent stack instead.",
+        "source": "menu.types.ts:86",
+        "group": "dismissal"
+      },
+      {
+        "name": "preventScroll?",
+        "type": "boolean",
+        "notes": "Defaults to the `sheet` presentation and is ignored in `popup`.",
+        "source": "menu.types.ts:88",
+        "group": "dismissal"
+      },
+      {
+        "name": "autoFocus?",
+        "type": "boolean",
+        "source": "menu.types.ts:91",
+        "group": "focus"
+      },
+      {
+        "name": "restoreFocus?",
+        "type": "boolean",
+        "source": "menu.types.ts:92",
+        "group": "focus"
+      },
+      {
+        "name": "initialFocus?",
+        "type": "(() => HTMLElement | null)",
+        "source": "menu.types.ts:93",
+        "group": "focus"
+      },
+      {
+        "name": "finalFocus?",
+        "type": "(() => HTMLElement | null)",
+        "source": "menu.types.ts:94",
+        "group": "focus"
+      },
+      {
+        "name": "submenuOpenDelay?",
+        "type": "number",
+        "source": "menu.types.ts:97",
+        "group": "submenus and motion"
+      },
+      {
+        "name": "submenuCloseDelay?",
+        "type": "number",
+        "source": "menu.types.ts:98",
+        "group": "submenus and motion"
+      },
+      {
+        "name": "selectionFlash?",
+        "type": "boolean",
+        "notes": "The selection blink. Off in `sheet` and under reduced motion, whatever is asked.",
+        "source": "menu.types.ts:100",
+        "group": "submenus and motion"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "menu.types.ts:102",
+        "group": "submenus and motion"
+      },
+      {
+        "name": "persistentElements?",
+        "type": "(() => readonly HTMLElement[])",
+        "source": "menu.types.ts:103",
+        "group": "submenus and motion"
+      },
+      {
+        "name": "parentId?",
+        "type": "string",
+        "source": "menu.types.ts:104",
+        "group": "submenus and motion"
+      },
+      {
+        "name": "label?",
+        "type": "string",
+        "notes": "The accessible name when the surface has no trigger to be labelled by.",
+        "source": "menu.types.ts:106",
+        "group": "submenus and motion"
+      },
+      {
+        "name": "intents?",
+        "type": "IntentScopeHost | null",
+        "source": "menu.types.ts:107",
+        "group": "submenus and motion"
+      },
+      {
+        "name": "onOpenChange?",
+        "type": "((details: MenuOpenChangeDetails) => void)",
+        "source": "menu.types.ts:109",
+        "group": "submenus and motion"
+      },
+      {
+        "name": "onSelect?",
+        "type": "((details: MenuSelectDetails) => void)",
+        "source": "menu.types.ts:110",
+        "group": "submenus and motion"
+      },
+      {
+        "name": "onHighlightChange?",
+        "type": "((details: MenuHighlightChangeDetails) => void)",
+        "source": "menu.types.ts:111",
+        "group": "submenus and motion"
+      },
+      {
+        "name": "onDismiss?",
+        "type": "((details: MenuDismissDetails) => void)",
+        "source": "menu.types.ts:112",
+        "group": "submenus and motion"
+      }
+    ]
+  },
+  {
+    "name": "MenuComposedProps",
+    "extends": "UseMenuProps",
+    "rows": [
+      {
+        "name": "items",
+        "type": "readonly MenuEntry<V, Meta>[]",
+        "source": "composed.tsx:235"
+      },
+      {
+        "name": "trigger?",
+        "type": "ComposedTrigger",
+        "notes": "Handed to `MenuTrigger` as `render` — never as its children. The trigger *is* a `<button>`, and a button inside a button is `nested-interactive`. Exactly one of `trigger` and `contextTrigger`; the function's own signature refuses both at once.",
+        "source": "composed.tsx:242"
+      },
+      {
+        "name": "contextTrigger?",
+        "type": "ReactNode",
+        "notes": "The region a right click, a long press, Shift+F10, the ≣ key or the pad's `contextMenu` intent opens the surface from. Children rather than `render`, because `MenuContextTrigger` is a plain container with no handler of its own — the listeners are installed natively by the machine, since they have to be listening while the surface is closed. A surface with neither anchor is legal and is the store-driven shape: `open` on one side, `label` for the name the trigger would have given it.",
+        "source": "composed.tsx:253"
+      },
+      {
+        "name": "cancelLabel?",
+        "type": "ReactNode",
+        "notes": "The action sheet's Cancel row, handed straight to `MenuContent`, which renders it in the `sheet` presentation and nowhere else. The library ships no copy of its own; `null` is read as absent for the reason the part reads `undefined` that way — `getCancelTriggerProps` writes no accessible name, so an empty button would be a nameless one.",
+        "source": "composed.tsx:261"
+      },
+      {
+        "name": "container?",
+        "type": "PortalProps[\"container\"]",
+        "notes": "Reaches every portal in the tree, so a submenu cannot escape its parent's host.",
+        "source": "composed.tsx:263"
+      },
+      {
+        "name": "keepMounted?",
+        "type": "boolean",
+        "notes": "Keeps every surface in the tree mounted while closed; the sheet hides them.",
+        "source": "composed.tsx:265"
+      },
+      {
+        "name": "renderItem?",
+        "type": "((item: MenuRow<V, Meta>, defaults: ReactNode) => ReactNode)",
+        "notes": "Replaces the CHILDREN of a row, never the row. `defaults` is what the layer would have rendered — the checkmark cell on a checkable, the symbol, the text, the subtitle, the shortcut — and it is handed over so that **decorating** is the cheapest thing to do, not because replacing is impossible. Rendering something else instead of `defaults` is the consumer's to do and costs them the part that names the row (`MenuItemText`), the checkmark, and the leading column those two share. Decorate as a **sibling** of `defaults`, never by wrapping it in an element: a row's children are its grid cells (`_menu.scss`, `grid-template-columns` on `menu:item`), each one placed by `grid-column`, so a wrapper takes all of them out of the grid at once. Rows only. A group is not one, a separator is not one, and a submenu's trigger item is not one either — it opens a surface rather than choosing, and the sheet draws its chevron as a pseudo-element on the row itself.",
+        "source": "composed.tsx:284"
+      },
+      {
+        "name": "parts?",
+        "type": "MenuParts",
+        "source": "composed.tsx:285"
+      }
+    ]
+  },
+  {
+    "name": "MenuPresentationProp",
+    "definition": "\"auto\" | MenuPresentation",
+    "rows": []
+  },
+  {
+    "name": "MenuOpenChangeDetails",
+    "rows": [
+      {
+        "name": "open",
+        "type": "boolean",
+        "source": "menu.types.ts:24"
+      }
+    ]
+  },
+  {
+    "name": "MenuSelectDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "string",
+        "source": "menu.types.ts:28"
+      }
+    ]
+  },
+  {
+    "name": "MenuHighlightChangeDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "string | null",
+        "source": "menu.types.ts:32"
+      }
+    ]
+  },
+  {
+    "name": "MenuDismissDetails",
+    "rows": [
+      {
+        "name": "reason",
+        "type": "DismissReason",
+        "source": "menu.types.ts:36"
+      }
+    ]
+  },
+  {
+    "name": "UseMenuProps",
+    "extends": "menu.MenuMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "MenuEntry",
+    "definition": "MenuRow<V, Meta> | MenuSubmenu<V, Meta> | ComposedGroup<MenuEntry<V, Meta>> | ComposedSeparator",
+    "rows": []
+  },
+  {
+    "name": "MenuRow",
+    "definition": "MenuAction<V, Meta> | MenuCheckable<V, Meta>",
+    "rows": []
+  },
+  {
+    "name": "MenuParts",
+    "rows": [
+      {
+        "name": "trigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:171"
+      },
+      {
+        "name": "contextTrigger?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:172"
+      },
+      {
+        "name": "portal?",
+        "type": "MenuPortalProps",
+        "notes": "Reaches every surface in the tree, the root's and each submenu's.",
+        "source": "composed.tsx:174"
+      },
+      {
+        "name": "backdrop?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:175"
+      },
+      {
+        "name": "positioner?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:176"
+      },
+      {
+        "name": "content?",
+        "type": "MenuContentProps",
+        "source": "composed.tsx:177"
+      },
+      {
+        "name": "itemGroup?",
+        "type": "Omit<MenuItemGroupProps, \"id\" | \"label\">",
+        "notes": "Applied to EVERY group — `id` and `label` are the entry's, one per group.",
+        "source": "composed.tsx:179"
+      },
+      {
+        "name": "itemGroupLabel?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:180"
+      },
+      {
+        "name": "item?",
+        "type": "| Omit< PartProps<\"div\">, \"id\" | \"ref\" | \"aria-labelledby\" | \"aria-describedby\" | \"aria-controls\" >",
+        "notes": "Applied to EVERY row, hence no `id` **and no IDREF**: one id repeated down a menu is a broken reference per row, and one `aria-labelledby` repeated gives every row the same name — which no dangling-IDREF check can see, because the id it points at does resolve. `ref` goes for the same reason: a single ref held by N rows ends up holding the last one.",
+        "source": "composed.tsx:188"
+      },
+      {
+        "name": "triggerItem?",
+        "type": "| Omit< PartProps<\"div\">, \"id\" | \"ref\" | \"aria-labelledby\" | \"aria-describedby\" | \"aria-controls\" >",
+        "notes": "Applied to EVERY submenu row, and repeated for the same reasons.",
+        "source": "composed.tsx:195"
+      },
+      {
+        "name": "itemSymbol?",
+        "type": "| Omit< PartProps<\"span\">, \"id\" | \"ref\" | \"aria-labelledby\" | \"aria-describedby\" | \"aria-controls\" >",
+        "source": "composed.tsx:201"
+      },
+      {
+        "name": "itemText?",
+        "type": "| Omit< PartProps<\"span\">, \"id\" | \"ref\" | \"aria-labelledby\" | \"aria-describedby\" | \"aria-controls\" >",
+        "source": "composed.tsx:207"
+      },
+      {
+        "name": "itemDescription?",
+        "type": "| Omit< PartProps<\"span\">, \"id\" | \"ref\" | \"aria-labelledby\" | \"aria-describedby\" | \"aria-controls\" >",
+        "source": "composed.tsx:213"
+      },
+      {
+        "name": "itemIndicator?",
+        "type": "| Omit< PartProps<\"span\">, \"id\" | \"ref\" | \"aria-labelledby\" | \"aria-describedby\" | \"aria-controls\" >",
+        "source": "composed.tsx:219"
+      },
+      {
+        "name": "itemShortcut?",
+        "type": "| Omit< PartProps<\"kbd\">, \"id\" | \"ref\" | \"aria-labelledby\" | \"aria-describedby\" | \"aria-controls\" >",
+        "source": "composed.tsx:225"
+      },
+      {
+        "name": "separator?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:231"
+      }
+    ]
+  },
+  {
+    "name": "MenuPresentation",
+    "definition": "\"popup\" | \"sheet\"",
+    "rows": []
+  },
+  {
+    "name": "MenuSubmenu",
+    "rows": [
+      {
+        "name": "value",
+        "type": "V",
+        "source": "composed.tsx:130"
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "source": "composed.tsx:131"
+      },
+      {
+        "name": "id?",
+        "type": "string",
+        "notes": "The nested machine's scope id, and the one field a group's `id` and this one do not share a reason for. A group needs it or its `aria-labelledby` dangles; a submenu without it is correct — `useMachine` mints one from React's own id hook, and the server and the client agree on it. What it buys is what a group's key buys: every id under this surface becomes the consumer's rather than React's, which is what a server render has to match to the character.",
+        "source": "composed.tsx:140"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "composed.tsx:141"
+      },
+      {
+        "name": "icon?",
+        "type": "ReactNode",
+        "source": "composed.tsx:142"
+      },
+      {
+        "name": "items",
+        "type": "readonly MenuEntry<V, Meta>[]",
+        "source": "composed.tsx:143"
+      }
+    ]
+  },
+  {
+    "name": "MenuAction",
+    "definition": "Omit< CoreMenuItemProps, \"value\" | \"label\" | \"description\" > & ComposedDecoration<Meta> & { readonly value: V; readonly label: string; readonly description?: string | undefined; }",
+    "rows": []
+  },
+  {
+    "name": "MenuCheckable",
+    "definition": "Omit< CoreMenuOptionItemProps, \"value\" | \"label\" | \"description\" > & ComposedDecoration<Meta> & { readonly value: V; readonly label: string; readonly description?: string | undefined; }",
+    "rows": []
+  },
+  {
+    "name": "MenuPortalProps",
+    "extends": "Omit<PortalProps, \"children\">",
+    "rows": [
+      {
+        "name": "children?",
+        "type": "ReactNode",
+        "source": "menu.tsx:242"
+      }
+    ]
+  },
+  {
+    "name": "MenuContentProps",
+    "extends": "PartProps<\"div\">",
+    "rows": [
+      {
+        "name": "cancelLabel?",
+        "type": "ReactNode",
+        "notes": "The action sheet's Cancel button, rendered for you (components.md §3-1): pass the word and the part appears in the `sheet` presentation and nowhere else. Left out, nothing is added — the library ships no copy of its own, and a nameless button is worse than none (the machine warns about one in dev).",
+        "source": "menu.tsx:312"
+      }
+    ]
+  },
+  {
+    "name": "MenuItemGroupProps",
+    "rows": [
+      {
+        "name": "id",
+        "type": "string",
+        "notes": "Ties the group to its label. Any stable string the consumer owns.",
+        "source": "menu.types.ts:333"
+      },
+      {
+        "name": "label?",
+        "type": "boolean",
+        "notes": "The group renders an `itemGroupLabel` part — wires `aria-labelledby`. Same shape as `MenuItemProps.description` and declared for the same reason: `connect` is pure, so it cannot look for the label. Written unconditionally the attribute is worse than absent — the group ends with no accessible name *and* a dangling IDREF, which axe reports as `incomplete` rather than a violation, so no test catches it.",
+        "source": "menu.types.ts:342"
+      },
+      {
+        "name": "orientation?",
+        "type": "\"vertical\" | \"horizontal\"",
+        "source": "menu.types.ts:343"
+      }
+    ]
+  }
+]

@@ -1,0 +1,175 @@
+[
+  {
+    "name": "AccordionMachineProps",
+    "rows": [
+      {
+        "name": "value?",
+        "type": "readonly string[]",
+        "notes": "Controlled. Always an array — \"single\" is an array of at most one.",
+        "source": "accordion.types.ts:26"
+      },
+      {
+        "name": "defaultValue?",
+        "type": "readonly string[]",
+        "source": "accordion.types.ts:27"
+      },
+      {
+        "name": "multiple?",
+        "type": "boolean",
+        "notes": "Several panels open at once. `deselectable` is implied and ignored.",
+        "source": "accordion.types.ts:29"
+      },
+      {
+        "name": "deselectable?",
+        "type": "boolean",
+        "notes": "Whether the open panel can be closed by pressing its own header. Defaults to `true`, which is where this diverges from Radix on purpose: the `<details>` this component replaces close freely, and that is the reference-app parity floor (CDC §4.5).",
+        "source": "accordion.types.ts:36"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "notes": "The whole accordion. An item disables itself on its own parts.",
+        "source": "accordion.types.ts:38"
+      },
+      {
+        "name": "loopFocus?",
+        "type": "boolean",
+        "notes": "Whether ↑/↓ wrap at the ends of the header list.",
+        "source": "accordion.types.ts:40"
+      },
+      {
+        "name": "hiddenUntilFound?",
+        "type": "boolean",
+        "notes": "Renders closed panels as `hidden=\"until-found\"`, so find-in-page reaches their text and opens them. Opt-in: the value degrades to a plain boolean `hidden` in an engine that does not know it, which is correct but is a different reading experience, and a consumer should choose it.",
+        "source": "accordion.types.ts:47"
+      },
+      {
+        "name": "describedBy?",
+        "type": "string",
+        "notes": "Ids of the text describing this control — a `field` supplies them.",
+        "source": "accordion.types.ts:49"
+      },
+      {
+        "name": "onValueChange?",
+        "type": "((details: AccordionValueChangeDetails) => void)",
+        "source": "accordion.types.ts:50"
+      },
+      {
+        "name": "onFocusChange?",
+        "type": "((details: AccordionFocusChangeDetails) => void)",
+        "source": "accordion.types.ts:51"
+      }
+    ]
+  },
+  {
+    "name": "AccordionComposedProps",
+    "extends": "UseAccordionProps, Omit<PartProps<\"div\", UseAccordionProps>, \"children\">",
+    "rows": [
+      {
+        "name": "items",
+        "type": "readonly AccordionSection<Meta>[]",
+        "source": "composed.tsx:87"
+      },
+      {
+        "name": "parts?",
+        "type": "AccordionParts",
+        "source": "composed.tsx:88"
+      }
+    ]
+  },
+  {
+    "name": "AccordionValueChangeDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "readonly string[]",
+        "source": "accordion.types.ts:8"
+      }
+    ]
+  },
+  {
+    "name": "AccordionFocusChangeDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "string | null",
+        "source": "accordion.types.ts:12"
+      }
+    ]
+  },
+  {
+    "name": "UseAccordionProps",
+    "extends": "accordion.AccordionMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "AccordionSection",
+    "extends": "ComposedDecoration<Meta>",
+    "rows": [
+      {
+        "name": "value",
+        "type": "string",
+        "notes": "The machine's identity for this section, and this layer's key.",
+        "source": "composed.tsx:50"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "source": "composed.tsx:51"
+      },
+      {
+        "name": "content?",
+        "type": "ReactNode",
+        "notes": "The panel's content. A section with an empty panel still has one to point at.",
+        "source": "composed.tsx:53"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "notes": "This section alone. The whole accordion is disabled by `disabled` on the root.",
+        "source": "composed.tsx:55"
+      }
+    ]
+  },
+  {
+    "name": "AccordionParts",
+    "rows": [
+      {
+        "name": "item?",
+        "type": "Shared<\"div\">",
+        "source": "composed.tsx:75"
+      },
+      {
+        "name": "header?",
+        "type": "Shared<\"h3\">",
+        "notes": "`render={<h2/>}` lands here — see above.",
+        "source": "composed.tsx:77"
+      },
+      {
+        "name": "trigger?",
+        "type": "Shared<\"button\">",
+        "source": "composed.tsx:78"
+      },
+      {
+        "name": "indicator?",
+        "type": "Shared<\"span\">",
+        "source": "composed.tsx:79"
+      },
+      {
+        "name": "content?",
+        "type": "Shared<\"div\">",
+        "source": "composed.tsx:80"
+      },
+      {
+        "name": "body?",
+        "type": "Shared<\"div\">",
+        "source": "composed.tsx:81"
+      }
+    ]
+  },
+  {
+    "name": "Shared",
+    "definition": "Omit< PartProps<Element>, \"id\" | \"ref\" | \"aria-labelledby\" | \"aria-describedby\" | \"aria-controls\" >",
+    "rows": []
+  }
+]

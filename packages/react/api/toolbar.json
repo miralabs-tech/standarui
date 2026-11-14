@@ -1,0 +1,151 @@
+[
+  {
+    "name": "ToolbarMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "notes": "Not defaulted, deliberately: left unset the resolved page direction governs, so a subtree inside an RTL region inherits instead of being reset to `ltr`.",
+        "source": "toolbar.types.ts:8"
+      },
+      {
+        "name": "orientation?",
+        "type": "Orientation",
+        "source": "toolbar.types.ts:9"
+      },
+      {
+        "name": "loopFocus?",
+        "type": "boolean",
+        "notes": "Whether the arrows wrap at the ends. APG leaves it open; `toggle-group` loops.",
+        "source": "toolbar.types.ts:11"
+      },
+      {
+        "name": "label?",
+        "type": "string",
+        "notes": "The toolbar's accessible name (APG requires one) — rendered as `aria-label`.",
+        "source": "toolbar.types.ts:13"
+      }
+    ]
+  },
+  {
+    "name": "ToolbarComposedProps",
+    "extends": "UseToolbarProps, Omit<PartProps<\"div\", UseToolbarProps>, \"children\">",
+    "rows": [
+      {
+        "name": "items",
+        "type": "readonly ToolbarEntry<Meta>[]",
+        "source": "composed.tsx:110"
+      },
+      {
+        "name": "parts?",
+        "type": "ToolbarParts",
+        "source": "composed.tsx:111"
+      }
+    ]
+  },
+  {
+    "name": "UseToolbarProps",
+    "extends": "toolbar.ToolbarMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "ToolbarEntry",
+    "definition": "ToolbarAction<Meta> | ComposedSeparator | ToolbarSpacerEntry | ToolbarTitleEntry | ComposedGroup<ToolbarAction<Meta>>",
+    "rows": []
+  },
+  {
+    "name": "ToolbarParts",
+    "rows": [
+      {
+        "name": "group?",
+        "type": "Omit<PartProps<\"div\">, \"id\" | \"ref\" | \"aria-label\">",
+        "source": "composed.tsx:87"
+      },
+      {
+        "name": "separator?",
+        "type": "Omit<PartProps<\"div\">, \"id\" | \"ref\">",
+        "source": "composed.tsx:88"
+      },
+      {
+        "name": "spacer?",
+        "type": "Omit<PartProps<\"div\">, \"id\" | \"ref\">",
+        "source": "composed.tsx:89"
+      },
+      {
+        "name": "title?",
+        "type": "Omit<PartProps<\"h1\">, \"id\" | \"ref\">",
+        "source": "composed.tsx:90"
+      },
+      {
+        "name": "item?",
+        "type": "| Omit< PartProps<\"button\">, \"id\" | \"ref\" | \"render\" | \"value\" | \"aria-labelledby\" | \"aria-describedby\" >",
+        "notes": "Applied to EVERY stop, hence no `value` — the entry's own field — and no `id` **or IDREF**: one id repeated down a bar is a broken reference per stop, and one `aria-labelledby` repeated gives every stop the same name, which no dangling-IDREF check can see because the id it points at does resolve. `ref` goes because a single ref held by N stops ends up holding the last one, and `render` because the substitution is the entry's.",
+        "source": "composed.tsx:99"
+      }
+    ]
+  },
+  {
+    "name": "ToolbarAction",
+    "extends": "ComposedDecoration<Meta>",
+    "rows": [
+      {
+        "name": "value",
+        "type": "string",
+        "notes": "The stop's identity, and this layer's key. Required — see above.",
+        "source": "composed.tsx:50"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "source": "composed.tsx:51"
+      },
+      {
+        "name": "render?",
+        "type": "ReactElement",
+        "notes": "The control this stop *is*, handed to the part's `render` — never wrapped by it. `ToolbarItem` is the focusable itself, so a control nested inside one would leave the bar roving over an element the browser cannot focus.",
+        "source": "composed.tsx:57"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "composed.tsx:58"
+      },
+      {
+        "name": "title?",
+        "type": "never",
+        "notes": "Refused: `title` is the key of the title entry, never an attribute of a stop.",
+        "source": "composed.tsx:60"
+      }
+    ]
+  },
+  {
+    "name": "ToolbarSpacerEntry",
+    "rows": [
+      {
+        "name": "spacer",
+        "type": "true",
+        "source": "composed.tsx:65"
+      }
+    ]
+  },
+  {
+    "name": "ToolbarTitleEntry",
+    "rows": [
+      {
+        "name": "title",
+        "type": "ReactNode",
+        "source": "composed.tsx:70"
+      },
+      {
+        "name": "size?",
+        "type": "\"inline\" | \"large\"",
+        "source": "composed.tsx:71"
+      },
+      {
+        "name": "label?",
+        "type": "never",
+        "source": "composed.tsx:72"
+      }
+    ]
+  }
+]
