@@ -402,7 +402,8 @@ describe("scrollIntoInlineView", () => {
         since = performance.now();
       }
     }
-    expect(node.scrollLeft).toBe(0);
+    // Recent Firefox ends a smooth scroll a sub-pixel short of its target (0.05 px).
+    expect(node.scrollLeft).toBeCloseTo(0, 0);
   });
 
   it("does not move a scroller that has nothing to scroll", () => {
