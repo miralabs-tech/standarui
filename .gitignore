@@ -1,0 +1,14 @@
+node_modules/
+dist/
+tarballs/
+coverage/
+.turbo/
+*.tsbuildinfo
+*.log
+.vite/
+playwright-report/
+test-results/
+
+# OS
+.DS_Store
+Thumbs.db

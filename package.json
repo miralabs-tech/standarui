@@ -1,0 +1,50 @@
+{
+  "name": "standarui",
+  "version": "0.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miralabs-tech/standarui.git"
+  },
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "bun run --filter './packages/*' build",
+    "docs:api": "bun run scripts/generate-api-reference.ts",
+    "manifest:diff": "bun run scripts/manifest-diff.ts",
+    "typecheck": "tsc --noEmit && bun run --filter './packages/*' --if-present typecheck",
+    "test": "vitest run",
+    "test:unit": "vitest run --project unit",
+    "test:browser": "vitest run --project browser",
+    "test:watch": "vitest",
+    "bench": "vitest bench --project unit --run",
+    "check:package": "bun run scripts/check-package.ts",
+    "check:size": "bun run scripts/size-budget.ts",
+    "ci:local": "bun run scripts/ci-local.ts",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write ."
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.5",
+    "@biomejs/biome": "2.5.10",
+    "@standarx/nav": "0.4.1",
+    "@types/node": "^26.4.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "@vitest/browser-playwright": "^4.1.11",
+    "axe-core": "^4.13.0",
+    "oxc-parser": "0.127.0",
+    "playwright": "^1.62.1",
+    "publint": "^0.3.24",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "tsdown": "0.22.14",
+    "typescript": "^7.0.2",
+    "unrun": "^0.3.1",
+    "vitest": "^4.1.11"
+  }
+}
