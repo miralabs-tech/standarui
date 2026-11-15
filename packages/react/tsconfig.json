@@ -1,0 +1,28 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    // Resolved from source, not from `dist`: the typecheck job does not build
+    // first. `paths` replaces rather than merges with the base, so the root
+    // specifier is repeated here. The wildcard covers every component subpath,
+    // which is why adding one is a single new folder and nothing else.
+    //
+    // Exact patterns win over the wildcard, which is what keeps a non-component
+    // subpath such as `reactivity` on its own target: a `paths` miss falls
+    // through to node resolution — which answers from `dist` on any machine that
+    // has ever built, and fails in CI, which does not build first. Same list as
+    // the alias table in `vitest.config.ts`; `scripts/workspace-paths.test.ts`
+    // holds the two equal. The input engines live in `@standarx/nav` since
+    // decision 57 and resolve through `node_modules` like any dependency.
+    "paths": {
+      "@standarui/core": ["../../packages/core/src/index.ts"],
+      "@standarui/core/reactivity": ["../../packages/core/src/reactivity.ts"],
+      "@standarui/core/color-picker/eyedropper": [
+        "../../packages/core/src/components/color-picker/eyedropper.ts"
+      ],
+      "@standarui/core/*": ["../../packages/core/src/components/*/index.ts"]
+    }
+  },
+  "include": ["src", "tsdown.config.ts"],
+  "exclude": ["src/app-screen.browser.test.tsx"]
+}

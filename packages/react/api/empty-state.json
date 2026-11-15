@@ -1,0 +1,84 @@
+[
+  {
+    "name": "EmptyStateMachineProps",
+    "rows": [
+      {
+        "name": "variant?",
+        "type": "EmptyStateVariant",
+        "notes": "How the indicator presents: `\"symbol\"` is the bare large symbol (the default), `\"circle\"` is a title-sized glyph in a tinted disc. The third configuration — title and subtitle alone — is obtained by not rendering the indicator part, not by a prop value.",
+        "source": "empty-state.ts:38"
+      },
+      {
+        "name": "announce?",
+        "type": "boolean",
+        "notes": "Puts `role=\"status\"` on the root so a screen reader announces the placeholder when it appears — an emptied search result, a cleared list. Off by default: a static page-level empty state is not a live region.",
+        "source": "empty-state.ts:44"
+      }
+    ]
+  },
+  {
+    "name": "EmptyStateComposedProps",
+    "extends": "EmptyStateMachineProps, Omit<PartProps<\"div\", EmptyStateMachineProps>, \"children\" | \"title\">",
+    "rows": [
+      {
+        "name": "icon?",
+        "type": "ReactNode",
+        "notes": "The symbol above the title — an inline SVG, never a text character. Left out, the indicator part is not placed at all, which is the third configuration (title and description alone) and not a `variant` value.",
+        "source": "composed.tsx:93"
+      },
+      {
+        "name": "title",
+        "type": "Exclude<ReactNode, null | undefined | boolean>",
+        "notes": "What the placeholder says, and required for that reason — see above. Always placed, so the heading is what a reader and a screen reader both get.",
+        "source": "composed.tsx:98"
+      },
+      {
+        "name": "description?",
+        "type": "ReactNode",
+        "notes": "The sentence under it: why the container is empty, or what would fill it.",
+        "source": "composed.tsx:100"
+      },
+      {
+        "name": "actions?",
+        "type": "ReactNode",
+        "notes": "The row of ways out — the consumer's own buttons or links, in document order. Not a list of labels: there is no action-trigger part here for the library to place them on.",
+        "source": "composed.tsx:106"
+      },
+      {
+        "name": "parts?",
+        "type": "EmptyStateParts",
+        "source": "composed.tsx:107"
+      }
+    ]
+  },
+  {
+    "name": "EmptyStateVariant",
+    "definition": "\"symbol\" | \"circle\"",
+    "rows": []
+  },
+  {
+    "name": "EmptyStateParts",
+    "rows": [
+      {
+        "name": "indicator?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:79"
+      },
+      {
+        "name": "title?",
+        "type": "PartProps<\"h2\">",
+        "source": "composed.tsx:80"
+      },
+      {
+        "name": "description?",
+        "type": "PartProps<\"p\">",
+        "source": "composed.tsx:81"
+      },
+      {
+        "name": "actions?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:82"
+      }
+    ]
+  }
+]

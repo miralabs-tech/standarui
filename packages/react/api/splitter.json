@@ -1,0 +1,208 @@
+[
+  {
+    "name": "SplitterMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "notes": "Not defaulted, deliberately: left unset the resolved page direction governs, so a subtree inside an RTL region inherits instead of being reset to `ltr`.",
+        "source": "splitter.types.ts:25"
+      },
+      {
+        "name": "orientation?",
+        "type": "Orientation",
+        "notes": "The axis the panels are laid out on: `horizontal` is side by side, and the handle announces the perpendicular `vertical`.",
+        "source": "splitter.types.ts:27"
+      },
+      {
+        "name": "panelSide?",
+        "type": "SplitterPanelSide",
+        "notes": "Which side of the handle the controlled panel sits on.",
+        "source": "splitter.types.ts:29"
+      },
+      {
+        "name": "unit?",
+        "type": "SplitterUnit",
+        "source": "splitter.types.ts:30"
+      },
+      {
+        "name": "min?",
+        "type": "number",
+        "source": "splitter.types.ts:31"
+      },
+      {
+        "name": "max?",
+        "type": "number",
+        "notes": "Required in practice under `unit: \"px\"`: an `aria-valuemax` has to be a finite number, and the default of 100 is a hundred pixels.",
+        "source": "splitter.types.ts:33"
+      },
+      {
+        "name": "step?",
+        "type": "number",
+        "notes": "What an arrow key moves by, in `unit`. Defaults to 1 for `%` and 10 for `px`. Never snaps a size set by a drag or by `defaultSize`.",
+        "source": "splitter.types.ts:35"
+      },
+      {
+        "name": "size?",
+        "type": "number",
+        "source": "splitter.types.ts:36"
+      },
+      {
+        "name": "defaultSize?",
+        "type": "number",
+        "source": "splitter.types.ts:37"
+      },
+      {
+        "name": "onSizeChange?",
+        "type": "((details: SplitterSizeChangeDetails) => void)",
+        "source": "splitter.types.ts:38"
+      },
+      {
+        "name": "onSizeChangeEnd?",
+        "type": "((details: SplitterSizeChangeDetails) => void)",
+        "notes": "Once at the end of a user action (a drag, a keyboard step, Enter, a double-click, a gamepad hold) that left the size or the collapsed state different from where it began, with the size just written. Nothing when the action ended where it began.",
+        "source": "splitter.types.ts:40"
+      },
+      {
+        "name": "collapsible?",
+        "type": "boolean",
+        "source": "splitter.types.ts:41"
+      },
+      {
+        "name": "collapsedSize?",
+        "type": "number",
+        "notes": "The size the panel paints while collapsed, in `unit`.",
+        "source": "splitter.types.ts:43"
+      },
+      {
+        "name": "collapsed?",
+        "type": "boolean",
+        "source": "splitter.types.ts:44"
+      },
+      {
+        "name": "defaultCollapsed?",
+        "type": "boolean",
+        "source": "splitter.types.ts:45"
+      },
+      {
+        "name": "onCollapsedChange?",
+        "type": "((details: SplitterCollapsedChangeDetails) => void)",
+        "source": "splitter.types.ts:46"
+      },
+      {
+        "name": "resetOnDoubleClick?",
+        "type": "boolean",
+        "notes": "Double-click on the handle restores `defaultSize`. Defaults to `true`.",
+        "source": "splitter.types.ts:48"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "splitter.types.ts:49"
+      },
+      {
+        "name": "label?",
+        "type": "string",
+        "source": "splitter.types.ts:50"
+      },
+      {
+        "name": "labelledBy?",
+        "type": "string",
+        "source": "splitter.types.ts:51"
+      },
+      {
+        "name": "getValueText?",
+        "type": "((details: SplitterValueTextDetails) => string)",
+        "notes": "Wins over the bare number `aria-valuenow` carries.",
+        "source": "splitter.types.ts:53"
+      },
+      {
+        "name": "intents?",
+        "type": "IntentScopeHost | null",
+        "notes": "The intent bus engage mode pushes its scope onto. `null` disables the pad.",
+        "source": "splitter.types.ts:55"
+      }
+    ]
+  },
+  {
+    "name": "SplitterComposedProps",
+    "extends": "UseSplitterProps",
+    "rows": [
+      {
+        "name": "children?",
+        "type": "ReactNode",
+        "source": "composed.tsx:11"
+      },
+      {
+        "name": "parts?",
+        "type": "SplitterParts",
+        "source": "composed.tsx:12"
+      }
+    ]
+  },
+  {
+    "name": "SplitterPanelSide",
+    "definition": "\"start\" | \"end\"",
+    "rows": []
+  },
+  {
+    "name": "SplitterUnit",
+    "definition": "\"px\" | \"%\"",
+    "rows": []
+  },
+  {
+    "name": "SplitterSizeChangeDetails",
+    "rows": [
+      {
+        "name": "size",
+        "type": "number",
+        "source": "splitter.types.ts:11"
+      }
+    ]
+  },
+  {
+    "name": "SplitterCollapsedChangeDetails",
+    "rows": [
+      {
+        "name": "collapsed",
+        "type": "boolean",
+        "source": "splitter.types.ts:15"
+      }
+    ]
+  },
+  {
+    "name": "SplitterValueTextDetails",
+    "rows": [
+      {
+        "name": "size",
+        "type": "number",
+        "source": "splitter.types.ts:19"
+      },
+      {
+        "name": "collapsed",
+        "type": "boolean",
+        "source": "splitter.types.ts:20"
+      }
+    ]
+  },
+  {
+    "name": "UseSplitterProps",
+    "extends": "splitter.SplitterMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "SplitterParts",
+    "rows": [
+      {
+        "name": "panel?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:6"
+      },
+      {
+        "name": "handle?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:7"
+      }
+    ]
+  }
+]

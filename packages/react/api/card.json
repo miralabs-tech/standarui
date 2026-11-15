@@ -1,0 +1,94 @@
+[
+  {
+    "name": "CardMachineProps",
+    "rows": [
+      {
+        "name": "variant?",
+        "type": "CardVariant",
+        "notes": "Defaults to `\"raised\"`. Each variant's recipe lives in the stylesheet.",
+        "source": "card.ts:42"
+      }
+    ]
+  },
+  {
+    "name": "CardComposedProps",
+    "extends": "CardMachineProps, Omit<PartProps<\"div\", CardMachineProps>, \"children\" | \"title\">",
+    "rows": [
+      {
+        "name": "title?",
+        "type": "Exclude<ReactNode, null | boolean>",
+        "notes": "The heading, and the one slot no condition can rescue: `null` and `false` are excluded because the part they would empty is an `h3` — see above.",
+        "source": "composed.tsx:83"
+      },
+      {
+        "name": "description?",
+        "type": "ReactNode",
+        "notes": "The line under the heading, in the same column.",
+        "source": "composed.tsx:85"
+      },
+      {
+        "name": "action?",
+        "type": "ReactNode",
+        "notes": "What sits in the header's second column, spanning both its rows — an icon button, most often. Placed as `CardAction`'s children rather than handed to a `render`: `card:action` is a `div`, so a control nested inside it is a control inside a plain box rather than a button inside a button.",
+        "source": "composed.tsx:92"
+      },
+      {
+        "name": "children?",
+        "type": "ReactNode",
+        "notes": "The body.",
+        "source": "composed.tsx:94"
+      },
+      {
+        "name": "footer?",
+        "type": "ReactNode",
+        "notes": "The row of controls the sheet pins to the bottom of the surface.",
+        "source": "composed.tsx:96"
+      },
+      {
+        "name": "parts?",
+        "type": "CardParts",
+        "source": "composed.tsx:97"
+      }
+    ]
+  },
+  {
+    "name": "CardVariant",
+    "definition": "\"raised\" | \"filled\" | \"inset\" | \"glass\"",
+    "rows": []
+  },
+  {
+    "name": "CardParts",
+    "rows": [
+      {
+        "name": "header?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:68"
+      },
+      {
+        "name": "title?",
+        "type": "PartProps<\"h3\">",
+        "source": "composed.tsx:69"
+      },
+      {
+        "name": "description?",
+        "type": "PartProps<\"p\">",
+        "source": "composed.tsx:70"
+      },
+      {
+        "name": "action?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:71"
+      },
+      {
+        "name": "body?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:72"
+      },
+      {
+        "name": "footer?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:73"
+      }
+    ]
+  }
+]

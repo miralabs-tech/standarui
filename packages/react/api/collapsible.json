@@ -1,0 +1,98 @@
+[
+  {
+    "name": "CollapsibleMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "source": "collapsible.types.ts:10"
+      },
+      {
+        "name": "open?",
+        "type": "boolean",
+        "notes": "Controlled: present means the consumer owns the value.",
+        "source": "collapsible.types.ts:12"
+      },
+      {
+        "name": "defaultOpen?",
+        "type": "boolean",
+        "source": "collapsible.types.ts:13"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "notes": "Disables the trigger, not the collapsible: a programmatic `setOpen` still lands — the popover's rule, kept.",
+        "source": "collapsible.types.ts:18"
+      },
+      {
+        "name": "keepMounted?",
+        "type": "boolean",
+        "notes": "Closed content stays mounted, `hidden`. That gives up the exit animation — `display: none` runs none — which is the doctrine tabs established.",
+        "source": "collapsible.types.ts:23"
+      },
+      {
+        "name": "onOpenChange?",
+        "type": "((details: CollapsibleOpenChangeDetails) => void)",
+        "source": "collapsible.types.ts:24"
+      }
+    ]
+  },
+  {
+    "name": "CollapsibleComposedProps",
+    "extends": "UseCollapsibleProps, Omit<PartProps<\"div\", UseCollapsibleProps>, \"children\">",
+    "rows": [
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "notes": "Names the trigger. Required — see above.",
+        "source": "composed.tsx:60"
+      },
+      {
+        "name": "children?",
+        "type": "ReactNode",
+        "notes": "The panel's content.",
+        "source": "composed.tsx:62"
+      },
+      {
+        "name": "parts?",
+        "type": "CollapsibleParts",
+        "source": "composed.tsx:63"
+      }
+    ]
+  },
+  {
+    "name": "CollapsibleOpenChangeDetails",
+    "rows": [
+      {
+        "name": "open",
+        "type": "boolean",
+        "source": "collapsible.types.ts:6"
+      }
+    ]
+  },
+  {
+    "name": "UseCollapsibleProps",
+    "extends": "collapsible.CollapsibleMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "CollapsibleParts",
+    "rows": [
+      {
+        "name": "trigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:51"
+      },
+      {
+        "name": "indicator?",
+        "type": "PartProps<\"span\">",
+        "source": "composed.tsx:52"
+      },
+      {
+        "name": "content?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:53"
+      }
+    ]
+  }
+]

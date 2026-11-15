@@ -1,0 +1,276 @@
+[
+  {
+    "name": "CalendarMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "notes": "Not defaulted, deliberately: left unset the resolved page direction governs, so a subtree inside an RTL region inherits instead of being reset to `ltr`.",
+        "source": "calendar.types.ts:62"
+      },
+      {
+        "name": "locale?",
+        "type": "string",
+        "notes": "Falls back to the environment, then to `en-US`. Never a hard-coded table.",
+        "source": "calendar.types.ts:64"
+      },
+      {
+        "name": "value?",
+        "type": "DateValue | null",
+        "notes": "Controlled. `null` is a value — it means no date is chosen.",
+        "source": "calendar.types.ts:66"
+      },
+      {
+        "name": "defaultValue?",
+        "type": "DateValue | null",
+        "source": "calendar.types.ts:67"
+      },
+      {
+        "name": "focusedValue?",
+        "type": "DateValue",
+        "notes": "The roving anchor, and what decides which page is on screen.",
+        "source": "calendar.types.ts:69"
+      },
+      {
+        "name": "defaultFocusedValue?",
+        "type": "DateValue",
+        "source": "calendar.types.ts:70"
+      },
+      {
+        "name": "today?",
+        "type": "DateValue",
+        "notes": "Today, injected. A server in UTC and a client in `Pacific/Auckland` are not on the same day, so the machine reads no clock for `data-today` until the first client `ENVIRONMENT.SYNC` — pass this to make the render deterministic.",
+        "source": "calendar.types.ts:76"
+      },
+      {
+        "name": "min?",
+        "type": "DateValue | null",
+        "source": "calendar.types.ts:77"
+      },
+      {
+        "name": "max?",
+        "type": "DateValue | null",
+        "source": "calendar.types.ts:78"
+      },
+      {
+        "name": "isDateUnavailable?",
+        "type": "((value: DateValue) => boolean)",
+        "notes": "Consulted in the day view only: it is a predicate over a date.",
+        "source": "calendar.types.ts:80"
+      },
+      {
+        "name": "firstDayOfWeek?",
+        "type": "FirstDayOfWeek",
+        "notes": "ISO numbering, 1 is Monday. Falls back to `Intl.Locale`'s week info.",
+        "source": "calendar.types.ts:82"
+      },
+      {
+        "name": "fixedWeeks?",
+        "type": "boolean",
+        "notes": "Six rows whatever the month, so the surface stops changing height.",
+        "source": "calendar.types.ts:84"
+      },
+      {
+        "name": "weekNumbers?",
+        "type": "boolean",
+        "source": "calendar.types.ts:85"
+      },
+      {
+        "name": "outsideDays?",
+        "type": "CalendarOutsideDays",
+        "source": "calendar.types.ts:86"
+      },
+      {
+        "name": "view?",
+        "type": "CalendarView",
+        "source": "calendar.types.ts:87"
+      },
+      {
+        "name": "defaultView?",
+        "type": "CalendarView",
+        "source": "calendar.types.ts:88"
+      },
+      {
+        "name": "views?",
+        "type": "readonly CalendarView[]",
+        "notes": "The views the `viewTrigger` can open, coarsest last — and it opens **one** of them. The trigger is a disclosure and not a rotation: from the day grid it opens `views[1]`, and from any other view it closes all the way back to `views[0]`. A third entry is therefore never reached by the trigger, which is also what makes `[\"day\", \"year\"]` the way to put the decade grid one click away. Drilling is a separate gesture and this list does not filter it: clicking a year in the decade grid opens the month grid whether or not `\"month\"` is here.",
+        "source": "calendar.types.ts:100"
+      },
+      {
+        "name": "readOnly?",
+        "type": "boolean",
+        "source": "calendar.types.ts:101"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "calendar.types.ts:102"
+      },
+      {
+        "name": "invalid?",
+        "type": "boolean",
+        "notes": "Styling and `aria-invalid` only — a calendar cannot itself be wrong.",
+        "source": "calendar.types.ts:104"
+      },
+      {
+        "name": "labelledBy?",
+        "type": "string",
+        "notes": "Ids naming the grid. Wins over the caption the grid names itself with — a consumer who supplies this owns the whole accessible name.",
+        "source": "calendar.types.ts:109"
+      },
+      {
+        "name": "describedBy?",
+        "type": "string",
+        "notes": "Ids of the text describing this control — a `field` supplies them.",
+        "source": "calendar.types.ts:111"
+      },
+      {
+        "name": "autoFocus?",
+        "type": "boolean",
+        "notes": "Puts the focus on the focused cell once the grid is mounted.",
+        "source": "calendar.types.ts:113"
+      },
+      {
+        "name": "intents?",
+        "type": "IntentScopeHost | null",
+        "notes": "Where the d-pad arrives from. `null` when the app runs no input system.",
+        "source": "calendar.types.ts:115"
+      },
+      {
+        "name": "onValueChange?",
+        "type": "((details: CalendarValueChangeDetails) => void)",
+        "source": "calendar.types.ts:116"
+      },
+      {
+        "name": "onFocusChange?",
+        "type": "((details: CalendarFocusChangeDetails) => void)",
+        "source": "calendar.types.ts:117"
+      },
+      {
+        "name": "onViewChange?",
+        "type": "((details: CalendarViewChangeDetails) => void)",
+        "source": "calendar.types.ts:118"
+      }
+    ]
+  },
+  {
+    "name": "CalendarComposedProps",
+    "extends": "UseCalendarProps, Omit<PartProps<\"div\", UseCalendarProps>, \"children\">",
+    "rows": [
+      {
+        "name": "prevLabel",
+        "type": "string",
+        "notes": "Names the button that pages backwards, and it is required: see the header.",
+        "source": "composed.tsx:72"
+      },
+      {
+        "name": "nextLabel",
+        "type": "string",
+        "notes": "Names the button that pages forwards, and it is required: see the header.",
+        "source": "composed.tsx:74"
+      },
+      {
+        "name": "label?",
+        "type": "ReactNode",
+        "notes": "The calendar's visible label. Omitted, no label part is placed.",
+        "source": "composed.tsx:76"
+      },
+      {
+        "name": "parts?",
+        "type": "CalendarParts",
+        "source": "composed.tsx:77"
+      }
+    ]
+  },
+  {
+    "name": "CalendarOutsideDays",
+    "definition": "\"visible\" | \"hidden\"",
+    "rows": []
+  },
+  {
+    "name": "CalendarView",
+    "definition": "\"day\" | \"month\" | \"year\"",
+    "rows": []
+  },
+  {
+    "name": "CalendarValueChangeDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "DateValue | null",
+        "source": "calendar.types.ts:22"
+      }
+    ]
+  },
+  {
+    "name": "CalendarFocusChangeDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "DateValue",
+        "source": "calendar.types.ts:26"
+      }
+    ]
+  },
+  {
+    "name": "CalendarViewChangeDetails",
+    "rows": [
+      {
+        "name": "view",
+        "type": "CalendarView",
+        "source": "calendar.types.ts:30"
+      }
+    ]
+  },
+  {
+    "name": "UseCalendarProps",
+    "extends": "calendar.CalendarMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "CalendarParts",
+    "rows": [
+      {
+        "name": "label?",
+        "type": "PartProps<\"span\">",
+        "source": "composed.tsx:53"
+      },
+      {
+        "name": "header?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:54"
+      },
+      {
+        "name": "prevTrigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:55"
+      },
+      {
+        "name": "viewTrigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:56"
+      },
+      {
+        "name": "caption?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:57"
+      },
+      {
+        "name": "nextTrigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:58"
+      },
+      {
+        "name": "grid?",
+        "type": "PartProps<\"table\">",
+        "source": "composed.tsx:59"
+      },
+      {
+        "name": "weekdayRow?",
+        "type": "PartProps<\"tr\">",
+        "notes": "The row of day names. It removes itself in the month and year views, where the machine reports no weekdays, so an entry here reaches a row that is not always rendered — the same contract the part itself carries.",
+        "source": "composed.tsx:65"
+      }
+    ]
+  }
+]

@@ -1,0 +1,144 @@
+[
+  {
+    "name": "DrawerMachineProps",
+    "rows": [
+      {
+        "name": "open?",
+        "type": "boolean",
+        "notes": "The state of the surface being decorated. The drawer never owns it and cannot open itself — that is what keeps it from becoming a second owner of the `open` truth the dialog already holds.",
+        "source": "drawer.types.ts:47"
+      },
+      {
+        "name": "edge?",
+        "type": "DrawerEdge",
+        "source": "drawer.types.ts:48"
+      },
+      {
+        "name": "detents?",
+        "type": "readonly DrawerDetent[]",
+        "source": "drawer.types.ts:49"
+      },
+      {
+        "name": "detent?",
+        "type": "DrawerDetent",
+        "source": "drawer.types.ts:50"
+      },
+      {
+        "name": "defaultDetent?",
+        "type": "DrawerDetent",
+        "source": "drawer.types.ts:51"
+      },
+      {
+        "name": "onDetentChange?",
+        "type": "((details: DrawerDetentChangeDetails) => void)",
+        "source": "drawer.types.ts:52"
+      },
+      {
+        "name": "onDragEnd?",
+        "type": "((details: DrawerDragEndDetails) => void)",
+        "source": "drawer.types.ts:53"
+      },
+      {
+        "name": "dismissible?",
+        "type": "boolean",
+        "source": "drawer.types.ts:54"
+      },
+      {
+        "name": "dismissThreshold?",
+        "type": "number",
+        "notes": "Fraction of the smallest detent a release has to fall under to dismiss.",
+        "source": "drawer.types.ts:56"
+      },
+      {
+        "name": "draggable?",
+        "type": "boolean",
+        "source": "drawer.types.ts:57"
+      },
+      {
+        "name": "dragFrom?",
+        "type": "\"content\" | \"grabber\"",
+        "source": "drawer.types.ts:58"
+      },
+      {
+        "name": "stack?",
+        "type": "boolean",
+        "notes": "iOS's receding back page. Opt-in — it needs an element to recede.",
+        "source": "drawer.types.ts:60"
+      },
+      {
+        "name": "stackElement?",
+        "type": "(() => HTMLElement | null)",
+        "source": "drawer.types.ts:61"
+      },
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "notes": "Not defaulted, deliberately: left unset the resolved page direction governs, so a subtree inside an RTL region inherits instead of being reset to `ltr`.",
+        "source": "drawer.types.ts:63"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "notes": "Freezes the track, never the surface: Escape still closes, that is the dialog's.",
+        "source": "drawer.types.ts:65"
+      },
+      {
+        "name": "intents?",
+        "type": "IntentScopeHost | null",
+        "source": "drawer.types.ts:66"
+      },
+      {
+        "name": "onDismissRequest?",
+        "type": "(() => void)",
+        "notes": "The gesture asking the decorated surface to close. It cannot go through `setOpen(false)`: that would skip `canDismiss` and never call `onDismiss`.",
+        "source": "drawer.types.ts:71"
+      }
+    ]
+  },
+  {
+    "name": "DrawerEdge",
+    "definition": "\"bottom\" | \"top\" | \"start\" | \"end\"",
+    "rows": []
+  },
+  {
+    "name": "DrawerDetent",
+    "definition": "number",
+    "rows": []
+  },
+  {
+    "name": "DrawerDetentChangeDetails",
+    "rows": [
+      {
+        "name": "detent",
+        "type": "DrawerDetent",
+        "source": "drawer.types.ts:30"
+      },
+      {
+        "name": "index",
+        "type": "number",
+        "source": "drawer.types.ts:31"
+      }
+    ]
+  },
+  {
+    "name": "DrawerDragEndDetails",
+    "rows": [
+      {
+        "name": "detent",
+        "type": "DrawerDetent",
+        "source": "drawer.types.ts:35"
+      },
+      {
+        "name": "dismissed",
+        "type": "boolean",
+        "source": "drawer.types.ts:36"
+      },
+      {
+        "name": "velocity",
+        "type": "number",
+        "notes": "Signed px/ms, as the gesture reported it.",
+        "source": "drawer.types.ts:38"
+      }
+    ]
+  }
+]

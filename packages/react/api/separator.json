@@ -1,0 +1,28 @@
+[
+  {
+    "name": "SeparatorMachineProps",
+    "rows": [
+      {
+        "name": "orientation?",
+        "type": "Orientation",
+        "source": "separator.ts:24"
+      },
+      {
+        "name": "decorative?",
+        "type": "boolean",
+        "notes": "A rule drawn for looks rather than meaning. Decorative separators leave the accessibility tree entirely — a screen reader announcing \"separator\" between every list row is noise, not structure.",
+        "source": "separator.ts:30"
+      }
+    ]
+  },
+  {
+    "name": "SeparatorComposedProps",
+    "extends": "SeparatorRootProps",
+    "rows": []
+  },
+  {
+    "name": "SeparatorRootProps",
+    "extends": "separator.SeparatorMachineProps, PartProps<\"div\", separator.SeparatorMachineProps>",
+    "rows": []
+  }
+]

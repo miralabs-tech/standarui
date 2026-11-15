@@ -1,0 +1,66 @@
+[
+  {
+    "name": "ToggleMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "source": "toggle.types.ts:10"
+      },
+      {
+        "name": "pressed?",
+        "type": "boolean",
+        "notes": "Controlled: present means the consumer owns the value.",
+        "source": "toggle.types.ts:12"
+      },
+      {
+        "name": "defaultPressed?",
+        "type": "boolean",
+        "source": "toggle.types.ts:13"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "toggle.types.ts:14"
+      },
+      {
+        "name": "onPressedChange?",
+        "type": "((details: TogglePressedChangeDetails) => void)",
+        "source": "toggle.types.ts:15"
+      }
+    ]
+  },
+  {
+    "name": "ToggleComposedProps",
+    "extends": "UseToggleProps, Omit<PartProps<\"button\", UseToggleProps>, \"children\">",
+    "rows": [
+      {
+        "name": "children?",
+        "type": "ReactNode",
+        "notes": "The label. Text, and text is the only thing that names a toggle by default.",
+        "source": "composed.tsx:19"
+      },
+      {
+        "name": "icon?",
+        "type": "ReactNode",
+        "notes": "The glyph — an inline SVG, never a text character. Pair it with `aria-label` alone.",
+        "source": "composed.tsx:21"
+      }
+    ]
+  },
+  {
+    "name": "TogglePressedChangeDetails",
+    "rows": [
+      {
+        "name": "pressed",
+        "type": "boolean",
+        "source": "toggle.types.ts:6"
+      }
+    ]
+  },
+  {
+    "name": "UseToggleProps",
+    "extends": "toggle.ToggleMachineProps, MachineRuntimeProps",
+    "rows": []
+  }
+]

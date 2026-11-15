@@ -1,0 +1,173 @@
+[
+  {
+    "name": "ClipboardMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "source": "clipboard.types.ts:18"
+      },
+      {
+        "name": "value?",
+        "type": "string",
+        "notes": "Controlled: present means the consumer owns the value.",
+        "source": "clipboard.types.ts:20"
+      },
+      {
+        "name": "defaultValue?",
+        "type": "string",
+        "source": "clipboard.types.ts:21"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "clipboard.types.ts:22"
+      },
+      {
+        "name": "copiedDuration?",
+        "type": "number",
+        "notes": "How long the copied/error feedback lasts before idle returns, in ms.",
+        "source": "clipboard.types.ts:24"
+      },
+      {
+        "name": "copiedText?",
+        "type": "string",
+        "notes": "Screen-reader announcement on success. Override to localise.",
+        "source": "clipboard.types.ts:26"
+      },
+      {
+        "name": "copyFailedText?",
+        "type": "string",
+        "notes": "Screen-reader announcement on failure. Override to localise.",
+        "source": "clipboard.types.ts:28"
+      },
+      {
+        "name": "copyLabel?",
+        "type": "string",
+        "notes": "aria-label for the trigger — required in practice when it is icon-only.",
+        "source": "clipboard.types.ts:30"
+      },
+      {
+        "name": "onValueChange?",
+        "type": "((details: ClipboardValueChangeDetails) => void)",
+        "source": "clipboard.types.ts:31"
+      },
+      {
+        "name": "onCopiedChange?",
+        "type": "((details: ClipboardCopiedChangeDetails) => void)",
+        "notes": "Both edges: `{ copied: true }` entering `copied`, `{ copied: false }` leaving it.",
+        "source": "clipboard.types.ts:33"
+      },
+      {
+        "name": "onCopyError?",
+        "type": "((details: ClipboardCopyErrorDetails) => void)",
+        "source": "clipboard.types.ts:34"
+      }
+    ]
+  },
+  {
+    "name": "ClipboardComposedProps",
+    "extends": "Omit<UseClipboardProps, \"copyLabel\">, Omit<PartProps<\"div\", UseClipboardProps>, \"children\">",
+    "rows": [
+      {
+        "name": "copyLabel",
+        "type": "string",
+        "notes": "Names the trigger, and it is required: see the header. Content, never a glyph — the sheet draws those.",
+        "source": "composed.tsx:79"
+      },
+      {
+        "name": "label?",
+        "type": "ReactNode",
+        "notes": "The field's visible label. Omitted, no label part is placed.",
+        "source": "composed.tsx:81"
+      },
+      {
+        "name": "parts?",
+        "type": "ClipboardParts",
+        "source": "composed.tsx:82"
+      }
+    ]
+  },
+  {
+    "name": "ClipboardValueChangeDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "string",
+        "source": "clipboard.types.ts:6"
+      }
+    ]
+  },
+  {
+    "name": "ClipboardCopiedChangeDetails",
+    "rows": [
+      {
+        "name": "copied",
+        "type": "boolean",
+        "source": "clipboard.types.ts:10"
+      }
+    ]
+  },
+  {
+    "name": "ClipboardCopyErrorDetails",
+    "rows": [
+      {
+        "name": "error",
+        "type": "Error",
+        "source": "clipboard.types.ts:14"
+      }
+    ]
+  },
+  {
+    "name": "UseClipboardProps",
+    "extends": "clipboard.ClipboardMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "ClipboardParts",
+    "rows": [
+      {
+        "name": "label?",
+        "type": "PartProps<\"label\">",
+        "source": "composed.tsx:57"
+      },
+      {
+        "name": "control?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:58"
+      },
+      {
+        "name": "input?",
+        "type": "PartProps<\"input\">",
+        "source": "composed.tsx:59"
+      },
+      {
+        "name": "trigger?",
+        "type": "PartProps<\"button\">",
+        "source": "composed.tsx:60"
+      },
+      {
+        "name": "indicator?",
+        "type": "Omit<ClipboardIndicatorProps, \"copied\" | \"id\" | \"ref\">",
+        "notes": "Applied to BOTH glyphs, hence no `copied` — it identifies which of the two this element is — and no `id`: the connect deliberately emits none, \"this part renders twice, and a duplicated id is invalid DOM\" (`clipboard.connect.ts:136`), so a consumer's own id would be that same defect arriving from the outside. `ref` goes for the same reason as pagination's cells: a single ref held by two elements holds the second.",
+        "source": "composed.tsx:69"
+      }
+    ]
+  },
+  {
+    "name": "ClipboardIndicatorProps",
+    "extends": "clipboard.ClipboardIndicatorPartProps, PartProps<\"span\", clipboard.ClipboardIndicatorPartProps>",
+    "rows": []
+  },
+  {
+    "name": "ClipboardIndicatorPartProps",
+    "rows": [
+      {
+        "name": "copied?",
+        "type": "boolean",
+        "notes": "Which variant this element is: the copied glyph, or the resting one.",
+        "source": "clipboard.types.ts:84"
+      }
+    ]
+  }
+]

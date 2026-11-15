@@ -1,0 +1,140 @@
+[
+  {
+    "name": "MeterMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "source": "meter.types.ts:38"
+      },
+      {
+        "name": "value?",
+        "type": "number",
+        "notes": "Controlled. Never null: a meter always has a value.",
+        "source": "meter.types.ts:40"
+      },
+      {
+        "name": "defaultValue?",
+        "type": "number",
+        "notes": "Uncontrolled. Defaults to `min`, not 0 — a range [2, 8] starts at 2.",
+        "source": "meter.types.ts:42"
+      },
+      {
+        "name": "min?",
+        "type": "number",
+        "source": "meter.types.ts:43"
+      },
+      {
+        "name": "max?",
+        "type": "number",
+        "source": "meter.types.ts:44"
+      },
+      {
+        "name": "low?",
+        "type": "number",
+        "notes": "Low bound of the middle region. Absent along with `high` → no valence.",
+        "source": "meter.types.ts:46"
+      },
+      {
+        "name": "high?",
+        "type": "number",
+        "source": "meter.types.ts:47"
+      },
+      {
+        "name": "optimum?",
+        "type": "number",
+        "notes": "The ideal point. Effective default: `(min + max) / 2`, like `<meter>`.",
+        "source": "meter.types.ts:49"
+      },
+      {
+        "name": "orientation?",
+        "type": "Orientation",
+        "source": "meter.types.ts:50"
+      },
+      {
+        "name": "locale?",
+        "type": "string",
+        "source": "meter.types.ts:51"
+      },
+      {
+        "name": "formatOptions?",
+        "type": "Intl.NumberFormatOptions",
+        "notes": "Passed to `Intl.NumberFormat` for the value text. Percent by default.",
+        "source": "meter.types.ts:53"
+      },
+      {
+        "name": "valenceLabels?",
+        "type": "MeterValenceLabels",
+        "notes": "The only channel the valence has to assistive technology — see the type.",
+        "source": "meter.types.ts:55"
+      },
+      {
+        "name": "onValueChange?",
+        "type": "((details: MeterValueChangeDetails) => void)",
+        "source": "meter.types.ts:56"
+      }
+    ]
+  },
+  {
+    "name": "MeterComposedProps",
+    "extends": "UseMeterProps, Omit<PartProps<\"div\", UseMeterProps>, \"children\">",
+    "rows": [
+      {
+        "name": "label?",
+        "type": "ReactNode",
+        "notes": "Rendered as `MeterLabel`. Left out, no label part exists and none is named.",
+        "source": "composed.tsx:70"
+      },
+      {
+        "name": "parts?",
+        "type": "MeterParts",
+        "source": "composed.tsx:71"
+      }
+    ]
+  },
+  {
+    "name": "MeterValenceLabels",
+    "definition": "Partial<Record<Exclude<MeterValence, \"none\">, string>>",
+    "rows": []
+  },
+  {
+    "name": "MeterValueChangeDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "number",
+        "source": "meter.types.ts:6"
+      }
+    ]
+  },
+  {
+    "name": "UseMeterProps",
+    "extends": "meter.MeterMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "MeterParts",
+    "rows": [
+      {
+        "name": "label?",
+        "type": "PartProps<\"span\">",
+        "source": "composed.tsx:61"
+      },
+      {
+        "name": "track?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:62"
+      },
+      {
+        "name": "range?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:63"
+      }
+    ]
+  },
+  {
+    "name": "MeterValence",
+    "definition": "\"none\" | \"optimum\" | \"suboptimal\" | \"critical\"",
+    "rows": []
+  }
+]

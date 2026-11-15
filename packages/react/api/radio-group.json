@@ -1,0 +1,129 @@
+[
+  {
+    "name": "RadioGroupMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "source": "radio-group.types.ts:16"
+      },
+      {
+        "name": "orientation?",
+        "type": "Orientation",
+        "source": "radio-group.types.ts:17"
+      },
+      {
+        "name": "value?",
+        "type": "string | null",
+        "source": "radio-group.types.ts:18"
+      },
+      {
+        "name": "defaultValue?",
+        "type": "string | null",
+        "source": "radio-group.types.ts:19"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "radio-group.types.ts:20"
+      },
+      {
+        "name": "readOnly?",
+        "type": "boolean",
+        "source": "radio-group.types.ts:21"
+      },
+      {
+        "name": "invalid?",
+        "type": "boolean",
+        "source": "radio-group.types.ts:22"
+      },
+      {
+        "name": "required?",
+        "type": "boolean",
+        "source": "radio-group.types.ts:23"
+      },
+      {
+        "name": "name?",
+        "type": "string",
+        "notes": "Shared by every input in the group. Derived from the id when absent.",
+        "source": "radio-group.types.ts:25"
+      },
+      {
+        "name": "form?",
+        "type": "string",
+        "source": "radio-group.types.ts:26"
+      },
+      {
+        "name": "describedBy?",
+        "type": "string",
+        "notes": "Ids of the text describing this control — a `field` supplies them.",
+        "source": "radio-group.types.ts:28"
+      },
+      {
+        "name": "intents?",
+        "type": "IntentScopeHost | null",
+        "notes": "Where the group claims the d-pad. The arrows are the browser's own and need no bus; a pad reaches the spatial engine instead, which moves the focus without checking anything, so the group has to claim the move to stay the one control the two inputs drive identically.",
+        "source": "radio-group.types.ts:35"
+      },
+      {
+        "name": "onValueChange?",
+        "type": "((details: RadioGroupValueChangeDetails) => void)",
+        "source": "radio-group.types.ts:36"
+      }
+    ]
+  },
+  {
+    "name": "RadioGroupComposedProps",
+    "extends": "UseRadioGroupProps, Omit<PartProps<\"div\", UseRadioGroupProps>, \"children\">",
+    "rows": [
+      {
+        "name": "options",
+        "type": "readonly RadioGroupEntry<V, Meta>[]",
+        "source": "composed.tsx:66"
+      },
+      {
+        "name": "label?",
+        "type": "ReactNode",
+        "notes": "The group's own name. Renders `RadioGroupLabel` only when given — a `Field` above names it otherwise.",
+        "source": "composed.tsx:68"
+      },
+      {
+        "name": "indicator?",
+        "type": "boolean",
+        "notes": "The sliding highlight behind the selected item. Off by default, as in the plain-radio story.",
+        "source": "composed.tsx:70"
+      },
+      {
+        "name": "renderOption?",
+        "type": "| ((option: RadioGroupOption<V, Meta>, defaults: ReactNode) => ReactNode)",
+        "notes": "Replaces the CHILDREN of an item, never the item. `defaults` is the row the layer would have rendered — hidden input, control, text — handed over so that decorating is the cheapest thing to do. What replacing costs, in full: the part that names the option (`RadioGroupItemText`), and the part that draws the selected disc (`RadioGroupItemControl`). Dropping the input itself leaves the row unreachable — the arrows and their arrow-to-select are the browser's, the tab stop is written by the group, and all of them live on it. The focus ring is NOT among the costs, and it used to be: it is painted by `RadioGroupItemControl`, so a row drawn without one took focus with nothing marking it. The sheet now rings the row itself when that part is absent. This list is longer than the one it replaces even so. That one named the accessible name and stopped there, and the silence about the rest is what kept the missing ring invisible for as long as it was.",
+        "source": "composed.tsx:90"
+      }
+    ]
+  },
+  {
+    "name": "RadioGroupValueChangeDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "string | null",
+        "source": "radio-group.types.ts:7"
+      }
+    ]
+  },
+  {
+    "name": "UseRadioGroupProps",
+    "extends": "radioGroup.RadioGroupMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "RadioGroupEntry",
+    "definition": "RadioGroupOption<V, Meta> | ComposedSeparator",
+    "rows": []
+  },
+  {
+    "name": "RadioGroupOption",
+    "definition": "Omit< CoreRadioItemProps, \"value\" > & { readonly value: V; readonly label: string; readonly meta?: Meta | undefined; }",
+    "rows": []
+  }
+]

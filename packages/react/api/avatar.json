@@ -1,0 +1,98 @@
+[
+  {
+    "name": "AvatarMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "source": "avatar.types.ts:15"
+      },
+      {
+        "name": "size?",
+        "type": "AvatarSize",
+        "notes": "Pure presentation — `data-size` on the root, never a fork in the machine.",
+        "source": "avatar.types.ts:17"
+      },
+      {
+        "name": "fallbackDelay?",
+        "type": "number",
+        "notes": "Milliseconds before the fallback shows while `loading`. 0 shows it immediately (the default — the monogram is visible at once); a positive delay is the anti-flash opt-in for images that usually arrive fast. Once revealed it stays eligible through reloads — no re-flash.",
+        "source": "avatar.types.ts:25"
+      },
+      {
+        "name": "label?",
+        "type": "string",
+        "notes": "The name the avatar answers to, whether the picture arrived or not. Without it the accessible name lives entirely in the image's `alt`, which the consumer passes as element props — and that name **disappears on a 404**: an errored image is removed from the accessibility tree with `hidden`, and the monogram that replaces it is decorative typography, not a name. The result is an avatar that is announced while the network is up and silent when it is down, which is the wrong way round. With it, the root becomes a single named `role=\"img\"` — the picture, the monogram and the loading state are all one image as far as assistive technology is concerned, and the name never depends on the network. The inner `alt` then has nothing left to say and should be `\"\"`.",
+        "source": "avatar.types.ts:41"
+      },
+      {
+        "name": "onStatusChange?",
+        "type": "((details: AvatarStatusChangeDetails) => void)",
+        "source": "avatar.types.ts:42"
+      }
+    ]
+  },
+  {
+    "name": "AvatarComposedProps",
+    "extends": "UseAvatarProps, Omit<PartProps<\"span\", UseAvatarProps>, \"children\">",
+    "rows": [
+      {
+        "name": "src?",
+        "type": "string",
+        "notes": "The picture. Absent — or `\"\"`, which counts as absent — no image part is placed at all, and the monogram is what the avatar is.",
+        "source": "composed.tsx:68"
+      },
+      {
+        "name": "children?",
+        "type": "ReactNode",
+        "notes": "The fallback: initials, or a silhouette. See above for why it is `children`.",
+        "source": "composed.tsx:70"
+      },
+      {
+        "name": "parts?",
+        "type": "AvatarParts",
+        "source": "composed.tsx:71"
+      }
+    ]
+  },
+  {
+    "name": "AvatarSize",
+    "definition": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
+    "rows": []
+  },
+  {
+    "name": "AvatarStatusChangeDetails",
+    "rows": [
+      {
+        "name": "status",
+        "type": "AvatarStatus",
+        "source": "avatar.types.ts:11"
+      }
+    ]
+  },
+  {
+    "name": "UseAvatarProps",
+    "extends": "avatar.AvatarMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "AvatarParts",
+    "rows": [
+      {
+        "name": "image?",
+        "type": "PartProps<\"img\">",
+        "source": "composed.tsx:57"
+      },
+      {
+        "name": "fallback?",
+        "type": "PartProps<\"span\">",
+        "source": "composed.tsx:58"
+      }
+    ]
+  },
+  {
+    "name": "AvatarStatus",
+    "definition": "\"loading\" | \"loaded\" | \"error\"",
+    "rows": []
+  }
+]

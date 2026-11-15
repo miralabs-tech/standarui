@@ -1,0 +1,148 @@
+[
+  {
+    "name": "LinkMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "source": "link.types.ts:18"
+      },
+      {
+        "name": "href?",
+        "type": "string",
+        "notes": "Stripped from the DOM while `disabled` — a prevented attribute can still be reached around (middle click, the context menu), an absent href cannot.",
+        "source": "link.types.ts:23"
+      },
+      {
+        "name": "target?",
+        "type": "string",
+        "source": "link.types.ts:24"
+      },
+      {
+        "name": "rel?",
+        "type": "string",
+        "source": "link.types.ts:25"
+      },
+      {
+        "name": "external?",
+        "type": "boolean",
+        "notes": "An outbound link: `target=\"_blank\"` + `rel=\"noopener noreferrer\"` by default, `data-external` on the root, and the externalIcon/externalLabel parts come alive.",
+        "source": "link.types.ts:31"
+      },
+      {
+        "name": "current?",
+        "type": "LinkCurrent",
+        "notes": "`aria-current` — the router's hook for \"you are here\".",
+        "source": "link.types.ts:33"
+      },
+      {
+        "name": "variant?",
+        "type": "LinkVariant",
+        "source": "link.types.ts:34"
+      },
+      {
+        "name": "underline?",
+        "type": "LinkUnderline",
+        "notes": "Defaults to `\"hover\"` for `tint` and `\"always\"` for `plain`: a link in the colour of its surrounding text with no underline is not identifiable as a link at all (WCAG 1.4.1).",
+        "source": "link.types.ts:40"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "link.types.ts:41"
+      },
+      {
+        "name": "focusableWhenDisabled?",
+        "type": "boolean",
+        "notes": "Keeps the link reachable on Tab while disabled (`tabIndex 0` + `role=\"link\"`).",
+        "source": "link.types.ts:43"
+      },
+      {
+        "name": "nativeLink?",
+        "type": "boolean",
+        "notes": "False when the root is not a real `<a>` (a `span role=\"link\"`). The adapter infers it from what it renders; it decides who synthesises Enter.",
+        "source": "link.types.ts:48"
+      },
+      {
+        "name": "onPress?",
+        "type": "((details: LinkPressDetails) => void)",
+        "notes": "Auxiliary (analytics, JS-only links without an href). It never replaces the native or router navigation and never calls `preventDefault`.",
+        "source": "link.types.ts:53"
+      }
+    ]
+  },
+  {
+    "name": "LinkComposedProps",
+    "extends": "UseLinkProps, Omit<PartProps<\"a\", UseLinkProps>, \"children\" | \"asChild\">",
+    "rows": [
+      {
+        "name": "children?",
+        "type": "ReactNode",
+        "notes": "The link text — what names the link, and the only thing that can.",
+        "source": "composed.tsx:68"
+      },
+      {
+        "name": "icon?",
+        "type": "ReactNode",
+        "notes": "The outbound glyph: an inline SVG, never a text character — see above.",
+        "source": "composed.tsx:70"
+      },
+      {
+        "name": "externalLabel?",
+        "type": "string",
+        "notes": "The \"opens in a new tab\" wording, hidden visually and read as part of the name. Empty counts as absent.",
+        "source": "composed.tsx:75"
+      },
+      {
+        "name": "parts?",
+        "type": "LinkParts",
+        "source": "composed.tsx:76"
+      }
+    ]
+  },
+  {
+    "name": "LinkCurrent",
+    "definition": "boolean | \"page\" | \"step\" | \"location\" | \"date\" | \"time\"",
+    "rows": []
+  },
+  {
+    "name": "LinkVariant",
+    "definition": "\"tint\" | \"plain\"",
+    "rows": []
+  },
+  {
+    "name": "LinkUnderline",
+    "definition": "\"hover\" | \"always\" | \"none\"",
+    "rows": []
+  },
+  {
+    "name": "LinkPressDetails",
+    "rows": [
+      {
+        "name": "originalEvent",
+        "type": "Event",
+        "source": "link.types.ts:14"
+      }
+    ]
+  },
+  {
+    "name": "UseLinkProps",
+    "extends": "link.LinkMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "LinkParts",
+    "rows": [
+      {
+        "name": "externalIcon?",
+        "type": "PartProps<\"span\">",
+        "source": "composed.tsx:60"
+      },
+      {
+        "name": "externalLabel?",
+        "type": "PartProps<\"span\">",
+        "source": "composed.tsx:61"
+      }
+    ]
+  }
+]

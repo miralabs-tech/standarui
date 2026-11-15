@@ -1,0 +1,80 @@
+{
+  "name": "@standarui/react",
+  "version": "0.0.0",
+  "description": "React 19 adapter for standarui — hooks and components over the headless core.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miralabs-tech/standarui.git",
+    "directory": "packages/react"
+  },
+  "homepage": "https://github.com/miralabs-tech/standarui#readme",
+  "bugs": "https://github.com/miralabs-tech/standarui/issues",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "api"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./accordion": "./dist/components/accordion/index.js",
+    "./alert-dialog": "./dist/components/alert-dialog/index.js",
+    "./avatar": "./dist/components/avatar/index.js",
+    "./badge": "./dist/components/badge/index.js",
+    "./breadcrumb": "./dist/components/breadcrumb/index.js",
+    "./button": "./dist/components/button/index.js",
+    "./calendar": "./dist/components/calendar/index.js",
+    "./card": "./dist/components/card/index.js",
+    "./checkbox": "./dist/components/checkbox/index.js",
+    "./checkbox-group": "./dist/components/checkbox-group/index.js",
+    "./clipboard": "./dist/components/clipboard/index.js",
+    "./collapsible": "./dist/components/collapsible/index.js",
+    "./color-picker": "./dist/components/color-picker/index.js",
+    "./date-field": "./dist/components/date-field/index.js",
+    "./date-picker": "./dist/components/date-picker/index.js",
+    "./dialog": "./dist/components/dialog/index.js",
+    "./drawer": "./dist/components/drawer/index.js",
+    "./empty-state": "./dist/components/empty-state/index.js",
+    "./field": "./dist/components/field/index.js",
+    "./input": "./dist/components/input/index.js",
+    "./link": "./dist/components/link/index.js",
+    "./list": "./dist/components/list/index.js",
+    "./listbox": "./dist/components/listbox/index.js",
+    "./menu": "./dist/components/menu/index.js",
+    "./meter": "./dist/components/meter/index.js",
+    "./pagination": "./dist/components/pagination/index.js",
+    "./popover": "./dist/components/popover/index.js",
+    "./progress": "./dist/components/progress/index.js",
+    "./radio-group": "./dist/components/radio-group/index.js",
+    "./scroll-area": "./dist/components/scroll-area/index.js",
+    "./search-field": "./dist/components/search-field/index.js",
+    "./select": "./dist/components/select/index.js",
+    "./separator": "./dist/components/separator/index.js",
+    "./sidebar": "./dist/components/sidebar/index.js",
+    "./slider": "./dist/components/slider/index.js",
+    "./splitter": "./dist/components/splitter/index.js",
+    "./switch": "./dist/components/switch/index.js",
+    "./tabs": "./dist/components/tabs/index.js",
+    "./toast": "./dist/components/toast/index.js",
+    "./toggle": "./dist/components/toggle/index.js",
+    "./toggle-group": "./dist/components/toggle-group/index.js",
+    "./toolbar": "./dist/components/toolbar/index.js",
+    "./tooltip": "./dist/components/tooltip/index.js",
+    "./virtualizer": "./dist/use-virtualizer.js",
+    "./package.json": "./package.json",
+    "./api/*.json": "./api/*.json"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@standarui/core": "workspace:^"
+  },
+  "peerDependencies": {
+    "@standarx/nav": "0.4.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

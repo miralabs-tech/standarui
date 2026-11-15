@@ -1,0 +1,87 @@
+[
+  {
+    "name": "BadgeMachineProps",
+    "rows": [
+      {
+        "name": "kind?",
+        "type": "BadgeKind",
+        "notes": "\"label\" is a text tag, \"count\" the pill, \"dot\" the mute point.",
+        "source": "badge.ts:32"
+      },
+      {
+        "name": "tone?",
+        "type": "BadgeTone",
+        "notes": "Defaults to \"danger\" for count/dot (red) and \"neutral\" for label.",
+        "source": "badge.ts:34"
+      },
+      {
+        "name": "variant?",
+        "type": "BadgeVariant",
+        "notes": "Defaults to \"solid\" for count/dot (the pill recipe) and \"tint\" for label.",
+        "source": "badge.ts:36"
+      },
+      {
+        "name": "count?",
+        "type": "number",
+        "notes": "kind=\"count\" only. Truncated to an integer, floored at 0.",
+        "source": "badge.ts:38"
+      },
+      {
+        "name": "max?",
+        "type": "number",
+        "notes": "Display ceiling: count > max renders \"{max}+\". No ceiling by default.",
+        "source": "badge.ts:40"
+      },
+      {
+        "name": "showZero?",
+        "type": "boolean",
+        "notes": "count === 0 renders \"0\" instead of hiding. Default false.",
+        "source": "badge.ts:42"
+      },
+      {
+        "name": "label?",
+        "type": "string",
+        "notes": "The accessible replacement for a visible value that lies (\"99+\"): sets role=\"img\" + aria-label, so what a screen reader gets is the truth.",
+        "source": "badge.ts:47"
+      },
+      {
+        "name": "overlap?",
+        "type": "boolean",
+        "notes": "Pinned on the top-trailing corner of a positioned host (CSS recipe).",
+        "source": "badge.ts:49"
+      }
+    ]
+  },
+  {
+    "name": "BadgeComposedProps",
+    "extends": "BadgeRootProps",
+    "rows": [
+      {
+        "name": "children?",
+        "type": "ReactNode",
+        "notes": "The badge's content, re-declared rather than inherited so the one surprise in the part is written down: explicit children **win** over the value the derivation computes. `kind=\"count\"` fills in the truncated digits on its own, and passing children replaces them — localised numerals, a glyph beside a label. Left out, `label` and `dot` render nothing at all rather than an empty text node (`badge.tsx:43`), which is what keeps the dot exactly `--sui-badge-dot-size` across instead of one text node wider.",
+        "source": "composed.tsx:52"
+      }
+    ]
+  },
+  {
+    "name": "BadgeKind",
+    "definition": "\"label\" | \"count\" | \"dot\"",
+    "rows": []
+  },
+  {
+    "name": "BadgeTone",
+    "definition": "\"neutral\" | \"accent\" | \"success\" | \"warning\" | \"danger\"",
+    "rows": []
+  },
+  {
+    "name": "BadgeVariant",
+    "definition": "\"solid\" | \"tint\" | \"plain\"",
+    "rows": []
+  },
+  {
+    "name": "BadgeRootProps",
+    "extends": "badge.BadgeMachineProps, PartProps<\"span\", badge.BadgeMachineProps>",
+    "rows": []
+  }
+]

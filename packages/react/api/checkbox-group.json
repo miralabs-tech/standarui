@@ -1,0 +1,112 @@
+[
+  {
+    "name": "CheckboxGroupMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "source": "checkbox-group.types.ts:11"
+      },
+      {
+        "name": "orientation?",
+        "type": "Orientation",
+        "source": "checkbox-group.types.ts:12"
+      },
+      {
+        "name": "value?",
+        "type": "readonly string[]",
+        "source": "checkbox-group.types.ts:13"
+      },
+      {
+        "name": "defaultValue?",
+        "type": "readonly string[]",
+        "source": "checkbox-group.types.ts:14"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "checkbox-group.types.ts:15"
+      },
+      {
+        "name": "readOnly?",
+        "type": "boolean",
+        "source": "checkbox-group.types.ts:16"
+      },
+      {
+        "name": "invalid?",
+        "type": "boolean",
+        "source": "checkbox-group.types.ts:17"
+      },
+      {
+        "name": "required?",
+        "type": "boolean",
+        "notes": "\"At least one\" — never spelled `required` on the boxes themselves, where the browser would read it as \"this one\".",
+        "source": "checkbox-group.types.ts:22"
+      },
+      {
+        "name": "name?",
+        "type": "string",
+        "notes": "Shared by every item, and how the group finds them. Derived from the id when absent.",
+        "source": "checkbox-group.types.ts:24"
+      },
+      {
+        "name": "form?",
+        "type": "string",
+        "source": "checkbox-group.types.ts:25"
+      },
+      {
+        "name": "describedBy?",
+        "type": "string",
+        "notes": "Ids of the text describing this group — a `field` supplies them.",
+        "source": "checkbox-group.types.ts:27"
+      },
+      {
+        "name": "onValueChange?",
+        "type": "((details: CheckboxGroupValueChangeDetails) => void)",
+        "source": "checkbox-group.types.ts:28"
+      }
+    ]
+  },
+  {
+    "name": "CheckboxGroupComposedProps",
+    "extends": "UseCheckboxGroupProps, Omit<PartProps<\"div\", UseCheckboxGroupProps>, \"children\">",
+    "rows": [
+      {
+        "name": "label?",
+        "type": "ReactNode",
+        "notes": "Rendered only when given. `CheckboxGroupRoot`'s `aria-labelledby` is written only once `hasLabel` finds a label part in the DOM (`checkbox-group.dom.ts`/`hasLabel`), so a group left unlabelled here keeps whatever other name it has — an `aria-label` on the root, a `Field`'s own caption — instead of gaining a second, unlinked one.",
+        "source": "composed.tsx:61"
+      },
+      {
+        "name": "options",
+        "type": "readonly CheckboxGroupEntry[]",
+        "source": "composed.tsx:62"
+      }
+    ]
+  },
+  {
+    "name": "CheckboxGroupValueChangeDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "readonly string[]",
+        "source": "checkbox-group.types.ts:7"
+      }
+    ]
+  },
+  {
+    "name": "UseCheckboxGroupProps",
+    "extends": "checkboxGroup.CheckboxGroupMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "CheckboxGroupEntry",
+    "definition": "CheckboxGroupOption | ComposedSeparator",
+    "rows": []
+  },
+  {
+    "name": "CheckboxGroupOption",
+    "definition": "Omit<CheckboxRootProps, \"children\"> & { readonly label: ReactNode; }",
+    "rows": []
+  }
+]

@@ -1,0 +1,151 @@
+[
+  {
+    "name": "ToggleGroupMachineProps",
+    "rows": [
+      {
+        "name": "dir?",
+        "type": "Direction",
+        "notes": "Not defaulted, deliberately: left unset the resolved page direction governs, so a subtree inside an RTL region inherits instead of being reset to `ltr`.",
+        "source": "toggle-group.types.ts:27"
+      },
+      {
+        "name": "orientation?",
+        "type": "Orientation",
+        "source": "toggle-group.types.ts:28"
+      },
+      {
+        "name": "value?",
+        "type": "readonly string[]",
+        "notes": "Controlled. Always an array — single selection is an array of at most one.",
+        "source": "toggle-group.types.ts:30"
+      },
+      {
+        "name": "defaultValue?",
+        "type": "readonly string[]",
+        "source": "toggle-group.types.ts:31"
+      },
+      {
+        "name": "multiple?",
+        "type": "boolean",
+        "source": "toggle-group.types.ts:32"
+      },
+      {
+        "name": "disabled?",
+        "type": "boolean",
+        "source": "toggle-group.types.ts:33"
+      },
+      {
+        "name": "deselectable?",
+        "type": "boolean",
+        "notes": "Whether clicking the selected item clears it. Defaults to `multiple`: a radio group has no deselect, and single mode *is* a radio group. Turning it on makes a nullable control, which is no longer the APG pattern.",
+        "source": "toggle-group.types.ts:39"
+      },
+      {
+        "name": "loopFocus?",
+        "type": "boolean",
+        "source": "toggle-group.types.ts:40"
+      },
+      {
+        "name": "sizing?",
+        "type": "ToggleGroupSizing",
+        "notes": "`\"equal\"` cuts the track into equal columns, `\"content\"` sizes each segment by its own label; the pill is placed from a measurement of the active segment's layout box either way. A group can switch at runtime. A horizontal group wider than its room scrolls along its line; nothing folds.",
+        "source": "toggle-group.types.ts:47"
+      },
+      {
+        "name": "describedBy?",
+        "type": "string",
+        "notes": "Ids of the text describing this control — a `field` supplies them.",
+        "source": "toggle-group.types.ts:49"
+      },
+      {
+        "name": "onValueChange?",
+        "type": "((details: ToggleGroupValueChangeDetails) => void)",
+        "source": "toggle-group.types.ts:50"
+      }
+    ]
+  },
+  {
+    "name": "ToggleGroupComposedProps",
+    "extends": "UseToggleGroupProps, Omit<PartProps<\"div\", UseToggleGroupProps>, \"children\">",
+    "rows": [
+      {
+        "name": "label?",
+        "type": "ReactNode",
+        "notes": "The group's own visible name. The part is placed only when this is given — left out, nothing is added, and the group is named some other way instead (`aria-label`, a `Field`'s legend), exactly as the machine's own `hasLabel` read expects.",
+        "source": "composed.tsx:95"
+      },
+      {
+        "name": "options",
+        "type": "readonly ToggleGroupOption[]",
+        "source": "composed.tsx:96"
+      },
+      {
+        "name": "parts?",
+        "type": "ToggleGroupParts",
+        "source": "composed.tsx:97"
+      }
+    ]
+  },
+  {
+    "name": "ToggleGroupSizing",
+    "definition": "\"equal\" | \"content\"",
+    "rows": []
+  },
+  {
+    "name": "ToggleGroupValueChangeDetails",
+    "rows": [
+      {
+        "name": "value",
+        "type": "readonly string[]",
+        "source": "toggle-group.types.ts:7"
+      }
+    ]
+  },
+  {
+    "name": "UseToggleGroupProps",
+    "extends": "toggleGroup.ToggleGroupMachineProps, MachineRuntimeProps",
+    "rows": []
+  },
+  {
+    "name": "ToggleGroupOption",
+    "definition": "Omit<CoreToggleGroupItemProps, \"value\" | \"label\"> & { readonly value: string; readonly label: string; }",
+    "rows": []
+  },
+  {
+    "name": "ToggleGroupParts",
+    "rows": [
+      {
+        "name": "frame?",
+        "type": "PartProps<\"div\", UseToggleGroupProps>",
+        "notes": "The outer box, which is the item of a flex or a grid parent: the layout of the group (`flex: none`, `align-self`, a width) goes here, while `className` and `style` on the group itself stay on the root.",
+        "source": "composed.tsx:64"
+      },
+      {
+        "name": "scrollbar?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:65"
+      },
+      {
+        "name": "thumb?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:66"
+      },
+      {
+        "name": "label?",
+        "type": "PartProps<\"span\">",
+        "source": "composed.tsx:67"
+      },
+      {
+        "name": "indicator?",
+        "type": "PartProps<\"div\">",
+        "source": "composed.tsx:68"
+      },
+      {
+        "name": "item?",
+        "type": "| Omit< PartProps<\"button\", CoreToggleGroupItemProps>, \"id\" | \"ref\" | \"aria-labelledby\" | \"aria-describedby\" | \"aria-controls\" >",
+        "notes": "Applied to EVERY item, hence no `value`, `label` or `disabled` — the entry's own fields, excluded through `Own` the way `ToggleGroupItemProps` itself excludes them — and no `id` **or IDREF**: one id repeated down a group is a broken reference per segment, and one `aria-labelledby` repeated gives every segment the same name, which no dangling-IDREF check can see because the id it points at does resolve. `ref` goes for the same reason: a single ref held by N segments ends up holding the last one.",
+        "source": "composed.tsx:78"
+      }
+    ]
+  }
+]
