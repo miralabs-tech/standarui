@@ -449,7 +449,7 @@
         "core-base",
         "react-base"
       ],
-      "files": 9
+      "files": 10
     },
     {
       "name": "checkbox-group",
@@ -659,7 +659,7 @@
         "core-base",
         "nav"
       ],
-      "files": 19
+      "files": 18
     },
     {
       "name": "scroll-area",

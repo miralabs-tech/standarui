@@ -24,6 +24,13 @@
         "vitest": "^4.1.11",
       },
     },
+    "packages/cli": {
+      "name": "standarui",
+      "version": "0.0.0",
+      "bin": {
+        "standarui": "./dist/cli.js",
+      },
+    },
     "packages/core": {
       "name": "@standarui/core",
       "version": "0.0.0",
@@ -482,6 +489,8 @@
     "source-map-js": ["source-map-js@1.2.2", "", {}, "sha512-KGj/8Y43x35aZVDtt+J4mK1hoLGHULMYfSkODJNQjNDC3oW1PqPoxMwo0pLUsWM/UEGzON/NxeHywEfNXNP3Vw=="],
 
     "stackback": ["stackback@0.0.2", "", {}, "sha512-1XMJE5fQo1jGH6Y/7ebnwPOBEkIEnT4QF32d5R1+VXdXveM0IBMJt8zfaxX1P3QhVwrYe+576+jkANtSS2mBbw=="],
+
+    "standarui": ["standarui@workspace:packages/cli"],
 
     "std-env": ["std-env@4.3.0", "", {}, "sha512-OtU/EgQ1kIm5KwqQpBC6ZEMXrZRui11w8zgfTWp8cdO9B8OaPsbA8bTHO2P+HNo1VlUTGMVBwPhydu6poeXiag=="],
 

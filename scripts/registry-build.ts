@@ -17,7 +17,7 @@ import type {
   RegistryItem,
   RegistryLayer,
   RegistrySpecifier,
-} from "./registry-types";
+} from "../packages/cli/src/registry-types";
 
 const LAYERS: readonly RegistryLayer[] = ["core", "react"];
 const NAV_FILES: Readonly<Record<RegistryLayer, string>> = { core: "nav.ts", react: "nav.tsx" };
@@ -39,6 +39,8 @@ export interface CollectedRegistry {
   readonly sources: readonly SourceFile[];
   readonly excluded: ReadonlySet<string>;
   readonly onlyImportedByExcluded: readonly string[];
+  readonly movedIntoComponents: ReadonlyMap<string, string>;
+  readonly baseImportsOfComponents: readonly string[];
 }
 
 export function isExcludedByName(layer: RegistryLayer, relPath: string): boolean {
@@ -255,6 +257,46 @@ export function collectRegistry(root: string): CollectedRegistry {
   const reactDependencies = peerRanges(root, "react", ["react", "react-dom"]);
   const isNav = (file: SourceFile): boolean => file.path === NAV_FILES[file.layer];
 
+  const pathOf = (key: string): string => key.slice(key.indexOf(":") + 1);
+  const isBase = (file: SourceFile): boolean =>
+    !isNav(file) && !file.path.startsWith("components/");
+
+  const movedIntoComponents = new Map<string, string>();
+  for (const file of kept.filter(isBase)) {
+    const components = new Set<string>();
+    for (const target of imports.get(file.key) ?? []) {
+      if (excluded.has(target)) continue;
+      const component = componentOf(pathOf(target));
+      if (component !== null) components.add(component);
+    }
+    if (components.size === 0) continue;
+    const from = [...(importers.get(file.key) ?? [])].filter((key) => !excluded.has(key));
+    if (from.length === 0 || from.some((key) => componentOf(pathOf(key)) === null)) {
+      throw new Error(
+        `${file.key} imports a component but is also used outside components, so it cannot move into one`,
+      );
+    }
+    if (components.size > 1) {
+      throw new Error(
+        `${file.key} imports several components (${[...components].sort(compare).join(", ")}), so it has no single item to move into`,
+      );
+    }
+    movedIntoComponents.set(file.key, [...components][0] as string);
+  }
+  const ownerOf = (key: string): string | null =>
+    movedIntoComponents.get(key) ?? componentOf(pathOf(key));
+  const isBaseItemFile = (file: SourceFile): boolean =>
+    isBase(file) && !movedIntoComponents.has(file.key);
+
+  const baseImportsOfComponents: string[] = [];
+  for (const file of kept.filter((entry) => isNav(entry) || isBaseItemFile(entry))) {
+    for (const target of imports.get(file.key) ?? []) {
+      if (!excluded.has(target) && ownerOf(target) !== null) {
+        baseImportsOfComponents.push(`${file.key} -> ${target}`);
+      }
+    }
+  }
+
   const componentNames = new Set<string>();
   for (const file of sources) {
     const name = componentOf(file.path);
@@ -267,9 +309,7 @@ export function collectRegistry(root: string): CollectedRegistry {
       version,
       "core-base",
       "registry:base",
-      kept.filter(
-        (file) => file.layer === "core" && !isNav(file) && !file.path.startsWith("components/"),
-      ),
+      kept.filter((file) => file.layer === "core" && isBaseItemFile(file)),
       ["nav"],
       {},
     ),
@@ -277,21 +317,19 @@ export function collectRegistry(root: string): CollectedRegistry {
       version,
       "react-base",
       "registry:base",
-      kept.filter(
-        (file) => file.layer === "react" && !isNav(file) && !file.path.startsWith("components/"),
-      ),
+      kept.filter((file) => file.layer === "react" && isBaseItemFile(file)),
       ["core-base", "nav"],
       reactDependencies,
     ),
   ];
 
   for (const name of [...componentNames].sort(compare)) {
-    const own = kept.filter((file) => componentOf(file.path) === name);
+    const own = kept.filter((file) => ownerOf(file.key) === name);
     const others = new Set<string>();
     for (const file of own) {
       for (const target of imports.get(file.key) ?? []) {
         if (excluded.has(target)) continue;
-        const other = componentOf(target.slice(target.indexOf(":") + 1));
+        const other = ownerOf(target);
         if (other !== null && other !== name) others.add(other);
       }
     }
@@ -333,11 +371,16 @@ export function collectRegistry(root: string): CollectedRegistry {
     sources,
     excluded,
     onlyImportedByExcluded: onlyImportedByExcluded.sort(compare),
+    movedIntoComponents,
+    baseImportsOfComponents,
   };
 }
 
 export function buildRegistry(root: string): Map<string, string> {
-  const { items, index } = collectRegistry(root);
+  const { items, index, baseImportsOfComponents } = collectRegistry(root);
+  if (baseImportsOfComponents.length > 0) {
+    throw new Error(`a base file imports a component: ${baseImportsOfComponents.join(", ")}`);
+  }
   const output = new Map<string, string>();
   output.set("registry/index.json", json(index));
   for (const entry of items) output.set(`registry/items/${entry.name}.json`, json(entry));
