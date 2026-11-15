@@ -1,0 +1,27 @@
+{
+  "name": "standarui",
+  "version": "0.0.0",
+  "description": "Copies standarui components into your app and keeps track of what it copied.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miralabs-tech/standarui.git",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://github.com/miralabs-tech/standarui#readme",
+  "bugs": "https://github.com/miralabs-tech/standarui/issues",
+  "type": "module",
+  "bin": {
+    "standarui": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit"
+  }
+}

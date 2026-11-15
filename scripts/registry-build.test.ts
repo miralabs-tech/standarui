@@ -71,4 +71,22 @@ describe("the registry items", () => {
     }
     expect(owners.size).toBe(sources.filter((source) => !excluded.has(source.key)).length);
   });
+
+  it("keeps every base file free of component imports", () => {
+    expect(collectRegistry(root).baseImportsOfComponents).toEqual([]);
+  });
+
+  it("moves a base file that only components import into the component it imports", () => {
+    const { movedIntoComponents } = collectRegistry(root);
+    expect(movedIntoComponents.get("react:checkbox-group-context.tsx")).toBe("checkbox");
+    const checkbox = items.find((entry) => entry.name === "checkbox");
+    expect(checkbox?.files.map((file) => file.path)).toContain("checkbox-group-context.tsx");
+    const reactBase = items.find((entry) => entry.name === "react-base");
+    expect(reactBase?.files.map((file) => file.path)).not.toContain("checkbox-group-context.tsx");
+  });
+
+  it("leaves checkbox-group depending on checkbox through the component graph", () => {
+    const group = items.find((entry) => entry.name === "checkbox-group");
+    expect(group?.registryDependencies).toContain("checkbox");
+  });
 });
