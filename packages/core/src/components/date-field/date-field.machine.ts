@@ -29,12 +29,12 @@
  * is what `input[type=date]` does with `:out-of-range`.
  */
 
-import { focusElement, getInputModality, pushEngageScope, trackInputModality } from "@standarx/nav";
 import { addDomEvent } from "../../dom/event";
 import { resolveDir } from "../../dom/text-dir";
 import { getNextIndex, type RovingAction } from "../../focus/roving-focus";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine, MachineParams } from "../../machine/types";
+import { focusElement, getInputModality, pushEngageScope, trackInputModality } from "../../nav";
 import type { InputModality } from "../../types";
 import { getToday } from "../../utils/date-format";
 import { getControlEl, getHiddenInputEl, getSegmentEl } from "./date-field.dom";

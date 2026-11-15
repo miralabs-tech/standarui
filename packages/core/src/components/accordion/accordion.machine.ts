@@ -25,13 +25,13 @@
  * tab list; the arrows move the focus and the tab order is the DOM's.
  */
 
-import { focusElement, getInputModality, trackInputModality } from "@standarx/nav";
 import { contains, getEventTarget } from "../../dom/query";
 import { restoreFocus } from "../../focus/restore-focus";
 import { getNextIndex } from "../../focus/roving-focus";
 import { type Collapse, createCollapse } from "../../interaction/collapse";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine, MachineParams } from "../../machine/types";
+import { focusElement, getInputModality, trackInputModality } from "../../nav";
 import type { InputModality } from "../../types";
 import {
   getContentEl,

@@ -1,7 +1,7 @@
-import type { IntentScopeHost } from "@standarx/nav";
 import type { DismissReason } from "../../interaction/layer-stack";
 import type { PropTypes } from "../../machine/prop-types";
 import type { MachineSchema } from "../../machine/types";
+import type { IntentScopeHost } from "../../nav";
 import type { Density, Direction } from "../../types";
 
 export type DialogRole = "dialog" | "alertdialog";

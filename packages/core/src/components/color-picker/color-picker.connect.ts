@@ -1,4 +1,3 @@
-import { isFocusVisibleModality } from "@standarx/nav";
 import { visuallyHiddenStyle } from "../../a11y/visually-hidden";
 import { getGridKeyAction, getGridNextIndex } from "../../collection/grid-collection";
 import { ariaAttr, boolAttr, dataAttr } from "../../dom/attrs";
@@ -6,6 +5,7 @@ import { resolveDir } from "../../dom/text-dir";
 import { getRovingTabIndex } from "../../focus/roving-focus";
 import type { InputProps, NormalizeProps, PropTypes } from "../../machine/prop-types";
 import type { Service } from "../../machine/types";
+import { isFocusVisibleModality } from "../../nav";
 import type { Align, Side } from "../../positioner/compute-position";
 import {
   type ColorChannel,

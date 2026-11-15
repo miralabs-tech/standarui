@@ -14,9 +14,9 @@
 
 import type { Service } from "@standarui/core";
 import * as listbox from "@standarui/core/listbox";
-import { useIntentScopeHost } from "@standarx/nav/react";
 import { type ReactNode, useId } from "react";
 import { createPart, type PartProps } from "../../create-part";
+import { useIntentScopeHost } from "../../nav";
 import { normalizeProps, type ReactPropTypes } from "../../normalize-props";
 import { createPartContext } from "../../part-context";
 import { splitProps } from "../../split-props";

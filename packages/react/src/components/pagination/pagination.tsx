@@ -14,9 +14,9 @@
 
 import type { Service } from "@standarui/core";
 import * as pagination from "@standarui/core/pagination";
-import { useIntentScopeHost } from "@standarx/nav/react";
 import type { ReactNode } from "react";
 import type { PartProps } from "../../create-part";
+import { useIntentScopeHost } from "../../nav";
 import { normalizeProps, type ReactPropTypes } from "../../normalize-props";
 import { createPartContext } from "../../part-context";
 import { splitProps } from "../../split-props";

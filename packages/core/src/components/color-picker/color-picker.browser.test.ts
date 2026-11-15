@@ -13,8 +13,8 @@
  * through a real bus.
  */
 
-import { createIntentBus, getTabbables, type IntentBus } from "@standarx/nav";
 import { afterEach, describe, expect, it } from "vitest";
+import { createIntentBus, getTabbables, type IntentBus } from "../../nav";
 import { type ApplyProps, type DomPropTypes, mountMachine, unmountAll } from "../harness";
 import { connect } from "./color-picker.connect";
 import { machine } from "./color-picker.machine";

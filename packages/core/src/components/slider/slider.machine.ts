@@ -19,12 +19,12 @@
  * — runs before the modality refcount falls.
  */
 
-import { focusElement, getInputModality, pushEngageScope, trackInputModality } from "@standarx/nav";
 import { addDomEvent, isPrimaryPointer } from "../../dom/event";
 import { observeChildren } from "../../dom/observers";
 import { resolveDir } from "../../dom/text-dir";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine, PropAccessor, Transition } from "../../machine/types";
+import { focusElement, getInputModality, pushEngageScope, trackInputModality } from "../../nav";
 import type { Direction, InputModality } from "../../types";
 import { isDev } from "../../utils/env";
 import { arrayEquals } from "../../utils/equality";

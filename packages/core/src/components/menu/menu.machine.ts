@@ -24,7 +24,6 @@
  * to the model behind it.
  */
 
-import { focusElement, getInputModality, trackInputModality } from "@standarx/nav";
 import { hasAccessibleName } from "../../a11y/accessible-name";
 import { hideOthers } from "../../a11y/aria-hidden";
 import { lockScroll } from "../../a11y/scroll-lock";
@@ -49,6 +48,7 @@ import { trackScrollEdges as trackEdges } from "../../interaction/scroll-edges";
 import { createTypeaheadState, getByTypeahead } from "../../interaction/typeahead";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine, MachineParams, Transition } from "../../machine/types";
+import { focusElement, getInputModality, trackInputModality } from "../../nav";
 import { trackPosition } from "../../positioner/track-position";
 import type { Density, Direction, InputModality, Rect } from "../../types";
 import { isDev } from "../../utils/env";

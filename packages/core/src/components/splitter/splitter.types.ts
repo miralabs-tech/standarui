@@ -1,6 +1,6 @@
-import type { EngageIntent, IntentScopeHost } from "@standarx/nav";
 import type { PropTypes } from "../../machine/prop-types";
 import type { MachineSchema } from "../../machine/types";
+import type { EngageIntent, IntentScopeHost } from "../../nav";
 import type { Direction, InputModality, Orientation } from "../../types";
 
 export type SplitterUnit = "px" | "%";

@@ -20,8 +20,8 @@
  * to an adapter that owns that order; they are tested in `@standarui/react`.
  */
 
-import { createIntentBus, getTabbables, type IntentBus, setInputModality } from "@standarx/nav";
 import { afterEach, beforeAll, describe, expect, it, vi } from "vitest";
+import { createIntentBus, getTabbables, type IntentBus, setInputModality } from "../../nav";
 import {
   type ApplyProps,
   type DomPropTypes,

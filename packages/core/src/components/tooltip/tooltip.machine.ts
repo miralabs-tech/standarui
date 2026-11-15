@@ -26,7 +26,6 @@
  * programmatic focus also matches on all three engines.
  */
 
-import { isFocusVisible, trackInputModality } from "@standarx/nav";
 import { addDomEvent } from "../../dom/event";
 import { timeout } from "../../dom/raf";
 import { resolveDir } from "../../dom/text-dir";
@@ -35,6 +34,7 @@ import { getLayerStack, isEscapeLikeDismissal } from "../../interaction/layer-st
 import { trackLongPress } from "../../interaction/long-press";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine } from "../../machine/types";
+import { isFocusVisible, trackInputModality } from "../../nav";
 import { trackPosition } from "../../positioner/track-position";
 import type { Direction } from "../../types";
 import { getContentEl, getContentId, getPositionerEl, getTriggerEl } from "./tooltip.dom";

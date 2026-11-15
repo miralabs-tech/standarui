@@ -15,9 +15,9 @@
  * the answer is held until focus leaves — see `focusSource` in the schema.
  */
 
-import { getInputModality, trackInputModality } from "@standarx/nav";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine } from "../../machine/types";
+import { getInputModality, trackInputModality } from "../../nav";
 import type { InputModality } from "../../types";
 import type { ToggleSchema } from "./toggle.types";
 

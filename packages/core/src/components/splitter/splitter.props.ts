@@ -1,4 +1,4 @@
-import type { EngageIntent } from "@standarx/nav";
+import type { EngageIntent } from "../../nav";
 import type { Direction, Orientation } from "../../types";
 import type { SplitterPanelSide } from "./splitter.types";
 

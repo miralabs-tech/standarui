@@ -19,9 +19,9 @@
  * live in `@standarui/react`.
  */
 
-import { setInputModality } from "@standarx/nav";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { PartIdOverrides } from "../../machine/scope";
+import { setInputModality } from "../../nav";
 import { type DomPropTypes, type MachineHarness, mountMachine, unmountAll } from "../harness";
 import { connect } from "./collapsible.connect";
 import { machine } from "./collapsible.machine";

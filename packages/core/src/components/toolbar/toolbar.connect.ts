@@ -1,9 +1,9 @@
-import { isFocusVisibleModality, isTextEntryTarget } from "@standarx/nav";
 import { ariaAttr, dataAttr } from "../../dom/attrs";
 import { resolveDir } from "../../dom/text-dir";
 import { getRovingKeyAction } from "../../focus/roving-focus";
 import type { NormalizeProps, PropTypes } from "../../machine/prop-types";
 import type { Service } from "../../machine/types";
+import { isFocusVisibleModality, isTextEntryTarget } from "../../nav";
 import type { Orientation } from "../../types";
 import { parts } from "./toolbar.anatomy";
 import { getItemId, getRootEl, getRootId } from "./toolbar.dom";

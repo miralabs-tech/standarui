@@ -17,11 +17,11 @@
  * order.
  */
 
-import { focusElement, getInputModality, trackInputModality } from "@standarx/nav";
 import { observeChildren } from "../../dom/observers";
 import { getInitialIndex, getNextIndex } from "../../focus/roving-focus";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine } from "../../machine/types";
+import { focusElement, getInputModality, trackInputModality } from "../../nav";
 import type { InputModality } from "../../types";
 import { isDev } from "../../utils/env";
 import { warn } from "../../utils/invariant";

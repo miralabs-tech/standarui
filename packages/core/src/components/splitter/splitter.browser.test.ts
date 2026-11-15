@@ -12,9 +12,9 @@
  * `packages/styles/src/splitter.browser.test.ts`.
  */
 
-import { createIntentBus, type IntentBus } from "@standarx/nav";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { commands, userEvent } from "vitest/browser";
+import { createIntentBus, type IntentBus } from "../../nav";
 import { type ApplyProps, type DomPropTypes, mountMachine, unmountAll } from "../harness";
 import { connect } from "./splitter.connect";
 import { machine } from "./splitter.machine";

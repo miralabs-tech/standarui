@@ -23,8 +23,8 @@
  * frame; anything but `waitFor` is a race webkit loses.
  */
 
-import { getTabbables, setInputModality } from "@standarx/nav";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { getTabbables, setInputModality } from "../../nav";
 import {
   type ApplyProps,
   type DomPropTypes,

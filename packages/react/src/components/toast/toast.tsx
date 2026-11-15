@@ -15,11 +15,11 @@
 
 import type { Service } from "@standarui/core";
 import * as toast from "@standarui/core/toast";
-import { useIntentScopeHost } from "@standarx/nav/react";
 import { type ReactNode, type Ref, useEffect, useMemo, useRef } from "react";
 import { composeRefs } from "../../compose-refs";
 import { createPart, type PartProps } from "../../create-part";
 import { useEnvironment } from "../../environment";
+import { useIntentScopeHost } from "../../nav";
 import { normalizeProps, type ReactPropTypes } from "../../normalize-props";
 import { createPartContext } from "../../part-context";
 import { Portal, type PortalProps } from "../../portal";

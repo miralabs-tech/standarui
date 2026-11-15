@@ -14,9 +14,9 @@
  * order inside a focus trap, the dismissal lock, axe.
  */
 
-import { createIntentBus, type IntentBus } from "@standarx/nav";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { commands } from "vitest/browser";
+import { createIntentBus, type IntentBus } from "../../nav";
 import { type ApplyProps, type DomPropTypes, mountMachine, unmountAll } from "../harness";
 import { connect } from "./drawer.connect";
 import { machine } from "./drawer.machine";

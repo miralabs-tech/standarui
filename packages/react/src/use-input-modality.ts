@@ -1,5 +1,5 @@
-import { trackInputModality } from "@standarx/nav";
 import { type RefObject, useEffect } from "react";
+import { trackInputModality } from "./nav";
 
 export function useInputModality(node: RefObject<HTMLElement | null>): void {
   useEffect(() => {

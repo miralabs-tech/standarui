@@ -18,7 +18,6 @@
  * to write `data-presentation`. A sheet and a centred modal are the same machine.
  */
 
-import { focusElement, getFirstTabbable, trackInputModality } from "@standarx/nav";
 import { hasAccessibleName } from "../../a11y/accessible-name";
 import { hideOthers } from "../../a11y/aria-hidden";
 import { lockScroll } from "../../a11y/scroll-lock";
@@ -37,6 +36,7 @@ import { getLayerStack, isEscapeLikeDismissal } from "../../interaction/layer-st
 import { createMachine } from "../../machine/create-machine";
 import type { Scope } from "../../machine/scope";
 import type { Machine } from "../../machine/types";
+import { focusElement, getFirstTabbable, trackInputModality } from "../../nav";
 import type { Density, Direction } from "../../types";
 import { isDev } from "../../utils/env";
 import { warn } from "../../utils/invariant";

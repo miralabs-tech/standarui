@@ -1,7 +1,7 @@
-import { isFocusVisibleModality } from "@standarx/nav";
 import { ariaAttr, dataAttr } from "../../dom/attrs";
 import type { NormalizeProps, PropTypes } from "../../machine/prop-types";
 import type { Service } from "../../machine/types";
+import { isFocusVisibleModality } from "../../nav";
 import { parts } from "./input.anatomy";
 import { getControlId, getRootId, getVisibilityTriggerId } from "./input.dom";
 import type { InputApi, InputSchema } from "./input.types";

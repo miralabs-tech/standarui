@@ -27,11 +27,11 @@
  *    selects itself on focus, so Ctrl/Cmd+C is one keystroke away.
  */
 
-import { getInputModality, trackInputModality } from "@standarx/nav";
 import { getLiveAnnouncer } from "../../a11y/live-announcer";
 import { timeout } from "../../dom/raf";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine } from "../../machine/types";
+import { getInputModality, trackInputModality } from "../../nav";
 import type { InputModality } from "../../types";
 import { getTriggerEl } from "./clipboard.dom";
 import type { ClipboardSchema } from "./clipboard.types";

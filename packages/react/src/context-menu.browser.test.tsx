@@ -17,8 +17,6 @@
  * under it (M5), and a surface with no trigger that still has a name.
  */
 
-import type { InputSystem } from "@standarx/nav";
-import { NavProvider, useInputSystem } from "@standarx/nav/react";
 import { useEffect } from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
@@ -39,6 +37,8 @@ import {
   MenuPositioner,
   MenuRoot,
 } from "./components/menu/menu";
+import type { InputSystem } from "./nav";
+import { NavProvider, useInputSystem } from "./nav";
 import {
   expectNoAxeViolations,
   fire,

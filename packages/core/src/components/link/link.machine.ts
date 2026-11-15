@@ -18,10 +18,10 @@
  * page. The primitive only serves the pointer visual here.
  */
 
-import { getInputModality, trackInputModality } from "@standarx/nav";
 import { trackPress } from "../../interaction/press";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine } from "../../machine/types";
+import { getInputModality, trackInputModality } from "../../nav";
 import type { InputModality } from "../../types";
 import { getRootEl } from "./link.dom";
 import type { LinkSchema } from "./link.types";

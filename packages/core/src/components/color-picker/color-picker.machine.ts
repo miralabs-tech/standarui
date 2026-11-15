@@ -23,7 +23,6 @@
  * colour it went down as.
  */
 
-import { focusElement, getInputModality, pushEngageScope, trackInputModality } from "@standarx/nav";
 import { getLiveAnnouncer } from "../../a11y/live-announcer";
 import { getRowCount } from "../../collection/grid-collection";
 import { addDomEvent } from "../../dom/event";
@@ -37,6 +36,7 @@ import {
 import { isEscapeLikeDismissal } from "../../interaction/layer-stack";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine, MachineParams, Transition } from "../../machine/types";
+import { focusElement, getInputModality, pushEngageScope, trackInputModality } from "../../nav";
 import type { Density, Direction, InputModality } from "../../types";
 import {
   anchorHue,

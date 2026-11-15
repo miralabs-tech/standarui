@@ -16,11 +16,11 @@
  * instead of on the component's.
  */
 
-import { getTabbables, setInputModality } from "@standarx/nav";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { createPropsWriter, type DomPropTypes, domNormalizer } from "../../dom/apply";
 import { createService } from "../../machine/service";
 import type { Service } from "../../machine/types";
+import { getTabbables, setInputModality } from "../../nav";
 import { createReactivityRoot } from "../../reactivity";
 import { connect } from "./breadcrumb.connect";
 import { machine } from "./breadcrumb.machine";

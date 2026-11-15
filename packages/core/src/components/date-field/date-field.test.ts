@@ -9,8 +9,8 @@
  * machine's own vocabulary: the events a key resolves to, and nothing about keys.
  */
 
-import { createIntentBus } from "@standarx/nav";
 import { describe, expect, it, vi } from "vitest";
+import { createIntentBus } from "../../nav";
 import { connectWithoutDom, type PlainPropTypes } from "../node-harness";
 import { connect } from "./date-field.connect";
 import { machine } from "./date-field.machine";

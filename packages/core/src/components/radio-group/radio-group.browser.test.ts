@@ -1,12 +1,12 @@
+import { afterEach, beforeAll, describe, expect, it, vi } from "vitest";
+import { userEvent } from "vitest/browser";
 import {
   createInputSystem,
   createIntentBus,
   type InputSystem,
   type IntentBus,
-} from "@standarx/nav";
-import { spatialPlugin } from "@standarx/nav/spatial";
-import { afterEach, beforeAll, describe, expect, it, vi } from "vitest";
-import { userEvent } from "vitest/browser";
+  spatialPlugin,
+} from "../../nav";
 import { type ApplyProps, type DomPropTypes, mountMachine, unmountAll } from "../harness";
 import { connect } from "./radio-group.connect";
 import { machine } from "./radio-group.machine";

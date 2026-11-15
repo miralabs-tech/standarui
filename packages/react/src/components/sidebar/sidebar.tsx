@@ -18,7 +18,6 @@
 
 import { isDev, resolveEnvironment, trackEnvironment, warn } from "@standarui/core";
 import * as sidebar from "@standarui/core/sidebar";
-import { focusElement } from "@standarx/nav";
 import {
   createContext,
   type MouseEvent,
@@ -31,6 +30,7 @@ import {
 } from "react";
 import { composeRefs } from "../../compose-refs";
 import type { PartProps } from "../../create-part";
+import { focusElement } from "../../nav";
 import { normalizeProps, type ReactPropTypes } from "../../normalize-props";
 import { splitProps } from "../../split-props";
 import { useInputModality } from "../../use-input-modality";

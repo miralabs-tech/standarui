@@ -1,10 +1,10 @@
-import { getInputModality, pushEngageScope, trackInputModality } from "@standarx/nav";
 import { addDomEvent } from "../../dom/event";
 import { observeChildren } from "../../dom/observers";
 import { resolveDir } from "../../dom/text-dir";
 import { trackDragAxis } from "../../interaction/drag-axis";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine, MachineParams, Transition } from "../../machine/types";
+import { getInputModality, pushEngageScope, trackInputModality } from "../../nav";
 import type { InputModality } from "../../types";
 import { isDev } from "../../utils/env";
 import { warn } from "../../utils/invariant";

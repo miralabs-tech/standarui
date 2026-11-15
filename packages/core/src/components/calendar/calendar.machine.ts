@@ -23,7 +23,6 @@
  * day, and that disagreement is a hydration warning on every page (§4.2).
  */
 
-import { focusElement, getInputModality, trackInputModality } from "@standarx/nav";
 import { getLiveAnnouncer } from "../../a11y/live-announcer";
 import { getGridKeyAction, getGridNextIndex } from "../../collection/grid-collection";
 import {
@@ -32,6 +31,7 @@ import {
 } from "../../environment/environment";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine, MachineParams } from "../../machine/types";
+import { focusElement, getInputModality, trackInputModality } from "../../nav";
 import type { Direction, InputModality, NavigationIntent } from "../../types";
 import { getToday, resolveFirstDayOfWeek } from "../../utils/date-format";
 import { shallowEqual } from "../../utils/equality";

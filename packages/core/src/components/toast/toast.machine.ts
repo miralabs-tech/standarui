@@ -19,7 +19,6 @@
  * therefore the only one that reliably speaks.
  */
 
-import { focusElement } from "@standarx/nav";
 import { getLiveAnnouncer } from "../../a11y/live-announcer";
 import { addDomEvent } from "../../dom/event";
 import { observeChildren } from "../../dom/observers";
@@ -28,6 +27,7 @@ import { getNextIndex, getRemovalIndex } from "../../focus/roving-focus";
 import { trackScrollEdges } from "../../interaction/scroll-edges";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine, MachineParams } from "../../machine/types";
+import { focusElement } from "../../nav";
 import { invariant } from "../../utils/invariant";
 import { getGroupEl, getToastEl, getToastEls } from "./toast.dom";
 import type { ResolvedToastGroupMachineProps, ToastGroupSchema, ToastRecord } from "./toast.types";

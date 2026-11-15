@@ -8,10 +8,10 @@
  * preventing costs six lines and keeps the browser's behaviour intact.
  */
 
-import { isFocusVisibleModality } from "@standarx/nav";
 import { ariaAttr, dataAttr } from "../../dom/attrs";
 import type { NormalizeProps, PropTypes } from "../../machine/prop-types";
 import type { Service } from "../../machine/types";
+import { isFocusVisibleModality } from "../../nav";
 import { parts } from "./button.anatomy";
 import { getLoadingIndicatorId, getRootId } from "./button.dom";
 import type { ButtonApi, ButtonSchema } from "./button.types";

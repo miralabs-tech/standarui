@@ -1,8 +1,8 @@
-import type { IntentScopeHost } from "@standarx/nav";
 import type { LiveAnnouncer } from "../../a11y/live-announcer";
 import type { GridAction } from "../../collection/grid-collection";
 import type { PropTypes } from "../../machine/prop-types";
 import type { MachineSchema } from "../../machine/types";
+import type { IntentScopeHost } from "../../nav";
 import type { Direction, InputModality } from "../../types";
 import type { DateValue, FirstDayOfWeek } from "../../utils/plain-date";
 

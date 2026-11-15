@@ -22,7 +22,6 @@
  * `value` and the DOM order are two different questions here.
  */
 
-import { focusElement, getInputModality, trackInputModality } from "@standarx/nav";
 import { getItemValue, getNextItem, isItemDisabled } from "../../collection/dom-collection";
 import {
   clearSelection as emptySelectionState,
@@ -40,6 +39,7 @@ import { trackScrollEdges as trackEdges } from "../../interaction/scroll-edges";
 import { createTypeaheadState, getByTypeahead } from "../../interaction/typeahead";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine, MachineParams } from "../../machine/types";
+import { focusElement, getInputModality, trackInputModality } from "../../nav";
 import type { InputModality } from "../../types";
 import {
   getContentEl,

@@ -17,10 +17,10 @@
  * layer stack: the root answers Tab for every open submenu, a submenu for none.
  */
 
-import { FOCUSABLE_SELECTOR, focusElement, getTabbables } from "@standarx/nav";
 import { addDomEvent, isComposingEvent } from "../dom/event";
 import { contains, DOCUMENT_POSITION_FOLLOWING, DOCUMENT_POSITION_PRECEDING } from "../dom/query";
 import { getLayerStack } from "../interaction/layer-stack";
+import { FOCUSABLE_SELECTOR, focusElement, getTabbables } from "../nav";
 import { claimTab, isHeldTab } from "./tab-handoff";
 
 export interface ProxyTabFocusOptions {

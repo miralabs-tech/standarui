@@ -12,11 +12,11 @@
  * stack, `getAnimations`, the two frames the focus trap waits for.
  */
 
-import { createIntentBus, type IntentBus, MODALITY_ATTRIBUTE } from "@standarx/nav";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { isScrollLocked } from "../../a11y/scroll-lock";
 import { trackDismissableLayer } from "../../interaction/dismissable";
 import { getLayerStack } from "../../interaction/layer-stack";
+import { createIntentBus, type IntentBus, MODALITY_ATTRIBUTE } from "../../nav";
 import { type ApplyProps, type DomPropTypes, mountMachine, unmountAll } from "../harness";
 import { connect } from "./dialog.connect";
 import { machine } from "./dialog.machine";

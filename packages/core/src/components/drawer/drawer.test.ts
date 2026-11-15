@@ -14,8 +14,8 @@
  * asserted as arithmetic instead of as a rendering.
  */
 
-import type { IntentScopeHost } from "@standarx/nav";
 import { describe, expect, it, vi } from "vitest";
+import type { IntentScopeHost } from "../../nav";
 import { connectWithoutDom, type PlainPropTypes } from "../node-harness";
 import { connect } from "./drawer.connect";
 import { machine } from "./drawer.machine";

@@ -7,9 +7,9 @@
  * arithmetic is proved without a document in `popover.test.ts`.
  */
 
-import { createIntentBus, type IntentBus } from "@standarx/nav";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { trackDismissableLayer } from "../../interaction/dismissable";
+import { createIntentBus, type IntentBus } from "../../nav";
 import { type ApplyProps, type DomPropTypes, mountMachine, unmountAll } from "../harness";
 import { connect } from "./popover.connect";
 import { machine } from "./popover.machine";

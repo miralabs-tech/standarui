@@ -10,11 +10,11 @@
  * tap must fall through to the native label click rather than toggle twice.
  */
 
-import { getInputModality, trackInputModality } from "@standarx/nav";
 import { addDomEvent, isPrimaryPointer } from "../../dom/event";
 import { resolveDir } from "../../dom/text-dir";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine } from "../../machine/types";
+import { getInputModality, trackInputModality } from "../../nav";
 import type { Direction, InputModality } from "../../types";
 import { getControlEl } from "./switch.dom";
 import type { SwitchSchema } from "./switch.types";

@@ -5,9 +5,9 @@
  * a key, and a second toolbar nested inside the first.
  */
 
-import { setInputModality } from "@standarx/nav";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { mergeProps } from "../../machine/slot";
+import { setInputModality } from "../../nav";
 import { type ApplyProps, type DomPropTypes, mountMachine, unmountAll } from "../harness";
 import { connect } from "./toolbar.connect";
 import { machine } from "./toolbar.machine";

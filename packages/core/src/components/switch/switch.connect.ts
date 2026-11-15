@@ -1,8 +1,8 @@
-import { isFocusVisibleModality } from "@standarx/nav";
 import { visuallyHiddenStyle } from "../../a11y/visually-hidden";
 import { ariaAttr, dataAttr } from "../../dom/attrs";
 import type { NormalizeProps, PropTypes } from "../../machine/prop-types";
 import type { Service } from "../../machine/types";
+import { isFocusVisibleModality } from "../../nav";
 import { parts } from "./switch.anatomy";
 import { getControlId, getHiddenInputId, getLabelId, getRootId } from "./switch.dom";
 import type { SwitchApi, SwitchSchema } from "./switch.types";

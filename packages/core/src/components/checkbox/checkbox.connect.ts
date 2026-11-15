@@ -5,11 +5,11 @@
  * click to the input, and a second handler would toggle it back.
  */
 
-import { isFocusVisibleModality } from "@standarx/nav";
 import { visuallyHiddenStyle } from "../../a11y/visually-hidden";
 import { ariaAttr, dataAttr } from "../../dom/attrs";
 import type { NormalizeProps, PropTypes } from "../../machine/prop-types";
 import type { Service } from "../../machine/types";
+import { isFocusVisibleModality } from "../../nav";
 import { parts } from "./checkbox.anatomy";
 import { getHiddenInputId, getLabelId, getRootId } from "./checkbox.dom";
 import type { CheckboxApi, CheckboxSchema } from "./checkbox.types";

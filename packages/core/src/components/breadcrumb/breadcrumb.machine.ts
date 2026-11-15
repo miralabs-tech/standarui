@@ -25,14 +25,14 @@
  * focusing the link on a click would paint a ring nobody asked for.
  */
 
+import { createMachine } from "../../machine/create-machine";
+import type { Machine } from "../../machine/types";
 import {
   focusElement,
   getInputModality,
   isFocusVisibleModality,
   trackInputModality,
-} from "@standarx/nav";
-import { createMachine } from "../../machine/create-machine";
-import type { Machine } from "../../machine/types";
+} from "../../nav";
 import {
   getEllipsisTriggerEl,
   getFirstCollapsedLinkEl,

@@ -19,10 +19,10 @@
  * keep their first meaning, scrolling the page.
  */
 
-import { focusElement, getInputModality, trackInputModality } from "@standarx/nav";
 import { getNextIndex } from "../../focus/roving-focus";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine, MachineParams } from "../../machine/types";
+import { focusElement, getInputModality, trackInputModality } from "../../nav";
 import type { InputModality } from "../../types";
 import { getControlEls, getRootEl, ownsFocus } from "./pagination.dom";
 import type { PaginationPageItem, PaginationSchema } from "./pagination.types";

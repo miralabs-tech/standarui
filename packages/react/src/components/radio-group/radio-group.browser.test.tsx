@@ -1,8 +1,7 @@
-import type { InputSystem } from "@standarx/nav";
-import { NavProvider, useInputSystem } from "@standarx/nav/react";
-import { spatialPlugin } from "@standarx/nav/spatial";
 import { act, useEffect, useState } from "react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import type { InputSystem } from "../../nav";
+import { NavProvider, spatialPlugin, useInputSystem } from "../../nav";
 import {
   expectNoAxeViolations,
   fire,

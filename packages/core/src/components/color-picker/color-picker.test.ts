@@ -11,10 +11,10 @@
  * `color-picker.browser.test.ts`.
  */
 
-import { createIntentBus, type IntentBus } from "@standarx/nav";
 import { describe, expect, it, vi } from "vitest";
 import { getGridKeyAction, getGridNextIndex } from "../../collection/grid-collection";
 import type { MachineParams } from "../../machine/types";
+import { createIntentBus, type IntentBus } from "../../nav";
 import { type ColorValue, parseColor, toRgb255 } from "../../utils/color";
 import { connectWithoutDom, type PlainPropTypes } from "../node-harness";
 import { connect } from "./color-picker.connect";

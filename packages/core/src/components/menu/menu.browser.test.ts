@@ -14,9 +14,9 @@
  * and refusing to dismiss when it is clicked in.
  */
 
-import { createIntentBus, type IntentBus, setInputModality } from "@standarx/nav";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { getLayerStack } from "../../interaction/layer-stack";
+import { createIntentBus, type IntentBus, setInputModality } from "../../nav";
 import { type ApplyProps, type DomPropTypes, mountMachine, unmountAll } from "../harness";
 import { connect } from "./menu.connect";
 import { machine } from "./menu.machine";

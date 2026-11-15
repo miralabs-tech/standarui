@@ -8,8 +8,8 @@
  * deliberately, while every rule about *which* row wins is proved here.
  */
 
-import { createIntentBus, type IntentBus, setInputModality } from "@standarx/nav";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { createIntentBus, type IntentBus, setInputModality } from "../../nav";
 import { type ApplyProps, type DomPropTypes, mountMachine, unmountAll } from "../harness";
 import { connect } from "./listbox.connect";
 import { machine } from "./listbox.machine";

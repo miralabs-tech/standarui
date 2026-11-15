@@ -7,7 +7,7 @@ export type Density = "desktop" | "touch";
 // The input vocabulary is the engine's, and the engine is `@standarx/nav`
 // (decision 57). Re-exported here so a machine keeps naming its modality and its
 // intents from the same module as its direction and its density.
-export type { InputModality, IntentEvent, IntentSource, NavigationIntent } from "@standarx/nav";
+export type { InputModality, IntentEvent, IntentSource, NavigationIntent } from "./nav";
 
 /** Viewport-relative geometry, in the shape `getBoundingClientRect` reports it. */
 export interface Rect {

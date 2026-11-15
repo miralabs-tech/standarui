@@ -1,5 +1,5 @@
-import { createInputSystem } from "@standarx/nav";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { createInputSystem } from "../../nav";
 import { type ApplyProps, mountMachine, unmountAll } from "../harness";
 import { connect } from "./link.connect";
 import { machine } from "./link.machine";

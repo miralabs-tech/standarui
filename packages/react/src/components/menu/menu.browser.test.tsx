@@ -8,10 +8,10 @@
  * with a single submenu would never see it made wrong.
  */
 
-import type { InputSystem } from "@standarx/nav";
-import { NavProvider, useInputSystem } from "@standarx/nav/react";
 import { useEffect, useRef, useState } from "react";
 import { afterEach, describe, expect, it } from "vitest";
+import type { InputSystem } from "../../nav";
+import { NavProvider, useInputSystem } from "../../nav";
 import {
   expectNoAxeViolations,
   fire,

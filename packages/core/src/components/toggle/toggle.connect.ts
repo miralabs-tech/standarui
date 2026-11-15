@@ -4,10 +4,10 @@
  * (merged ahead of ours by `mergeProps`).
  */
 
-import { isFocusVisibleModality } from "@standarx/nav";
 import { ariaAttr, boolAttr, dataAttr } from "../../dom/attrs";
 import type { NormalizeProps, PropTypes } from "../../machine/prop-types";
 import type { Service } from "../../machine/types";
+import { isFocusVisibleModality } from "../../nav";
 import { parts } from "./toggle.anatomy";
 import { getIndicatorId, getRootId } from "./toggle.dom";
 import type { ToggleApi, ToggleSchema } from "./toggle.types";

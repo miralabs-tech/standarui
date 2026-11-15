@@ -1,9 +1,3 @@
-export {
-  getFirstTabbable,
-  getLastTabbable,
-  getTabbableEdges,
-  getTabbables,
-} from "@standarx/nav";
 export { type AriaHiddenOptions, hideOthers } from "./a11y/aria-hidden";
 export { getLiveAnnouncer, type LiveAnnouncer, type Politeness } from "./a11y/live-announcer";
 export { isScrollLocked, lockScroll } from "./a11y/scroll-lock";
@@ -224,6 +218,12 @@ export type {
   TransitionMap,
   WatchParams,
 } from "./machine/types";
+export {
+  getFirstTabbable,
+  getLastTabbable,
+  getTabbableEdges,
+  getTabbables,
+} from "./nav";
 export {
   type Align,
   type ArrowPosition,

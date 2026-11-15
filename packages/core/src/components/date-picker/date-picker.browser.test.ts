@@ -14,10 +14,10 @@
  * whether that is true.
  */
 
-import { createIntentBus, getTabbables, type IntentBus } from "@standarx/nav";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { userEvent } from "vitest/browser";
 import { trackDismissableLayer } from "../../interaction/dismissable";
+import { createIntentBus, getTabbables, type IntentBus } from "../../nav";
 import { type ApplyProps, type DomPropTypes, mountMachine, unmountAll } from "../harness";
 import { connect } from "./date-picker.connect";
 import { machine } from "./date-picker.machine";

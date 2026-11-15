@@ -23,7 +23,6 @@
  * focus there without knowing which component drew the grid.
  */
 
-import { focusElement, getFirstTabbable } from "@standarx/nav";
 import { hasAccessibleName } from "../../a11y/accessible-name";
 import { hideOthers } from "../../a11y/aria-hidden";
 import { lockScroll } from "../../a11y/scroll-lock";
@@ -40,6 +39,7 @@ import { trackDismissableLayer } from "../../interaction/dismissable";
 import { getLayerStack, isEscapeLikeDismissal } from "../../interaction/layer-stack";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine, MachineParams } from "../../machine/types";
+import { focusElement, getFirstTabbable } from "../../nav";
 import { trackPosition } from "../../positioner/track-position";
 import type { Density, Direction } from "../../types";
 import { getToday } from "../../utils/date-format";
