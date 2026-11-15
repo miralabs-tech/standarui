@@ -36,13 +36,13 @@
  * tabindex corrects (R57).
  */
 
-import { focusElement, getInputModality, trackInputModality } from "@standarx/nav";
 import { getItemValue, getNextItem } from "../../collection/dom-collection";
 import { observeChildren, observeResize } from "../../dom/observers";
 import { resolveDir } from "../../dom/text-dir";
 import { getRovingIntentAction } from "../../focus/roving-focus";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine, MachineParams } from "../../machine/types";
+import { focusElement, getInputModality, trackInputModality } from "../../nav";
 import type { InputModality } from "../../types";
 import { getIndicatorMetrics } from "../../utils/indicator-rect";
 import {

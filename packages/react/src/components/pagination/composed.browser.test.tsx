@@ -15,10 +15,10 @@
  * form that writes no cells of its own.
  */
 
-import type { InputSystem } from "@standarx/nav";
-import { NavProvider, useInputSystem } from "@standarx/nav/react";
 import { useEffect } from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import type { InputSystem } from "../../nav";
+import { NavProvider, useInputSystem } from "../../nav";
 import {
   expectNoAxeViolations,
   fire,

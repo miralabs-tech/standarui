@@ -11,11 +11,11 @@
  */
 
 import { isScrollLocked } from "@standarui/core";
-import type { InputSystem } from "@standarx/nav";
-import { NavProvider, useInputSystem } from "@standarx/nav/react";
 import { type ReactNode, useEffect } from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { useParentLayerId } from "../../layer-context";
+import type { InputSystem } from "../../nav";
+import { NavProvider, useInputSystem } from "../../nav";
 import {
   expectNoAxeViolations,
   fire,

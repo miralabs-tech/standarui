@@ -1,10 +1,10 @@
-import { FOCUSABLE_SELECTOR, isTabbable } from "@standarx/nav";
 import { addDomEvent, isPrimaryPointer } from "../../dom/event";
 import { observeAttributes, observeChildren, observeResize as onResize } from "../../dom/observers";
 import { resolveDir } from "../../dom/text-dir";
 import { trackDragAxis } from "../../interaction/drag-axis";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine, MachineParams } from "../../machine/types";
+import { FOCUSABLE_SELECTOR, isTabbable } from "../../nav";
 import { isDev } from "../../utils/env";
 import { warn } from "../../utils/invariant";
 import {

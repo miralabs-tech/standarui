@@ -1,9 +1,9 @@
-import type { IntentScopeHost } from "@standarx/nav";
 import type { RovingAction } from "../../focus/roving-focus";
 import type { DismissReason } from "../../interaction/layer-stack";
 import type { TypeaheadState } from "../../interaction/typeahead";
 import type { PropTypes } from "../../machine/prop-types";
 import type { MachineSchema, Service } from "../../machine/types";
+import type { IntentScopeHost } from "../../nav";
 import type { Placement } from "../../positioner/compute-position";
 import type { Density, Direction, InputModality, Rect } from "../../types";
 

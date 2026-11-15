@@ -1,8 +1,8 @@
-import { isFocusVisibleModality } from "@standarx/nav";
 import { visuallyHiddenStyle } from "../../a11y/visually-hidden";
 import { ariaAttr, dataAttr } from "../../dom/attrs";
 import type { NormalizeProps, PropTypes } from "../../machine/prop-types";
 import type { Service } from "../../machine/types";
+import { isFocusVisibleModality } from "../../nav";
 import { parts } from "./radio-group.anatomy";
 import { getItemId, getItemInputId, getLabelId, getRootId } from "./radio-group.dom";
 import type { RadioGroupApi, RadioGroupSchema, RadioItemProps } from "./radio-group.types";

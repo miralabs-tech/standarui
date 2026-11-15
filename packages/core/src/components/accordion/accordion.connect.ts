@@ -1,8 +1,8 @@
-import { isFocusVisibleModality } from "@standarx/nav";
 import { ariaAttr, boolAttr, dataAttr } from "../../dom/attrs";
 import { getRovingKeyAction } from "../../focus/roving-focus";
 import type { HTMLProps, NormalizeProps, PropTypes } from "../../machine/prop-types";
 import type { Service } from "../../machine/types";
+import { isFocusVisibleModality } from "../../nav";
 import { parts } from "./accordion.anatomy";
 import { getContentId, getItemId, getRootId, getTriggerId } from "./accordion.dom";
 import type {

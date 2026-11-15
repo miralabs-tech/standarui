@@ -8,10 +8,10 @@
  * sharing one would be invalid DOM, and nothing ever needs to look them up.
  */
 
-import { isFocusVisibleModality } from "@standarx/nav";
 import { ariaAttr, dataAttr } from "../../dom/attrs";
 import type { NormalizeProps, PropTypes } from "../../machine/prop-types";
 import type { Service } from "../../machine/types";
+import { isFocusVisibleModality } from "../../nav";
 import { parts } from "./clipboard.anatomy";
 import { getControlId, getInputId, getLabelId, getRootId, getTriggerId } from "./clipboard.dom";
 import type { ClipboardApi, ClipboardIndicatorPartProps, ClipboardSchema } from "./clipboard.types";

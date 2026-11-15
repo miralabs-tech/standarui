@@ -13,8 +13,8 @@
  * coalesces on, and the thing under test would stop being the thing that ships.
  */
 
-import { createIntentBus, type IntentBus } from "@standarx/nav";
 import { afterEach, describe, expect, it } from "vitest";
+import { createIntentBus, type IntentBus } from "../../nav";
 import { type ApplyProps, type DomPropTypes, mountMachine, unmountAll } from "../harness";
 import { connect } from "./tooltip.connect";
 import { machine } from "./tooltip.machine";

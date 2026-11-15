@@ -8,10 +8,10 @@
  * better than a handler would.
  */
 
-import { isFocusVisibleModality } from "@standarx/nav";
 import { ariaAttr, boolAttr, dataAttr } from "../../dom/attrs";
 import type { NormalizeProps, PropTypes } from "../../machine/prop-types";
 import type { Service } from "../../machine/types";
+import { isFocusVisibleModality } from "../../nav";
 import { parts } from "./collapsible.anatomy";
 import { getContentId, getIndicatorId, getRootId, getTriggerId } from "./collapsible.dom";
 import type { CollapsibleApi, CollapsibleSchema } from "./collapsible.types";

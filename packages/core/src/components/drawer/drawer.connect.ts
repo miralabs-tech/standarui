@@ -10,10 +10,10 @@
  * onto the node by the machine.
  */
 
-import { type EngageIntent, isFocusVisibleModality, isTextEntryTarget } from "@standarx/nav";
 import { ariaAttr, dataAttr } from "../../dom/attrs";
 import type { NormalizeProps, PropTypes } from "../../machine/prop-types";
 import type { Service } from "../../machine/types";
+import { type EngageIntent, isFocusVisibleModality, isTextEntryTarget } from "../../nav";
 import { parts } from "./drawer.anatomy";
 import { getBackdropId, getContentId, getGrabberId, getPositionerId } from "./drawer.dom";
 import type { DrawerApi, DrawerAxis, DrawerGrabberProps, DrawerSchema } from "./drawer.types";

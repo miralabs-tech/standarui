@@ -12,9 +12,9 @@
  * validation, `reset`) is the half of the component the menu does not have.
  */
 
-import { createIntentBus } from "@standarx/nav";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { isScrollLocked } from "../../a11y/scroll-lock";
+import { createIntentBus } from "../../nav";
 import { type ApplyProps, type DomPropTypes, mountMachine, unmountAll } from "../harness";
 import { connect } from "./select.connect";
 import { machine } from "./select.machine";

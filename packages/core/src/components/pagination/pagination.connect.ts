@@ -24,7 +24,6 @@
  * connect sees `defaultPrevented` and does not replay the step.
  */
 
-import { isFocusVisibleModality } from "@standarx/nav";
 import { ariaAttr, dataAttr } from "../../dom/attrs";
 import { resolveDir } from "../../dom/text-dir";
 import { getRovingKeyAction } from "../../focus/roving-focus";
@@ -36,6 +35,7 @@ import type {
   PropTypes,
 } from "../../machine/prop-types";
 import type { Service } from "../../machine/types";
+import { isFocusVisibleModality } from "../../nav";
 import { parts } from "./pagination.anatomy";
 import {
   getEllipsisId,

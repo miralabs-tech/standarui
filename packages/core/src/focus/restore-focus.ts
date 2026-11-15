@@ -13,8 +13,8 @@
  * the host and the tab stops stay out of reach, so it never runs there.
  */
 
-import { focusElement, getTabbables } from "@standarx/nav";
 import { contains, DOCUMENT_POSITION_FOLLOWING, DOCUMENT_POSITION_PRECEDING } from "../dom/query";
+import { focusElement, getTabbables } from "../nav";
 
 export function restoreFocus(
   target: HTMLElement | null | undefined,

@@ -21,7 +21,6 @@
  * happens to be identical.
  */
 
-import { focusElement, getInputModality, trackInputModality } from "@standarx/nav";
 import { observeChildren, observeResize } from "../../dom/observers";
 import { resolveDir } from "../../dom/text-dir";
 import { getInitialIndex, getNextIndex } from "../../focus/roving-focus";
@@ -29,6 +28,7 @@ import { trackInlineScrollbar } from "../../interaction/inline-scrollbar";
 import { scrollIntoInlineView, trackInlineScrollEdges } from "../../interaction/scroll-edges";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine, MachineParams } from "../../machine/types";
+import { focusElement, getInputModality, trackInputModality } from "../../nav";
 import type { InputModality } from "../../types";
 import { measureIndicator } from "../../utils/indicator-rect";
 import {

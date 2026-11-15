@@ -1,9 +1,9 @@
-import { isFocusVisibleModality } from "@standarx/nav";
 import { ariaAttr, boolAttr, dataAttr } from "../../dom/attrs";
 import { resolveDir } from "../../dom/text-dir";
 import { getRovingKeyAction } from "../../focus/roving-focus";
 import type { NormalizeProps, PropTypes } from "../../machine/prop-types";
 import type { Service } from "../../machine/types";
+import { isFocusVisibleModality } from "../../nav";
 import { parts } from "./toggle-group.anatomy";
 import {
   getFrameId,

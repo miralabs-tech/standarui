@@ -29,12 +29,6 @@
  * `@property` registration and buys a machine that never computes a position.
  */
 
-import {
-  type EngageIntent,
-  getInputModality,
-  pushEngageScope,
-  trackInputModality,
-} from "@standarx/nav";
 import { contains } from "../../dom/query";
 import { resolveDir } from "../../dom/text-dir";
 import {
@@ -46,6 +40,12 @@ import { trackDragAxis } from "../../interaction/drag-axis";
 import { hasScrollRoom } from "../../interaction/scroll-edges";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine, MachineParams } from "../../machine/types";
+import {
+  type EngageIntent,
+  getInputModality,
+  pushEngageScope,
+  trackInputModality,
+} from "../../nav";
 import type { Density, InputModality } from "../../types";
 import { isDev } from "../../utils/env";
 import { warn } from "../../utils/invariant";

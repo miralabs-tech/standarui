@@ -1,5 +1,5 @@
-import { setInputModality } from "@standarx/nav";
 import { afterEach, beforeAll, describe, expect, it, vi } from "vitest";
+import { setInputModality } from "../../nav";
 import { type ApplyProps, type DomPropTypes, mountMachine, unmountAll } from "../harness";
 import { connect } from "./toggle-group.connect";
 import { machine } from "./toggle-group.machine";

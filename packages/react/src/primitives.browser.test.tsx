@@ -3,15 +3,13 @@
  * environment's hand-off of its document to the input layer.
  */
 
-import type { InputPlugin } from "@standarx/nav";
-import { type GamepadRuntime, gamepadPlugin } from "@standarx/nav/gamepad";
-import { NavProvider } from "@standarx/nav/react";
-import { spatialPlugin } from "@standarx/nav/spatial";
 import { type ReactNode, useLayoutEffect } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { afterEach, describe, expect, it } from "vitest";
 import { Button } from "./components/button/composed";
 import { EnvironmentProvider, useEnvironment } from "./environment";
+import type { InputPlugin } from "./nav";
+import { type GamepadRuntime, gamepadPlugin, NavProvider, spatialPlugin } from "./nav";
 import { Portal } from "./portal";
 import { Presence, usePresence } from "./presence";
 import { fire, mount, settle, unmountAll, waitFor } from "./render-harness";

@@ -21,8 +21,8 @@ import {
   resolveEnvironment,
   trackEnvironment,
 } from "@standarui/core";
-import { NavDocumentProvider } from "@standarx/nav/react";
 import { createContext, type ReactNode, useContext, useEffect, useMemo, useState } from "react";
+import { NavDocumentProvider } from "./nav";
 
 interface EnvironmentValue {
   readonly getRootNode: (() => RootNode) | undefined;

@@ -20,7 +20,6 @@
  * its own panel unreachable to a d-pad.
  */
 
-import { focusElement, getInputModality, getTabbables, trackInputModality } from "@standarx/nav";
 import { observeChildren, observeResize } from "../../dom/observers";
 import { resolveDir } from "../../dom/text-dir";
 import { resolveEnvironment } from "../../environment/environment";
@@ -29,6 +28,7 @@ import { trackInlineScrollbar } from "../../interaction/inline-scrollbar";
 import { scrollIntoInlineView, trackInlineScrollEdges } from "../../interaction/scroll-edges";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine, MachineParams } from "../../machine/types";
+import { focusElement, getInputModality, getTabbables, trackInputModality } from "../../nav";
 import type { InputModality } from "../../types";
 import { getIndicatorMetrics } from "../../utils/indicator-rect";
 import {

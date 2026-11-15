@@ -3,8 +3,8 @@
  * custom property the fill reads, and the fact that Tab never stops here.
  */
 
-import { getTabbables } from "@standarx/nav";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { getTabbables } from "../../nav";
 import { type ApplyProps, type DomPropTypes, mountMachine, unmountAll } from "../harness";
 import { connect } from "./meter.connect";
 import { machine } from "./meter.machine";

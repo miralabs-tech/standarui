@@ -10,12 +10,11 @@
  * them knowing a pad exists (CDC D9).
  */
 
-import type { InputSystem } from "@standarx/nav";
-import { NavProvider, useInputSystem } from "@standarx/nav/react";
-import { spatialPlugin } from "@standarx/nav/spatial";
 import { useEffect, useState } from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { commands } from "vitest/browser";
+import type { InputSystem } from "../nav";
+import { NavProvider, spatialPlugin, useInputSystem } from "../nav";
 import { fire, mount, queryPart, queryParts, settle, unmountAll } from "../render-harness";
 import { ButtonRoot } from "./button/button";
 import {

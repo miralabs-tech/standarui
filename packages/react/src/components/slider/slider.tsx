@@ -14,10 +14,10 @@
  */
 
 import * as slider from "@standarui/core/slider";
-import { useIntentScopeHost } from "@standarx/nav/react";
 import type { ReactNode } from "react";
 import { createPart, type PartProps } from "../../create-part";
 import { inheritFromField, useFieldContext } from "../../field-context";
+import { useIntentScopeHost } from "../../nav";
 import { normalizeProps, type ReactPropTypes } from "../../normalize-props";
 import { createPartContext } from "../../part-context";
 import { splitProps } from "../../split-props";

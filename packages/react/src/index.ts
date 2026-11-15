@@ -9,6 +9,7 @@ export {
   useEnvironment,
   useRootNode,
 } from "./environment";
+export { StandaruiNavProvider } from "./nav";
 export { normalizeProps, type ReactPropTypes } from "./normalize-props";
 export { Portal, type PortalProps } from "./portal";
 export {

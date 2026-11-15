@@ -10,10 +10,10 @@
  * intercepting it would be an APG bug, not a feature.
  */
 
-import { isFocusVisibleModality } from "@standarx/nav";
 import { ariaAttr, dataAttr } from "../../dom/attrs";
 import type { NormalizeProps, PropTypes } from "../../machine/prop-types";
 import type { Service } from "../../machine/types";
+import { isFocusVisibleModality } from "../../nav";
 import { parts } from "./link.anatomy";
 import { getRootId } from "./link.dom";
 import type { LinkApi, LinkSchema } from "./link.types";

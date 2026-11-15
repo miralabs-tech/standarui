@@ -1,7 +1,7 @@
 import * as splitter from "@standarui/core/splitter";
-import { useIntentScopeHost } from "@standarx/nav/react";
 import type { ReactNode } from "react";
 import { createPart, type PartProps } from "../../create-part";
+import { useIntentScopeHost } from "../../nav";
 import { normalizeProps, type ReactPropTypes } from "../../normalize-props";
 import { createPartContext } from "../../part-context";
 import { type MachineRuntimeProps, useMachine } from "../../use-machine";

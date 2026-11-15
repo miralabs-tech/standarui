@@ -12,7 +12,6 @@
  * dismiss, nothing to anchor, no focus to trap and no page to lock.
  */
 
-import { focusElement, getFirstTabbable } from "@standarx/nav";
 import { hideOthers } from "../../a11y/aria-hidden";
 import { lockScroll } from "../../a11y/scroll-lock";
 import { resolveDir } from "../../dom/text-dir";
@@ -22,6 +21,7 @@ import { focusWentElsewhere, restoreFocus } from "../../focus/restore-focus";
 import { trackDismissableLayer } from "../../interaction/dismissable";
 import { getLayerStack } from "../../interaction/layer-stack";
 import type { EffectCleanup, MachineParams } from "../../machine/types";
+import { focusElement, getFirstTabbable } from "../../nav";
 import { trackPosition } from "../../positioner/track-position";
 import type { ColorChannel } from "../../utils/color";
 import {

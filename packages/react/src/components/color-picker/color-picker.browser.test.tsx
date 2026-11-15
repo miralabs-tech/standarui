@@ -14,11 +14,11 @@
 
 import { getLiveAnnouncer, isScrollLocked } from "@standarui/core";
 import { eyedropper } from "@standarui/core/color-picker/eyedropper";
-import type { InputSystem } from "@standarx/nav";
-import { NavProvider, useInputSystem } from "@standarx/nav/react";
 import { useEffect, useState } from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { commands } from "vitest/browser";
+import type { InputSystem } from "../../nav";
+import { NavProvider, useInputSystem } from "../../nav";
 import {
   expectNoAxeViolations,
   fire,

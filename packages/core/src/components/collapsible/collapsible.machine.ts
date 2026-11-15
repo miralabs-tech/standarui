@@ -21,11 +21,11 @@
  * boundaries, where `syncSize` is replayed every time.
  */
 
-import { getInputModality, trackInputModality } from "@standarx/nav";
 import { contains } from "../../dom/query";
 import { restoreFocus } from "../../focus/restore-focus";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine } from "../../machine/types";
+import { getInputModality, trackInputModality } from "../../nav";
 import type { InputModality } from "../../types";
 import { getContentEl, getTriggerEl } from "./collapsible.dom";
 import type { CollapsibleSchema } from "./collapsible.types";

@@ -10,8 +10,8 @@
  * written by hand because there is nothing to measure here.
  */
 
-import type { EngageIntent, IntentEvent, IntentHandler, IntentScopeHost } from "@standarx/nav";
 import { describe, expect, it, vi } from "vitest";
+import type { EngageIntent, IntentEvent, IntentHandler, IntentScopeHost } from "../../nav";
 import type { Direction, Orientation } from "../../types";
 import { connectWithoutDom, type PlainPropTypes } from "../node-harness";
 import { connect } from "./splitter.connect";

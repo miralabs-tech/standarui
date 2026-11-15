@@ -1,7 +1,7 @@
-import type { IntentScopeHost } from "@standarx/nav";
 import type { RovingAction } from "../../focus/roving-focus";
 import type { PropTypes } from "../../machine/prop-types";
 import type { MachineSchema } from "../../machine/types";
+import type { IntentScopeHost } from "../../nav";
 import type { Direction, InputModality, Orientation } from "../../types";
 
 /**

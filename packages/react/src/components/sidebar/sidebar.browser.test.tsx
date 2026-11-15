@@ -1,10 +1,9 @@
 import { visuallyHiddenStyle } from "@standarui/core";
-import type { InputSystem } from "@standarx/nav";
-import { NavProvider, useInputSystem } from "@standarx/nav/react";
-import { spatialPlugin } from "@standarx/nav/spatial";
 import { type ReactElement, type ReactNode, useEffect, useState } from "react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { page, server, userEvent } from "vitest/browser";
+import type { InputSystem } from "../../nav";
+import { NavProvider, spatialPlugin, useInputSystem } from "../../nav";
 import {
   expectNoAxeViolations,
   fire,

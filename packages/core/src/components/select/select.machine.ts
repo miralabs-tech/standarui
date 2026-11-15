@@ -18,7 +18,6 @@
  * native control, and the APG's side of it).
  */
 
-import { focusElement, getInputModality, trackInputModality } from "@standarx/nav";
 import { hideOthers } from "../../a11y/aria-hidden";
 import { lockScroll } from "../../a11y/scroll-lock";
 import { getItemValue, getNextItem, isItemDisabled } from "../../collection/dom-collection";
@@ -40,6 +39,7 @@ import { trackScrollEdges as trackEdges } from "../../interaction/scroll-edges";
 import { createTypeaheadState, getByTypeahead } from "../../interaction/typeahead";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine, MachineParams, Transition } from "../../machine/types";
+import { focusElement, getInputModality, trackInputModality } from "../../nav";
 import { trackPosition } from "../../positioner/track-position";
 import type { Density, Direction, InputModality } from "../../types";
 import { isDev } from "../../utils/env";

@@ -1,7 +1,7 @@
-import { isFocusVisibleModality } from "@standarx/nav";
 import { ariaAttr, dataAttr } from "../../dom/attrs";
 import type { NormalizeProps, PropTypes } from "../../machine/prop-types";
 import type { Service } from "../../machine/types";
+import { isFocusVisibleModality } from "../../nav";
 import { roundToPrecision } from "../../utils/range";
 import { parts } from "./splitter.anatomy";
 import { getHandleId, getPanelId } from "./splitter.dom";

@@ -13,9 +13,9 @@
  * `@standarui/react`, where the commit happens first.
  */
 
-import { createIntentBus, type IntentBus, setInputModality } from "@standarx/nav";
 import { afterEach, describe, expect, it } from "vitest";
 import { getLiveAnnouncer } from "../../a11y/live-announcer";
+import { createIntentBus, type IntentBus, setInputModality } from "../../nav";
 import { type DateValue, toISO } from "../../utils/plain-date";
 import { type ApplyProps, type DomPropTypes, mountMachine, unmountAll } from "../harness";
 import { connect } from "./calendar.connect";

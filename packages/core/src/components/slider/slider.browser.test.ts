@@ -11,8 +11,8 @@
  * the core promises every adapter, React included.
  */
 
-import { createIntentBus, getTabbables, type IntentBus, setInputModality } from "@standarx/nav";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { createIntentBus, getTabbables, type IntentBus, setInputModality } from "../../nav";
 import { type ApplyProps, type DomPropTypes, mountMachine, unmountAll } from "../harness";
 import { connect } from "./slider.connect";
 import { machine } from "./slider.machine";

@@ -13,11 +13,11 @@
  * presence in the adapter, because the runtime spawns no dynamic actors.
  */
 
-import type { IntentScopeHost } from "@standarx/nav";
 import type { Politeness } from "../../a11y/live-announcer";
 import type { RovingAction } from "../../focus/roving-focus";
 import type { PropTypes } from "../../machine/prop-types";
 import type { MachineSchema } from "../../machine/types";
+import type { IntentScopeHost } from "../../nav";
 import type { Direction } from "../../types";
 
 export type ToastType = "info" | "success" | "warning" | "error" | "loading";

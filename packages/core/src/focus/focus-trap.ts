@@ -11,10 +11,10 @@
  * traps within the popover and hands control back on close.
  */
 
-import { focusElement, getTabbableEdges, getTabbables } from "@standarx/nav";
 import { addDomEvent, isComposingEvent } from "../dom/event";
 import { contains, DOCUMENT_POSITION_FOLLOWING, DOCUMENT_POSITION_PRECEDING } from "../dom/query";
 import { rafs } from "../dom/raf";
+import { focusElement, getTabbableEdges, getTabbables } from "../nav";
 import { restoreFocus } from "./restore-focus";
 import { holdTab, isClaimedTab } from "./tab-handoff";
 

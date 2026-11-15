@@ -6,10 +6,9 @@
  */
 
 import { isSearchHotkey } from "@standarui/core/search-field";
-import { NavProvider, useInputSystem } from "@standarx/nav/react";
-import { spatialPlugin } from "@standarx/nav/spatial";
 import { useEffect, useState } from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { NavProvider, spatialPlugin, useInputSystem } from "../../nav";
 import {
   expectNoAxeViolations,
   fire,

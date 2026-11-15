@@ -17,13 +17,13 @@
  */
 
 import * as select from "@standarui/core/select";
-import { useIntentScopeHost } from "@standarx/nav/react";
 import { type ReactNode, type Ref, useId, useMemo } from "react";
 import { composeRefs } from "../../compose-refs";
 import { createPart, type PartProps } from "../../create-part";
 import { useEnvironment } from "../../environment";
 import { useFieldContext } from "../../field-context";
 import { LayerProvider, useParentLayerId } from "../../layer-context";
+import { useIntentScopeHost } from "../../nav";
 import { normalizeProps, type ReactPropTypes } from "../../normalize-props";
 import { createPartContext } from "../../part-context";
 import { Portal, type PortalProps } from "../../portal";

@@ -16,8 +16,8 @@
  * against a DOM no adapter produces.
  */
 
-import { createIntentBus, type IntentBus } from "@standarx/nav";
 import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from "vitest";
+import { createIntentBus, type IntentBus } from "../../nav";
 import { createPresence, type Presence } from "../../presence/presence";
 import { type ApplyProps, type DomPropTypes, mountMachine, unmountAll } from "../harness";
 import { connect } from "./toast.connect";

@@ -1,10 +1,10 @@
-import { isFocusVisibleModality } from "@standarx/nav";
 import { ariaAttr, dataAttr } from "../../dom/attrs";
 import { isComposingEvent } from "../../dom/event";
 import { resolveDir } from "../../dom/text-dir";
 import { getRovingKeyAction } from "../../focus/roving-focus";
 import type { NormalizeProps, PropTypes } from "../../machine/prop-types";
 import type { Service } from "../../machine/types";
+import { isFocusVisibleModality } from "../../nav";
 import { parts } from "./date-field.anatomy";
 import {
   getControlEl,

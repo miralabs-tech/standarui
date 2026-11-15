@@ -16,11 +16,11 @@
  * from firing the machine twice through the compatibility click.
  */
 
-import { getInputModality, trackInputModality } from "@standarx/nav";
 import { getLiveAnnouncer } from "../../a11y/live-announcer";
 import { trackPress } from "../../interaction/press";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine } from "../../machine/types";
+import { getInputModality, trackInputModality } from "../../nav";
 import type { InputModality } from "../../types";
 import { getRootEl } from "./button.dom";
 import type { ButtonSchema } from "./button.types";

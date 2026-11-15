@@ -1,12 +1,6 @@
-import {
-  focusElement,
-  getTabbableEdges,
-  getTabbables,
-  isFocusable,
-  isTabbable,
-} from "@standarx/nav";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { userEvent } from "vitest/browser";
+import { focusElement, getTabbableEdges, getTabbables, isFocusable, isTabbable } from "../nav";
 import { trapFocus } from "./focus-trap";
 import { proxyTabFocus } from "./proxy-tab-focus";
 import { restoreFocus } from "./restore-focus";

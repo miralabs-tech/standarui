@@ -12,8 +12,8 @@
  * order in it is deliberate — see the comment on `Overflow` below.
  */
 
-import { setInputModality } from "@standarx/nav";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { setInputModality } from "../../nav";
 import {
   expectNoAxeViolations,
   fire,

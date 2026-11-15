@@ -8,12 +8,12 @@
  * a framework beyond a way to re-read the props.
  */
 
-import { getInputModality, MODALITY_ATTRIBUTE, setInputModality } from "@standarx/nav";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { createNormalizer, type PropTypes } from "../../machine/prop-types";
 import type { PartIdOverrides } from "../../machine/scope";
 import { createService } from "../../machine/service";
 import type { Service } from "../../machine/types";
+import { getInputModality, MODALITY_ATTRIBUTE, setInputModality } from "../../nav";
 import { createReactivityRoot } from "../../reactivity";
 import { connect } from "./toggle.connect";
 import { machine } from "./toggle.machine";

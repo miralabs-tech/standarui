@@ -11,9 +11,9 @@
  * only diffs attributes — would otherwise never set it at all.
  */
 
-import { getInputModality, trackInputModality } from "@standarx/nav";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine } from "../../machine/types";
+import { getInputModality, trackInputModality } from "../../nav";
 import type { InputModality } from "../../types";
 import { getHiddenInputEl } from "./checkbox.dom";
 import type { CheckboxSchema, CheckedState } from "./checkbox.types";

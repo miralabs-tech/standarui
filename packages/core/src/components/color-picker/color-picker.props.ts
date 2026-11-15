@@ -23,7 +23,7 @@
  * would be a second copy of a mirror that is now shared.
  */
 
-import type { EngageIntent } from "@standarx/nav";
+import type { EngageIntent } from "../../nav";
 import type { Direction } from "../../types";
 import type { ColorNumericChannel } from "../../utils/color";
 import type {

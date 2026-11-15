@@ -1,8 +1,8 @@
-import { isFocusVisibleModality } from "@standarx/nav";
 import { getGridKeyAction, getRowCount } from "../../collection/grid-collection";
 import { ariaAttr, boolAttr, dataAttr } from "../../dom/attrs";
 import type { NormalizeProps, PropTypes } from "../../machine/prop-types";
 import type { Service } from "../../machine/types";
+import { isFocusVisibleModality } from "../../nav";
 import { formatDate, getWeekdayLabels } from "../../utils/date-format";
 import { compareDates, type DateValue, getDayOfWeek, getWeekNumber } from "../../utils/plain-date";
 import { parts } from "./calendar.anatomy";

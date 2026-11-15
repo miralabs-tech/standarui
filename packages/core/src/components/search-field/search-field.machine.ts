@@ -22,10 +22,10 @@
  * records what the browser reports.
  */
 
-import { getInputModality, trackInputModality } from "@standarx/nav";
 import { getEventTarget } from "../../dom/query";
 import { createMachine } from "../../machine/create-machine";
 import type { Machine } from "../../machine/types";
+import { getInputModality, trackInputModality } from "../../nav";
 import type { InputModality } from "../../types";
 import { getControlEl } from "./search-field.dom";
 import { isEditableTarget } from "./search-field.hotkey";

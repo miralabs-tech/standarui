@@ -1,8 +1,8 @@
-import { isFocusVisibleModality } from "@standarx/nav";
 import { ariaAttr, dataAttr } from "../../dom/attrs";
 import { resolveDir } from "../../dom/text-dir";
 import type { NormalizeProps, PropTypes } from "../../machine/prop-types";
 import type { Service } from "../../machine/types";
+import { isFocusVisibleModality } from "../../nav";
 import { roundToPrecision, toPercent, toValueArray } from "../../utils/range";
 import { parts } from "./slider.anatomy";
 import {
