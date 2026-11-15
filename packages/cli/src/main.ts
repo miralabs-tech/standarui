@@ -3,8 +3,10 @@ import { parseArgs } from "node:util";
 import { installItems } from "./add";
 import { readConfig } from "./config";
 import type { CliContext } from "./context";
+import { runDiff } from "./diff";
 import { CliError } from "./errors";
 import { runInit } from "./init";
+import { runUpdate } from "./update";
 
 export interface MainContext {
   readonly cwd?: string;
@@ -19,6 +21,8 @@ const HELP = `Usage: standarui <command> [options]
 Commands:
   init                  Write standarui.json and add nav, core-base and react-base
   add <item...>         Copy items, and the items they depend on, into the app
+  diff [item...]        Show your edits and the registry's changes since you copied
+  update [item...]      Plan, and with --write apply, a merge of the registry's changes
 
 Options for init:
   --core-dir <dir>      Where the core layer is written (src/standarui/core)
@@ -33,6 +37,15 @@ Options for add:
   --registry <source>   Base URL or local registry folder replacing @standarui
   --overwrite           Replace files and items already present
   --no-install          Do not run the package manager
+
+Options for diff:
+  --registry <source>   Base URL or local registry folder replacing @standarui
+
+Options for update:
+  --registry <source>   Base URL or local registry folder replacing @standarui
+  --write               Apply the plan (without it, nothing is written)
+  --no-install          Do not run the package manager
+  --no-typecheck        Do not run the app's typecheck after writing
 
   --help, --version`;
 
@@ -121,6 +134,53 @@ export async function main(argv: readonly string[], overrides: MainContext = {})
         version: readVersion(),
       });
       return 0;
+    }
+
+    if (command === "diff") {
+      const { values, positionals } = parseArgs({
+        args: rest,
+        options: {
+          registry: { type: "string" },
+          help: { type: "boolean", short: "h" },
+        },
+        allowPositionals: true,
+      });
+      if (values.help) {
+        context.out(HELP);
+        return 0;
+      }
+      await runDiff(context, readConfig(context.cwd), {
+        items: positionals,
+        registry: values.registry,
+        version: readVersion(),
+      });
+      return 0;
+    }
+
+    if (command === "update") {
+      const { values, positionals } = parseArgs({
+        args: rest,
+        options: {
+          registry: { type: "string" },
+          write: { type: "boolean" },
+          "no-install": { type: "boolean" },
+          "no-typecheck": { type: "boolean" },
+          help: { type: "boolean", short: "h" },
+        },
+        allowPositionals: true,
+      });
+      if (values.help) {
+        context.out(HELP);
+        return 0;
+      }
+      return await runUpdate(context, readConfig(context.cwd), {
+        items: positionals,
+        write: values.write === true,
+        install: !values["no-install"],
+        typecheck: !values["no-typecheck"],
+        registry: values.registry,
+        version: readVersion(),
+      });
     }
 
     throw new CliError(`unknown command "${command}", run standarui --help`);

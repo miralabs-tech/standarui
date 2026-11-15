@@ -1,43 +1,15 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
+import type {
+  ComponentManifest,
+  Flow,
+  ManifestComponent,
+  ManifestPart,
+  SheetNames,
+} from "../packages/cli/src/manifest-diff";
 import { collect, jsonName } from "./api-reference";
 
-export interface ManifestPart {
-  readonly key: string;
-  readonly part: string;
-}
-
-export type Flow = "out" | "both";
-
-export interface SheetNames {
-  readonly tokens: readonly string[];
-  readonly reads: readonly string[];
-  readonly hooks: readonly string[];
-  readonly channels: readonly string[];
-}
-
-export interface ManifestComponent {
-  readonly scope: string | null;
-  readonly parts: readonly ManifestPart[];
-  readonly tokens?: readonly string[];
-  readonly reads?: readonly string[];
-  readonly hooks?: readonly string[];
-  readonly channels?: readonly string[];
-  readonly imports: readonly string[];
-  readonly composed: boolean;
-  readonly api: string | null;
-  readonly props: Readonly<Record<string, readonly string[]>>;
-  readonly aliases: Readonly<Record<string, string>>;
-  readonly flows: Readonly<Record<string, Flow>>;
-}
-
-export interface ComponentManifest {
-  readonly schema: 1;
-  readonly version: string;
-  readonly tokens?: readonly string[];
-  readonly sheets?: Readonly<Record<string, SheetNames>>;
-  readonly components: Readonly<Record<string, ManifestComponent>>;
-}
+export type { ComponentManifest, Flow, ManifestComponent, ManifestPart, SheetNames };
 
 interface AnatomyModule {
   readonly anatomy: { readonly name: string; keys(): string[] };

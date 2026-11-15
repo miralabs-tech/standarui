@@ -21,6 +21,7 @@ import type {
 
 const LAYERS: readonly RegistryLayer[] = ["core", "react"];
 const NAV_FILES: Readonly<Record<RegistryLayer, string>> = { core: "nav.ts", react: "nav.tsx" };
+const API_FILES: readonly string[] = ["manifest.json", "renames.json"];
 const HARNESS_FILES: ReadonlySet<string> = new Set([
   "core:components/harness.ts",
   "core:components/node-harness.ts",
@@ -354,6 +355,8 @@ export function collectRegistry(root: string): CollectedRegistry {
     $schema: "./schema.json",
     name: "standarui",
     version,
+    manifest: "manifest.json",
+    renames: "renames.json",
     specifiers: sortedSpecifiers,
     items: [...items]
       .sort((a, b) => compare(a.name, b.name))
@@ -383,6 +386,12 @@ export function buildRegistry(root: string): Map<string, string> {
   }
   const output = new Map<string, string>();
   output.set("registry/index.json", json(index));
+  for (const name of API_FILES) {
+    output.set(
+      `registry/${name}`,
+      toLf(readFileSync(path.join(root, "packages", "react", "api", name), "utf8")),
+    );
+  }
   for (const entry of items) output.set(`registry/items/${entry.name}.json`, json(entry));
   return output;
 }
@@ -392,6 +401,10 @@ export function readCommittedRegistry(root: string): Map<string, string> {
   const indexFile = path.join(root, "registry", "index.json");
   if (existsSync(indexFile))
     committed.set("registry/index.json", toLf(readFileSync(indexFile, "utf8")));
+  for (const name of API_FILES) {
+    const file = path.join(root, "registry", name);
+    if (existsSync(file)) committed.set(`registry/${name}`, toLf(readFileSync(file, "utf8")));
+  }
   const itemsDir = path.join(root, "registry", "items");
   if (existsSync(itemsDir)) {
     for (const name of readdirSync(itemsDir).filter((file) => file.endsWith(".json"))) {

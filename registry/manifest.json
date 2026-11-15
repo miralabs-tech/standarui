@@ -1,0 +1,3154 @@
+{
+  "components": {
+    "accordion": {
+      "aliases": {
+        "Shared": "Omit< PartProps<Element>, \"id\" | \"ref\" | \"aria-labelledby\" | \"aria-describedby\" | \"aria-controls\" >"
+      },
+      "api": "accordion.json",
+      "composed": true,
+      "flows": {
+        "AccordionFocusChangeDetails": "out",
+        "AccordionValueChangeDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "accordion:root"
+        },
+        {
+          "key": "item",
+          "part": "accordion:item"
+        },
+        {
+          "key": "header",
+          "part": "accordion:header"
+        },
+        {
+          "key": "trigger",
+          "part": "accordion:trigger"
+        },
+        {
+          "key": "indicator",
+          "part": "accordion:indicator"
+        },
+        {
+          "key": "content",
+          "part": "accordion:content"
+        },
+        {
+          "key": "body",
+          "part": "accordion:body"
+        }
+      ],
+      "props": {
+        "AccordionComposedProps": ["items", "parts?"],
+        "AccordionFocusChangeDetails": ["value"],
+        "AccordionMachineProps": [
+          "defaultValue?",
+          "describedBy?",
+          "deselectable?",
+          "disabled?",
+          "hiddenUntilFound?",
+          "loopFocus?",
+          "multiple?",
+          "onFocusChange?",
+          "onValueChange?",
+          "value?"
+        ],
+        "AccordionParts": ["body?", "content?", "header?", "indicator?", "item?", "trigger?"],
+        "AccordionSection": ["content?", "disabled?", "label", "value"],
+        "AccordionValueChangeDetails": ["value"],
+        "Shared": [],
+        "UseAccordionProps": []
+      },
+      "scope": "accordion"
+    },
+    "alert-dialog": {
+      "aliases": {},
+      "api": "alert-dialog.json",
+      "composed": true,
+      "flows": {},
+      "imports": ["dialog"],
+      "parts": [],
+      "props": {
+        "AlertDialogComposedProps": ["description", "title"]
+      },
+      "scope": null
+    },
+    "avatar": {
+      "aliases": {
+        "AvatarSize": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
+        "AvatarStatus": "\"loading\" | \"loaded\" | \"error\""
+      },
+      "api": "avatar.json",
+      "composed": true,
+      "flows": {
+        "AvatarStatus": "out",
+        "AvatarStatusChangeDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "avatar:root"
+        },
+        {
+          "key": "image",
+          "part": "avatar:image"
+        },
+        {
+          "key": "fallback",
+          "part": "avatar:fallback"
+        }
+      ],
+      "props": {
+        "AvatarComposedProps": ["children?", "parts?", "src?"],
+        "AvatarMachineProps": ["dir?", "fallbackDelay?", "label?", "onStatusChange?", "size?"],
+        "AvatarParts": ["fallback?", "image?"],
+        "AvatarSize": [],
+        "AvatarStatus": [],
+        "AvatarStatusChangeDetails": ["status"],
+        "UseAvatarProps": []
+      },
+      "scope": "avatar"
+    },
+    "badge": {
+      "aliases": {
+        "BadgeKind": "\"label\" | \"count\" | \"dot\"",
+        "BadgeTone": "\"neutral\" | \"accent\" | \"success\" | \"warning\" | \"danger\"",
+        "BadgeVariant": "\"solid\" | \"tint\" | \"plain\""
+      },
+      "api": "badge.json",
+      "composed": true,
+      "flows": {},
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "badge:root"
+        }
+      ],
+      "props": {
+        "BadgeComposedProps": ["children?"],
+        "BadgeKind": [],
+        "BadgeMachineProps": [
+          "count?",
+          "kind?",
+          "label?",
+          "max?",
+          "overlap?",
+          "showZero?",
+          "tone?",
+          "variant?"
+        ],
+        "BadgeRootProps": [],
+        "BadgeTone": [],
+        "BadgeVariant": []
+      },
+      "scope": "badge"
+    },
+    "breadcrumb": {
+      "aliases": {},
+      "api": "breadcrumb.json",
+      "composed": true,
+      "flows": {
+        "BreadcrumbExpandedChangeDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "breadcrumb:root"
+        },
+        {
+          "key": "list",
+          "part": "breadcrumb:list"
+        },
+        {
+          "key": "item",
+          "part": "breadcrumb:item"
+        },
+        {
+          "key": "link",
+          "part": "breadcrumb:link"
+        },
+        {
+          "key": "ellipsis",
+          "part": "breadcrumb:ellipsis"
+        },
+        {
+          "key": "ellipsisTrigger",
+          "part": "breadcrumb:ellipsis-trigger"
+        }
+      ],
+      "props": {
+        "BreadcrumbComposedProps": ["items", "parts?"],
+        "BreadcrumbEntry": ["collapsed?", "href?", "label"],
+        "BreadcrumbExpandedChangeDetails": ["expanded"],
+        "BreadcrumbMachineProps": [
+          "defaultExpanded?",
+          "dir?",
+          "ellipsisLabel?",
+          "expanded?",
+          "label?",
+          "onExpandedChange?"
+        ],
+        "BreadcrumbParts": ["ellipsis?", "ellipsisTrigger?", "item?", "link?", "list?"],
+        "UseBreadcrumbProps": []
+      },
+      "scope": "breadcrumb"
+    },
+    "button": {
+      "aliases": {
+        "ButtonSize": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
+        "ButtonVariant": "\"filled\" | \"tinted\" | \"gray\" | \"plain\" | \"glass\""
+      },
+      "api": "button.json",
+      "composed": true,
+      "flows": {
+        "ButtonPressDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "button:root"
+        },
+        {
+          "key": "loadingIndicator",
+          "part": "button:loading-indicator"
+        }
+      ],
+      "props": {
+        "ButtonComposedProps": ["accessory?", "children?", "icon?"],
+        "ButtonMachineProps": [
+          "dir?",
+          "disabled?",
+          "focusableWhenDisabled?",
+          "loading?",
+          "loadingText?",
+          "nativeButton?",
+          "onPress?",
+          "size?",
+          "type?",
+          "variant?"
+        ],
+        "ButtonPressDetails": ["originalEvent"],
+        "ButtonSize": [],
+        "ButtonVariant": [],
+        "UseButtonProps": []
+      },
+      "scope": "button"
+    },
+    "calendar": {
+      "aliases": {
+        "CalendarOutsideDays": "\"visible\" | \"hidden\"",
+        "CalendarView": "\"day\" | \"month\" | \"year\""
+      },
+      "api": "calendar.json",
+      "composed": true,
+      "flows": {
+        "CalendarFocusChangeDetails": "out",
+        "CalendarValueChangeDetails": "out",
+        "CalendarView": "both",
+        "CalendarViewChangeDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "calendar:root"
+        },
+        {
+          "key": "label",
+          "part": "calendar:label"
+        },
+        {
+          "key": "header",
+          "part": "calendar:header"
+        },
+        {
+          "key": "prevTrigger",
+          "part": "calendar:prev-trigger"
+        },
+        {
+          "key": "nextTrigger",
+          "part": "calendar:next-trigger"
+        },
+        {
+          "key": "viewTrigger",
+          "part": "calendar:view-trigger"
+        },
+        {
+          "key": "caption",
+          "part": "calendar:caption"
+        },
+        {
+          "key": "grid",
+          "part": "calendar:grid"
+        },
+        {
+          "key": "weekdayRow",
+          "part": "calendar:weekday-row"
+        },
+        {
+          "key": "weekday",
+          "part": "calendar:weekday"
+        },
+        {
+          "key": "weekRow",
+          "part": "calendar:week-row"
+        },
+        {
+          "key": "weekNumber",
+          "part": "calendar:week-number"
+        },
+        {
+          "key": "cell",
+          "part": "calendar:cell"
+        }
+      ],
+      "props": {
+        "CalendarComposedProps": ["label?", "nextLabel", "parts?", "prevLabel"],
+        "CalendarFocusChangeDetails": ["value"],
+        "CalendarMachineProps": [
+          "autoFocus?",
+          "defaultFocusedValue?",
+          "defaultValue?",
+          "defaultView?",
+          "describedBy?",
+          "dir?",
+          "disabled?",
+          "firstDayOfWeek?",
+          "fixedWeeks?",
+          "focusedValue?",
+          "intents?",
+          "invalid?",
+          "isDateUnavailable?",
+          "labelledBy?",
+          "locale?",
+          "max?",
+          "min?",
+          "onFocusChange?",
+          "onValueChange?",
+          "onViewChange?",
+          "outsideDays?",
+          "readOnly?",
+          "today?",
+          "value?",
+          "view?",
+          "views?",
+          "weekNumbers?"
+        ],
+        "CalendarOutsideDays": [],
+        "CalendarParts": [
+          "caption?",
+          "grid?",
+          "header?",
+          "label?",
+          "nextTrigger?",
+          "prevTrigger?",
+          "viewTrigger?",
+          "weekdayRow?"
+        ],
+        "CalendarValueChangeDetails": ["value"],
+        "CalendarView": [],
+        "CalendarViewChangeDetails": ["view"],
+        "UseCalendarProps": []
+      },
+      "scope": "calendar"
+    },
+    "card": {
+      "aliases": {
+        "CardVariant": "\"raised\" | \"filled\" | \"inset\" | \"glass\""
+      },
+      "api": "card.json",
+      "composed": true,
+      "flows": {},
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "card:root"
+        },
+        {
+          "key": "header",
+          "part": "card:header"
+        },
+        {
+          "key": "title",
+          "part": "card:title"
+        },
+        {
+          "key": "description",
+          "part": "card:description"
+        },
+        {
+          "key": "action",
+          "part": "card:action"
+        },
+        {
+          "key": "body",
+          "part": "card:body"
+        },
+        {
+          "key": "footer",
+          "part": "card:footer"
+        }
+      ],
+      "props": {
+        "CardComposedProps": [
+          "action?",
+          "children?",
+          "description?",
+          "footer?",
+          "parts?",
+          "title?"
+        ],
+        "CardMachineProps": ["variant?"],
+        "CardParts": ["action?", "body?", "description?", "footer?", "header?", "title?"],
+        "CardVariant": []
+      },
+      "scope": "card"
+    },
+    "checkbox": {
+      "aliases": {
+        "CheckedState": "boolean | \"indeterminate\""
+      },
+      "api": "checkbox.json",
+      "composed": true,
+      "flows": {
+        "CheckboxCheckedChangeDetails": "out",
+        "CheckedState": "both"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "checkbox:root"
+        },
+        {
+          "key": "label",
+          "part": "checkbox:label"
+        },
+        {
+          "key": "control",
+          "part": "checkbox:control"
+        },
+        {
+          "key": "indicator",
+          "part": "checkbox:indicator"
+        },
+        {
+          "key": "hiddenInput",
+          "part": "checkbox:hidden-input"
+        }
+      ],
+      "props": {
+        "CheckboxCheckedChangeDetails": ["checked"],
+        "CheckboxComposedProps": ["label?"],
+        "CheckboxMachineProps": [
+          "checked?",
+          "defaultChecked?",
+          "describedBy?",
+          "dir?",
+          "disabled?",
+          "form?",
+          "invalid?",
+          "name?",
+          "onCheckedChange?",
+          "readOnly?",
+          "required?",
+          "value?"
+        ],
+        "CheckedState": [],
+        "UseCheckboxProps": []
+      },
+      "scope": "checkbox"
+    },
+    "checkbox-group": {
+      "aliases": {
+        "CheckboxGroupEntry": "CheckboxGroupOption | ComposedSeparator",
+        "CheckboxGroupOption": "Omit<CheckboxRootProps, \"children\"> & { readonly label: ReactNode; }"
+      },
+      "api": "checkbox-group.json",
+      "composed": true,
+      "flows": {
+        "CheckboxGroupValueChangeDetails": "out"
+      },
+      "imports": ["checkbox", "separator"],
+      "parts": [
+        {
+          "key": "root",
+          "part": "checkbox-group:root"
+        },
+        {
+          "key": "label",
+          "part": "checkbox-group:label"
+        }
+      ],
+      "props": {
+        "CheckboxGroupComposedProps": ["label?", "options"],
+        "CheckboxGroupEntry": [],
+        "CheckboxGroupMachineProps": [
+          "defaultValue?",
+          "describedBy?",
+          "dir?",
+          "disabled?",
+          "form?",
+          "invalid?",
+          "name?",
+          "onValueChange?",
+          "orientation?",
+          "readOnly?",
+          "required?",
+          "value?"
+        ],
+        "CheckboxGroupOption": [],
+        "CheckboxGroupValueChangeDetails": ["value"],
+        "UseCheckboxGroupProps": []
+      },
+      "scope": "checkbox-group"
+    },
+    "clipboard": {
+      "aliases": {},
+      "api": "clipboard.json",
+      "composed": true,
+      "flows": {
+        "ClipboardCopiedChangeDetails": "out",
+        "ClipboardCopyErrorDetails": "out",
+        "ClipboardValueChangeDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "clipboard:root"
+        },
+        {
+          "key": "label",
+          "part": "clipboard:label"
+        },
+        {
+          "key": "control",
+          "part": "clipboard:control"
+        },
+        {
+          "key": "input",
+          "part": "clipboard:input"
+        },
+        {
+          "key": "trigger",
+          "part": "clipboard:trigger"
+        },
+        {
+          "key": "indicator",
+          "part": "clipboard:indicator"
+        }
+      ],
+      "props": {
+        "ClipboardComposedProps": ["copyLabel", "label?", "parts?"],
+        "ClipboardCopiedChangeDetails": ["copied"],
+        "ClipboardCopyErrorDetails": ["error"],
+        "ClipboardIndicatorPartProps": ["copied?"],
+        "ClipboardIndicatorProps": [],
+        "ClipboardMachineProps": [
+          "copiedDuration?",
+          "copiedText?",
+          "copyFailedText?",
+          "copyLabel?",
+          "defaultValue?",
+          "dir?",
+          "disabled?",
+          "onCopiedChange?",
+          "onCopyError?",
+          "onValueChange?",
+          "value?"
+        ],
+        "ClipboardParts": ["control?", "indicator?", "input?", "label?", "trigger?"],
+        "ClipboardValueChangeDetails": ["value"],
+        "UseClipboardProps": []
+      },
+      "scope": "clipboard"
+    },
+    "collapsible": {
+      "aliases": {},
+      "api": "collapsible.json",
+      "composed": true,
+      "flows": {
+        "CollapsibleOpenChangeDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "collapsible:root"
+        },
+        {
+          "key": "trigger",
+          "part": "collapsible:trigger"
+        },
+        {
+          "key": "indicator",
+          "part": "collapsible:indicator"
+        },
+        {
+          "key": "content",
+          "part": "collapsible:content"
+        }
+      ],
+      "props": {
+        "CollapsibleComposedProps": ["children?", "label", "parts?"],
+        "CollapsibleMachineProps": [
+          "defaultOpen?",
+          "dir?",
+          "disabled?",
+          "keepMounted?",
+          "onOpenChange?",
+          "open?"
+        ],
+        "CollapsibleOpenChangeDetails": ["open"],
+        "CollapsibleParts": ["content?", "indicator?", "trigger?"],
+        "UseCollapsibleProps": []
+      },
+      "scope": "collapsible"
+    },
+    "color-picker": {
+      "aliases": {
+        "ColorPickerPresentation": "\"popup\" | \"sheet\" | \"inline\"",
+        "ColorPickerPresentationProp": "\"auto\" | ColorPickerPresentation",
+        "ColorPickerVariant": "\"well\" | \"wheel\""
+      },
+      "api": "color-picker.json",
+      "composed": true,
+      "flows": {
+        "ColorPickerDismissDetails": "out",
+        "ColorPickerFormatChangeDetails": "out",
+        "ColorPickerOpenChangeDetails": "out",
+        "ColorPickerValueChangeDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "color-picker:root"
+        },
+        {
+          "key": "label",
+          "part": "color-picker:label"
+        },
+        {
+          "key": "trigger",
+          "part": "color-picker:trigger"
+        },
+        {
+          "key": "triggerSwatch",
+          "part": "color-picker:trigger-swatch"
+        },
+        {
+          "key": "valueText",
+          "part": "color-picker:value-text"
+        },
+        {
+          "key": "hiddenInput",
+          "part": "color-picker:hidden-input"
+        },
+        {
+          "key": "backdrop",
+          "part": "color-picker:backdrop"
+        },
+        {
+          "key": "positioner",
+          "part": "color-picker:positioner"
+        },
+        {
+          "key": "content",
+          "part": "color-picker:content"
+        },
+        {
+          "key": "arrow",
+          "part": "color-picker:arrow"
+        },
+        {
+          "key": "title",
+          "part": "color-picker:title"
+        },
+        {
+          "key": "cancelTrigger",
+          "part": "color-picker:cancel-trigger"
+        },
+        {
+          "key": "closeTrigger",
+          "part": "color-picker:close-trigger"
+        },
+        {
+          "key": "area",
+          "part": "color-picker:area"
+        },
+        {
+          "key": "areaBackground",
+          "part": "color-picker:area-background"
+        },
+        {
+          "key": "areaThumb",
+          "part": "color-picker:area-thumb"
+        },
+        {
+          "key": "areaXInput",
+          "part": "color-picker:area-x-input"
+        },
+        {
+          "key": "areaYInput",
+          "part": "color-picker:area-y-input"
+        },
+        {
+          "key": "channelSlider",
+          "part": "color-picker:channel-slider"
+        },
+        {
+          "key": "channelLabel",
+          "part": "color-picker:channel-label"
+        },
+        {
+          "key": "channelSliderTrack",
+          "part": "color-picker:channel-slider-track"
+        },
+        {
+          "key": "channelSliderRange",
+          "part": "color-picker:channel-slider-range"
+        },
+        {
+          "key": "channelSliderThumb",
+          "part": "color-picker:channel-slider-thumb"
+        },
+        {
+          "key": "channelInput",
+          "part": "color-picker:channel-input"
+        },
+        {
+          "key": "formatSelect",
+          "part": "color-picker:format-select"
+        },
+        {
+          "key": "swatchGroup",
+          "part": "color-picker:swatch-group"
+        },
+        {
+          "key": "swatchRow",
+          "part": "color-picker:swatch-row"
+        },
+        {
+          "key": "swatch",
+          "part": "color-picker:swatch"
+        },
+        {
+          "key": "swatchIndicator",
+          "part": "color-picker:swatch-indicator"
+        },
+        {
+          "key": "swatchTrigger",
+          "part": "color-picker:swatch-trigger"
+        },
+        {
+          "key": "eyedropperTrigger",
+          "part": "color-picker:eyedropper-trigger"
+        },
+        {
+          "key": "transparencyGrid",
+          "part": "color-picker:transparency-grid"
+        }
+      ],
+      "props": {
+        "ColorPickerComposedProps": ["cancelLabel?", "parts?", "title?"],
+        "ColorPickerDismissDetails": ["reason"],
+        "ColorPickerEyedropper": ["detect", "open"],
+        "ColorPickerFormatChangeDetails": ["format"],
+        "ColorPickerMachineProps": [
+          "alpha?",
+          "boundary?",
+          "closeOnEscape?",
+          "closeOnInteractOutside?",
+          "defaultFormat?",
+          "defaultOpen?",
+          "defaultValue?",
+          "describedBy?",
+          "dir?",
+          "disabled?",
+          "eyedropper?",
+          "finalFocus?",
+          "flip?",
+          "form?",
+          "format?",
+          "formats?",
+          "gap?",
+          "intents?",
+          "invalid?",
+          "label?",
+          "labelledBy?",
+          "largeStep?",
+          "loopSwatches?",
+          "maxSwatches?",
+          "modal?",
+          "name?",
+          "offset?",
+          "onDismiss?",
+          "onFormatChange?",
+          "onOpenChange?",
+          "onValueChange?",
+          "onValueChangeEnd?",
+          "open?",
+          "padding?",
+          "parentId?",
+          "persistentElements?",
+          "placement?",
+          "presentation?",
+          "readOnly?",
+          "required?",
+          "restoreFocus?",
+          "shift?",
+          "step?",
+          "strategy?",
+          "swatchColumns?",
+          "swatches?",
+          "translations?",
+          "value?",
+          "variant?"
+        ],
+        "ColorPickerOpenChangeDetails": ["open"],
+        "ColorPickerParts": [
+          "area?",
+          "arrow?",
+          "backdrop?",
+          "cancelTrigger?",
+          "closeTrigger?",
+          "content?",
+          "eyedropperTrigger?",
+          "formatSelect?",
+          "label?",
+          "positioner?",
+          "title?",
+          "trigger?",
+          "triggerSwatch?",
+          "valueText?"
+        ],
+        "ColorPickerPresentation": [],
+        "ColorPickerPresentationProp": [],
+        "ColorPickerTranslations": [
+          "areaLabel?",
+          "areaValueText?",
+          "channelLabel?",
+          "closeLabel?",
+          "eyedropperLabel?",
+          "formatSelectLabel?",
+          "swatchGroupLabel?",
+          "swatchTriggerLabel?"
+        ],
+        "ColorPickerValueChangeDetails": ["color", "value"],
+        "ColorPickerVariant": [],
+        "UseColorPickerProps": []
+      },
+      "scope": "color-picker"
+    },
+    "date-field": {
+      "aliases": {
+        "DateGranularity": "\"day\" | \"hour\" | \"minute\" | \"second\"",
+        "DateHourCycle": "\"h12\" | \"h23\""
+      },
+      "api": "date-field.json",
+      "composed": true,
+      "flows": {
+        "DateFieldValueChangeDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "date-field:root"
+        },
+        {
+          "key": "control",
+          "part": "date-field:control"
+        },
+        {
+          "key": "segment",
+          "part": "date-field:segment"
+        },
+        {
+          "key": "incrementTrigger",
+          "part": "date-field:increment-trigger"
+        },
+        {
+          "key": "decrementTrigger",
+          "part": "date-field:decrement-trigger"
+        },
+        {
+          "key": "hiddenInput",
+          "part": "date-field:hidden-input"
+        }
+      ],
+      "props": {
+        "DateFieldComposedProps": ["parts?"],
+        "DateFieldMachineProps": [
+          "defaultValue?",
+          "describedBy?",
+          "dir?",
+          "disabled?",
+          "form?",
+          "granularity?",
+          "hourCycle?",
+          "intents?",
+          "invalid?",
+          "label?",
+          "labelledBy?",
+          "locale?",
+          "max?",
+          "min?",
+          "name?",
+          "onValueChange?",
+          "placeholder?",
+          "readOnly?",
+          "required?",
+          "value?"
+        ],
+        "DateFieldParts": ["control?", "decrementTrigger?", "hiddenInput?", "incrementTrigger?"],
+        "DateFieldValue": ["hour?", "minute?", "second?"],
+        "DateFieldValueChangeDetails": ["value"],
+        "DateGranularity": [],
+        "DateHourCycle": [],
+        "UseDateFieldProps": []
+      },
+      "scope": "date-field"
+    },
+    "date-picker": {
+      "aliases": {
+        "DatePickerClearProps": "{ readonly clearable?: false | undefined; readonly clearLabel?: undefined } | { readonly clearable: true; readonly clearLabel: string }",
+        "DatePickerComposedProps": "DatePickerBaseComposedProps & DatePickerClearProps",
+        "DatePickerPresentation": "\"popup\" | \"sheet\"",
+        "DatePickerPresentationProp": "\"auto\" | DatePickerPresentation"
+      },
+      "api": "date-picker.json",
+      "composed": true,
+      "flows": {
+        "DatePickerDismissDetails": "out",
+        "DatePickerOpenChangeDetails": "out",
+        "DatePickerValueChangeDetails": "out"
+      },
+      "imports": ["calendar", "date-field"],
+      "parts": [
+        {
+          "key": "root",
+          "part": "date-picker:root"
+        },
+        {
+          "key": "label",
+          "part": "date-picker:label"
+        },
+        {
+          "key": "trigger",
+          "part": "date-picker:trigger"
+        },
+        {
+          "key": "clearTrigger",
+          "part": "date-picker:clear-trigger"
+        },
+        {
+          "key": "backdrop",
+          "part": "date-picker:backdrop"
+        },
+        {
+          "key": "positioner",
+          "part": "date-picker:positioner"
+        },
+        {
+          "key": "content",
+          "part": "date-picker:content"
+        },
+        {
+          "key": "title",
+          "part": "date-picker:title"
+        },
+        {
+          "key": "cancelTrigger",
+          "part": "date-picker:cancel-trigger"
+        },
+        {
+          "key": "closeTrigger",
+          "part": "date-picker:close-trigger"
+        }
+      ],
+      "props": {
+        "DatePickerBaseComposedProps": ["nextLabel", "parts?", "prevLabel"],
+        "DatePickerClearProps": [],
+        "DatePickerComposedProps": [],
+        "DatePickerDismissDetails": ["reason"],
+        "DatePickerMachineProps": [
+          "boundary?",
+          "clearable?",
+          "closeOnEscape?",
+          "closeOnInteractOutside?",
+          "closeOnSelect?",
+          "defaultOpen?",
+          "defaultValue?",
+          "describedBy?",
+          "dir?",
+          "disabled?",
+          "finalFocus?",
+          "flip?",
+          "form?",
+          "gap?",
+          "getAnchorRect?",
+          "intents?",
+          "invalid?",
+          "isDateUnavailable?",
+          "label?",
+          "labelledBy?",
+          "locale?",
+          "matchWidth?",
+          "max?",
+          "min?",
+          "modal?",
+          "name?",
+          "offset?",
+          "onDismiss?",
+          "onOpenChange?",
+          "onValueChange?",
+          "open?",
+          "padding?",
+          "parentId?",
+          "persistentElements?",
+          "placement?",
+          "presentation?",
+          "preventOutsideActivation?",
+          "preventScroll?",
+          "readOnly?",
+          "required?",
+          "restoreFocus?",
+          "shift?",
+          "strategy?",
+          "today?",
+          "value?"
+        ],
+        "DatePickerOpenChangeDetails": ["open"],
+        "DatePickerParts": [
+          "backdrop?",
+          "calendarHeader?",
+          "caption?",
+          "clearTrigger?",
+          "content?",
+          "control?",
+          "field?",
+          "grid?",
+          "label?",
+          "nextTrigger?",
+          "positioner?",
+          "prevTrigger?",
+          "trigger?",
+          "weekdayRow?"
+        ],
+        "DatePickerPresentation": [],
+        "DatePickerPresentationProp": [],
+        "DatePickerValueChangeDetails": ["value"],
+        "UseDatePickerProps": []
+      },
+      "scope": "date-picker"
+    },
+    "dialog": {
+      "aliases": {
+        "DialogPresentation": "\"center\" | \"sheet\"",
+        "DialogPresentationProp": "\"auto\" | DialogPresentation",
+        "DialogRole": "\"dialog\" | \"alertdialog\""
+      },
+      "api": "dialog.json",
+      "composed": true,
+      "flows": {
+        "DialogDismissDetails": "out",
+        "DialogOpenChangeDetails": "out"
+      },
+      "imports": ["alert-dialog"],
+      "parts": [
+        {
+          "key": "trigger",
+          "part": "dialog:trigger"
+        },
+        {
+          "key": "backdrop",
+          "part": "dialog:backdrop"
+        },
+        {
+          "key": "positioner",
+          "part": "dialog:positioner"
+        },
+        {
+          "key": "content",
+          "part": "dialog:content"
+        },
+        {
+          "key": "title",
+          "part": "dialog:title"
+        },
+        {
+          "key": "description",
+          "part": "dialog:description"
+        },
+        {
+          "key": "closeTrigger",
+          "part": "dialog:close-trigger"
+        },
+        {
+          "key": "actions",
+          "part": "dialog:actions"
+        },
+        {
+          "key": "cancelTrigger",
+          "part": "dialog:cancel-trigger"
+        },
+        {
+          "key": "actionTrigger",
+          "part": "dialog:action-trigger"
+        }
+      ],
+      "props": {
+        "DialogComposedProps": [
+          "actions?",
+          "children?",
+          "closeLabel?",
+          "container?",
+          "description?",
+          "parts?",
+          "title",
+          "trigger?"
+        ],
+        "DialogDismissDetails": ["reason"],
+        "DialogMachineProps": [
+          "closeOnEscape?",
+          "closeOnInteractOutside?",
+          "defaultOpen?",
+          "describedBy?",
+          "dir?",
+          "disabled?",
+          "finalFocus?",
+          "initialFocus?",
+          "intents?",
+          "label?",
+          "modal?",
+          "onDismiss?",
+          "onOpenChange?",
+          "open?",
+          "parentId?",
+          "persistentElements?",
+          "presentation?",
+          "preventScroll?",
+          "restoreFocus?",
+          "role?",
+          "trapFocus?"
+        ],
+        "DialogOpenChangeDetails": ["open"],
+        "DialogParts": [
+          "actionTrigger?",
+          "actions?",
+          "backdrop?",
+          "cancelTrigger?",
+          "closeTrigger?",
+          "content?",
+          "description?",
+          "portal?",
+          "positioner?",
+          "title?",
+          "trigger?"
+        ],
+        "DialogPortalProps": ["children?"],
+        "DialogPresentation": [],
+        "DialogPresentationProp": [],
+        "DialogRole": [],
+        "UseDialogProps": []
+      },
+      "scope": "dialog"
+    },
+    "drawer": {
+      "aliases": {
+        "DrawerDetent": "number",
+        "DrawerEdge": "\"bottom\" | \"top\" | \"start\" | \"end\""
+      },
+      "api": "drawer.json",
+      "composed": false,
+      "flows": {
+        "DrawerDetent": "both",
+        "DrawerDetentChangeDetails": "out",
+        "DrawerDragEndDetails": "out"
+      },
+      "imports": ["dialog"],
+      "parts": [
+        {
+          "key": "positioner",
+          "part": "drawer:positioner"
+        },
+        {
+          "key": "backdrop",
+          "part": "drawer:backdrop"
+        },
+        {
+          "key": "content",
+          "part": "drawer:content"
+        },
+        {
+          "key": "grabber",
+          "part": "drawer:grabber"
+        }
+      ],
+      "props": {
+        "DrawerDetent": [],
+        "DrawerDetentChangeDetails": ["detent", "index"],
+        "DrawerDragEndDetails": ["detent", "dismissed", "velocity"],
+        "DrawerEdge": [],
+        "DrawerMachineProps": [
+          "defaultDetent?",
+          "detent?",
+          "detents?",
+          "dir?",
+          "disabled?",
+          "dismissThreshold?",
+          "dismissible?",
+          "dragFrom?",
+          "draggable?",
+          "edge?",
+          "intents?",
+          "onDetentChange?",
+          "onDismissRequest?",
+          "onDragEnd?",
+          "open?",
+          "stack?",
+          "stackElement?"
+        ]
+      },
+      "scope": "drawer"
+    },
+    "empty-state": {
+      "aliases": {
+        "EmptyStateVariant": "\"symbol\" | \"circle\""
+      },
+      "api": "empty-state.json",
+      "composed": true,
+      "flows": {},
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "empty-state:root"
+        },
+        {
+          "key": "indicator",
+          "part": "empty-state:indicator"
+        },
+        {
+          "key": "title",
+          "part": "empty-state:title"
+        },
+        {
+          "key": "description",
+          "part": "empty-state:description"
+        },
+        {
+          "key": "actions",
+          "part": "empty-state:actions"
+        }
+      ],
+      "props": {
+        "EmptyStateComposedProps": ["actions?", "description?", "icon?", "parts?", "title"],
+        "EmptyStateMachineProps": ["announce?", "variant?"],
+        "EmptyStateParts": ["actions?", "description?", "indicator?", "title?"],
+        "EmptyStateVariant": []
+      },
+      "scope": "empty-state"
+    },
+    "field": {
+      "aliases": {},
+      "api": "field.json",
+      "composed": true,
+      "flows": {},
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "field:root"
+        },
+        {
+          "key": "label",
+          "part": "field:label"
+        },
+        {
+          "key": "requiredIndicator",
+          "part": "field:required-indicator"
+        },
+        {
+          "key": "control",
+          "part": "field:control"
+        },
+        {
+          "key": "helperText",
+          "part": "field:helper-text"
+        },
+        {
+          "key": "errorText",
+          "part": "field:error-text"
+        }
+      ],
+      "props": {
+        "FieldComposedProps": [
+          "children?",
+          "errorText?",
+          "helperText?",
+          "label?",
+          "requiredIndicator?"
+        ],
+        "FieldMachineProps": ["dir?", "disabled?", "group?", "invalid?", "readOnly?", "required?"],
+        "UseFieldProps": []
+      },
+      "scope": "field"
+    },
+    "input": {
+      "aliases": {
+        "InputComposedProps": "InputBaseComposedProps & InputRevealProps",
+        "InputRevealProps": "{ readonly type?: string | undefined; readonly revealLabel?: undefined } | { readonly type: \"password\"; readonly revealLabel: string }",
+        "InputShape": "\"capsule\" | \"soft\" | \"rect\""
+      },
+      "api": "input.json",
+      "composed": true,
+      "flows": {
+        "InputValueChangeDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "input:root"
+        },
+        {
+          "key": "control",
+          "part": "input:control"
+        },
+        {
+          "key": "visibilityTrigger",
+          "part": "input:visibility-trigger"
+        }
+      ],
+      "props": {
+        "InputBaseComposedProps": ["multiline?", "parts?"],
+        "InputComposedProps": [],
+        "InputMachineProps": [
+          "autoComplete?",
+          "clearOnEscape?",
+          "defaultMasked?",
+          "defaultValue?",
+          "describedBy?",
+          "dir?",
+          "disabled?",
+          "form?",
+          "inputMode?",
+          "invalid?",
+          "maxLength?",
+          "name?",
+          "onValueChange?",
+          "placeholder?",
+          "readOnly?",
+          "required?",
+          "shape?",
+          "type?",
+          "value?"
+        ],
+        "InputParts": ["control?", "textarea?", "visibilityTrigger?"],
+        "InputRevealProps": [],
+        "InputShape": [],
+        "InputValueChangeDetails": ["value"],
+        "UseInputProps": []
+      },
+      "scope": "input"
+    },
+    "link": {
+      "aliases": {
+        "LinkCurrent": "boolean | \"page\" | \"step\" | \"location\" | \"date\" | \"time\"",
+        "LinkUnderline": "\"hover\" | \"always\" | \"none\"",
+        "LinkVariant": "\"tint\" | \"plain\""
+      },
+      "api": "link.json",
+      "composed": true,
+      "flows": {
+        "LinkPressDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "link:root"
+        },
+        {
+          "key": "externalIcon",
+          "part": "link:external-icon"
+        },
+        {
+          "key": "externalLabel",
+          "part": "link:external-label"
+        }
+      ],
+      "props": {
+        "LinkComposedProps": ["children?", "externalLabel?", "icon?", "parts?"],
+        "LinkCurrent": [],
+        "LinkMachineProps": [
+          "current?",
+          "dir?",
+          "disabled?",
+          "external?",
+          "focusableWhenDisabled?",
+          "href?",
+          "nativeLink?",
+          "onPress?",
+          "rel?",
+          "target?",
+          "underline?",
+          "variant?"
+        ],
+        "LinkParts": ["externalIcon?", "externalLabel?"],
+        "LinkPressDetails": ["originalEvent"],
+        "LinkUnderline": [],
+        "LinkVariant": [],
+        "UseLinkProps": []
+      },
+      "scope": "link"
+    },
+    "list": {
+      "aliases": {
+        "ListVariant": "\"inset\" | \"plain\""
+      },
+      "api": "list.json",
+      "composed": true,
+      "flows": {},
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "list:root"
+        },
+        {
+          "key": "section",
+          "part": "list:section"
+        },
+        {
+          "key": "header",
+          "part": "list:header"
+        },
+        {
+          "key": "group",
+          "part": "list:group"
+        },
+        {
+          "key": "row",
+          "part": "list:row"
+        },
+        {
+          "key": "action",
+          "part": "list:action"
+        },
+        {
+          "key": "leading",
+          "part": "list:leading"
+        },
+        {
+          "key": "title",
+          "part": "list:title"
+        },
+        {
+          "key": "subtitle",
+          "part": "list:subtitle"
+        },
+        {
+          "key": "trailing",
+          "part": "list:trailing"
+        },
+        {
+          "key": "footer",
+          "part": "list:footer"
+        }
+      ],
+      "props": {
+        "ListComposedProps": ["children?", "footer?", "header?", "parts?"],
+        "ListMachineProps": ["variant?"],
+        "ListParts": ["footer?", "group?", "header?", "section?"],
+        "ListVariant": []
+      },
+      "scope": "list"
+    },
+    "listbox": {
+      "aliases": {
+        "ListboxEntry": "ListboxOption<Meta> | ComposedGroup<ListboxOption<Meta>>",
+        "ListboxSelectionMode": "\"single\" | \"multiple\"",
+        "Row": "Omit< PartProps<Element>, \"id\" | \"ref\" | \"aria-labelledby\" | \"aria-describedby\" >"
+      },
+      "api": "listbox.json",
+      "composed": true,
+      "flows": {
+        "ListboxHighlightChangeDetails": "out",
+        "ListboxSelectDetails": "out",
+        "ListboxValueChangeDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "listbox:root"
+        },
+        {
+          "key": "label",
+          "part": "listbox:label"
+        },
+        {
+          "key": "content",
+          "part": "listbox:content"
+        },
+        {
+          "key": "itemGroup",
+          "part": "listbox:item-group"
+        },
+        {
+          "key": "itemGroupLabel",
+          "part": "listbox:item-group-label"
+        },
+        {
+          "key": "item",
+          "part": "listbox:item"
+        },
+        {
+          "key": "itemText",
+          "part": "listbox:item-text"
+        },
+        {
+          "key": "itemIndicator",
+          "part": "listbox:item-indicator"
+        }
+      ],
+      "props": {
+        "ListboxComposedProps": ["options", "parts?", "renderOption?"],
+        "ListboxEntry": [],
+        "ListboxHighlightChangeDetails": ["value"],
+        "ListboxMachineProps": [
+          "defaultHighlightedValue?",
+          "defaultValue?",
+          "deselectable?",
+          "dir?",
+          "disabled?",
+          "highlightedValue?",
+          "intents?",
+          "label?",
+          "loopFocus?",
+          "onHighlightChange?",
+          "onSelect?",
+          "onValueChange?",
+          "orientation?",
+          "selectOnHighlight?",
+          "selectionMode?",
+          "typeahead?",
+          "value?"
+        ],
+        "ListboxOption": ["disabled?", "label", "value"],
+        "ListboxParts": [
+          "content?",
+          "item?",
+          "itemGroup?",
+          "itemGroupLabel?",
+          "itemIndicator?",
+          "itemText?",
+          "label?"
+        ],
+        "ListboxSelectDetails": ["value"],
+        "ListboxSelectionMode": [],
+        "ListboxValueChangeDetails": ["value"],
+        "Row": [],
+        "UseListboxProps": []
+      },
+      "scope": "listbox"
+    },
+    "menu": {
+      "aliases": {
+        "MenuAction": "Omit< CoreMenuItemProps, \"value\" | \"label\" | \"description\" > & ComposedDecoration<Meta> & { readonly value: V; readonly label: string; readonly description?: string | undefined; }",
+        "MenuCheckable": "Omit< CoreMenuOptionItemProps, \"value\" | \"label\" | \"description\" > & ComposedDecoration<Meta> & { readonly value: V; readonly label: string; readonly description?: string | undefined; }",
+        "MenuEntry": "MenuRow<V, Meta> | MenuSubmenu<V, Meta> | ComposedGroup<MenuEntry<V, Meta>> | ComposedSeparator",
+        "MenuPresentation": "\"popup\" | \"sheet\"",
+        "MenuPresentationProp": "\"auto\" | MenuPresentation",
+        "MenuRow": "MenuAction<V, Meta> | MenuCheckable<V, Meta>"
+      },
+      "api": "menu.json",
+      "composed": true,
+      "flows": {
+        "MenuDismissDetails": "out",
+        "MenuHighlightChangeDetails": "out",
+        "MenuOpenChangeDetails": "out",
+        "MenuSelectDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "trigger",
+          "part": "menu:trigger"
+        },
+        {
+          "key": "contextTrigger",
+          "part": "menu:context-trigger"
+        },
+        {
+          "key": "indicator",
+          "part": "menu:indicator"
+        },
+        {
+          "key": "backdrop",
+          "part": "menu:backdrop"
+        },
+        {
+          "key": "positioner",
+          "part": "menu:positioner"
+        },
+        {
+          "key": "content",
+          "part": "menu:content"
+        },
+        {
+          "key": "itemGroup",
+          "part": "menu:item-group"
+        },
+        {
+          "key": "itemGroupLabel",
+          "part": "menu:item-group-label"
+        },
+        {
+          "key": "item",
+          "part": "menu:item"
+        },
+        {
+          "key": "triggerItem",
+          "part": "menu:trigger-item"
+        },
+        {
+          "key": "itemSymbol",
+          "part": "menu:item-symbol"
+        },
+        {
+          "key": "itemText",
+          "part": "menu:item-text"
+        },
+        {
+          "key": "itemDescription",
+          "part": "menu:item-description"
+        },
+        {
+          "key": "itemIndicator",
+          "part": "menu:item-indicator"
+        },
+        {
+          "key": "itemShortcut",
+          "part": "menu:item-shortcut"
+        },
+        {
+          "key": "separator",
+          "part": "menu:separator"
+        },
+        {
+          "key": "cancelTrigger",
+          "part": "menu:cancel-trigger"
+        }
+      ],
+      "props": {
+        "MenuAction": [],
+        "MenuCheckable": [],
+        "MenuComposedProps": [
+          "cancelLabel?",
+          "container?",
+          "contextTrigger?",
+          "items",
+          "keepMounted?",
+          "parts?",
+          "renderItem?",
+          "trigger?"
+        ],
+        "MenuContentProps": ["cancelLabel?"],
+        "MenuDismissDetails": ["reason"],
+        "MenuEntry": [],
+        "MenuHighlightChangeDetails": ["value"],
+        "MenuItemGroupProps": ["id", "label?", "orientation?"],
+        "MenuMachineProps": [
+          "autoFocus?",
+          "boundary?",
+          "closeOnEscape?",
+          "closeOnInteractOutside?",
+          "closeOnSelect?",
+          "defaultHighlightedValue?",
+          "defaultOpen?",
+          "dir?",
+          "disabled?",
+          "finalFocus?",
+          "flip?",
+          "gap?",
+          "getAnchorRect?",
+          "highlightedValue?",
+          "initialFocus?",
+          "intents?",
+          "label?",
+          "loopFocus?",
+          "matchWidth?",
+          "modal?",
+          "offset?",
+          "onDismiss?",
+          "onHighlightChange?",
+          "onOpenChange?",
+          "onSelect?",
+          "open?",
+          "padding?",
+          "parentId?",
+          "persistentElements?",
+          "placement?",
+          "presentation?",
+          "preventOutsideActivation?",
+          "preventScroll?",
+          "restoreFocus?",
+          "selectionFlash?",
+          "shift?",
+          "strategy?",
+          "submenuCloseDelay?",
+          "submenuOpenDelay?",
+          "typeahead?"
+        ],
+        "MenuOpenChangeDetails": ["open"],
+        "MenuParts": [
+          "backdrop?",
+          "content?",
+          "contextTrigger?",
+          "item?",
+          "itemDescription?",
+          "itemGroup?",
+          "itemGroupLabel?",
+          "itemIndicator?",
+          "itemShortcut?",
+          "itemSymbol?",
+          "itemText?",
+          "portal?",
+          "positioner?",
+          "separator?",
+          "trigger?",
+          "triggerItem?"
+        ],
+        "MenuPortalProps": ["children?"],
+        "MenuPresentation": [],
+        "MenuPresentationProp": [],
+        "MenuRow": [],
+        "MenuSelectDetails": ["value"],
+        "MenuSubmenu": ["disabled?", "icon?", "id?", "items", "label", "value"],
+        "UseMenuProps": []
+      },
+      "scope": "menu"
+    },
+    "meter": {
+      "aliases": {
+        "MeterValence": "\"none\" | \"optimum\" | \"suboptimal\" | \"critical\"",
+        "MeterValenceLabels": "Partial<Record<Exclude<MeterValence, \"none\">, string>>"
+      },
+      "api": "meter.json",
+      "composed": true,
+      "flows": {
+        "MeterValueChangeDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "meter:root"
+        },
+        {
+          "key": "label",
+          "part": "meter:label"
+        },
+        {
+          "key": "track",
+          "part": "meter:track"
+        },
+        {
+          "key": "range",
+          "part": "meter:range"
+        },
+        {
+          "key": "valueText",
+          "part": "meter:value-text"
+        }
+      ],
+      "props": {
+        "MeterComposedProps": ["label?", "parts?"],
+        "MeterMachineProps": [
+          "defaultValue?",
+          "dir?",
+          "formatOptions?",
+          "high?",
+          "locale?",
+          "low?",
+          "max?",
+          "min?",
+          "onValueChange?",
+          "optimum?",
+          "orientation?",
+          "valenceLabels?",
+          "value?"
+        ],
+        "MeterParts": ["label?", "range?", "track?"],
+        "MeterValence": [],
+        "MeterValenceLabels": [],
+        "MeterValueChangeDetails": ["value"],
+        "UseMeterProps": []
+      },
+      "scope": "meter"
+    },
+    "pagination": {
+      "aliases": {
+        "PaginationItemKind": "\"button\" | \"link\""
+      },
+      "api": "pagination.json",
+      "composed": true,
+      "flows": {
+        "PaginationPageChangeDetails": "out",
+        "PaginationPageSizeChangeDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "pagination:root"
+        },
+        {
+          "key": "item",
+          "part": "pagination:item"
+        },
+        {
+          "key": "ellipsis",
+          "part": "pagination:ellipsis"
+        },
+        {
+          "key": "prevTrigger",
+          "part": "pagination:prev-trigger"
+        },
+        {
+          "key": "nextTrigger",
+          "part": "pagination:next-trigger"
+        }
+      ],
+      "props": {
+        "PaginationComposedProps": ["nextLabel?", "parts?", "prevLabel?", "renderItem?"],
+        "PaginationEllipsisProps": ["index"],
+        "PaginationItemKind": [],
+        "PaginationItemProps": ["page"],
+        "PaginationMachineProps": [
+          "boundaryCount?",
+          "count",
+          "defaultPage?",
+          "defaultPageSize?",
+          "dir?",
+          "disabled?",
+          "getPageUrl?",
+          "intents?",
+          "onPageChange?",
+          "onPageSizeChange?",
+          "page?",
+          "pageSize?",
+          "siblingCount?",
+          "translations?",
+          "type?"
+        ],
+        "PaginationPageChangeDetails": ["page", "pageSize"],
+        "PaginationPageSizeChangeDetails": ["pageSize"],
+        "PaginationParts": ["ellipsis?", "item?", "nextTrigger?", "prevTrigger?"],
+        "PaginationTranslations": [
+          "itemLabel?",
+          "nextTriggerLabel?",
+          "prevTriggerLabel?",
+          "rootLabel?"
+        ],
+        "UsePaginationProps": []
+      },
+      "scope": "pagination"
+    },
+    "popover": {
+      "aliases": {
+        "PopoverPresentation": "\"anchored\" | \"sheet\"",
+        "PopoverPresentationProp": "\"auto\" | PopoverPresentation"
+      },
+      "api": "popover.json",
+      "composed": true,
+      "flows": {
+        "PopoverDismissDetails": "out",
+        "PopoverOpenChangeDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "trigger",
+          "part": "popover:trigger"
+        },
+        {
+          "key": "anchor",
+          "part": "popover:anchor"
+        },
+        {
+          "key": "backdrop",
+          "part": "popover:backdrop"
+        },
+        {
+          "key": "positioner",
+          "part": "popover:positioner"
+        },
+        {
+          "key": "content",
+          "part": "popover:content"
+        },
+        {
+          "key": "arrow",
+          "part": "popover:arrow"
+        },
+        {
+          "key": "arrowTip",
+          "part": "popover:arrow-tip"
+        },
+        {
+          "key": "title",
+          "part": "popover:title"
+        },
+        {
+          "key": "description",
+          "part": "popover:description"
+        },
+        {
+          "key": "closeTrigger",
+          "part": "popover:close-trigger"
+        }
+      ],
+      "props": {
+        "PopoverComposedProps": [
+          "children?",
+          "closeLabel?",
+          "container?",
+          "description?",
+          "keepMounted?",
+          "parts?",
+          "title?",
+          "trigger?"
+        ],
+        "PopoverDismissDetails": ["reason"],
+        "PopoverMachineProps": [
+          "arrowPadding?",
+          "autoFocus?",
+          "boundary?",
+          "closeOnEscape?",
+          "closeOnFocusOutside?",
+          "closeOnInteractOutside?",
+          "defaultOpen?",
+          "describedBy?",
+          "dir?",
+          "disabled?",
+          "finalFocus?",
+          "flip?",
+          "gap?",
+          "getAnchorRect?",
+          "initialFocus?",
+          "intents?",
+          "label?",
+          "matchWidth?",
+          "modal?",
+          "offset?",
+          "onDismiss?",
+          "onOpenChange?",
+          "open?",
+          "padding?",
+          "parentId?",
+          "persistentElements?",
+          "placement?",
+          "presentation?",
+          "preventScroll?",
+          "restoreFocus?",
+          "shift?",
+          "strategy?",
+          "trapFocus?"
+        ],
+        "PopoverOpenChangeDetails": ["open"],
+        "PopoverParts": [
+          "arrow?",
+          "backdrop?",
+          "closeTrigger?",
+          "content?",
+          "description?",
+          "portal?",
+          "positioner?",
+          "title?",
+          "trigger?"
+        ],
+        "PopoverPortalProps": ["children?"],
+        "PopoverPresentation": [],
+        "PopoverPresentationProp": [],
+        "UsePopoverProps": []
+      },
+      "scope": "popover"
+    },
+    "progress": {
+      "aliases": {},
+      "api": "progress.json",
+      "composed": true,
+      "flows": {
+        "ProgressValueChangeDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "progress:root"
+        },
+        {
+          "key": "label",
+          "part": "progress:label"
+        },
+        {
+          "key": "track",
+          "part": "progress:track"
+        },
+        {
+          "key": "range",
+          "part": "progress:range"
+        },
+        {
+          "key": "valueText",
+          "part": "progress:value-text"
+        },
+        {
+          "key": "circle",
+          "part": "progress:circle"
+        },
+        {
+          "key": "circleTrack",
+          "part": "progress:circle-track"
+        },
+        {
+          "key": "circleRange",
+          "part": "progress:circle-range"
+        }
+      ],
+      "props": {
+        "ProgressComposedProps": ["circular?", "label?", "parts?"],
+        "ProgressMachineProps": [
+          "defaultValue?",
+          "dir?",
+          "formatOptions?",
+          "locale?",
+          "max?",
+          "min?",
+          "onValueChange?",
+          "orientation?",
+          "value?"
+        ],
+        "ProgressParts": ["circle?", "circleRange?", "circleTrack?", "label?", "range?", "track?"],
+        "ProgressValueChangeDetails": ["value"],
+        "UseProgressProps": []
+      },
+      "scope": "progress"
+    },
+    "radio-group": {
+      "aliases": {
+        "RadioGroupEntry": "RadioGroupOption<V, Meta> | ComposedSeparator",
+        "RadioGroupOption": "Omit< CoreRadioItemProps, \"value\" > & { readonly value: V; readonly label: string; readonly meta?: Meta | undefined; }"
+      },
+      "api": "radio-group.json",
+      "composed": true,
+      "flows": {
+        "RadioGroupValueChangeDetails": "out"
+      },
+      "imports": ["separator"],
+      "parts": [
+        {
+          "key": "root",
+          "part": "radio-group:root"
+        },
+        {
+          "key": "label",
+          "part": "radio-group:label"
+        },
+        {
+          "key": "item",
+          "part": "radio-group:item"
+        },
+        {
+          "key": "itemControl",
+          "part": "radio-group:item-control"
+        },
+        {
+          "key": "itemText",
+          "part": "radio-group:item-text"
+        },
+        {
+          "key": "itemHiddenInput",
+          "part": "radio-group:item-hidden-input"
+        },
+        {
+          "key": "indicator",
+          "part": "radio-group:indicator"
+        }
+      ],
+      "props": {
+        "RadioGroupComposedProps": ["indicator?", "label?", "options", "renderOption?"],
+        "RadioGroupEntry": [],
+        "RadioGroupMachineProps": [
+          "defaultValue?",
+          "describedBy?",
+          "dir?",
+          "disabled?",
+          "form?",
+          "intents?",
+          "invalid?",
+          "name?",
+          "onValueChange?",
+          "orientation?",
+          "readOnly?",
+          "required?",
+          "value?"
+        ],
+        "RadioGroupOption": [],
+        "RadioGroupValueChangeDetails": ["value"],
+        "UseRadioGroupProps": []
+      },
+      "scope": "radio-group"
+    },
+    "scroll-area": {
+      "aliases": {
+        "ScrollAreaOrientation": "Orientation | \"both\""
+      },
+      "api": "scroll-area.json",
+      "composed": true,
+      "flows": {},
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "scroll-area:root"
+        },
+        {
+          "key": "viewport",
+          "part": "scroll-area:viewport"
+        },
+        {
+          "key": "content",
+          "part": "scroll-area:content"
+        },
+        {
+          "key": "scrollbar",
+          "part": "scroll-area:scrollbar"
+        },
+        {
+          "key": "thumb",
+          "part": "scroll-area:thumb"
+        },
+        {
+          "key": "corner",
+          "part": "scroll-area:corner"
+        }
+      ],
+      "props": {
+        "ScrollAreaComposedProps": ["children?", "parts?"],
+        "ScrollAreaMachineProps": [
+          "always?",
+          "dir?",
+          "hideDelay?",
+          "label?",
+          "labelledBy?",
+          "orientation?"
+        ],
+        "ScrollAreaOrientation": [],
+        "ScrollAreaParts": ["content?", "corner?", "scrollbar?", "thumb?", "viewport?"],
+        "UseScrollAreaProps": []
+      },
+      "scope": "scroll-area"
+    },
+    "search-field": {
+      "aliases": {
+        "SearchFieldShape": "\"capsule\" | \"soft\" | \"rect\"",
+        "SearchHotkeyPredicate": "(event: KeyboardEvent) => boolean"
+      },
+      "api": "search-field.json",
+      "composed": true,
+      "flows": {
+        "SearchFieldValueChangeDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "search-field:root"
+        },
+        {
+          "key": "field",
+          "part": "search-field:field"
+        },
+        {
+          "key": "indicator",
+          "part": "search-field:indicator"
+        },
+        {
+          "key": "control",
+          "part": "search-field:control"
+        },
+        {
+          "key": "clearTrigger",
+          "part": "search-field:clear-trigger"
+        },
+        {
+          "key": "cancelTrigger",
+          "part": "search-field:cancel-trigger"
+        }
+      ],
+      "props": {
+        "SearchFieldComposedProps": ["cancel?", "icon?", "parts?"],
+        "SearchFieldMachineProps": [
+          "autoComplete?",
+          "cancelLabel?",
+          "clearLabel?",
+          "clearOnEscape?",
+          "defaultValue?",
+          "describedBy?",
+          "dir?",
+          "disabled?",
+          "form?",
+          "hotkey?",
+          "inputMode?",
+          "invalid?",
+          "label?",
+          "maxLength?",
+          "name?",
+          "onCancel?",
+          "onValueChange?",
+          "placeholder?",
+          "readOnly?",
+          "required?",
+          "shape?",
+          "value?"
+        ],
+        "SearchFieldParts": ["cancelTrigger?", "clearTrigger?", "control?", "field?", "indicator?"],
+        "SearchFieldShape": [],
+        "SearchFieldValueChangeDetails": ["value"],
+        "SearchHotkeyPredicate": [],
+        "UseSearchFieldProps": []
+      },
+      "scope": "search-field"
+    },
+    "select": {
+      "aliases": {
+        "SelectEntry": "SelectOption<V, Meta> | ComposedGroup<SelectOption<V, Meta>> | ComposedSeparator",
+        "SelectOption": "Omit< CoreSelectItemProps, \"value\" | \"label\" > & ComposedDecoration<Meta> & { readonly value: V; readonly label: string; }",
+        "SelectPresentation": "\"popup\" | \"sheet\"",
+        "SelectPresentationProp": "\"auto\" | SelectPresentation"
+      },
+      "api": "select.json",
+      "composed": true,
+      "flows": {
+        "SelectDismissDetails": "out",
+        "SelectHighlightChangeDetails": "out",
+        "SelectOpenChangeDetails": "out",
+        "SelectValueChangeDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "trigger",
+          "part": "select:trigger"
+        },
+        {
+          "key": "valueText",
+          "part": "select:value-text"
+        },
+        {
+          "key": "indicator",
+          "part": "select:indicator"
+        },
+        {
+          "key": "hiddenSelect",
+          "part": "select:hidden-select"
+        },
+        {
+          "key": "backdrop",
+          "part": "select:backdrop"
+        },
+        {
+          "key": "positioner",
+          "part": "select:positioner"
+        },
+        {
+          "key": "content",
+          "part": "select:content"
+        },
+        {
+          "key": "itemGroup",
+          "part": "select:item-group"
+        },
+        {
+          "key": "itemGroupLabel",
+          "part": "select:item-group-label"
+        },
+        {
+          "key": "item",
+          "part": "select:item"
+        },
+        {
+          "key": "itemSymbol",
+          "part": "select:item-symbol"
+        },
+        {
+          "key": "itemText",
+          "part": "select:item-text"
+        },
+        {
+          "key": "itemIndicator",
+          "part": "select:item-indicator"
+        },
+        {
+          "key": "separator",
+          "part": "select:separator"
+        },
+        {
+          "key": "cancelTrigger",
+          "part": "select:cancel-trigger"
+        }
+      ],
+      "props": {
+        "SelectComposedProps": [
+          "cancelLabel?",
+          "container?",
+          "keepMounted?",
+          "options",
+          "parts?",
+          "placeholder?",
+          "renderOption?",
+          "trigger?"
+        ],
+        "SelectDismissDetails": ["reason"],
+        "SelectEntry": [],
+        "SelectHighlightChangeDetails": ["value"],
+        "SelectItemGroupProps": ["id", "label?"],
+        "SelectMachineProps": [
+          "boundary?",
+          "closeOnEscape?",
+          "closeOnInteractOutside?",
+          "closeOnSelect?",
+          "defaultHighlightedValue?",
+          "defaultOpen?",
+          "defaultValue?",
+          "describedBy?",
+          "dir?",
+          "disabled?",
+          "finalFocus?",
+          "flip?",
+          "form?",
+          "gap?",
+          "getAnchorRect?",
+          "highlightedValue?",
+          "intents?",
+          "invalid?",
+          "label?",
+          "labelledBy?",
+          "loopFocus?",
+          "matchWidth?",
+          "modal?",
+          "name?",
+          "offset?",
+          "onDismiss?",
+          "onHighlightChange?",
+          "onOpenChange?",
+          "onValueChange?",
+          "open?",
+          "padding?",
+          "parentId?",
+          "persistentElements?",
+          "placement?",
+          "presentation?",
+          "preventOutsideActivation?",
+          "preventScroll?",
+          "required?",
+          "restoreFocus?",
+          "selectionFlash?",
+          "shift?",
+          "strategy?",
+          "typeahead?",
+          "value?"
+        ],
+        "SelectOpenChangeDetails": ["open"],
+        "SelectOption": [],
+        "SelectParts": [
+          "backdrop?",
+          "cancelTrigger?",
+          "content?",
+          "hiddenSelect?",
+          "indicator?",
+          "item?",
+          "itemGroup?",
+          "itemGroupLabel?",
+          "itemIndicator?",
+          "itemSymbol?",
+          "itemText?",
+          "portal?",
+          "positioner?",
+          "separator?",
+          "trigger?",
+          "valueText?"
+        ],
+        "SelectPortalProps": ["children?"],
+        "SelectPresentation": [],
+        "SelectPresentationProp": [],
+        "SelectValueChangeDetails": ["value"],
+        "SelectValueTextProps": ["placeholder?"],
+        "UseSelectProps": []
+      },
+      "scope": "select"
+    },
+    "separator": {
+      "aliases": {},
+      "api": "separator.json",
+      "composed": true,
+      "flows": {},
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "separator:root"
+        }
+      ],
+      "props": {
+        "SeparatorComposedProps": [],
+        "SeparatorMachineProps": ["decorative?", "orientation?"],
+        "SeparatorRootProps": []
+      },
+      "scope": "separator"
+    },
+    "sidebar": {
+      "aliases": {
+        "SidebarPresentation": "\"auto\" | \"inline\" | \"drawer\""
+      },
+      "api": "sidebar.json",
+      "composed": true,
+      "flows": {},
+      "imports": ["collapsible", "dialog", "drawer"],
+      "parts": [
+        {
+          "key": "root",
+          "part": "sidebar:root"
+        },
+        {
+          "key": "header",
+          "part": "sidebar:header"
+        },
+        {
+          "key": "headerLabel",
+          "part": "sidebar:header-label"
+        },
+        {
+          "key": "content",
+          "part": "sidebar:content"
+        },
+        {
+          "key": "section",
+          "part": "sidebar:section"
+        },
+        {
+          "key": "sectionHeader",
+          "part": "sidebar:section-header"
+        },
+        {
+          "key": "group",
+          "part": "sidebar:group"
+        },
+        {
+          "key": "item",
+          "part": "sidebar:item"
+        },
+        {
+          "key": "link",
+          "part": "sidebar:link"
+        },
+        {
+          "key": "leading",
+          "part": "sidebar:leading"
+        },
+        {
+          "key": "label",
+          "part": "sidebar:label"
+        },
+        {
+          "key": "trailing",
+          "part": "sidebar:trailing"
+        },
+        {
+          "key": "footer",
+          "part": "sidebar:footer"
+        },
+        {
+          "key": "footerLabel",
+          "part": "sidebar:footer-label"
+        },
+        {
+          "key": "trigger",
+          "part": "sidebar:trigger"
+        },
+        {
+          "key": "drawer",
+          "part": "sidebar:drawer"
+        }
+      ],
+      "props": {
+        "SidebarComposedProps": [
+          "children?",
+          "container?",
+          "defaultOpen?",
+          "drawerId?",
+          "footer?",
+          "header?",
+          "label",
+          "onOpenChange?",
+          "open?",
+          "parts?",
+          "presentation?"
+        ],
+        "SidebarMachineProps": ["label?", "presentation?"],
+        "SidebarParts": [
+          "backdrop?",
+          "content?",
+          "drawer?",
+          "footer?",
+          "footerLabel?",
+          "header?",
+          "headerLabel?",
+          "portal?",
+          "positioner?"
+        ],
+        "SidebarPresentation": []
+      },
+      "scope": "sidebar"
+    },
+    "slider": {
+      "aliases": {
+        "SliderMarks": "RangeMarks",
+        "SliderThumbAlignment": "\"contain\" | \"center\""
+      },
+      "api": "slider.json",
+      "composed": true,
+      "flows": {
+        "SliderValueChangeDetails": "out",
+        "SliderValueTextDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "slider:root"
+        },
+        {
+          "key": "label",
+          "part": "slider:label"
+        },
+        {
+          "key": "valueText",
+          "part": "slider:value-text"
+        },
+        {
+          "key": "control",
+          "part": "slider:control"
+        },
+        {
+          "key": "track",
+          "part": "slider:track"
+        },
+        {
+          "key": "range",
+          "part": "slider:range"
+        },
+        {
+          "key": "thumb",
+          "part": "slider:thumb"
+        },
+        {
+          "key": "hiddenInput",
+          "part": "slider:hidden-input"
+        },
+        {
+          "key": "markerGroup",
+          "part": "slider:marker-group"
+        },
+        {
+          "key": "marker",
+          "part": "slider:marker"
+        }
+      ],
+      "props": {
+        "SliderComposedProps": ["label?", "parts?", "showValue?", "ticks?"],
+        "SliderHiddenInputProps": ["index?"],
+        "SliderMachineProps": [
+          "defaultValue?",
+          "describedBy?",
+          "dir?",
+          "disabled?",
+          "form?",
+          "formatOptions?",
+          "getValueText?",
+          "intents?",
+          "invalid?",
+          "labelledBy?",
+          "largeStep?",
+          "locale?",
+          "marks?",
+          "max?",
+          "min?",
+          "minStepsBetweenThumbs?",
+          "name?",
+          "onValueChange?",
+          "onValueChangeEnd?",
+          "orientation?",
+          "readOnly?",
+          "required?",
+          "step?",
+          "thumbAlignment?",
+          "value?"
+        ],
+        "SliderMarks": [],
+        "SliderParts": [
+          "control?",
+          "hiddenInput?",
+          "label?",
+          "markerGroup?",
+          "range?",
+          "thumb?",
+          "track?",
+          "valueText?"
+        ],
+        "SliderThumbAlignment": [],
+        "SliderThumbProps": ["index"],
+        "SliderValueChangeDetails": ["value"],
+        "SliderValueTextDetails": ["index", "value"],
+        "UseSliderProps": []
+      },
+      "scope": "slider"
+    },
+    "splitter": {
+      "aliases": {
+        "SplitterPanelSide": "\"start\" | \"end\"",
+        "SplitterUnit": "\"px\" | \"%\""
+      },
+      "api": "splitter.json",
+      "composed": true,
+      "flows": {
+        "SplitterCollapsedChangeDetails": "out",
+        "SplitterSizeChangeDetails": "out",
+        "SplitterValueTextDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "panel",
+          "part": "splitter:panel"
+        },
+        {
+          "key": "handle",
+          "part": "splitter:handle"
+        }
+      ],
+      "props": {
+        "SplitterCollapsedChangeDetails": ["collapsed"],
+        "SplitterComposedProps": ["children?", "parts?"],
+        "SplitterMachineProps": [
+          "collapsed?",
+          "collapsedSize?",
+          "collapsible?",
+          "defaultCollapsed?",
+          "defaultSize?",
+          "dir?",
+          "disabled?",
+          "getValueText?",
+          "intents?",
+          "label?",
+          "labelledBy?",
+          "max?",
+          "min?",
+          "onCollapsedChange?",
+          "onSizeChange?",
+          "onSizeChangeEnd?",
+          "orientation?",
+          "panelSide?",
+          "resetOnDoubleClick?",
+          "size?",
+          "step?",
+          "unit?"
+        ],
+        "SplitterPanelSide": [],
+        "SplitterParts": ["handle?", "panel?"],
+        "SplitterSizeChangeDetails": ["size"],
+        "SplitterUnit": [],
+        "SplitterValueTextDetails": ["collapsed", "size"],
+        "UseSplitterProps": []
+      },
+      "scope": "splitter"
+    },
+    "switch": {
+      "aliases": {
+        "SwitchSize": "\"sm\" | \"md\""
+      },
+      "api": "switch.json",
+      "composed": true,
+      "flows": {
+        "SwitchCheckedChangeDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "switch:root"
+        },
+        {
+          "key": "label",
+          "part": "switch:label"
+        },
+        {
+          "key": "control",
+          "part": "switch:control"
+        },
+        {
+          "key": "thumb",
+          "part": "switch:thumb"
+        },
+        {
+          "key": "hiddenInput",
+          "part": "switch:hidden-input"
+        }
+      ],
+      "props": {
+        "SwitchCheckedChangeDetails": ["checked"],
+        "SwitchComposedProps": ["label?"],
+        "SwitchMachineProps": [
+          "checked?",
+          "defaultChecked?",
+          "describedBy?",
+          "dir?",
+          "disabled?",
+          "draggable?",
+          "form?",
+          "invalid?",
+          "name?",
+          "onCheckedChange?",
+          "readOnly?",
+          "required?",
+          "size?",
+          "value?"
+        ],
+        "SwitchSize": [],
+        "UseSwitchProps": []
+      },
+      "scope": "switch"
+    },
+    "tabs": {
+      "aliases": {
+        "TabsActivationMode": "\"automatic\" | \"manual\""
+      },
+      "api": "tabs.json",
+      "composed": true,
+      "flows": {
+        "TabsCloseDetails": "out",
+        "TabsFocusChangeDetails": "out",
+        "TabsValueChangeDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "tabs:root"
+        },
+        {
+          "key": "list",
+          "part": "tabs:list"
+        },
+        {
+          "key": "trigger",
+          "part": "tabs:trigger"
+        },
+        {
+          "key": "indicator",
+          "part": "tabs:indicator"
+        },
+        {
+          "key": "content",
+          "part": "tabs:content"
+        },
+        {
+          "key": "closeTrigger",
+          "part": "tabs:close-trigger"
+        },
+        {
+          "key": "scrollbar",
+          "part": "tabs:scrollbar"
+        },
+        {
+          "key": "thumb",
+          "part": "tabs:thumb"
+        }
+      ],
+      "props": {
+        "TabsActivationMode": [],
+        "TabsCloseDetails": ["value"],
+        "TabsComposedProps": ["items", "parts?"],
+        "TabsFocusChangeDetails": ["value"],
+        "TabsItem": ["content?", "disabled?", "label", "value"],
+        "TabsMachineProps": [
+          "activationMode?",
+          "closable?",
+          "defaultValue?",
+          "describedBy?",
+          "dir?",
+          "disabled?",
+          "intents?",
+          "keepMounted?",
+          "lazyMount?",
+          "loopFocus?",
+          "onClose?",
+          "onFocusChange?",
+          "onValueChange?",
+          "orientation?",
+          "scrollActiveIntoView?",
+          "value?"
+        ],
+        "TabsParts": [
+          "closeTrigger?",
+          "content?",
+          "indicator?",
+          "list?",
+          "scrollbar?",
+          "thumb?",
+          "trigger?"
+        ],
+        "TabsValueChangeDetails": ["value"],
+        "UseTabsProps": []
+      },
+      "scope": "tabs"
+    },
+    "toast": {
+      "aliases": {
+        "ToastDismissReason": "\"timeout\" | \"close-trigger\" | \"escape\" | \"back\" | \"programmatic\" | \"action\"",
+        "ToastPlacement": "\"top\" | \"top-start\" | \"top-end\" | \"bottom\" | \"bottom-start\" | \"bottom-end\"",
+        "ToastStatus": "\"visible\" | \"dismissing\"",
+        "ToastSubscriber": "(toasts: readonly ToastRecord[]) => void",
+        "ToastType": "\"info\" | \"success\" | \"warning\" | \"error\" | \"loading\""
+      },
+      "api": "toast.json",
+      "composed": true,
+      "flows": {
+        "ToastDismissDetails": "out",
+        "ToastDismissReason": "both"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "group",
+          "part": "toast:group"
+        },
+        {
+          "key": "root",
+          "part": "toast:root"
+        },
+        {
+          "key": "indicator",
+          "part": "toast:indicator"
+        },
+        {
+          "key": "title",
+          "part": "toast:title"
+        },
+        {
+          "key": "description",
+          "part": "toast:description"
+        },
+        {
+          "key": "actionTrigger",
+          "part": "toast:action-trigger"
+        },
+        {
+          "key": "closeTrigger",
+          "part": "toast:close-trigger"
+        }
+      ],
+      "props": {
+        "ToastActionOptions": ["dismissOnClick?", "label", "onClick"],
+        "ToastComposedProps": ["parts?", "renderCard?"],
+        "ToastDismissDetails": ["reason"],
+        "ToastDismissReason": [],
+        "ToastGroupMachineProps": [
+          "dir?",
+          "hotkey?",
+          "intents?",
+          "pauseOnInteraction?",
+          "pauseOnPageIdle?",
+          "toaster",
+          "topLayer?",
+          "translations?"
+        ],
+        "ToastGroupProps": ["children", "portalled?"],
+        "ToastOptions": [
+          "action?",
+          "closable?",
+          "description?",
+          "duration?",
+          "id?",
+          "meta?",
+          "onDismiss?",
+          "onRemove?",
+          "politeness?",
+          "title",
+          "type?"
+        ],
+        "ToastParts": [
+          "actionTrigger?",
+          "closeTrigger?",
+          "description?",
+          "indicator?",
+          "root?",
+          "title?"
+        ],
+        "ToastPlacement": [],
+        "ToastPromiseOptions": ["error", "loading", "success"],
+        "ToastRecord": [
+          "action",
+          "closable",
+          "description",
+          "duration",
+          "id",
+          "meta",
+          "politeness",
+          "status",
+          "title",
+          "type",
+          "version"
+        ],
+        "ToastStatus": [],
+        "ToastSubscriber": [],
+        "ToastTranslations": ["dismissLabel?", "regionLabel?"],
+        "ToastType": [],
+        "Toaster": [
+          "create",
+          "dismiss",
+          "getQueuedCount",
+          "getVisibleToasts",
+          "isVisible",
+          "overlap",
+          "pause",
+          "placement",
+          "promise",
+          "remove",
+          "resume",
+          "subscribe",
+          "update"
+        ],
+        "UseToastGroupProps": []
+      },
+      "scope": "toast"
+    },
+    "toggle": {
+      "aliases": {},
+      "api": "toggle.json",
+      "composed": true,
+      "flows": {
+        "TogglePressedChangeDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "toggle:root"
+        },
+        {
+          "key": "indicator",
+          "part": "toggle:indicator"
+        }
+      ],
+      "props": {
+        "ToggleComposedProps": ["children?", "icon?"],
+        "ToggleMachineProps": [
+          "defaultPressed?",
+          "dir?",
+          "disabled?",
+          "onPressedChange?",
+          "pressed?"
+        ],
+        "TogglePressedChangeDetails": ["pressed"],
+        "UseToggleProps": []
+      },
+      "scope": "toggle"
+    },
+    "toggle-group": {
+      "aliases": {
+        "ToggleGroupOption": "Omit<CoreToggleGroupItemProps, \"value\" | \"label\"> & { readonly value: string; readonly label: string; }",
+        "ToggleGroupSizing": "\"equal\" | \"content\""
+      },
+      "api": "toggle-group.json",
+      "composed": true,
+      "flows": {
+        "ToggleGroupValueChangeDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "frame",
+          "part": "toggle-group:frame"
+        },
+        {
+          "key": "root",
+          "part": "toggle-group:root"
+        },
+        {
+          "key": "label",
+          "part": "toggle-group:label"
+        },
+        {
+          "key": "item",
+          "part": "toggle-group:item"
+        },
+        {
+          "key": "indicator",
+          "part": "toggle-group:indicator"
+        },
+        {
+          "key": "scrollbar",
+          "part": "toggle-group:scrollbar"
+        },
+        {
+          "key": "thumb",
+          "part": "toggle-group:thumb"
+        }
+      ],
+      "props": {
+        "ToggleGroupComposedProps": ["label?", "options", "parts?"],
+        "ToggleGroupMachineProps": [
+          "defaultValue?",
+          "describedBy?",
+          "deselectable?",
+          "dir?",
+          "disabled?",
+          "loopFocus?",
+          "multiple?",
+          "onValueChange?",
+          "orientation?",
+          "sizing?",
+          "value?"
+        ],
+        "ToggleGroupOption": [],
+        "ToggleGroupParts": ["frame?", "indicator?", "item?", "label?", "scrollbar?", "thumb?"],
+        "ToggleGroupSizing": [],
+        "ToggleGroupValueChangeDetails": ["value"],
+        "UseToggleGroupProps": []
+      },
+      "scope": "toggle-group"
+    },
+    "toolbar": {
+      "aliases": {
+        "ToolbarEntry": "ToolbarAction<Meta> | ComposedSeparator | ToolbarSpacerEntry | ToolbarTitleEntry | ComposedGroup<ToolbarAction<Meta>>"
+      },
+      "api": "toolbar.json",
+      "composed": true,
+      "flows": {},
+      "imports": [],
+      "parts": [
+        {
+          "key": "root",
+          "part": "toolbar:root"
+        },
+        {
+          "key": "group",
+          "part": "toolbar:group"
+        },
+        {
+          "key": "separator",
+          "part": "toolbar:separator"
+        },
+        {
+          "key": "spacer",
+          "part": "toolbar:spacer"
+        },
+        {
+          "key": "item",
+          "part": "toolbar:item"
+        },
+        {
+          "key": "title",
+          "part": "toolbar:title"
+        }
+      ],
+      "props": {
+        "ToolbarAction": ["disabled?", "label", "render?", "title?", "value"],
+        "ToolbarComposedProps": ["items", "parts?"],
+        "ToolbarEntry": [],
+        "ToolbarMachineProps": ["dir?", "label?", "loopFocus?", "orientation?"],
+        "ToolbarParts": ["group?", "item?", "separator?", "spacer?", "title?"],
+        "ToolbarSpacerEntry": ["spacer"],
+        "ToolbarTitleEntry": ["label?", "size?", "title"],
+        "UseToolbarProps": []
+      },
+      "scope": "toolbar"
+    },
+    "tooltip": {
+      "aliases": {},
+      "api": "tooltip.json",
+      "composed": true,
+      "flows": {
+        "TooltipDismissDetails": "out",
+        "TooltipOpenChangeDetails": "out"
+      },
+      "imports": [],
+      "parts": [
+        {
+          "key": "trigger",
+          "part": "tooltip:trigger"
+        },
+        {
+          "key": "positioner",
+          "part": "tooltip:positioner"
+        },
+        {
+          "key": "content",
+          "part": "tooltip:content"
+        }
+      ],
+      "props": {
+        "TooltipComposedProps": ["children", "container?", "keepMounted?", "parts?", "trigger"],
+        "TooltipDismissDetails": ["reason"],
+        "TooltipMachineProps": [
+          "boundary?",
+          "closeOnEscape?",
+          "closeOnScroll?",
+          "defaultOpen?",
+          "dir?",
+          "disabled?",
+          "flip?",
+          "gap?",
+          "intents?",
+          "longPress?",
+          "offset?",
+          "onDismiss?",
+          "onOpenChange?",
+          "open?",
+          "openDelay?",
+          "padding?",
+          "parentId?",
+          "placement?",
+          "shift?",
+          "strategy?",
+          "warmDelay?",
+          "warmDuration?"
+        ],
+        "TooltipOpenChangeDetails": ["open"],
+        "TooltipParts": ["content?", "portal?", "positioner?", "trigger?"],
+        "TooltipPortalProps": ["children?"],
+        "UseTooltipProps": []
+      },
+      "scope": "tooltip"
+    }
+  },
+  "schema": 1,
+  "version": "0.0.0"
+}

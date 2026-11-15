@@ -36,6 +36,8 @@ export interface RegistryIndex {
   readonly $schema: string;
   readonly name: string;
   readonly version: string;
+  readonly manifest: string;
+  readonly renames: string;
   readonly specifiers: Readonly<Record<string, RegistrySpecifier>>;
   readonly items: readonly RegistryIndexEntry[];
 }

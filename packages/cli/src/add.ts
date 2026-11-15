@@ -1,39 +1,26 @@
-import { spawnSync } from "node:child_process";
-import { createHash } from "node:crypto";
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync } from "node:fs";
 import path from "node:path";
 import { DEFAULT_REGISTRY, type StandaruiConfig } from "./config";
 import type { CliContext } from "./context";
+import { planDependencies } from "./dependencies";
 import { CliError } from "./errors";
+import {
+  BASE_DIR,
+  createFilePlanner,
+  MANIFEST_BASE,
+  type PlannedFile,
+  RENAMES_BASE,
+  write,
+} from "./files";
 import { LOCK_FILE, lockedFiles, readLockfile, serializeLockfile } from "./lockfile";
-import { detectInstaller, mergeDependencies, type PackageJson } from "./package-json";
 import { createRegistryClient } from "./registry";
-import type { RegistrySpecifier } from "./registry-types";
 import { resolveItems } from "./resolve";
-import { rewriteImports } from "./rewrite";
 
 export interface InstallOptions {
   readonly overwrite: boolean;
   readonly install: boolean;
   readonly registry: string | undefined;
   readonly version: string;
-}
-
-interface PlannedFile {
-  readonly lockKey: string;
-  readonly target: string;
-  readonly base: string;
-  readonly content: string;
-  readonly sha256: string;
-}
-
-function sha256(text: string): string {
-  return createHash("sha256").update(text).digest("hex");
-}
-
-function write(file: string, content: string): void {
-  mkdirSync(path.dirname(file), { recursive: true });
-  writeFileSync(file, content);
 }
 
 export async function installItems(
@@ -57,27 +44,9 @@ export async function installItems(
     return;
   }
 
-  let specifiers: Readonly<Record<string, RegistrySpecifier>> | undefined;
+  const planFiles = createFilePlanner(cwd, config, client);
   const planned = new Map<string, PlannedFile[]>();
-  for (const { key, item } of resolved) {
-    const files: PlannedFile[] = [];
-    for (const file of item.files) {
-      const label = `${key}:${file.layer}/${file.path}`;
-      let content = file.content;
-      if (content.includes("@standarui/")) {
-        specifiers ??= (await client.loadIndex(DEFAULT_REGISTRY)).specifiers;
-        content = rewriteImports(content, label, specifiers, config.aliases);
-      }
-      files.push({
-        lockKey: `${file.layer}/${file.path}`,
-        target: path.join(cwd, config.dirs[file.layer], file.path),
-        base: path.join(cwd, ".standarui", "base", file.layer, file.path),
-        content,
-        sha256: sha256(content),
-      });
-    }
-    planned.set(key, files);
-  }
+  for (const { key, item } of resolved) planned.set(key, await planFiles(key, item));
 
   if (!options.overwrite) {
     const owned = lockedFiles(lock);
@@ -92,14 +61,15 @@ export async function installItems(
     }
   }
 
-  const packageFile = path.join(cwd, "package.json");
-  if (!existsSync(packageFile)) throw new CliError(`package.json not found in ${cwd}`);
   const wanted: Record<string, string> = {};
   for (const { item } of resolved) Object.assign(wanted, item.dependencies ?? {});
-  const merged = mergeDependencies(
-    JSON.parse(readFileSync(packageFile, "utf8")) as PackageJson,
-    wanted,
-  );
+  const dependencies = planDependencies(context, wanted);
+
+  const manifestBase = path.join(cwd, BASE_DIR, MANIFEST_BASE);
+  const api =
+    resolved.some(({ ref }) => ref.registry === DEFAULT_REGISTRY) && !existsSync(manifestBase)
+      ? await client.loadApi(DEFAULT_REGISTRY)
+      : undefined;
 
   let fileCount = 0;
   for (const { key, ref, item } of resolved) {
@@ -112,26 +82,17 @@ export async function installItems(
     }
     lock.items[key] = { source: ref.registry, version: item.version, files: locked };
   }
-  write(path.join(cwd, LOCK_FILE), serializeLockfile(lock));
-
-  if (merged.changed.length > 0) {
-    write(packageFile, `${JSON.stringify(merged.pkg, null, 2)}\n`);
-    if (options.install) {
-      const installer = detectInstaller(cwd);
-      context.out(`Running ${installer} install`);
-      const result = spawnSync(installer, ["install"], {
-        cwd,
-        stdio: "inherit",
-        shell: process.platform === "win32",
-      });
-      if (result.status !== 0) throw new CliError(`${installer} install failed`);
-    }
+  if (api !== undefined) {
+    write(manifestBase, api.manifest);
+    write(path.join(cwd, BASE_DIR, RENAMES_BASE), api.renames);
   }
+  write(path.join(cwd, LOCK_FILE), serializeLockfile(lock));
+  dependencies.apply(options.install);
 
   context.out(`Added ${resolved.length} item(s), ${fileCount} file(s).`);
   context.out(`  items: ${resolved.map(({ key }) => key).join(", ")}`);
-  if (merged.changed.length > 0) {
-    const shown = merged.changed.map((name) => `${name}@${wanted[name]}`).join(", ");
+  if (dependencies.changed.length > 0) {
+    const shown = dependencies.changed.map((name) => `${name}@${wanted[name]}`).join(", ");
     context.out(`  dependencies: ${shown}`);
   }
 }

@@ -114,6 +114,11 @@ function checkItem(value: unknown, where: string): RegistryItem {
   return { registryDependencies: [], version: "0.0.0", ...value } as unknown as RegistryItem;
 }
 
+function sibling(target: Place, name: string): Place {
+  if (target.kind === "http") return { kind: "http", url: new URL(name, target.url).href };
+  return { kind: "file", path: path.join(path.dirname(target.path), name) };
+}
+
 function checkIndex(value: unknown, where: string): RegistryIndex {
   if (!isRecord(value) || !isRecord(value.specifiers)) {
     throw new CliError(`${where}: not a registry index`);
@@ -121,9 +126,15 @@ function checkIndex(value: unknown, where: string): RegistryIndex {
   return value as unknown as RegistryIndex;
 }
 
+export interface RegistryApi {
+  readonly manifest: string;
+  readonly renames: string;
+}
+
 export interface RegistryClient {
   loadItem(registry: string, name: string): Promise<RegistryItem>;
   loadIndex(registry: string): Promise<RegistryIndex>;
+  loadApi(registry: string): Promise<RegistryApi>;
 }
 
 export function createRegistryClient(
@@ -177,18 +188,32 @@ export function createRegistryClient(
     }
   };
 
+  const loadIndex = async (registry: string): Promise<RegistryIndex> => {
+    const definition = definitionOf(registry);
+    const target = indexPlace(definition, context.cwd);
+    if (target === undefined) throw new CliError(`registry "${registry}" declares no index`);
+    return checkIndex(parse(await read(target, definition), registry), registry);
+  };
+
   return {
+    loadIndex,
+    async loadApi(registry) {
+      const definition = definitionOf(registry);
+      const index = await loadIndex(registry);
+      const target = indexPlace(definition, context.cwd) as Place;
+      if (typeof index.manifest !== "string" || typeof index.renames !== "string") {
+        throw new CliError(`registry "${registry}" does not publish its manifest and renames`);
+      }
+      return {
+        manifest: await read(sibling(target, index.manifest), definition),
+        renames: await read(sibling(target, index.renames), definition),
+      };
+    },
     async loadItem(registry, name) {
       const definition = definitionOf(registry);
       const target = itemPlace(definition, name, context.cwd);
       const where = `${registry}/${name}`;
       return checkItem(parse(await read(target, definition), where), where);
-    },
-    async loadIndex(registry) {
-      const definition = definitionOf(registry);
-      const target = indexPlace(definition, context.cwd);
-      if (target === undefined) throw new CliError(`registry "${registry}" declares no index`);
-      return checkIndex(parse(await read(target, definition), registry), registry);
     },
   };
 }
