@@ -72,11 +72,13 @@
     "index": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["$schema", "name", "version", "specifiers", "items"],
+      "required": ["$schema", "name", "version", "manifest", "renames", "specifiers", "items"],
       "properties": {
         "$schema": { "type": "string" },
         "name": { "type": "string", "minLength": 1 },
         "version": { "type": "string", "minLength": 1 },
+        "manifest": { "type": "string", "minLength": 1 },
+        "renames": { "type": "string", "minLength": 1 },
         "specifiers": {
           "type": "object",
           "additionalProperties": { "$ref": "#/$defs/specifier" }

@@ -2,6 +2,8 @@
   "$schema": "./schema.json",
   "name": "standarui",
   "version": "0.0.0",
+  "manifest": "manifest.json",
+  "renames": "renames.json",
   "specifiers": {
     "@standarui/core": {
       "layer": "core",
