@@ -14,6 +14,7 @@
   "scripts": {
     "build": "bun run --filter './packages/*' build",
     "docs:api": "bun run scripts/generate-api-reference.ts",
+    "registry:build": "bun run scripts/registry-build.ts",
     "manifest:diff": "bun run scripts/manifest-diff.ts",
     "typecheck": "tsc --noEmit && bun run --filter './packages/*' --if-present typecheck",
     "test": "vitest run",

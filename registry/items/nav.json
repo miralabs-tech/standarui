@@ -1,0 +1,24 @@
+{
+  "$schema": "../schema.json",
+  "name": "nav",
+  "type": "registry:nav",
+  "version": "0.0.0",
+  "dependencies": {
+    "@standarx/nav": "0.4.1"
+  },
+  "registryDependencies": [],
+  "files": [
+    {
+      "layer": "core",
+      "path": "nav.ts",
+      "sha256": "ee71ea65237c415b8b420606ccd73cc515dac620ff411ca506dd5b14ccc07bbf",
+      "content": "export type {\n  EngageIntent,\n  InputModality,\n  InputSystem,\n  IntentBus,\n  IntentEvent,\n  IntentHandler,\n  IntentScopeHost,\n  IntentSource,\n  NavigationIntent,\n} from \"@standarx/nav\";\nexport {\n  createInputSystem,\n  createIntentBus,\n  FOCUSABLE_SELECTOR,\n  focusElement,\n  getFirstTabbable,\n  getInputModality,\n  getLastTabbable,\n  getTabbableEdges,\n  getTabbables,\n  isFocusable,\n  isFocusVisible,\n  isFocusVisibleModality,\n  isTabbable,\n  isTextEntryTarget,\n  MODALITY_ATTRIBUTE,\n  pushEngageScope,\n  setInputModality,\n  trackInputModality,\n} from \"@standarx/nav\";\nexport { spatialPlugin } from \"@standarx/nav/spatial\";\n"
+    },
+    {
+      "layer": "react",
+      "path": "nav.tsx",
+      "sha256": "8259f3da849f92c9eb69fd6734a814601f3b5db450141494172beb5b7162fb0d",
+      "content": "import { NavProvider } from \"@standarx/nav/react\";\nimport type { ComponentProps, ReactNode } from \"react\";\n\nexport type { InputPlugin, InputSystem } from \"@standarx/nav\";\nexport { focusElement, setInputModality, trackInputModality } from \"@standarx/nav\";\nexport type { GamepadRuntime } from \"@standarx/nav/gamepad\";\nexport { gamepadPlugin } from \"@standarx/nav/gamepad\";\nexport {\n  NavDocumentProvider,\n  NavProvider,\n  useInputSystem,\n  useIntentScopeHost,\n} from \"@standarx/nav/react\";\nexport { spatialPlugin } from \"@standarx/nav/spatial\";\n\nexport function StandaruiNavProvider(props: ComponentProps<typeof NavProvider>): ReactNode {\n  return <NavProvider {...props} />;\n}\n"
+    }
+  ]
+}

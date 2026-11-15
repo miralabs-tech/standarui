@@ -1,0 +1,42 @@
+{
+  "$schema": "../schema.json",
+  "name": "separator",
+  "type": "registry:component",
+  "version": "0.0.0",
+  "registryDependencies": [
+    "core-base",
+    "react-base"
+  ],
+  "files": [
+    {
+      "layer": "core",
+      "path": "components/separator/index.ts",
+      "sha256": "830d4d23c13c11f6e71101a895e08815c083cdcd86e18b52f85211d7c2e52b36",
+      "content": "export {\n  anatomy,\n  connect,\n  parts,\n  type SeparatorApi,\n  type SeparatorMachineProps,\n} from \"./separator\";\n"
+    },
+    {
+      "layer": "core",
+      "path": "components/separator/separator.ts",
+      "sha256": "f2b2e96de4bda4487ae2cd8c9c511006becfde5b718c9716934e03b24f2702b5",
+      "content": "/**\n * The one component with no machine, and the reason is worth stating: a separator\n * has no state, no events, no DOM to reach for and no ids to derive. Giving it a\n * service would mean an interpreter, a scope and a reactivity subscription per\n * horizontal rule in a menu — the exact overhead the size budgets exist to keep\n * out. So `connect` takes the props directly.\n *\n * Everything else about it is the usual contract: an anatomy, a pure prop getter,\n * state on data-attributes.\n */\n\nimport { ariaAttr } from \"../../dom/attrs\";\nimport { type Anatomy, type AnatomyPart, createAnatomy } from \"../../machine/anatomy\";\nimport type { NormalizeProps, PropTypes } from \"../../machine/prop-types\";\nimport type { Orientation } from \"../../types\";\n\nexport type SeparatorPart = \"root\";\n\nexport const anatomy: Anatomy<SeparatorPart> = createAnatomy(\"separator\").parts(\"root\");\n\nexport const parts: Record<SeparatorPart, AnatomyPart> = anatomy.build();\n\nexport interface SeparatorMachineProps {\n  readonly orientation?: Orientation | undefined;\n  /**\n   * A rule drawn for looks rather than meaning. Decorative separators leave the\n   * accessibility tree entirely — a screen reader announcing \"separator\" between\n   * every list row is noise, not structure.\n   */\n  readonly decorative?: boolean | undefined;\n}\n\nexport interface SeparatorApi<T extends PropTypes = PropTypes> {\n  readonly orientation: Orientation;\n  getRootProps(): T[\"element\"];\n}\n\nexport function connect<T extends PropTypes>(\n  props: SeparatorMachineProps,\n  normalize: NormalizeProps<T>,\n): SeparatorApi<T> {\n  const orientation = props.orientation ?? \"horizontal\";\n  const decorative = props.decorative === true;\n\n  return {\n    orientation,\n    getRootProps: (): T[\"element\"] =>\n      normalize.element({\n        ...parts.root.attrs,\n        role: decorative ? \"none\" : \"separator\",\n        // Only the vertical case is worth spelling out: horizontal is the implicit\n        // value of `aria-orientation` on a separator, and repeating it is noise.\n        \"aria-orientation\": decorative || orientation === \"horizontal\" ? undefined : \"vertical\",\n        \"aria-hidden\": decorative ? ariaAttr(true) : undefined,\n        \"data-orientation\": orientation,\n      }),\n  };\n}\n"
+    },
+    {
+      "layer": "react",
+      "path": "components/separator/composed.tsx",
+      "sha256": "8670a07aa5750def9b8a584aa0ed0a721ee2b6fa1c941bd13d769ac5dc28cb5f",
+      "content": "/**\n * `<Separator>` — the bare name over a one-part anatomy, and the whole of the\n * module: `SeparatorRoot` with nothing added, nothing reordered and nothing\n * hidden.\n *\n * One part is where a composed layer looks like pure ceremony. What it publishes\n * is the rule instead — *the bare name is the thing, `<X>Root` and its siblings\n * are the pieces* — and a rule with exceptions in it is not one a reader can\n * hold. Somebody who has written `<Card>` and `<Collapsible>` reaches for\n * `<Separator>`, and a library where that name does not exist is asking them to\n * remember which components were big enough to deserve one, which is a table\n * rather than a rule. `badge` is the other component in this position and states\n * what the two of them cost.\n *\n * **A function that spreads, never a re-export.** The spec writes this alias as\n * `export { SeparatorRoot as Separator }`; it cannot be one.\n * `scripts/composed-demo.test.ts` reads a composed module's exports by matching\n * `export function` followed by a capitalised name, so a re-export publishes a\n * name that guard cannot see — it reports \"no export found\" and the layer becomes\n * invisible to the one check that asks whether a reader is ever shown it. The\n * function is also what gives `SeparatorComposedProps` somewhere to live, which\n * is what puts the composed name in `bun run docs:api`.\n *\n * **The rule inside a collection is not this component.** A reader meets the same\n * idea at two altitudes: `<Separator>` here, and `{ separator: true }` — the\n * `ComposedSeparator` of `composed.ts` — as an entry in a menu's, a select's or a\n * toolbar's list. They are one idea and not one component. A rule between two\n * menu items is `MenuSeparator`, the menu's own part, because the surface that is\n * being divided owns the geometry and writes its own `role=\"separator\"`\n * (`menu.connect.ts:502`); this component is the rule a consumer places in a\n * layout that belongs to them. The collections narrow on the word structurally\n * for the same reason the name is spelled the same: it is the concept that\n * repeats, never the module.\n *\n * **There is no `parts` escape hatch, and there is nothing for one to reach.**\n * Every other composed layer applies `parts` last so a consumer's entry beats the\n * layer's default; here the consumer's props already land on the only part there\n * is. A `parts` bag would be a second spelling of the props above it, and the\n * second spelling is what the closed vocabulary exists to prevent.\n */\n\nimport type { ReactNode } from \"react\";\nimport { SeparatorRoot, type SeparatorRootProps } from \"./separator\";\n\n/**\n * Empty, and the emptiness is the claim: the alias adds no prop, renames none and\n * withholds none. The name is declared anyway so `bun run docs:api` tables it\n * beside `SeparatorMachineProps` and says exactly that — a composed name absent\n * from the reference reads as a component that has none.\n */\nexport interface SeparatorComposedProps extends SeparatorRootProps {}\n\nexport function Separator(props: SeparatorComposedProps): ReactNode {\n  return <SeparatorRoot {...props} />;\n}\n"
+    },
+    {
+      "layer": "react",
+      "path": "components/separator/index.ts",
+      "sha256": "05c4222ba76e30bcaeee0b4728864ea78a77fe02edceb161eb6268bf3c86ca40",
+      "content": "export type { SeparatorMachineProps } from \"@standarui/core/separator\";\nexport { Separator, type SeparatorComposedProps } from \"./composed\";\nexport {\n  type SeparatorApi,\n  SeparatorRoot,\n  type SeparatorRootProps,\n  useSeparator,\n} from \"./separator\";\n"
+    },
+    {
+      "layer": "react",
+      "path": "components/separator/separator.tsx",
+      "sha256": "f3ed2077d590efb3028bbcbaf46b317b7b86ec097cd2cadcaa893237a01d8709",
+      "content": "import * as separator from \"@standarui/core/separator\";\nimport type { ReactNode } from \"react\";\nimport type { PartProps } from \"../../create-part\";\nimport { normalizeProps, type ReactPropTypes } from \"../../normalize-props\";\nimport { splitProps } from \"../../split-props\";\nimport { useRender } from \"../../use-render\";\n\nexport type SeparatorApi = separator.SeparatorApi<ReactPropTypes>;\n\n/** No machine and no service — see the note in the core's `separator.ts`. */\nexport function useSeparator(props: separator.SeparatorMachineProps): SeparatorApi {\n  return separator.connect(props, normalizeProps);\n}\n\nconst MACHINE_PROPS = [\"orientation\", \"decorative\"] as const;\n\nexport interface SeparatorRootProps\n  extends separator.SeparatorMachineProps,\n    PartProps<\"div\", separator.SeparatorMachineProps> {}\n\nexport function SeparatorRoot(props: SeparatorRootProps): ReactNode {\n  const [ownProps, rest] = splitProps(props, MACHINE_PROPS);\n  const { render, asChild, children, ...elementProps } = rest;\n  const api = useSeparator(ownProps);\n\n  return useRender({\n    render,\n    asChild,\n    element: \"div\",\n    props: api.getRootProps(),\n    elementProps,\n    children,\n  });\n}\n"
+    }
+  ]
+}
