@@ -215,32 +215,31 @@ describe("splitter — the mouse", () => {
 
   it("puts the size back when Escape is pressed in the middle of the gesture", async () => {
     const onSizeChangeEnd = vi.fn();
-    let pressed = false;
-    const harness = render({
-      onSizeChangeEnd,
-      onSizeChange: ({ size }) => {
-        if (size < 190 || pressed) return;
-        pressed = true;
-        setTimeout(() =>
-          document.dispatchEvent(
-            new KeyboardEvent("keydown", { key: "Escape", bubbles: true, cancelable: true }),
-          ),
-        );
-      },
-    });
+    const harness = render({ onSizeChangeEnd });
     const { x, y } = centre(handleBox(harness));
 
+    // Two commands with the key in between: a timer armed from inside one command
+    // can fire only after WebKit has dispatched the whole gesture, release included.
     await commands.mouse([
       { type: "move", x, y },
       { type: "down", x, y },
       { type: "move", x: x + 20, y },
       { type: "move", x: x + 50, y },
+    ]);
+    expect(harness.api().dragging).toBe(true);
+    near(harness.api().size, 200);
+
+    document.dispatchEvent(
+      new KeyboardEvent("keydown", { key: "Escape", bubbles: true, cancelable: true }),
+    );
+    near(harness.api().size, 150);
+
+    await commands.mouse([
       { type: "move", x: x + 60, y },
       { type: "move", x: x + 70, y },
       { type: "up", x: x + 70, y },
     ]);
 
-    expect(pressed).toBe(true);
     near(harness.api().size, 150);
     expect(harness.api().dragging).toBe(false);
     expect(onSizeChangeEnd).not.toHaveBeenCalled();
