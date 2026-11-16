@@ -49,13 +49,12 @@ describe("ToggleRoot", () => {
   it("passes axe pressed, unpressed and disabled", async () => {
     const handle = mount(
       <main>
-        <ToggleRoot aria-label="Bold">B</ToggleRoot>
-        <ToggleRoot aria-label="Italic" defaultPressed>
-          <ToggleIndicator />I
+        <ToggleRoot>Bold</ToggleRoot>
+        <ToggleRoot defaultPressed>
+          <ToggleIndicator />
+          Italic
         </ToggleRoot>
-        <ToggleRoot aria-label="Underline" disabled>
-          U
-        </ToggleRoot>
+        <ToggleRoot disabled>Underline</ToggleRoot>
       </main>,
     );
 

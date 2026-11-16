@@ -56,7 +56,12 @@ function cellLabel(view: CalendarView, cell: DateValue, locale: string): string 
       year: "numeric",
     });
   }
-  if (view === "month") return formatDate(cell, locale, { month: "long", year: "numeric" });
+  if (view === "month") {
+    const label = formatDate(cell, locale, { month: "long", year: "numeric" });
+    const shown = cellText(view, cell, locale);
+    // WCAG 2.5.3: a speech user says what they see, so the abbreviation leads the name.
+    return label.split(/\s+/).includes(shown) ? label : `${shown}, ${label}`;
+  }
   return formatDate(cell, locale, { year: "numeric" });
 }
 
