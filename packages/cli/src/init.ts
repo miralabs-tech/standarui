@@ -9,7 +9,7 @@ import {
   serializeConfig,
 } from "./config";
 import type { CliContext } from "./context";
-import { missingPathLines } from "./tsconfig-paths";
+import { libBelowEs2023, missingPathLines } from "./tsconfig-paths";
 
 export interface InitOptions extends ConfigOverrides {
   readonly registry: string | undefined;
@@ -36,5 +36,11 @@ export async function runInit(context: CliContext, options: InitOptions): Promis
   if (missing.length > 0) {
     context.out("Your tsconfig.json does not resolve the aliases. Add this to compilerOptions:");
     context.out(`  "paths": { ${missing.join(", ")} }`);
+  }
+  const level = libBelowEs2023(context.cwd);
+  if (level !== undefined) {
+    context.out(
+      `Your tsconfig.json uses lib ${level}; the copied code needs es2023 or later. Add "es2023" to compilerOptions.lib.`,
+    );
   }
 }

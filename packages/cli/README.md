@@ -51,7 +51,7 @@ bun add -d @standarx/ui
 npm install --save-dev @standarx/ui
 ```
 
-The components need React 19 and `@standarx/nav` `^0.4.1`, which `init` adds to your `package.json`. Its focus ring (six `--snav-focus-ring-*` properties) and its `data-snav-*` attributes are documented in [its repository](https://github.com/StandarX-miralabs-tech/standarnav/tree/main/docs/en) and are not copied.
+The components need React 19, TypeScript with `lib` es2023 or later (the copied code calls `findLast`; `init` warns when your `tsconfig.json` targets less), and `@standarx/nav` `^0.4.1`, which `init` adds to your `package.json`. Its focus ring (six `--snav-focus-ring-*` properties) and its `data-snav-*` attributes are documented in [its repository](https://github.com/StandarX-miralabs-tech/standarnav/tree/main/docs/en) and are not copied.
 
 ---
 

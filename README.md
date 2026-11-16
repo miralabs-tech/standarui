@@ -86,7 +86,7 @@ standarui update --write       # back up, merge, write conflict markers where th
 
 ## 📦 Install
 
-Requirements: Node >= 20 or bun, React 19, and `@standarx/nav` `^0.4.1` (`init` adds it to your `package.json`).
+Requirements: Node >= 20 or bun, React 19, TypeScript with `lib` es2023 or later (the copied code calls `findLast`; `init` warns when your `tsconfig.json` targets less), and `@standarx/nav` `^0.4.1` (`init` adds it to your `package.json`).
 
 Run the CLI without installing it:
 

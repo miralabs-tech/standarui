@@ -32,17 +32,49 @@ function stripJsonc(text: string): string {
   return out.replace(/,(\s*[}\]])/g, "$1");
 }
 
-export function readPaths(cwd: string): Record<string, unknown> {
+function readCompilerOptions(cwd: string): Record<string, unknown> | undefined {
   const file = path.join(cwd, "tsconfig.json");
-  if (!existsSync(file)) return {};
+  if (!existsSync(file)) return undefined;
   try {
     const parsed = JSON.parse(stripJsonc(readFileSync(file, "utf8"))) as {
-      compilerOptions?: { paths?: Record<string, unknown> };
+      compilerOptions?: Record<string, unknown>;
     };
-    return parsed.compilerOptions?.paths ?? {};
+    return parsed.compilerOptions ?? {};
   } catch {
-    return {};
+    return undefined;
   }
+}
+
+export function readPaths(cwd: string): Record<string, unknown> {
+  const paths = readCompilerOptions(cwd)?.paths;
+  return paths && typeof paths === "object" ? (paths as Record<string, unknown>) : {};
+}
+
+function belowEs2023(values: readonly unknown[]): string | undefined {
+  let highest = 0;
+  let name: string | undefined;
+  let found = false;
+  for (const value of values) {
+    if (typeof value !== "string") continue;
+    const match = /^es(\d{4}|\d|next)/i.exec(value);
+    if (!match) continue;
+    found = true;
+    const year = (match[1] as string).toLowerCase() === "next" ? Infinity : Number(match[1]);
+    if (year >= 2023) return undefined;
+    if (year >= highest) {
+      highest = year;
+      name = `es${year}`;
+    }
+  }
+  return found ? name : undefined;
+}
+
+export function libBelowEs2023(cwd: string): string | undefined {
+  const options = readCompilerOptions(cwd);
+  if (!options) return undefined;
+  if (Array.isArray(options.lib)) return belowEs2023(options.lib);
+  if (typeof options.target === "string") return belowEs2023([options.target]);
+  return undefined;
 }
 
 export function pathsResolve(specifier: string, paths: Readonly<Record<string, unknown>>): boolean {
