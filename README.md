@@ -122,7 +122,7 @@ The CLI reads the registry of its own release from GitHub (`https://raw.githubus
 - **A modified copy leaves the coverage of this repository's tests.** The parity, axe and size-budget checks run on the sources here, not on your edited files; `update` merges your edits, it does not test them.
 - **`diff` and `update` need git**, for the merge (`git merge-file`) and the diff. Without git on the `PATH` they stop with an error.
 - **`@standarx/nav` stays an npm dependency.** It carries one state per document (the input modality tracker and the `NavProvider` context), so a second copy would break it.
-- **No style is provided.** You write the CSS that reads the `data-*` attributes and the `--sui-*` properties.
+- **No style is provided.** You write the CSS that reads the `data-*` attributes and the `--sui-*` properties. The focus ring and the `data-snav-*` attributes belong to `@standarx/nav` and are not copied: see its [focus ring](https://github.com/StandarX-miralabs-tech/standarnav/blob/main/docs/en/focus-ring.md) (six `--snav-focus-ring-*` properties) and its [attributes](https://github.com/StandarX-miralabs-tech/standarnav/blob/main/docs/en/attributes.md).
 - **`--yes` has no effect.** `init` never prompts; the flag is accepted so that scripts can pass it.
 
 ---

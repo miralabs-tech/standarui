@@ -122,7 +122,7 @@ La CLI lit depuis GitHub le registre de sa propre version (`https://raw.githubus
 - **Une copie modifiée sort de la couverture des tests de ce dépôt.** Les contrôles de parité, d'axe et de budget de taille tournent sur les sources d'ici, pas sur vos fichiers modifiés ; `update` fusionne vos modifications, il ne les teste pas.
 - **`diff` et `update` ont besoin de git**, pour la fusion (`git merge-file`) et le diff. Sans git dans le `PATH`, ils s'arrêtent avec une erreur.
 - **`@standarx/nav` reste une dépendance npm.** Il porte un état par document (le suivi de la modalité d'entrée et le contexte `NavProvider`) : une seconde copie le casserait.
-- **Aucun style n'est fourni.** Vous écrivez le CSS qui lit les attributs `data-*` et les propriétés `--sui-*`.
+- **Aucun style n'est fourni.** Vous écrivez le CSS qui lit les attributs `data-*` et les propriétés `--sui-*`. L'anneau de focus et les attributs `data-snav-*` appartiennent à `@standarx/nav` et ne sont pas copiés : voir son [anneau de focus](https://github.com/StandarX-miralabs-tech/standarnav/blob/main/docs/en/focus-ring.md) (six propriétés `--snav-focus-ring-*`) et ses [attributs](https://github.com/StandarX-miralabs-tech/standarnav/blob/main/docs/en/attributes.md).
 - **`--yes` n'a aucun effet.** `init` ne pose jamais de question ; le drapeau est accepté pour que des scripts puissent le passer.
 
 ---
