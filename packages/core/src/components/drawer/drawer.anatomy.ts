@@ -26,3 +26,26 @@ export const anatomy: Anatomy<DrawerPart> = createAnatomy("drawer").parts(
 );
 
 export const parts: Record<DrawerPart, AnatomyPart> = anatomy.build();
+
+export interface DrawerCssVars {
+  // --- written ---
+  /** Signed distance the sheet has been dragged, positive toward closed. */
+  "--sui-drag-offset": "<length>";
+  /** The current detent, from 0 to 1. */
+  "--sui-drawer-detent": "<number>";
+  /** The highest detent the sheet can reach, from 0 to 1. */
+  "--sui-drawer-detent-max": "<number>";
+  /** How far the sheet is open while it is dragged, from 0 to 1. */
+  "--sui-drawer-progress": "<number>";
+  // --- read ---
+  /** Duration of a slow release's settle. */
+  "--sui-spring-smooth-duration": "<time>";
+  /** Easing of a slow or medium release's settle. */
+  "--sui-spring-smooth": "<easing-function>";
+  /** Duration of a medium release's settle. */
+  "--sui-duration-300": "<time>";
+  /** Duration of a fast release's settle. */
+  "--sui-duration-200": "<time>";
+  /** Easing of a fast release's settle. */
+  "--sui-ease-in": "<easing-function>";
+}

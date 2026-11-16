@@ -147,5 +147,92 @@
         "source": "composed.tsx:78"
       }
     ]
+  },
+  {
+    "name": "ToggleGroupAnatomy",
+    "rows": [
+      {
+        "name": "frame",
+        "type": "[data-part~=\"toggle-group:frame\"]",
+        "notes": "ToggleGroupFrame",
+        "source": "toggle-group.anatomy.ts:13"
+      },
+      {
+        "name": "root",
+        "type": "[data-part~=\"toggle-group:root\"]",
+        "notes": "ToggleGroupRoot",
+        "source": "toggle-group.anatomy.ts:14"
+      },
+      {
+        "name": "label",
+        "type": "[data-part~=\"toggle-group:label\"]",
+        "notes": "ToggleGroupLabel",
+        "source": "toggle-group.anatomy.ts:15"
+      },
+      {
+        "name": "item",
+        "type": "[data-part~=\"toggle-group:item\"]",
+        "notes": "ToggleGroupItem",
+        "source": "toggle-group.anatomy.ts:16"
+      },
+      {
+        "name": "indicator",
+        "type": "[data-part~=\"toggle-group:indicator\"]",
+        "notes": "ToggleGroupIndicator",
+        "source": "toggle-group.anatomy.ts:17"
+      },
+      {
+        "name": "scrollbar",
+        "type": "[data-part~=\"toggle-group:scrollbar\"]",
+        "notes": "ToggleGroupScrollbar",
+        "source": "toggle-group.anatomy.ts:18"
+      },
+      {
+        "name": "thumb",
+        "type": "[data-part~=\"toggle-group:thumb\"]",
+        "notes": "ToggleGroupThumb",
+        "source": "toggle-group.anatomy.ts:19"
+      }
+    ]
+  },
+  {
+    "name": "ToggleGroupCssVars",
+    "rows": [
+      {
+        "name": "--sui-segment-count",
+        "type": "\"<integer>\"",
+        "notes": "Number of segments, at least 1.",
+        "source": "toggle-group.anatomy.ts:27",
+        "group": "written"
+      },
+      {
+        "name": "--sui-indicator-offset",
+        "type": "\"<length>\"",
+        "notes": "Measured offset of the indicator, absent until it has been measured.",
+        "source": "toggle-group.anatomy.ts:29",
+        "group": "written"
+      },
+      {
+        "name": "--sui-indicator-size",
+        "type": "\"<length>\"",
+        "notes": "Measured size of the indicator, absent until it has been measured.",
+        "source": "toggle-group.anatomy.ts:31",
+        "group": "written"
+      },
+      {
+        "name": "--sui-scroll-thumb-length",
+        "type": "\"<length>\"",
+        "notes": "Length of the inline scrollbar thumb.",
+        "source": "toggle-group.anatomy.ts:33",
+        "group": "written"
+      },
+      {
+        "name": "--sui-scroll-thumb-offset",
+        "type": "\"<length>\"",
+        "notes": "Offset of the inline scrollbar thumb along its track.",
+        "source": "toggle-group.anatomy.ts:35",
+        "group": "written"
+      }
+    ]
   }
 ]

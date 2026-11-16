@@ -168,5 +168,28 @@
     "name": "InputRevealProps",
     "definition": "{ readonly type?: string | undefined; readonly revealLabel?: undefined } | { readonly type: \"password\"; readonly revealLabel: string }",
     "rows": []
+  },
+  {
+    "name": "InputAnatomy",
+    "rows": [
+      {
+        "name": "root",
+        "type": "[data-part~=\"input:root\"]",
+        "notes": "InputRoot",
+        "source": "input.anatomy.ts:6"
+      },
+      {
+        "name": "control",
+        "type": "[data-part~=\"input:control\"]",
+        "notes": "InputControl",
+        "source": "input.anatomy.ts:7"
+      },
+      {
+        "name": "visibilityTrigger",
+        "type": "[data-part~=\"input:visibility-trigger\"]",
+        "notes": "InputVisibilityTrigger",
+        "source": "input.anatomy.ts:8"
+      }
+    ]
   }
 ]

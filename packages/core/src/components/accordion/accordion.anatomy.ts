@@ -31,3 +31,11 @@ export const anatomy: Anatomy<AccordionPart> = createAnatomy("accordion").parts(
 );
 
 export const parts: Record<AccordionPart, AnatomyPart> = anatomy.build();
+
+export interface AccordionCssVars {
+  // --- written ---
+  /** Height of a panel's content, measured while it opens and closes. */
+  "--sui-collapse-height": "<length>";
+  /** Width of a panel's content, measured while it opens and closes. */
+  "--sui-collapse-width": "<length>";
+}

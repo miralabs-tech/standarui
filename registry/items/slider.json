@@ -17,8 +17,8 @@
     {
       "layer": "core",
       "path": "components/slider/slider.anatomy.ts",
-      "sha256": "38f5a1c50afb26b91b91f748417c66fd8667ebf5fdce3de9fad21870920bce7c",
-      "content": "import { type Anatomy, type AnatomyPart, createAnatomy } from \"../../machine/anatomy\";\n\nexport type SliderPart =\n  | \"root\"\n  | \"label\"\n  | \"valueText\"\n  | \"control\"\n  | \"track\"\n  | \"range\"\n  | \"thumb\"\n  | \"hiddenInput\"\n  | \"markerGroup\"\n  | \"marker\";\n\nexport const anatomy: Anatomy<SliderPart> = createAnatomy(\"slider\").parts(\n  \"root\",\n  \"label\",\n  \"valueText\",\n  \"control\",\n  \"track\",\n  \"range\",\n  \"thumb\",\n  \"hiddenInput\",\n  \"markerGroup\",\n  \"marker\",\n);\n\nexport const parts: Record<SliderPart, AnatomyPart> = anatomy.build();\n"
+      "sha256": "1528141eca8efb9f3842ad25c04925cd166b9815f122f048d6ce9041836e1c43",
+      "content": "import { type Anatomy, type AnatomyPart, createAnatomy } from \"../../machine/anatomy\";\n\nexport type SliderPart =\n  | \"root\"\n  | \"label\"\n  | \"valueText\"\n  | \"control\"\n  | \"track\"\n  | \"range\"\n  | \"thumb\"\n  | \"hiddenInput\"\n  | \"markerGroup\"\n  | \"marker\";\n\nexport const anatomy: Anatomy<SliderPart> = createAnatomy(\"slider\").parts(\n  \"root\",\n  \"label\",\n  \"valueText\",\n  \"control\",\n  \"track\",\n  \"range\",\n  \"thumb\",\n  \"hiddenInput\",\n  \"markerGroup\",\n  \"marker\",\n);\n\nexport const parts: Record<SliderPart, AnatomyPart> = anatomy.build();\n\nexport interface SliderCssVars {\n  // --- written ---\n  /** Position of the value on the track. */\n  \"--sui-slider-percent\": \"<percentage>\";\n  /** Where the filled range starts. */\n  \"--sui-slider-range-start\": \"<percentage>\";\n  /** Where the filled range ends. */\n  \"--sui-slider-range-end\": \"<percentage>\";\n  /** Position of one thumb on the track. */\n  \"--sui-slider-thumb-percent\": \"<percentage>\";\n  /** Position of one marker on the track. */\n  \"--sui-marker-percent\": \"<percentage>\";\n}\n"
     },
     {
       "layer": "core",

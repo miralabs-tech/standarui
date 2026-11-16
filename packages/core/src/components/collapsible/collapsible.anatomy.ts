@@ -10,3 +10,11 @@ export const anatomy: Anatomy<CollapsiblePart> = createAnatomy("collapsible").pa
 );
 
 export const parts: Record<CollapsiblePart, AnatomyPart> = anatomy.build();
+
+export interface CollapsibleCssVars {
+  // --- written ---
+  /** Height of the content, measured while it opens and closes. */
+  "--sui-collapsible-height": "<length>";
+  /** Width of the content, measured while it opens and closes. */
+  "--sui-collapsible-width": "<length>";
+}

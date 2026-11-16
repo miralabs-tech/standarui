@@ -55,6 +55,14 @@ export interface Virtualizer {
   getItemProps(index: number): VirtualizerItemProps;
 }
 
+export interface VirtualizerCssVars {
+  // --- written ---
+  /** Total size of the rows along the scroll axis, written on the container. */
+  "--sui-virtual-size": "<length>";
+  /** Where a row starts along the scroll axis, written on each rendered row. */
+  "--sui-virtual-start": "<length>";
+}
+
 const SIZE = "--sui-virtual-size";
 const START = "--sui-virtual-start";
 const ITEM = "[data-sui-virtual-item]";

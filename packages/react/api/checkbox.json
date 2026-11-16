@@ -97,5 +97,40 @@
     "name": "UseCheckboxProps",
     "extends": "checkbox.CheckboxMachineProps, MachineRuntimeProps",
     "rows": []
+  },
+  {
+    "name": "CheckboxAnatomy",
+    "rows": [
+      {
+        "name": "root",
+        "type": "[data-part~=\"checkbox:root\"]",
+        "notes": "CheckboxRoot",
+        "source": "checkbox.anatomy.ts:6"
+      },
+      {
+        "name": "label",
+        "type": "[data-part~=\"checkbox:label\"]",
+        "notes": "CheckboxLabel",
+        "source": "checkbox.anatomy.ts:7"
+      },
+      {
+        "name": "control",
+        "type": "[data-part~=\"checkbox:control\"]",
+        "notes": "CheckboxControl",
+        "source": "checkbox.anatomy.ts:8"
+      },
+      {
+        "name": "indicator",
+        "type": "[data-part~=\"checkbox:indicator\"]",
+        "notes": "CheckboxIndicator",
+        "source": "checkbox.anatomy.ts:9"
+      },
+      {
+        "name": "hiddenInput",
+        "type": "[data-part~=\"checkbox:hidden-input\"]",
+        "notes": "CheckboxHiddenInput",
+        "source": "checkbox.anatomy.ts:10"
+      }
+    ]
   }
 ]

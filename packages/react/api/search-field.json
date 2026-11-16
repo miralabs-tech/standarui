@@ -199,5 +199,46 @@
         "source": "composed.tsx:47"
       }
     ]
+  },
+  {
+    "name": "SearchFieldAnatomy",
+    "rows": [
+      {
+        "name": "root",
+        "type": "[data-part~=\"search-field:root\"]",
+        "notes": "SearchFieldRoot",
+        "source": "search-field.anatomy.ts:28"
+      },
+      {
+        "name": "field",
+        "type": "[data-part~=\"search-field:field\"]",
+        "notes": "SearchFieldField",
+        "source": "search-field.anatomy.ts:29"
+      },
+      {
+        "name": "indicator",
+        "type": "[data-part~=\"search-field:indicator\"]",
+        "notes": "SearchFieldIndicator",
+        "source": "search-field.anatomy.ts:30"
+      },
+      {
+        "name": "control",
+        "type": "[data-part~=\"search-field:control\"]",
+        "notes": "SearchFieldControl",
+        "source": "search-field.anatomy.ts:31"
+      },
+      {
+        "name": "clearTrigger",
+        "type": "[data-part~=\"search-field:clear-trigger\"]",
+        "notes": "SearchFieldClearTrigger",
+        "source": "search-field.anatomy.ts:32"
+      },
+      {
+        "name": "cancelTrigger",
+        "type": "[data-part~=\"search-field:cancel-trigger\"]",
+        "notes": "SearchFieldCancelTrigger",
+        "source": "search-field.anatomy.ts:33"
+      }
+    ]
   }
 ]

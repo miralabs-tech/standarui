@@ -62,5 +62,22 @@
     "name": "UseToggleProps",
     "extends": "toggle.ToggleMachineProps, MachineRuntimeProps",
     "rows": []
+  },
+  {
+    "name": "ToggleAnatomy",
+    "rows": [
+      {
+        "name": "root",
+        "type": "[data-part~=\"toggle:root\"]",
+        "notes": "ToggleRoot",
+        "source": "toggle.anatomy.ts:5"
+      },
+      {
+        "name": "indicator",
+        "type": "[data-part~=\"toggle:indicator\"]",
+        "notes": "ToggleIndicator",
+        "source": "toggle.anatomy.ts:5"
+      }
+    ]
   }
 ]

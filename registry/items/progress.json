@@ -17,8 +17,8 @@
     {
       "layer": "core",
       "path": "components/progress/progress.anatomy.ts",
-      "sha256": "30a9da1e3920e7256a8bfa8a2aef2de6ee84b9ffe1e586e5d21ddd3485d8526f",
-      "content": "import { type Anatomy, type AnatomyPart, createAnatomy } from \"../../machine/anatomy\";\n\nexport type ProgressPart =\n  | \"root\"\n  | \"label\"\n  | \"track\"\n  | \"range\"\n  | \"valueText\"\n  | \"circle\"\n  | \"circleTrack\"\n  | \"circleRange\";\n\nexport const anatomy: Anatomy<ProgressPart> = createAnatomy(\"progress\").parts(\n  \"root\",\n  \"label\",\n  \"track\",\n  \"range\",\n  \"valueText\",\n  \"circle\",\n  \"circleTrack\",\n  \"circleRange\",\n);\n\nexport const parts: Record<ProgressPart, AnatomyPart> = anatomy.build();\n"
+      "sha256": "3736e422e4e3e8e12e6f8fd5bf4d220211bce1b8cc8158e2187d065a41cf7219",
+      "content": "import { type Anatomy, type AnatomyPart, createAnatomy } from \"../../machine/anatomy\";\n\nexport type ProgressPart =\n  | \"root\"\n  | \"label\"\n  | \"track\"\n  | \"range\"\n  | \"valueText\"\n  | \"circle\"\n  | \"circleTrack\"\n  | \"circleRange\";\n\nexport const anatomy: Anatomy<ProgressPart> = createAnatomy(\"progress\").parts(\n  \"root\",\n  \"label\",\n  \"track\",\n  \"range\",\n  \"valueText\",\n  \"circle\",\n  \"circleTrack\",\n  \"circleRange\",\n);\n\nexport const parts: Record<ProgressPart, AnatomyPart> = anatomy.build();\n\nexport interface ProgressCssVars {\n  // --- written ---\n  /** Completion, 0% while it is indeterminate. */\n  \"--sui-progress-percent\": \"<percentage>\";\n}\n"
     },
     {
       "layer": "core",

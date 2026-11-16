@@ -140,5 +140,102 @@
         "source": "drawer.types.ts:38"
       }
     ]
+  },
+  {
+    "name": "DrawerAnatomy",
+    "rows": [
+      {
+        "name": "positioner",
+        "type": "[data-part~=\"drawer:positioner\"]",
+        "notes": "DrawerPositioner",
+        "source": "drawer.anatomy.ts:22"
+      },
+      {
+        "name": "backdrop",
+        "type": "[data-part~=\"drawer:backdrop\"]",
+        "notes": "DrawerBackdrop",
+        "source": "drawer.anatomy.ts:23"
+      },
+      {
+        "name": "content",
+        "type": "[data-part~=\"drawer:content\"]",
+        "notes": "DrawerContent",
+        "source": "drawer.anatomy.ts:24"
+      },
+      {
+        "name": "grabber",
+        "type": "[data-part~=\"drawer:grabber\"]",
+        "notes": "DrawerGrabber",
+        "source": "drawer.anatomy.ts:25"
+      }
+    ]
+  },
+  {
+    "name": "DrawerCssVars",
+    "rows": [
+      {
+        "name": "--sui-drag-offset",
+        "type": "\"<length>\"",
+        "notes": "Signed distance the sheet has been dragged, positive toward closed.",
+        "source": "drawer.anatomy.ts:33",
+        "group": "written"
+      },
+      {
+        "name": "--sui-drawer-detent",
+        "type": "\"<number>\"",
+        "notes": "The current detent, from 0 to 1.",
+        "source": "drawer.anatomy.ts:35",
+        "group": "written"
+      },
+      {
+        "name": "--sui-drawer-detent-max",
+        "type": "\"<number>\"",
+        "notes": "The highest detent the sheet can reach, from 0 to 1.",
+        "source": "drawer.anatomy.ts:37",
+        "group": "written"
+      },
+      {
+        "name": "--sui-drawer-progress",
+        "type": "\"<number>\"",
+        "notes": "How far the sheet is open while it is dragged, from 0 to 1.",
+        "source": "drawer.anatomy.ts:39",
+        "group": "written"
+      },
+      {
+        "name": "--sui-spring-smooth-duration",
+        "type": "\"<time>\"",
+        "notes": "Duration of a slow release's settle.",
+        "source": "drawer.anatomy.ts:42",
+        "group": "read"
+      },
+      {
+        "name": "--sui-spring-smooth",
+        "type": "\"<easing-function>\"",
+        "notes": "Easing of a slow or medium release's settle.",
+        "source": "drawer.anatomy.ts:44",
+        "group": "read"
+      },
+      {
+        "name": "--sui-duration-300",
+        "type": "\"<time>\"",
+        "notes": "Duration of a medium release's settle.",
+        "source": "drawer.anatomy.ts:46",
+        "group": "read"
+      },
+      {
+        "name": "--sui-duration-200",
+        "type": "\"<time>\"",
+        "notes": "Duration of a fast release's settle.",
+        "source": "drawer.anatomy.ts:48",
+        "group": "read"
+      },
+      {
+        "name": "--sui-ease-in",
+        "type": "\"<easing-function>\"",
+        "notes": "Easing of a fast release's settle.",
+        "source": "drawer.anatomy.ts:50",
+        "group": "read"
+      }
+    ]
   }
 ]

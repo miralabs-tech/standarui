@@ -22,3 +22,9 @@ export const anatomy: Anatomy<ProgressPart> = createAnatomy("progress").parts(
 );
 
 export const parts: Record<ProgressPart, AnatomyPart> = anatomy.build();
+
+export interface ProgressCssVars {
+  // --- written ---
+  /** Completion, 0% while it is indeterminate. */
+  "--sui-progress-percent": "<percentage>";
+}

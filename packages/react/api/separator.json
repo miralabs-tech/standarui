@@ -24,5 +24,16 @@
     "name": "SeparatorRootProps",
     "extends": "separator.SeparatorMachineProps, PartProps<\"div\", separator.SeparatorMachineProps>",
     "rows": []
+  },
+  {
+    "name": "SeparatorAnatomy",
+    "rows": [
+      {
+        "name": "root",
+        "type": "[data-part~=\"separator:root\"]",
+        "notes": "SeparatorRoot",
+        "source": "separator.ts:19"
+      }
+    ]
   }
 ]

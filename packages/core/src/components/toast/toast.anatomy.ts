@@ -31,3 +31,18 @@ export const anatomy: Anatomy<ToastPart> = createAnatomy("toast").parts(
 );
 
 export const parts: Record<ToastPart, AnatomyPart> = anatomy.build();
+
+export interface ToastCssVars {
+  // --- written ---
+  /** Number of toasts in the region. */
+  "--sui-toast-count": "<integer>";
+  /** Position of a toast in the stack, the front one first. */
+  "--sui-toast-index": "<integer>";
+  /** Signed distance a toast sits from the front one when the stack is expanded. */
+  "--sui-toast-offset": "<length>";
+  /** Space the expanded stack occupies. */
+  "--sui-toast-stack-size": "<length>";
+  // --- read ---
+  /** Space between expanded toasts, defaulting when it does not parse. */
+  "--sui-toast-gap": "<length>";
+}

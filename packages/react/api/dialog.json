@@ -284,5 +284,82 @@
         "source": "dialog.tsx:144"
       }
     ]
+  },
+  {
+    "name": "DialogAnatomy",
+    "rows": [
+      {
+        "name": "trigger",
+        "type": "[data-part~=\"dialog:trigger\"]",
+        "notes": "DialogTrigger",
+        "source": "dialog.anatomy.ts:30"
+      },
+      {
+        "name": "backdrop",
+        "type": "[data-part~=\"dialog:backdrop\"]",
+        "notes": "DialogBackdrop",
+        "source": "dialog.anatomy.ts:31"
+      },
+      {
+        "name": "positioner",
+        "type": "[data-part~=\"dialog:positioner\"]",
+        "notes": "DialogPositioner",
+        "source": "dialog.anatomy.ts:32"
+      },
+      {
+        "name": "content",
+        "type": "[data-part~=\"dialog:content\"]",
+        "notes": "DialogContent",
+        "source": "dialog.anatomy.ts:33"
+      },
+      {
+        "name": "title",
+        "type": "[data-part~=\"dialog:title\"]",
+        "notes": "DialogTitle",
+        "source": "dialog.anatomy.ts:34"
+      },
+      {
+        "name": "description",
+        "type": "[data-part~=\"dialog:description\"]",
+        "notes": "DialogDescription",
+        "source": "dialog.anatomy.ts:35"
+      },
+      {
+        "name": "closeTrigger",
+        "type": "[data-part~=\"dialog:close-trigger\"]",
+        "notes": "DialogCloseTrigger",
+        "source": "dialog.anatomy.ts:36"
+      },
+      {
+        "name": "actions",
+        "type": "[data-part~=\"dialog:actions\"]",
+        "notes": "",
+        "source": "dialog.anatomy.ts:37"
+      },
+      {
+        "name": "cancelTrigger",
+        "type": "[data-part~=\"dialog:cancel-trigger\"]",
+        "notes": "",
+        "source": "dialog.anatomy.ts:38"
+      },
+      {
+        "name": "actionTrigger",
+        "type": "[data-part~=\"dialog:action-trigger\"]",
+        "notes": "",
+        "source": "dialog.anatomy.ts:39"
+      }
+    ]
+  },
+  {
+    "name": "DialogCssVars",
+    "rows": [
+      {
+        "name": "--sui-scrollbar-width",
+        "type": "\"<length>\"",
+        "notes": "Width of the page scrollbar the scroll lock hides, published on the root.",
+        "source": "dialog.anatomy.ts:47",
+        "group": "written"
+      }
+    ]
   }
 ]

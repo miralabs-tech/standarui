@@ -58,3 +58,19 @@ export const anatomy: Anatomy<MenuPart> = createAnatomy("menu").parts(
 );
 
 export const parts: Record<MenuPart, AnatomyPart> = anatomy.build();
+
+export interface MenuCssVars {
+  // --- written ---
+  /** Where the surface grows from, so a scale-in starts at the anchor. */
+  "--sui-transform-origin": "<position>";
+  /** Width of the anchor the surface is placed against. */
+  "--sui-anchor-width": "<length>";
+  /** Height of the anchor the surface is placed against. */
+  "--sui-anchor-height": "<length>";
+  /** Room left for the surface's width inside the boundary. */
+  "--sui-available-width": "<length>";
+  /** Room left for the surface's height inside the boundary. */
+  "--sui-available-height": "<length>";
+  /** Width of the page scrollbar the scroll lock hides, published on the root. */
+  "--sui-scrollbar-width": "<length>";
+}

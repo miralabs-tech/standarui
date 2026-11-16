@@ -11,8 +11,8 @@
     {
       "layer": "core",
       "path": "components/collapsible/collapsible.anatomy.ts",
-      "sha256": "7b13d29fd937003a4b0ada685964584b032953d6a2c2261320b2676b3c1f980e",
-      "content": "import { type Anatomy, type AnatomyPart, createAnatomy } from \"../../machine/anatomy\";\n\nexport type CollapsiblePart = \"root\" | \"trigger\" | \"indicator\" | \"content\";\n\nexport const anatomy: Anatomy<CollapsiblePart> = createAnatomy(\"collapsible\").parts(\n  \"root\",\n  \"trigger\",\n  \"indicator\",\n  \"content\",\n);\n\nexport const parts: Record<CollapsiblePart, AnatomyPart> = anatomy.build();\n"
+      "sha256": "73e97fc2fa4ef6a929d793ce47db47380a9fc71ba0b0c52792a11ad876049deb",
+      "content": "import { type Anatomy, type AnatomyPart, createAnatomy } from \"../../machine/anatomy\";\n\nexport type CollapsiblePart = \"root\" | \"trigger\" | \"indicator\" | \"content\";\n\nexport const anatomy: Anatomy<CollapsiblePart> = createAnatomy(\"collapsible\").parts(\n  \"root\",\n  \"trigger\",\n  \"indicator\",\n  \"content\",\n);\n\nexport const parts: Record<CollapsiblePart, AnatomyPart> = anatomy.build();\n\nexport interface CollapsibleCssVars {\n  // --- written ---\n  /** Height of the content, measured while it opens and closes. */\n  \"--sui-collapsible-height\": \"<length>\";\n  /** Width of the content, measured while it opens and closes. */\n  \"--sui-collapsible-width\": \"<length>\";\n}\n"
     },
     {
       "layer": "core",

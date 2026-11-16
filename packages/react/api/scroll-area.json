@@ -93,5 +93,65 @@
         "source": "composed.tsx:18"
       }
     ]
+  },
+  {
+    "name": "ScrollAreaAnatomy",
+    "rows": [
+      {
+        "name": "root",
+        "type": "[data-part~=\"scroll-area:root\"]",
+        "notes": "ScrollAreaRoot",
+        "source": "scroll-area.anatomy.ts:6"
+      },
+      {
+        "name": "viewport",
+        "type": "[data-part~=\"scroll-area:viewport\"]",
+        "notes": "ScrollAreaViewport",
+        "source": "scroll-area.anatomy.ts:7"
+      },
+      {
+        "name": "content",
+        "type": "[data-part~=\"scroll-area:content\"]",
+        "notes": "ScrollAreaContent",
+        "source": "scroll-area.anatomy.ts:8"
+      },
+      {
+        "name": "scrollbar",
+        "type": "[data-part~=\"scroll-area:scrollbar\"]",
+        "notes": "ScrollAreaScrollbar",
+        "source": "scroll-area.anatomy.ts:9"
+      },
+      {
+        "name": "thumb",
+        "type": "[data-part~=\"scroll-area:thumb\"]",
+        "notes": "ScrollAreaThumb",
+        "source": "scroll-area.anatomy.ts:10"
+      },
+      {
+        "name": "corner",
+        "type": "[data-part~=\"scroll-area:corner\"]",
+        "notes": "ScrollAreaCorner",
+        "source": "scroll-area.anatomy.ts:11"
+      }
+    ]
+  },
+  {
+    "name": "ScrollAreaCssVars",
+    "rows": [
+      {
+        "name": "--sui-scroll-area-thumb-size",
+        "type": "\"<length>\"",
+        "notes": "Length of a scrollbar thumb.",
+        "source": "scroll-area.anatomy.ts:19",
+        "group": "written"
+      },
+      {
+        "name": "--sui-scroll-area-thumb-offset",
+        "type": "\"<length>\"",
+        "notes": "Offset of a scrollbar thumb along its track.",
+        "source": "scroll-area.anatomy.ts:21",
+        "group": "written"
+      }
+    ]
   }
 ]

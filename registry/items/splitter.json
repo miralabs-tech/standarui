@@ -17,8 +17,8 @@
     {
       "layer": "core",
       "path": "components/splitter/splitter.anatomy.ts",
-      "sha256": "ffc92f7634988c623cd47538c8f9d2f652bb00f23aebfa1dbe765b279926673a",
-      "content": "import { type Anatomy, type AnatomyPart, createAnatomy } from \"../../machine/anatomy\";\n\nexport type SplitterPart = \"panel\" | \"handle\";\n\nexport const anatomy: Anatomy<SplitterPart> = createAnatomy(\"splitter\").parts(\"panel\", \"handle\");\n\nexport const parts: Record<SplitterPart, AnatomyPart> = anatomy.build();\n"
+      "sha256": "2c7dcbb60c88df908e061eccde9227992d76157aa067486081353b64686ecbdc",
+      "content": "import { type Anatomy, type AnatomyPart, createAnatomy } from \"../../machine/anatomy\";\n\nexport type SplitterPart = \"panel\" | \"handle\";\n\nexport const anatomy: Anatomy<SplitterPart> = createAnatomy(\"splitter\").parts(\"panel\", \"handle\");\n\nexport const parts: Record<SplitterPart, AnatomyPart> = anatomy.build();\n\nexport interface SplitterCssVars {\n  // --- written ---\n  /** Size of the panel, in the splitter's unit. */\n  \"--sui-splitter-size\": \"<length-percentage>\";\n}\n"
     },
     {
       "layer": "core",

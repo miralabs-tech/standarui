@@ -193,5 +193,46 @@
         "source": "composed.tsx:45"
       }
     ]
+  },
+  {
+    "name": "DateFieldAnatomy",
+    "rows": [
+      {
+        "name": "root",
+        "type": "[data-part~=\"date-field:root\"]",
+        "notes": "DateFieldRoot",
+        "source": "date-field.anatomy.ts:21"
+      },
+      {
+        "name": "control",
+        "type": "[data-part~=\"date-field:control\"]",
+        "notes": "DateFieldControl",
+        "source": "date-field.anatomy.ts:22"
+      },
+      {
+        "name": "segment",
+        "type": "[data-part~=\"date-field:segment\"]",
+        "notes": "DateFieldSegment",
+        "source": "date-field.anatomy.ts:23"
+      },
+      {
+        "name": "incrementTrigger",
+        "type": "[data-part~=\"date-field:increment-trigger\"]",
+        "notes": "DateFieldIncrementTrigger",
+        "source": "date-field.anatomy.ts:24"
+      },
+      {
+        "name": "decrementTrigger",
+        "type": "[data-part~=\"date-field:decrement-trigger\"]",
+        "notes": "DateFieldDecrementTrigger",
+        "source": "date-field.anatomy.ts:25"
+      },
+      {
+        "name": "hiddenInput",
+        "type": "[data-part~=\"date-field:hidden-input\"]",
+        "notes": "DateFieldHiddenInput",
+        "source": "date-field.anatomy.ts:26"
+      }
+    ]
   }
 ]

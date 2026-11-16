@@ -254,7 +254,10 @@ describe("the banner a member sits under", () => {
       "misc",
     ]);
 
-    const neighbours = select?.tables.filter((table) => table.name !== "SelectMachineProps") ?? [];
+    const neighbours =
+      select?.tables.filter(
+        (table) => table.name !== "SelectMachineProps" && table !== select.cssVars,
+      ) ?? [];
     expect(neighbours.length).toBeGreaterThan(0);
     const stamped = neighbours.filter((table) => table.rows.some((row) => row.group !== undefined));
     expect(stamped.map((table) => table.name)).toEqual([]);

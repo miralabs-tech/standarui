@@ -90,5 +90,52 @@
         "source": "composed.tsx:73"
       }
     ]
+  },
+  {
+    "name": "CardAnatomy",
+    "rows": [
+      {
+        "name": "root",
+        "type": "[data-part~=\"card:root\"]",
+        "notes": "CardRoot",
+        "source": "card.ts:22"
+      },
+      {
+        "name": "header",
+        "type": "[data-part~=\"card:header\"]",
+        "notes": "CardHeader",
+        "source": "card.ts:23"
+      },
+      {
+        "name": "title",
+        "type": "[data-part~=\"card:title\"]",
+        "notes": "CardTitle",
+        "source": "card.ts:24"
+      },
+      {
+        "name": "description",
+        "type": "[data-part~=\"card:description\"]",
+        "notes": "CardDescription",
+        "source": "card.ts:25"
+      },
+      {
+        "name": "action",
+        "type": "[data-part~=\"card:action\"]",
+        "notes": "CardAction",
+        "source": "card.ts:26"
+      },
+      {
+        "name": "body",
+        "type": "[data-part~=\"card:body\"]",
+        "notes": "CardBody",
+        "source": "card.ts:27"
+      },
+      {
+        "name": "footer",
+        "type": "[data-part~=\"card:footer\"]",
+        "notes": "CardFooter",
+        "source": "card.ts:28"
+      }
+    ]
   }
 ]

@@ -12,3 +12,11 @@ export const anatomy: Anatomy<ScrollAreaPart> = createAnatomy("scroll-area").par
 );
 
 export const parts: Record<ScrollAreaPart, AnatomyPart> = anatomy.build();
+
+export interface ScrollAreaCssVars {
+  // --- written ---
+  /** Length of a scrollbar thumb. */
+  "--sui-scroll-area-thumb-size": "<length>";
+  /** Offset of a scrollbar thumb along its track. */
+  "--sui-scroll-area-thumb-offset": "<length>";
+}

@@ -72,5 +72,46 @@
     "name": "UseFieldProps",
     "extends": "field.FieldMachineProps, MachineRuntimeProps",
     "rows": []
+  },
+  {
+    "name": "FieldAnatomy",
+    "rows": [
+      {
+        "name": "root",
+        "type": "[data-part~=\"field:root\"]",
+        "notes": "FieldRoot",
+        "source": "field.anatomy.ts:12"
+      },
+      {
+        "name": "label",
+        "type": "[data-part~=\"field:label\"]",
+        "notes": "FieldLabel",
+        "source": "field.anatomy.ts:13"
+      },
+      {
+        "name": "requiredIndicator",
+        "type": "[data-part~=\"field:required-indicator\"]",
+        "notes": "FieldRequiredIndicator",
+        "source": "field.anatomy.ts:14"
+      },
+      {
+        "name": "control",
+        "type": "[data-part~=\"field:control\"]",
+        "notes": "",
+        "source": "field.anatomy.ts:15"
+      },
+      {
+        "name": "helperText",
+        "type": "[data-part~=\"field:helper-text\"]",
+        "notes": "FieldHelperText",
+        "source": "field.anatomy.ts:16"
+      },
+      {
+        "name": "errorText",
+        "type": "[data-part~=\"field:error-text\"]",
+        "notes": "FieldErrorText",
+        "source": "field.anatomy.ts:17"
+      }
+    ]
   }
 ]

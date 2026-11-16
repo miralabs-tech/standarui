@@ -13,3 +13,9 @@ export const anatomy: Anatomy<CheckboxGroupPart> = createAnatomy("checkbox-group
 );
 
 export const parts: Record<CheckboxGroupPart, AnatomyPart> = anatomy.build();
+
+export interface CheckboxGroupCssVars {
+  // --- written ---
+  /** Number of checkboxes in the group, at least 1. */
+  "--sui-item-count": "<integer>";
+}

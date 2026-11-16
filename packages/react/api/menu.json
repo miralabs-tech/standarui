@@ -546,5 +546,159 @@
         "source": "menu.types.ts:343"
       }
     ]
+  },
+  {
+    "name": "MenuAnatomy",
+    "rows": [
+      {
+        "name": "trigger",
+        "type": "[data-part~=\"menu:trigger\"]",
+        "notes": "MenuTrigger",
+        "source": "menu.anatomy.ts:41"
+      },
+      {
+        "name": "contextTrigger",
+        "type": "[data-part~=\"menu:context-trigger\"]",
+        "notes": "MenuContextTrigger",
+        "source": "menu.anatomy.ts:42"
+      },
+      {
+        "name": "indicator",
+        "type": "[data-part~=\"menu:indicator\"]",
+        "notes": "MenuIndicator",
+        "source": "menu.anatomy.ts:43"
+      },
+      {
+        "name": "backdrop",
+        "type": "[data-part~=\"menu:backdrop\"]",
+        "notes": "MenuBackdrop",
+        "source": "menu.anatomy.ts:44"
+      },
+      {
+        "name": "positioner",
+        "type": "[data-part~=\"menu:positioner\"]",
+        "notes": "MenuPositioner",
+        "source": "menu.anatomy.ts:45"
+      },
+      {
+        "name": "content",
+        "type": "[data-part~=\"menu:content\"]",
+        "notes": "MenuContent",
+        "source": "menu.anatomy.ts:46"
+      },
+      {
+        "name": "itemGroup",
+        "type": "[data-part~=\"menu:item-group\"]",
+        "notes": "MenuItemGroup",
+        "source": "menu.anatomy.ts:47"
+      },
+      {
+        "name": "itemGroupLabel",
+        "type": "[data-part~=\"menu:item-group-label\"]",
+        "notes": "MenuItemGroupLabel",
+        "source": "menu.anatomy.ts:48"
+      },
+      {
+        "name": "item",
+        "type": "[data-part~=\"menu:item\"]",
+        "notes": "MenuItem",
+        "source": "menu.anatomy.ts:49"
+      },
+      {
+        "name": "triggerItem",
+        "type": "[data-part~=\"menu:trigger-item\"]",
+        "notes": "MenuTriggerItem",
+        "source": "menu.anatomy.ts:50"
+      },
+      {
+        "name": "itemSymbol",
+        "type": "[data-part~=\"menu:item-symbol\"]",
+        "notes": "MenuItemSymbol",
+        "source": "menu.anatomy.ts:51"
+      },
+      {
+        "name": "itemText",
+        "type": "[data-part~=\"menu:item-text\"]",
+        "notes": "MenuItemText",
+        "source": "menu.anatomy.ts:52"
+      },
+      {
+        "name": "itemDescription",
+        "type": "[data-part~=\"menu:item-description\"]",
+        "notes": "MenuItemDescription",
+        "source": "menu.anatomy.ts:53"
+      },
+      {
+        "name": "itemIndicator",
+        "type": "[data-part~=\"menu:item-indicator\"]",
+        "notes": "MenuItemIndicator",
+        "source": "menu.anatomy.ts:54"
+      },
+      {
+        "name": "itemShortcut",
+        "type": "[data-part~=\"menu:item-shortcut\"]",
+        "notes": "MenuItemShortcut",
+        "source": "menu.anatomy.ts:55"
+      },
+      {
+        "name": "separator",
+        "type": "[data-part~=\"menu:separator\"]",
+        "notes": "MenuSeparator",
+        "source": "menu.anatomy.ts:56"
+      },
+      {
+        "name": "cancelTrigger",
+        "type": "[data-part~=\"menu:cancel-trigger\"]",
+        "notes": "MenuCancelTrigger",
+        "source": "menu.anatomy.ts:57"
+      }
+    ]
+  },
+  {
+    "name": "MenuCssVars",
+    "rows": [
+      {
+        "name": "--sui-transform-origin",
+        "type": "\"<position>\"",
+        "notes": "Where the surface grows from, so a scale-in starts at the anchor.",
+        "source": "menu.anatomy.ts:65",
+        "group": "written"
+      },
+      {
+        "name": "--sui-anchor-width",
+        "type": "\"<length>\"",
+        "notes": "Width of the anchor the surface is placed against.",
+        "source": "menu.anatomy.ts:67",
+        "group": "written"
+      },
+      {
+        "name": "--sui-anchor-height",
+        "type": "\"<length>\"",
+        "notes": "Height of the anchor the surface is placed against.",
+        "source": "menu.anatomy.ts:69",
+        "group": "written"
+      },
+      {
+        "name": "--sui-available-width",
+        "type": "\"<length>\"",
+        "notes": "Room left for the surface's width inside the boundary.",
+        "source": "menu.anatomy.ts:71",
+        "group": "written"
+      },
+      {
+        "name": "--sui-available-height",
+        "type": "\"<length>\"",
+        "notes": "Room left for the surface's height inside the boundary.",
+        "source": "menu.anatomy.ts:73",
+        "group": "written"
+      },
+      {
+        "name": "--sui-scrollbar-width",
+        "type": "\"<length>\"",
+        "notes": "Width of the page scrollbar the scroll lock hides, published on the root.",
+        "source": "menu.anatomy.ts:75",
+        "group": "written"
+      }
+    ]
   }
 ]

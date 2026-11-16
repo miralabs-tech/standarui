@@ -5,6 +5,7 @@
         "Shared": "Omit< PartProps<Element>, \"id\" | \"ref\" | \"aria-labelledby\" | \"aria-describedby\" | \"aria-controls\" >"
       },
       "api": "accordion.json",
+      "channels": ["--sui-collapse-height", "--sui-collapse-width"],
       "composed": true,
       "flows": {
         "AccordionFocusChangeDetails": "out",
@@ -247,6 +248,7 @@
         "CalendarView": "\"day\" | \"month\" | \"year\""
       },
       "api": "calendar.json",
+      "channels": ["--sui-calendar-columns", "--sui-calendar-rows"],
       "composed": true,
       "flows": {
         "CalendarFocusChangeDetails": "out",
@@ -473,6 +475,7 @@
         "CheckboxGroupOption": "Omit<CheckboxRootProps, \"children\"> & { readonly label: ReactNode; }"
       },
       "api": "checkbox-group.json",
+      "channels": ["--sui-item-count"],
       "composed": true,
       "flows": {
         "CheckboxGroupValueChangeDetails": "out"
@@ -575,6 +578,7 @@
     "collapsible": {
       "aliases": {},
       "api": "collapsible.json",
+      "channels": ["--sui-collapsible-height", "--sui-collapsible-width"],
       "composed": true,
       "flows": {
         "CollapsibleOpenChangeDetails": "out"
@@ -621,6 +625,24 @@
         "ColorPickerVariant": "\"well\" | \"wheel\""
       },
       "api": "color-picker.json",
+      "channels": [
+        "--sui-anchor-height",
+        "--sui-anchor-width",
+        "--sui-available-height",
+        "--sui-available-width",
+        "--sui-color-picker-alpha",
+        "--sui-color-picker-area-x",
+        "--sui-color-picker-area-y",
+        "--sui-color-picker-channel-percent",
+        "--sui-color-picker-columns",
+        "--sui-color-picker-hue",
+        "--sui-color-picker-hue-color",
+        "--sui-color-picker-opaque",
+        "--sui-color-picker-swatch-color",
+        "--sui-color-picker-value",
+        "--sui-scrollbar-width",
+        "--sui-transform-origin"
+      ],
       "composed": true,
       "flows": {
         "ColorPickerDismissDetails": "out",
@@ -928,6 +950,14 @@
         "DatePickerPresentationProp": "\"auto\" | DatePickerPresentation"
       },
       "api": "date-picker.json",
+      "channels": [
+        "--sui-anchor-height",
+        "--sui-anchor-width",
+        "--sui-available-height",
+        "--sui-available-width",
+        "--sui-scrollbar-width",
+        "--sui-transform-origin"
+      ],
       "composed": true,
       "flows": {
         "DatePickerDismissDetails": "out",
@@ -1060,6 +1090,7 @@
         "DialogRole": "\"dialog\" | \"alertdialog\""
       },
       "api": "dialog.json",
+      "channels": ["--sui-scrollbar-width"],
       "composed": true,
       "flows": {
         "DialogDismissDetails": "out",
@@ -1171,6 +1202,12 @@
         "DrawerEdge": "\"bottom\" | \"top\" | \"start\" | \"end\""
       },
       "api": "drawer.json",
+      "channels": [
+        "--sui-drag-offset",
+        "--sui-drawer-detent",
+        "--sui-drawer-detent-max",
+        "--sui-drawer-progress"
+      ],
       "composed": false,
       "flows": {
         "DrawerDetent": "both",
@@ -1221,6 +1258,13 @@
           "stackElement?"
         ]
       },
+      "reads": [
+        "--sui-duration-200",
+        "--sui-duration-300",
+        "--sui-ease-in",
+        "--sui-spring-smooth",
+        "--sui-spring-smooth-duration"
+      ],
       "scope": "drawer"
     },
     "empty-state": {
@@ -1576,6 +1620,14 @@
         "MenuRow": "MenuAction<V, Meta> | MenuCheckable<V, Meta>"
       },
       "api": "menu.json",
+      "channels": [
+        "--sui-anchor-height",
+        "--sui-anchor-width",
+        "--sui-available-height",
+        "--sui-available-width",
+        "--sui-scrollbar-width",
+        "--sui-transform-origin"
+      ],
       "composed": true,
       "flows": {
         "MenuDismissDetails": "out",
@@ -1749,6 +1801,7 @@
         "MeterValenceLabels": "Partial<Record<Exclude<MeterValence, \"none\">, string>>"
       },
       "api": "meter.json",
+      "channels": ["--sui-meter-percent"],
       "composed": true,
       "flows": {
         "MeterValueChangeDetails": "out"
@@ -1875,6 +1928,16 @@
         "PopoverPresentationProp": "\"auto\" | PopoverPresentation"
       },
       "api": "popover.json",
+      "channels": [
+        "--sui-anchor-height",
+        "--sui-anchor-width",
+        "--sui-arrow-x",
+        "--sui-arrow-y",
+        "--sui-available-height",
+        "--sui-available-width",
+        "--sui-scrollbar-width",
+        "--sui-transform-origin"
+      ],
       "composed": true,
       "flows": {
         "PopoverDismissDetails": "out",
@@ -1992,6 +2055,7 @@
     "progress": {
       "aliases": {},
       "api": "progress.json",
+      "channels": ["--sui-progress-percent"],
       "composed": true,
       "flows": {
         "ProgressValueChangeDetails": "out"
@@ -2056,6 +2120,7 @@
         "RadioGroupOption": "Omit< CoreRadioItemProps, \"value\" > & { readonly value: V; readonly label: string; readonly meta?: Meta | undefined; }"
       },
       "api": "radio-group.json",
+      "channels": ["--sui-indicator-offset", "--sui-indicator-size"],
       "composed": true,
       "flows": {
         "RadioGroupValueChangeDetails": "out"
@@ -2120,6 +2185,7 @@
         "ScrollAreaOrientation": "Orientation | \"both\""
       },
       "api": "scroll-area.json",
+      "channels": ["--sui-scroll-area-thumb-offset", "--sui-scroll-area-thumb-size"],
       "composed": true,
       "flows": {},
       "imports": [],
@@ -2244,6 +2310,14 @@
         "SelectPresentationProp": "\"auto\" | SelectPresentation"
       },
       "api": "select.json",
+      "channels": [
+        "--sui-anchor-height",
+        "--sui-anchor-width",
+        "--sui-available-height",
+        "--sui-available-width",
+        "--sui-scrollbar-width",
+        "--sui-transform-origin"
+      ],
       "composed": true,
       "flows": {
         "SelectDismissDetails": "out",
@@ -2533,6 +2607,13 @@
         "SliderThumbAlignment": "\"contain\" | \"center\""
       },
       "api": "slider.json",
+      "channels": [
+        "--sui-marker-percent",
+        "--sui-slider-percent",
+        "--sui-slider-range-end",
+        "--sui-slider-range-start",
+        "--sui-slider-thumb-percent"
+      ],
       "composed": true,
       "flows": {
         "SliderValueChangeDetails": "out",
@@ -2636,6 +2717,7 @@
         "SplitterUnit": "\"px\" | \"%\""
       },
       "api": "splitter.json",
+      "channels": ["--sui-splitter-size"],
       "composed": true,
       "flows": {
         "SplitterCollapsedChangeDetails": "out",
@@ -2694,6 +2776,7 @@
         "SwitchSize": "\"sm\" | \"md\""
       },
       "api": "switch.json",
+      "channels": ["--sui-switch-progress"],
       "composed": true,
       "flows": {
         "SwitchCheckedChangeDetails": "out"
@@ -2750,6 +2833,14 @@
         "TabsActivationMode": "\"automatic\" | \"manual\""
       },
       "api": "tabs.json",
+      "channels": [
+        "--sui-active-index",
+        "--sui-indicator-offset",
+        "--sui-indicator-size",
+        "--sui-item-count",
+        "--sui-scroll-thumb-length",
+        "--sui-scroll-thumb-offset"
+      ],
       "composed": true,
       "flows": {
         "TabsCloseDetails": "out",
@@ -2838,6 +2929,12 @@
         "ToastType": "\"info\" | \"success\" | \"warning\" | \"error\" | \"loading\""
       },
       "api": "toast.json",
+      "channels": [
+        "--sui-toast-count",
+        "--sui-toast-index",
+        "--sui-toast-offset",
+        "--sui-toast-stack-size"
+      ],
       "composed": true,
       "flows": {
         "ToastDismissDetails": "out",
@@ -2947,6 +3044,7 @@
         ],
         "UseToastGroupProps": []
       },
+      "reads": ["--sui-toast-gap"],
       "scope": "toast"
     },
     "toggle": {
@@ -2987,6 +3085,13 @@
         "ToggleGroupSizing": "\"equal\" | \"content\""
       },
       "api": "toggle-group.json",
+      "channels": [
+        "--sui-indicator-offset",
+        "--sui-indicator-size",
+        "--sui-scroll-thumb-length",
+        "--sui-scroll-thumb-offset",
+        "--sui-segment-count"
+      ],
       "composed": true,
       "flows": {
         "ToggleGroupValueChangeDetails": "out"
@@ -3094,6 +3199,13 @@
     "tooltip": {
       "aliases": {},
       "api": "tooltip.json",
+      "channels": [
+        "--sui-anchor-height",
+        "--sui-anchor-width",
+        "--sui-available-height",
+        "--sui-available-width",
+        "--sui-transform-origin"
+      ],
       "composed": true,
       "flows": {
         "TooltipDismissDetails": "out",

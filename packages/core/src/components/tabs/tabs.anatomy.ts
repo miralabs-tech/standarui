@@ -28,3 +28,19 @@ export const anatomy: Anatomy<TabsPart> = createAnatomy("tabs").parts(
 );
 
 export const parts: Record<TabsPart, AnatomyPart> = anatomy.build();
+
+export interface TabsCssVars {
+  // --- written ---
+  /** Index of the selected tab. */
+  "--sui-active-index": "<integer>";
+  /** Number of tabs. */
+  "--sui-item-count": "<integer>";
+  /** Measured offset of the indicator, absent until it has been measured. */
+  "--sui-indicator-offset": "<length>";
+  /** Measured size of the indicator, absent until it has been measured. */
+  "--sui-indicator-size": "<length>";
+  /** Length of the inline scrollbar thumb. */
+  "--sui-scroll-thumb-length": "<length>";
+  /** Offset of the inline scrollbar thumb along its track. */
+  "--sui-scroll-thumb-offset": "<length>";
+}

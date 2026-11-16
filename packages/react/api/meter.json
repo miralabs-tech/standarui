@@ -136,5 +136,52 @@
     "name": "MeterValence",
     "definition": "\"none\" | \"optimum\" | \"suboptimal\" | \"critical\"",
     "rows": []
+  },
+  {
+    "name": "MeterAnatomy",
+    "rows": [
+      {
+        "name": "root",
+        "type": "[data-part~=\"meter:root\"]",
+        "notes": "MeterRoot",
+        "source": "meter.anatomy.ts:6"
+      },
+      {
+        "name": "label",
+        "type": "[data-part~=\"meter:label\"]",
+        "notes": "MeterLabel",
+        "source": "meter.anatomy.ts:7"
+      },
+      {
+        "name": "track",
+        "type": "[data-part~=\"meter:track\"]",
+        "notes": "MeterTrack",
+        "source": "meter.anatomy.ts:8"
+      },
+      {
+        "name": "range",
+        "type": "[data-part~=\"meter:range\"]",
+        "notes": "MeterRange",
+        "source": "meter.anatomy.ts:9"
+      },
+      {
+        "name": "valueText",
+        "type": "[data-part~=\"meter:value-text\"]",
+        "notes": "MeterValueText",
+        "source": "meter.anatomy.ts:10"
+      }
+    ]
+  },
+  {
+    "name": "MeterCssVars",
+    "rows": [
+      {
+        "name": "--sui-meter-percent",
+        "type": "\"<percentage>\"",
+        "notes": "Where the value sits between the minimum and the maximum.",
+        "source": "meter.anatomy.ts:18",
+        "group": "written"
+      }
+    ]
   }
 ]

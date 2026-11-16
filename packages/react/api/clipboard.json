@@ -169,5 +169,46 @@
         "source": "clipboard.types.ts:84"
       }
     ]
+  },
+  {
+    "name": "ClipboardAnatomy",
+    "rows": [
+      {
+        "name": "root",
+        "type": "[data-part~=\"clipboard:root\"]",
+        "notes": "ClipboardRoot",
+        "source": "clipboard.anatomy.ts:6"
+      },
+      {
+        "name": "label",
+        "type": "[data-part~=\"clipboard:label\"]",
+        "notes": "ClipboardLabel",
+        "source": "clipboard.anatomy.ts:7"
+      },
+      {
+        "name": "control",
+        "type": "[data-part~=\"clipboard:control\"]",
+        "notes": "ClipboardControl",
+        "source": "clipboard.anatomy.ts:8"
+      },
+      {
+        "name": "input",
+        "type": "[data-part~=\"clipboard:input\"]",
+        "notes": "ClipboardInput",
+        "source": "clipboard.anatomy.ts:9"
+      },
+      {
+        "name": "trigger",
+        "type": "[data-part~=\"clipboard:trigger\"]",
+        "notes": "ClipboardTrigger",
+        "source": "clipboard.anatomy.ts:10"
+      },
+      {
+        "name": "indicator",
+        "type": "[data-part~=\"clipboard:indicator\"]",
+        "notes": "ClipboardIndicator",
+        "source": "clipboard.anatomy.ts:11"
+      }
+    ]
   }
 ]

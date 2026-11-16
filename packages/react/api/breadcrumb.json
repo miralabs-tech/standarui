@@ -121,5 +121,46 @@
         "source": "composed.tsx:90"
       }
     ]
+  },
+  {
+    "name": "BreadcrumbAnatomy",
+    "rows": [
+      {
+        "name": "root",
+        "type": "[data-part~=\"breadcrumb:root\"]",
+        "notes": "BreadcrumbRoot",
+        "source": "breadcrumb.anatomy.ts:14"
+      },
+      {
+        "name": "list",
+        "type": "[data-part~=\"breadcrumb:list\"]",
+        "notes": "BreadcrumbList",
+        "source": "breadcrumb.anatomy.ts:15"
+      },
+      {
+        "name": "item",
+        "type": "[data-part~=\"breadcrumb:item\"]",
+        "notes": "BreadcrumbItem",
+        "source": "breadcrumb.anatomy.ts:16"
+      },
+      {
+        "name": "link",
+        "type": "[data-part~=\"breadcrumb:link\"]",
+        "notes": "BreadcrumbLink",
+        "source": "breadcrumb.anatomy.ts:17"
+      },
+      {
+        "name": "ellipsis",
+        "type": "[data-part~=\"breadcrumb:ellipsis\"]",
+        "notes": "BreadcrumbEllipsis",
+        "source": "breadcrumb.anatomy.ts:18"
+      },
+      {
+        "name": "ellipsisTrigger",
+        "type": "[data-part~=\"breadcrumb:ellipsis-trigger\"]",
+        "notes": "BreadcrumbEllipsisTrigger",
+        "source": "breadcrumb.anatomy.ts:19"
+      }
+    ]
   }
 ]

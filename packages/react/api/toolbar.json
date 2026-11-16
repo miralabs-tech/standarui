@@ -147,5 +147,46 @@
         "source": "composed.tsx:72"
       }
     ]
+  },
+  {
+    "name": "ToolbarAnatomy",
+    "rows": [
+      {
+        "name": "root",
+        "type": "[data-part~=\"toolbar:root\"]",
+        "notes": "ToolbarRoot",
+        "source": "toolbar.anatomy.ts:6"
+      },
+      {
+        "name": "group",
+        "type": "[data-part~=\"toolbar:group\"]",
+        "notes": "ToolbarGroup",
+        "source": "toolbar.anatomy.ts:7"
+      },
+      {
+        "name": "separator",
+        "type": "[data-part~=\"toolbar:separator\"]",
+        "notes": "ToolbarSeparator",
+        "source": "toolbar.anatomy.ts:8"
+      },
+      {
+        "name": "spacer",
+        "type": "[data-part~=\"toolbar:spacer\"]",
+        "notes": "ToolbarSpacer",
+        "source": "toolbar.anatomy.ts:9"
+      },
+      {
+        "name": "item",
+        "type": "[data-part~=\"toolbar:item\"]",
+        "notes": "ToolbarItem",
+        "source": "toolbar.anatomy.ts:10"
+      },
+      {
+        "name": "title",
+        "type": "[data-part~=\"toolbar:title\"]",
+        "notes": "ToolbarTitle",
+        "source": "toolbar.anatomy.ts:11"
+      }
+    ]
   }
 ]
