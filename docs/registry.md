@@ -8,6 +8,7 @@ you can publish your own registry, and what the CLI does with one.
 - [Index](#index)
 - [Dependency names](#dependency-names)
 - [Build and serve your own registry](#build-and-serve-your-own-registry)
+- [Styles layer](#styles-layer)
 - [Declare a source](#declare-a-source)
 - [Lockfile and bases](#lockfile-and-bases)
 - [Security notes](#security-notes)
@@ -29,7 +30,7 @@ An item is one JSON file. The shape is described by
 
 Each entry of `files[]`:
 
-- `layer`: `core` or `react`.
+- `layer`: `core`, `react` or `styles` (see [Styles layer](#styles-layer)).
 - `path`: a relative path inside the layer, with `/` separators.
 - `sha256`: the hex SHA-256 of `content`, which must use LF line endings.
 - `content`: the file text.
@@ -124,13 +125,74 @@ Imports a file may use: your own relative imports, packages listed in
 `specifiers` table of the `@standarui` index (for example `@standarui/core` or
 `@standarui/react/button`). Other `@standarui/...` imports are refused.
 
+## Styles layer
+
+The `styles` layer carries compiled CSS: a theme, or the styles of one
+component. Its files are written as they are, with no import rewriting, so a
+`@standarui/...` text inside a styles file is left untouched.
+
+- Target: `dirs.styles/<path>`. `dirs.styles` is optional in `standarui.json`
+  and defaults to `src/standarui/styles`. `standarui init --styles-dir <dir>`
+  sets it. There is no alias for this layer.
+- Your app imports the CSS itself. `standarui add` prints the target path of
+  each styles file it copied, so you know what to import.
+- Load order is the theme's job. A theme declares its `@layer` order in its
+  base item, and the other items of the theme write into those layers.
+- Collisions: a theme prefixes its styles paths with its own name
+  (`acme/base.css`, `acme/dialog.css`), so two themes never write the same file.
+- The lockfile, the bases, `diff` and `update` treat a styles file like any
+  other file, so a local edit is merged with an upstream change.
+- Name custom properties `--sui-*` and attributes `data-sui-*`.
+
+A third-party theme, declared as a private source on a raw host:
+
+```json
+{
+  "registries": {
+    "@acme": {
+      "url": "https://raw.githubusercontent.com/acme/theme/main/r/{name}.json",
+      "headers": { "Authorization": "Bearer ${GITHUB_TOKEN}" }
+    }
+  }
+}
+```
+
+`@acme/dialog` styles the `dialog` item and depends on it:
+
+```json
+{
+  "$schema": "https://github.com/miralabs-tech/standarui/registry/schema.json",
+  "name": "dialog",
+  "type": "registry:component",
+  "version": "1.0.0",
+  "registryDependencies": ["dialog"],
+  "files": [
+    {
+      "layer": "styles",
+      "path": "acme/dialog.css",
+      "sha256": "<hex sha256 of content>",
+      "content": "@layer acme.components {
+  .sui-dialog[data-sui-open] { opacity: var(--sui-opacity-open); }
+}
+"
+    }
+  ]
+}
+```
+
+`standarui add @acme/dialog` writes `src/standarui/styles/acme/dialog.css`.
+
 ## Declare a source
 
 Add the registry to `standarui.json`:
 
 ```json
 {
-  "dirs": { "core": "src/standarui/core", "react": "src/standarui/react" },
+  "dirs": {
+    "core": "src/standarui/core",
+    "react": "src/standarui/react",
+    "styles": "src/standarui/styles"
+  },
   "aliases": { "core": "@/standarui/core", "react": "@/standarui/react" },
   "registries": {
     "@acme": {

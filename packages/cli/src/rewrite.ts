@@ -1,5 +1,5 @@
 import { CliError } from "./errors";
-import type { RegistryLayer, RegistrySpecifier } from "./registry-types";
+import type { CodeLayer, RegistrySpecifier } from "./registry-types";
 
 const PRECEDES_SPECIFIER = /(?<![.\w$])(?:from|import\s*\(?)\s*$/;
 
@@ -73,7 +73,7 @@ export function findSpecifiers(text: string): SpecifierRange[] {
 export function rewriteTarget(
   specifier: string,
   specifiers: Readonly<Record<string, RegistrySpecifier>>,
-  aliases: Readonly<Record<RegistryLayer, string>>,
+  aliases: Readonly<Record<CodeLayer, string>>,
 ): string | undefined {
   const entry = Object.hasOwn(specifiers, specifier) ? specifiers[specifier] : undefined;
   if (entry === undefined) return undefined;
@@ -86,7 +86,7 @@ export function rewriteImports(
   content: string,
   file: string,
   specifiers: Readonly<Record<string, RegistrySpecifier>>,
-  aliases: Readonly<Record<RegistryLayer, string>>,
+  aliases: Readonly<Record<CodeLayer, string>>,
 ): string {
   let result = content;
   for (const range of findSpecifiers(content).reverse()) {

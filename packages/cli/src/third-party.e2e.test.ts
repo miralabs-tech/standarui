@@ -46,18 +46,42 @@ const errors: string[] = [];
 
 const sha256 = (text: string): string => createHash("sha256").update(text).digest("hex");
 
-function item(name: string, filePath: string, content: string, hash = sha256(content)): string {
+function item(
+  name: string,
+  filePath: string,
+  content: string,
+  hash = sha256(content),
+  layer = "react",
+  dependency = "button",
+): string {
   return JSON.stringify({
     $schema: "https://github.com/miralabs-tech/standarui/registry/schema.json",
     name,
     type: "registry:component",
     version: "1.0.0",
-    registryDependencies: ["button"],
-    files: [{ layer: "react", path: filePath, sha256: hash, content }],
+    registryDependencies: [dependency],
+    files: [{ layer, path: filePath, sha256: hash, content }],
   });
 }
 
+const DIALOG_CSS = (first: string, last: string): string =>
+  `${first}
+.sui-dialog {
+  color: red;
+}
+.sui-dialog[data-sui-open] {
+  opacity: 1;
+}
+/* ${last} */
+`;
+const DIALOG_V1 = DIALOG_CSS("/* v1 header */", "v1 footer");
+const DIALOG_V2 = DIALOG_CSS("/* v1 header */", "v2 footer");
+const dialogItem = (content: string): string =>
+  item("dialog", "acme/dialog.css", content, sha256(content), "styles", "dialog");
+
 const items: Record<string, string> = {
+  dialog: dialogItem(`${DIALOG_V1}/* @standarui/core stays as written */
+`),
   "fancy-button": item("fancy-button", "components/fancy-button/fancy-button.tsx", FANCY),
   "bad-hash": item("bad-hash", "components/bad-hash/bad-hash.tsx", FANCY, "0".repeat(64)),
   evil: item("evil", "../evil.ts", "export const evil = 1;\n"),
@@ -239,5 +263,45 @@ describe("a third-party registry behind a header", () => {
     });
     expect(`${result.stdout}${result.stderr}`).toBe("");
     expect(result.status).toBe(0);
+  });
+});
+
+describe("a third-party item with a styles file", () => {
+  const css = "src/standarui/styles/acme/dialog.css";
+  const verbatim = `${DIALOG_V1}/* @standarui/core stays as written */
+`;
+
+  it("copies the file byte for byte under dirs.styles and lists it", async () => {
+    reset();
+    const code = await run(["add", "@acme/dialog", "--no-install", "--registry", registry], {
+      ACME_TOKEN: TOKEN,
+    });
+    expect(errors).toEqual([]);
+    expect(code).toBe(0);
+    expect(read(css)).toBe(verbatim);
+    expect(output()).toContain("Styles files copied (import them in your app):");
+    expect(output()).toContain(`  ${css}`);
+    const lock = JSON.parse(read("standarui.lock.json")) as Lockfile;
+    expect(Object.keys(lock.items["@acme/dialog"]?.files ?? {})).toEqual([
+      "styles/acme/dialog.css",
+    ]);
+    expect(existsSync(path.join(app, ".standarui/base/styles/acme/dialog.css"))).toBe(true);
+  });
+
+  it("merges a local edit with an upstream change through update", async () => {
+    writeFileSync(path.join(app, css), verbatim.replace("/* v1 header */", "/* local header */"));
+    items.dialog = dialogItem(`${DIALOG_V2}/* @standarui/core stays as written */
+`);
+    reset();
+    const code = await run(
+      ["update", "@acme/dialog", "--write", "--no-install", "--registry", registry],
+      { ACME_TOKEN: TOKEN },
+    );
+    expect(errors).toEqual([]);
+    expect(code).toBe(0);
+    const merged = read(css);
+    expect(merged).toContain("/* local header */");
+    expect(merged).toContain("/* v2 footer */");
+    expect(merged).not.toContain("<<<<<<<");
   });
 });

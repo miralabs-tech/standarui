@@ -27,6 +27,7 @@ Commands:
 Options for init:
   --core-dir <dir>      Where the core layer is written (src/standarui/core)
   --react-dir <dir>     Where the react layer is written (src/standarui/react)
+  --styles-dir <dir>    Where the styles layer is written (src/standarui/styles)
   --core-alias <alias>  Import alias of the core layer (@/standarui/core)
   --react-alias <alias> Import alias of the react layer (@/standarui/react)
   --registry <source>   Base URL or local registry folder replacing @standarui
@@ -86,6 +87,7 @@ export async function main(argv: readonly string[], overrides: MainContext = {})
         options: {
           "core-dir": { type: "string" },
           "react-dir": { type: "string" },
+          "styles-dir": { type: "string" },
           "core-alias": { type: "string" },
           "react-alias": { type: "string" },
           registry: { type: "string" },
@@ -102,6 +104,7 @@ export async function main(argv: readonly string[], overrides: MainContext = {})
       await runInit(context, {
         coreDir: values["core-dir"],
         reactDir: values["react-dir"],
+        stylesDir: values["styles-dir"],
         coreAlias: values["core-alias"],
         reactAlias: values["react-alias"],
         registry: values.registry,

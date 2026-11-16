@@ -1,11 +1,13 @@
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { CliError } from "./errors";
-import type { RegistryLayer } from "./registry-types";
+import type { CodeLayer, RegistryLayer } from "./registry-types";
 
 export const CONFIG_FILE = "standarui.json";
 export const DEFAULT_REGISTRY = "@standarui";
-export const LAYERS: readonly RegistryLayer[] = ["core", "react"];
+export const LAYERS: readonly RegistryLayer[] = ["core", "react", "styles"];
+export const CODE_LAYERS: readonly CodeLayer[] = ["core", "react"];
+export const DEFAULT_STYLES_DIR = "src/standarui/styles";
 
 export interface RegistryDefinition {
   readonly url: string;
@@ -15,13 +17,14 @@ export interface RegistryDefinition {
 
 export interface StandaruiConfig {
   readonly dirs: Readonly<Record<RegistryLayer, string>>;
-  readonly aliases: Readonly<Record<RegistryLayer, string>>;
+  readonly aliases: Readonly<Record<CodeLayer, string>>;
   readonly registries: Readonly<Record<string, RegistryDefinition>>;
 }
 
 export interface ConfigOverrides {
   readonly coreDir?: string | undefined;
   readonly reactDir?: string | undefined;
+  readonly stylesDir?: string | undefined;
   readonly coreAlias?: string | undefined;
   readonly reactAlias?: string | undefined;
 }
@@ -31,6 +34,7 @@ export function defaultConfig(overrides: ConfigOverrides = {}): StandaruiConfig 
     dirs: {
       core: overrides.coreDir ?? "src/standarui/core",
       react: overrides.reactDir ?? "src/standarui/react",
+      styles: overrides.stylesDir ?? DEFAULT_STYLES_DIR,
     },
     aliases: {
       core: overrides.coreAlias ?? "@/standarui/core",
@@ -58,9 +62,17 @@ function text(value: unknown, label: string): string {
   return value;
 }
 
-function perLayer(value: unknown, label: string): Record<RegistryLayer, string> {
+function perCodeLayer(value: unknown, label: string): Record<CodeLayer, string> {
   const record = object(value, label);
   return { core: text(record.core, `${label}.core`), react: text(record.react, `${label}.react`) };
+}
+
+function dirsOf(value: unknown): Record<RegistryLayer, string> {
+  const record = object(value, "dirs");
+  return {
+    ...perCodeLayer(record, "dirs"),
+    styles: record.styles === undefined ? DEFAULT_STYLES_DIR : text(record.styles, "dirs.styles"),
+  };
 }
 
 function registryDefinition(value: unknown, label: string): RegistryDefinition {
@@ -100,8 +112,8 @@ export function readConfig(cwd: string): StandaruiConfig {
     }
   }
   return {
-    dirs: perLayer(record.dirs, "dirs"),
-    aliases: perLayer(record.aliases, "aliases"),
+    dirs: dirsOf(record.dirs),
+    aliases: perCodeLayer(record.aliases, "aliases"),
     registries,
   };
 }

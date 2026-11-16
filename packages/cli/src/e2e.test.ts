@@ -79,7 +79,11 @@ describe("init then add against the committed registry", () => {
     expect(await run(["init", "--yes", "--no-install", "--registry", registry])).toBe(0);
     expect(errors).toEqual([]);
     const config = JSON.parse(read("standarui.json")) as Record<string, unknown>;
-    expect(config.dirs).toEqual({ core: "src/standarui/core", react: "src/standarui/react" });
+    expect(config.dirs).toEqual({
+      core: "src/standarui/core",
+      react: "src/standarui/react",
+      styles: "src/standarui/styles",
+    });
     expect(config.aliases).toEqual({ core: "@/standarui/core", react: "@/standarui/react" });
     expect(logs.join("\n")).not.toContain("does not resolve the aliases");
   });

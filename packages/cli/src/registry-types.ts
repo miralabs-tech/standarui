@@ -1,4 +1,6 @@
-export type RegistryLayer = "core" | "react";
+export type CodeLayer = "core" | "react";
+
+export type RegistryLayer = CodeLayer | "styles";
 
 export type RegistryItemType = "registry:nav" | "registry:base" | "registry:component";
 
@@ -21,7 +23,7 @@ export interface RegistryItem {
 }
 
 export interface RegistrySpecifier {
-  readonly layer: RegistryLayer;
+  readonly layer: CodeLayer;
   readonly path: string;
 }
 

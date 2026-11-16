@@ -38,7 +38,7 @@ export function createFilePlanner(
     for (const file of item.files) {
       const label = `${key}:${file.layer}/${file.path}`;
       let content = file.content;
-      if (content.includes("@standarui/")) {
+      if (file.layer !== "styles" && content.includes("@standarui/")) {
         specifiers ??= (await client.loadIndex(DEFAULT_REGISTRY)).specifiers;
         content = rewriteImports(content, label, specifiers, config.aliases);
       }

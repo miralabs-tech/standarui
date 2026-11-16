@@ -4,7 +4,8 @@
   "title": "standarui registry",
   "oneOf": [{ "$ref": "#/$defs/item" }, { "$ref": "#/$defs/index" }],
   "$defs": {
-    "layer": { "enum": ["core", "react"] },
+    "layer": { "enum": ["core", "react", "styles"] },
+    "codeLayer": { "enum": ["core", "react"] },
     "itemType": { "enum": ["registry:nav", "registry:base", "registry:component"] },
     "name": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
     "file": {
@@ -50,7 +51,7 @@
       "additionalProperties": false,
       "required": ["layer", "path"],
       "properties": {
-        "layer": { "$ref": "#/$defs/layer" },
+        "layer": { "$ref": "#/$defs/codeLayer" },
         "path": { "type": "string", "minLength": 1 }
       }
     },
