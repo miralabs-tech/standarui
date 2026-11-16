@@ -1,6 +1,6 @@
 # standarui
 
-[![CI](https://github.com/miralabs-tech/standarui/actions/workflows/ci.yml/badge.svg)](https://github.com/miralabs-tech/standarui/actions/workflows/ci.yml) [![npm](https://img.shields.io/npm/v/standarui)](https://www.npmjs.com/package/standarui) [![license](https://img.shields.io/badge/license-MIT-blue)](./LICENSE) [![node](https://img.shields.io/badge/node-%3E%3D20-green)](https://nodejs.org)
+[![CI](https://github.com/miralabs-tech/standarui/actions/workflows/ci.yml/badge.svg)](https://github.com/miralabs-tech/standarui/actions/workflows/ci.yml) [![npm](https://img.shields.io/npm/v/@standarx/ui)](https://www.npmjs.com/package/@standarx/ui) [![license](https://img.shields.io/badge/license-MIT-blue)](./LICENSE) [![node](https://img.shields.io/badge/node-%3E%3D20-green)](https://nodejs.org)
 
 > "A headless UI engine in TypeScript with a React 19 adapter, copied into your app by a CLI instead of installed."
 
@@ -23,8 +23,8 @@ The code is not installed from npm. The `standarui` CLI copies it into your app,
 ## 🚀 Quickstart
 
 ```sh
-bunx standarui init
-npx standarui init
+bunx @standarx/ui init
+npx @standarx/ui init
 ```
 
 `init` writes `standarui.json` (where each layer lives and how it is imported), then copies three items: `nav`, `core-base` and `react-base`. By default the files go to `src/standarui/core` and `src/standarui/react`, imported through `@/standarui/core` and `@/standarui/react`. If your `tsconfig.json` does not resolve these aliases, `init` prints the `paths` line to add under `compilerOptions`. It also adds `@standarx/nav`, `react` and `react-dom` to your `package.json` and runs your package manager, unless you pass `--no-install`.
@@ -91,15 +91,15 @@ Requirements: Node >= 20 or bun, React 19, and `@standarx/nav` `^0.4.1` (`init` 
 Run the CLI without installing it:
 
 ```sh
-bunx standarui init
-npx standarui init
+bunx @standarx/ui init
+npx @standarx/ui init
 ```
 
 Or add it as a development dependency, then call the `standarui` binary:
 
 ```sh
-bun add -d standarui
-npm install --save-dev standarui
+bun add -d @standarx/ui
+npm install --save-dev @standarx/ui
 ```
 
 The CLI reads the registry of its own release from GitHub (`https://raw.githubusercontent.com/miralabs-tech/standarui/v<version>/registry`), so a given CLI version always copies the code it was released with.
