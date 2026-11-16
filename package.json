@@ -13,6 +13,7 @@
   ],
   "scripts": {
     "build": "bun run --filter './packages/*' build",
+    "site:pages": "bun run scripts/site-pages.ts",
     "docs:api": "bun run scripts/generate-api-reference.ts",
     "registry:build": "bun run scripts/registry-build.ts",
     "manifest:diff": "bun run scripts/manifest-diff.ts",
