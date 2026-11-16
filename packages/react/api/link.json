@@ -150,19 +150,19 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"link\"][data-part=\"link:root\"]",
+        "type": "[data-part~=\"link:root\"]",
         "notes": "LinkRoot",
         "source": "link.anatomy.ts:6"
       },
       {
         "name": "externalIcon",
-        "type": "[data-scope=\"link\"][data-part=\"link:external-icon\"]",
+        "type": "[data-part~=\"link:external-icon\"]",
         "notes": "LinkExternalIcon",
         "source": "link.anatomy.ts:7"
       },
       {
         "name": "externalLabel",
-        "type": "[data-scope=\"link\"][data-part=\"link:external-label\"]",
+        "type": "[data-part~=\"link:external-label\"]",
         "notes": "LinkExternalLabel",
         "source": "link.anatomy.ts:8"
       }

@@ -236,49 +236,49 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"listbox\"][data-part=\"listbox:root\"]",
+        "type": "[data-part~=\"listbox:root\"]",
         "notes": "ListboxRoot",
         "source": "listbox.anatomy.ts:31"
       },
       {
         "name": "label",
-        "type": "[data-scope=\"listbox\"][data-part=\"listbox:label\"]",
+        "type": "[data-part~=\"listbox:label\"]",
         "notes": "ListboxLabel",
         "source": "listbox.anatomy.ts:32"
       },
       {
         "name": "content",
-        "type": "[data-scope=\"listbox\"][data-part=\"listbox:content\"]",
+        "type": "[data-part~=\"listbox:content\"]",
         "notes": "ListboxContent",
         "source": "listbox.anatomy.ts:33"
       },
       {
         "name": "itemGroup",
-        "type": "[data-scope=\"listbox\"][data-part=\"listbox:item-group\"]",
+        "type": "[data-part~=\"listbox:item-group\"]",
         "notes": "ListboxItemGroup",
         "source": "listbox.anatomy.ts:34"
       },
       {
         "name": "itemGroupLabel",
-        "type": "[data-scope=\"listbox\"][data-part=\"listbox:item-group-label\"]",
+        "type": "[data-part~=\"listbox:item-group-label\"]",
         "notes": "ListboxItemGroupLabel",
         "source": "listbox.anatomy.ts:35"
       },
       {
         "name": "item",
-        "type": "[data-scope=\"listbox\"][data-part=\"listbox:item\"]",
+        "type": "[data-part~=\"listbox:item\"]",
         "notes": "ListboxItem",
         "source": "listbox.anatomy.ts:36"
       },
       {
         "name": "itemText",
-        "type": "[data-scope=\"listbox\"][data-part=\"listbox:item-text\"]",
+        "type": "[data-part~=\"listbox:item-text\"]",
         "notes": "ListboxItemText",
         "source": "listbox.anatomy.ts:37"
       },
       {
         "name": "itemIndicator",
-        "type": "[data-scope=\"listbox\"][data-part=\"listbox:item-indicator\"]",
+        "type": "[data-part~=\"listbox:item-indicator\"]",
         "notes": "ListboxItemIndicator",
         "source": "listbox.anatomy.ts:38"
       }

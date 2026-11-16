@@ -114,13 +114,13 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"checkbox-group\"][data-part=\"checkbox-group:root\"]",
+        "type": "[data-part~=\"checkbox-group:root\"]",
         "notes": "CheckboxGroupRoot",
         "source": "checkbox-group.anatomy.ts:11"
       },
       {
         "name": "label",
-        "type": "[data-scope=\"checkbox-group\"][data-part=\"checkbox-group:label\"]",
+        "type": "[data-part~=\"checkbox-group:label\"]",
         "notes": "CheckboxGroupLabel",
         "source": "checkbox-group.anatomy.ts:12"
       }

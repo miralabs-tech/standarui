@@ -96,43 +96,43 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"card\"][data-part=\"card:root\"]",
+        "type": "[data-part~=\"card:root\"]",
         "notes": "CardRoot",
         "source": "card.ts:22"
       },
       {
         "name": "header",
-        "type": "[data-scope=\"card\"][data-part=\"card:header\"]",
+        "type": "[data-part~=\"card:header\"]",
         "notes": "CardHeader",
         "source": "card.ts:23"
       },
       {
         "name": "title",
-        "type": "[data-scope=\"card\"][data-part=\"card:title\"]",
+        "type": "[data-part~=\"card:title\"]",
         "notes": "CardTitle",
         "source": "card.ts:24"
       },
       {
         "name": "description",
-        "type": "[data-scope=\"card\"][data-part=\"card:description\"]",
+        "type": "[data-part~=\"card:description\"]",
         "notes": "CardDescription",
         "source": "card.ts:25"
       },
       {
         "name": "action",
-        "type": "[data-scope=\"card\"][data-part=\"card:action\"]",
+        "type": "[data-part~=\"card:action\"]",
         "notes": "CardAction",
         "source": "card.ts:26"
       },
       {
         "name": "body",
-        "type": "[data-scope=\"card\"][data-part=\"card:body\"]",
+        "type": "[data-part~=\"card:body\"]",
         "notes": "CardBody",
         "source": "card.ts:27"
       },
       {
         "name": "footer",
-        "type": "[data-scope=\"card\"][data-part=\"card:footer\"]",
+        "type": "[data-part~=\"card:footer\"]",
         "notes": "CardFooter",
         "source": "card.ts:28"
       }

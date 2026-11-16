@@ -199,37 +199,37 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"date-field\"][data-part=\"date-field:root\"]",
+        "type": "[data-part~=\"date-field:root\"]",
         "notes": "DateFieldRoot",
         "source": "date-field.anatomy.ts:21"
       },
       {
         "name": "control",
-        "type": "[data-scope=\"date-field\"][data-part=\"date-field:control\"]",
+        "type": "[data-part~=\"date-field:control\"]",
         "notes": "DateFieldControl",
         "source": "date-field.anatomy.ts:22"
       },
       {
         "name": "segment",
-        "type": "[data-scope=\"date-field\"][data-part=\"date-field:segment\"]",
+        "type": "[data-part~=\"date-field:segment\"]",
         "notes": "DateFieldSegment",
         "source": "date-field.anatomy.ts:23"
       },
       {
         "name": "incrementTrigger",
-        "type": "[data-scope=\"date-field\"][data-part=\"date-field:increment-trigger\"]",
+        "type": "[data-part~=\"date-field:increment-trigger\"]",
         "notes": "DateFieldIncrementTrigger",
         "source": "date-field.anatomy.ts:24"
       },
       {
         "name": "decrementTrigger",
-        "type": "[data-scope=\"date-field\"][data-part=\"date-field:decrement-trigger\"]",
+        "type": "[data-part~=\"date-field:decrement-trigger\"]",
         "notes": "DateFieldDecrementTrigger",
         "source": "date-field.anatomy.ts:25"
       },
       {
         "name": "hiddenInput",
-        "type": "[data-scope=\"date-field\"][data-part=\"date-field:hidden-input\"]",
+        "type": "[data-part~=\"date-field:hidden-input\"]",
         "notes": "DateFieldHiddenInput",
         "source": "date-field.anatomy.ts:26"
       }

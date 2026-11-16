@@ -242,19 +242,19 @@
     "rows": [
       {
         "name": "trigger",
-        "type": "[data-scope=\"tooltip\"][data-part=\"tooltip:trigger\"]",
+        "type": "[data-part~=\"tooltip:trigger\"]",
         "notes": "TooltipTrigger",
         "source": "tooltip.anatomy.ts:23"
       },
       {
         "name": "positioner",
-        "type": "[data-scope=\"tooltip\"][data-part=\"tooltip:positioner\"]",
+        "type": "[data-part~=\"tooltip:positioner\"]",
         "notes": "TooltipPositioner",
         "source": "tooltip.anatomy.ts:24"
       },
       {
         "name": "content",
-        "type": "[data-scope=\"tooltip\"][data-part=\"tooltip:content\"]",
+        "type": "[data-part~=\"tooltip:content\"]",
         "notes": "TooltipContent",
         "source": "tooltip.anatomy.ts:25"
       }

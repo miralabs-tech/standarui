@@ -283,61 +283,61 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"slider\"][data-part=\"slider:root\"]",
+        "type": "[data-part~=\"slider:root\"]",
         "notes": "SliderRoot",
         "source": "slider.anatomy.ts:16"
       },
       {
         "name": "label",
-        "type": "[data-scope=\"slider\"][data-part=\"slider:label\"]",
+        "type": "[data-part~=\"slider:label\"]",
         "notes": "SliderLabel",
         "source": "slider.anatomy.ts:17"
       },
       {
         "name": "valueText",
-        "type": "[data-scope=\"slider\"][data-part=\"slider:value-text\"]",
+        "type": "[data-part~=\"slider:value-text\"]",
         "notes": "SliderValueText",
         "source": "slider.anatomy.ts:18"
       },
       {
         "name": "control",
-        "type": "[data-scope=\"slider\"][data-part=\"slider:control\"]",
+        "type": "[data-part~=\"slider:control\"]",
         "notes": "SliderControl",
         "source": "slider.anatomy.ts:19"
       },
       {
         "name": "track",
-        "type": "[data-scope=\"slider\"][data-part=\"slider:track\"]",
+        "type": "[data-part~=\"slider:track\"]",
         "notes": "SliderTrack",
         "source": "slider.anatomy.ts:20"
       },
       {
         "name": "range",
-        "type": "[data-scope=\"slider\"][data-part=\"slider:range\"]",
+        "type": "[data-part~=\"slider:range\"]",
         "notes": "SliderRange",
         "source": "slider.anatomy.ts:21"
       },
       {
         "name": "thumb",
-        "type": "[data-scope=\"slider\"][data-part=\"slider:thumb\"]",
+        "type": "[data-part~=\"slider:thumb\"]",
         "notes": "SliderThumb",
         "source": "slider.anatomy.ts:22"
       },
       {
         "name": "hiddenInput",
-        "type": "[data-scope=\"slider\"][data-part=\"slider:hidden-input\"]",
+        "type": "[data-part~=\"slider:hidden-input\"]",
         "notes": "SliderHiddenInput",
         "source": "slider.anatomy.ts:23"
       },
       {
         "name": "markerGroup",
-        "type": "[data-scope=\"slider\"][data-part=\"slider:marker-group\"]",
+        "type": "[data-part~=\"slider:marker-group\"]",
         "notes": "SliderMarkerGroup",
         "source": "slider.anatomy.ts:24"
       },
       {
         "name": "marker",
-        "type": "[data-scope=\"slider\"][data-part=\"slider:marker\"]",
+        "type": "[data-part~=\"slider:marker\"]",
         "notes": "SliderMarker",
         "source": "slider.anatomy.ts:25"
       }

@@ -99,37 +99,37 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"scroll-area\"][data-part=\"scroll-area:root\"]",
+        "type": "[data-part~=\"scroll-area:root\"]",
         "notes": "ScrollAreaRoot",
         "source": "scroll-area.anatomy.ts:6"
       },
       {
         "name": "viewport",
-        "type": "[data-scope=\"scroll-area\"][data-part=\"scroll-area:viewport\"]",
+        "type": "[data-part~=\"scroll-area:viewport\"]",
         "notes": "ScrollAreaViewport",
         "source": "scroll-area.anatomy.ts:7"
       },
       {
         "name": "content",
-        "type": "[data-scope=\"scroll-area\"][data-part=\"scroll-area:content\"]",
+        "type": "[data-part~=\"scroll-area:content\"]",
         "notes": "ScrollAreaContent",
         "source": "scroll-area.anatomy.ts:8"
       },
       {
         "name": "scrollbar",
-        "type": "[data-scope=\"scroll-area\"][data-part=\"scroll-area:scrollbar\"]",
+        "type": "[data-part~=\"scroll-area:scrollbar\"]",
         "notes": "ScrollAreaScrollbar",
         "source": "scroll-area.anatomy.ts:9"
       },
       {
         "name": "thumb",
-        "type": "[data-scope=\"scroll-area\"][data-part=\"scroll-area:thumb\"]",
+        "type": "[data-part~=\"scroll-area:thumb\"]",
         "notes": "ScrollAreaThumb",
         "source": "scroll-area.anatomy.ts:10"
       },
       {
         "name": "corner",
-        "type": "[data-scope=\"scroll-area\"][data-part=\"scroll-area:corner\"]",
+        "type": "[data-part~=\"scroll-area:corner\"]",
         "notes": "ScrollAreaCorner",
         "source": "scroll-area.anatomy.ts:11"
       }

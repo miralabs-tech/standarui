@@ -30,7 +30,7 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"separator\"][data-part=\"separator:root\"]",
+        "type": "[data-part~=\"separator:root\"]",
         "notes": "SeparatorRoot",
         "source": "separator.ts:19"
       }

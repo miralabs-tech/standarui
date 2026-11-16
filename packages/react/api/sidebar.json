@@ -146,97 +146,97 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"sidebar\"][data-part=\"sidebar:root\"]",
+        "type": "[data-part~=\"sidebar:root\"]",
         "notes": "SidebarRoot",
         "source": "sidebar.ts:37"
       },
       {
         "name": "header",
-        "type": "[data-scope=\"sidebar\"][data-part=\"sidebar:header\"]",
+        "type": "[data-part~=\"sidebar:header\"]",
         "notes": "SidebarHeader",
         "source": "sidebar.ts:38"
       },
       {
         "name": "headerLabel",
-        "type": "[data-scope=\"sidebar\"][data-part=\"sidebar:header-label\"]",
+        "type": "[data-part~=\"sidebar:header-label\"]",
         "notes": "SidebarHeaderLabel",
         "source": "sidebar.ts:39"
       },
       {
         "name": "content",
-        "type": "[data-scope=\"sidebar\"][data-part=\"sidebar:content\"]",
+        "type": "[data-part~=\"sidebar:content\"]",
         "notes": "SidebarContent",
         "source": "sidebar.ts:40"
       },
       {
         "name": "section",
-        "type": "[data-scope=\"sidebar\"][data-part=\"sidebar:section\"]",
+        "type": "[data-part~=\"sidebar:section\"]",
         "notes": "SidebarSection",
         "source": "sidebar.ts:41"
       },
       {
         "name": "sectionHeader",
-        "type": "[data-scope=\"sidebar\"][data-part=\"sidebar:section-header\"]",
+        "type": "[data-part~=\"sidebar:section-header\"]",
         "notes": "SidebarSectionHeader",
         "source": "sidebar.ts:42"
       },
       {
         "name": "group",
-        "type": "[data-scope=\"sidebar\"][data-part=\"sidebar:group\"]",
+        "type": "[data-part~=\"sidebar:group\"]",
         "notes": "SidebarGroup",
         "source": "sidebar.ts:43"
       },
       {
         "name": "item",
-        "type": "[data-scope=\"sidebar\"][data-part=\"sidebar:item\"]",
+        "type": "[data-part~=\"sidebar:item\"]",
         "notes": "SidebarItem",
         "source": "sidebar.ts:44"
       },
       {
         "name": "link",
-        "type": "[data-scope=\"sidebar\"][data-part=\"sidebar:link\"]",
+        "type": "[data-part~=\"sidebar:link\"]",
         "notes": "SidebarLink",
         "source": "sidebar.ts:45"
       },
       {
         "name": "leading",
-        "type": "[data-scope=\"sidebar\"][data-part=\"sidebar:leading\"]",
+        "type": "[data-part~=\"sidebar:leading\"]",
         "notes": "SidebarLeading",
         "source": "sidebar.ts:46"
       },
       {
         "name": "label",
-        "type": "[data-scope=\"sidebar\"][data-part=\"sidebar:label\"]",
+        "type": "[data-part~=\"sidebar:label\"]",
         "notes": "SidebarLabel",
         "source": "sidebar.ts:47"
       },
       {
         "name": "trailing",
-        "type": "[data-scope=\"sidebar\"][data-part=\"sidebar:trailing\"]",
+        "type": "[data-part~=\"sidebar:trailing\"]",
         "notes": "SidebarTrailing",
         "source": "sidebar.ts:48"
       },
       {
         "name": "footer",
-        "type": "[data-scope=\"sidebar\"][data-part=\"sidebar:footer\"]",
+        "type": "[data-part~=\"sidebar:footer\"]",
         "notes": "SidebarFooter",
         "source": "sidebar.ts:49"
       },
       {
         "name": "footerLabel",
-        "type": "[data-scope=\"sidebar\"][data-part=\"sidebar:footer-label\"]",
+        "type": "[data-part~=\"sidebar:footer-label\"]",
         "notes": "SidebarFooterLabel",
         "source": "sidebar.ts:50"
       },
       {
         "name": "trigger",
-        "type": "[data-scope=\"sidebar\"][data-part=\"sidebar:trigger\"]",
+        "type": "[data-part~=\"sidebar:trigger\"]",
         "notes": "SidebarTrigger",
         "source": "sidebar.ts:51"
       },
       {
         "name": "drawer",
-        "type": "[data-scope=\"sidebar\"][data-part=\"sidebar:drawer\"]",
+        "type": "[data-part~=\"sidebar:drawer\"]",
         "notes": "SidebarDrawer",
         "source": "sidebar.ts:52"
       }

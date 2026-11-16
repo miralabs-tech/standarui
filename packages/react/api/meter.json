@@ -142,31 +142,31 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"meter\"][data-part=\"meter:root\"]",
+        "type": "[data-part~=\"meter:root\"]",
         "notes": "MeterRoot",
         "source": "meter.anatomy.ts:6"
       },
       {
         "name": "label",
-        "type": "[data-scope=\"meter\"][data-part=\"meter:label\"]",
+        "type": "[data-part~=\"meter:label\"]",
         "notes": "MeterLabel",
         "source": "meter.anatomy.ts:7"
       },
       {
         "name": "track",
-        "type": "[data-scope=\"meter\"][data-part=\"meter:track\"]",
+        "type": "[data-part~=\"meter:track\"]",
         "notes": "MeterTrack",
         "source": "meter.anatomy.ts:8"
       },
       {
         "name": "range",
-        "type": "[data-scope=\"meter\"][data-part=\"meter:range\"]",
+        "type": "[data-part~=\"meter:range\"]",
         "notes": "MeterRange",
         "source": "meter.anatomy.ts:9"
       },
       {
         "name": "valueText",
-        "type": "[data-scope=\"meter\"][data-part=\"meter:value-text\"]",
+        "type": "[data-part~=\"meter:value-text\"]",
         "notes": "MeterValueText",
         "source": "meter.anatomy.ts:10"
       }

@@ -177,43 +177,43 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"accordion\"][data-part=\"accordion:root\"]",
+        "type": "[data-part~=\"accordion:root\"]",
         "notes": "AccordionRoot",
         "source": "accordion.anatomy.ts:24"
       },
       {
         "name": "item",
-        "type": "[data-scope=\"accordion\"][data-part=\"accordion:item\"]",
+        "type": "[data-part~=\"accordion:item\"]",
         "notes": "AccordionItem",
         "source": "accordion.anatomy.ts:25"
       },
       {
         "name": "header",
-        "type": "[data-scope=\"accordion\"][data-part=\"accordion:header\"]",
+        "type": "[data-part~=\"accordion:header\"]",
         "notes": "AccordionHeader",
         "source": "accordion.anatomy.ts:26"
       },
       {
         "name": "trigger",
-        "type": "[data-scope=\"accordion\"][data-part=\"accordion:trigger\"]",
+        "type": "[data-part~=\"accordion:trigger\"]",
         "notes": "AccordionTrigger",
         "source": "accordion.anatomy.ts:27"
       },
       {
         "name": "indicator",
-        "type": "[data-scope=\"accordion\"][data-part=\"accordion:indicator\"]",
+        "type": "[data-part~=\"accordion:indicator\"]",
         "notes": "AccordionIndicator",
         "source": "accordion.anatomy.ts:28"
       },
       {
         "name": "content",
-        "type": "[data-scope=\"accordion\"][data-part=\"accordion:content\"]",
+        "type": "[data-part~=\"accordion:content\"]",
         "notes": "AccordionContent",
         "source": "accordion.anatomy.ts:29"
       },
       {
         "name": "body",
-        "type": "[data-scope=\"accordion\"][data-part=\"accordion:body\"]",
+        "type": "[data-part~=\"accordion:body\"]",
         "notes": "AccordionBody",
         "source": "accordion.anatomy.ts:30"
       }

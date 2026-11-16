@@ -210,13 +210,13 @@
     "rows": [
       {
         "name": "panel",
-        "type": "[data-scope=\"splitter\"][data-part=\"splitter:panel\"]",
+        "type": "[data-part~=\"splitter:panel\"]",
         "notes": "SplitterPanel",
         "source": "splitter.anatomy.ts:5"
       },
       {
         "name": "handle",
-        "type": "[data-scope=\"splitter\"][data-part=\"splitter:handle\"]",
+        "type": "[data-part~=\"splitter:handle\"]",
         "notes": "SplitterHandle",
         "source": "splitter.anatomy.ts:5"
       }

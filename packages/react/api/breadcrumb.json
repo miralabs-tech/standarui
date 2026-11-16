@@ -127,37 +127,37 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"breadcrumb\"][data-part=\"breadcrumb:root\"]",
+        "type": "[data-part~=\"breadcrumb:root\"]",
         "notes": "BreadcrumbRoot",
         "source": "breadcrumb.anatomy.ts:14"
       },
       {
         "name": "list",
-        "type": "[data-scope=\"breadcrumb\"][data-part=\"breadcrumb:list\"]",
+        "type": "[data-part~=\"breadcrumb:list\"]",
         "notes": "BreadcrumbList",
         "source": "breadcrumb.anatomy.ts:15"
       },
       {
         "name": "item",
-        "type": "[data-scope=\"breadcrumb\"][data-part=\"breadcrumb:item\"]",
+        "type": "[data-part~=\"breadcrumb:item\"]",
         "notes": "BreadcrumbItem",
         "source": "breadcrumb.anatomy.ts:16"
       },
       {
         "name": "link",
-        "type": "[data-scope=\"breadcrumb\"][data-part=\"breadcrumb:link\"]",
+        "type": "[data-part~=\"breadcrumb:link\"]",
         "notes": "BreadcrumbLink",
         "source": "breadcrumb.anatomy.ts:17"
       },
       {
         "name": "ellipsis",
-        "type": "[data-scope=\"breadcrumb\"][data-part=\"breadcrumb:ellipsis\"]",
+        "type": "[data-part~=\"breadcrumb:ellipsis\"]",
         "notes": "BreadcrumbEllipsis",
         "source": "breadcrumb.anatomy.ts:18"
       },
       {
         "name": "ellipsisTrigger",
-        "type": "[data-scope=\"breadcrumb\"][data-part=\"breadcrumb:ellipsis-trigger\"]",
+        "type": "[data-part~=\"breadcrumb:ellipsis-trigger\"]",
         "notes": "BreadcrumbEllipsisTrigger",
         "source": "breadcrumb.anatomy.ts:19"
       }

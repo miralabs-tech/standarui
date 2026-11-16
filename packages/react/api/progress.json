@@ -129,49 +129,49 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"progress\"][data-part=\"progress:root\"]",
+        "type": "[data-part~=\"progress:root\"]",
         "notes": "ProgressRoot",
         "source": "progress.anatomy.ts:14"
       },
       {
         "name": "label",
-        "type": "[data-scope=\"progress\"][data-part=\"progress:label\"]",
+        "type": "[data-part~=\"progress:label\"]",
         "notes": "ProgressLabel",
         "source": "progress.anatomy.ts:15"
       },
       {
         "name": "track",
-        "type": "[data-scope=\"progress\"][data-part=\"progress:track\"]",
+        "type": "[data-part~=\"progress:track\"]",
         "notes": "ProgressTrack",
         "source": "progress.anatomy.ts:16"
       },
       {
         "name": "range",
-        "type": "[data-scope=\"progress\"][data-part=\"progress:range\"]",
+        "type": "[data-part~=\"progress:range\"]",
         "notes": "ProgressRange",
         "source": "progress.anatomy.ts:17"
       },
       {
         "name": "valueText",
-        "type": "[data-scope=\"progress\"][data-part=\"progress:value-text\"]",
+        "type": "[data-part~=\"progress:value-text\"]",
         "notes": "ProgressValueText",
         "source": "progress.anatomy.ts:18"
       },
       {
         "name": "circle",
-        "type": "[data-scope=\"progress\"][data-part=\"progress:circle\"]",
+        "type": "[data-part~=\"progress:circle\"]",
         "notes": "ProgressCircle",
         "source": "progress.anatomy.ts:19"
       },
       {
         "name": "circleTrack",
-        "type": "[data-scope=\"progress\"][data-part=\"progress:circle-track\"]",
+        "type": "[data-part~=\"progress:circle-track\"]",
         "notes": "ProgressCircleTrack",
         "source": "progress.anatomy.ts:20"
       },
       {
         "name": "circleRange",
-        "type": "[data-scope=\"progress\"][data-part=\"progress:circle-range\"]",
+        "type": "[data-part~=\"progress:circle-range\"]",
         "notes": "ProgressCircleRange",
         "source": "progress.anatomy.ts:21"
       }

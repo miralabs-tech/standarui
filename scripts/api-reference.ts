@@ -794,7 +794,7 @@ function anatomyTable(component: string): ApiTable | undefined {
       const candidate = `${prefix}${part.key.charAt(0).toUpperCase()}${part.key.slice(1)}`;
       return {
         name: part.key,
-        type: `[data-scope="${anatomy.scope}"][data-part="${part.part}"]`,
+        type: `[data-part~="${part.part}"]`,
         notes: exported.has(candidate) ? candidate : "",
         source: `${part.source.file}:${part.source.line}`,
         group: undefined,

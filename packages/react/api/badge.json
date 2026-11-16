@@ -89,7 +89,7 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"badge\"][data-part=\"badge:root\"]",
+        "type": "[data-part~=\"badge:root\"]",
         "notes": "BadgeRoot",
         "source": "badge.ts:20"
       }

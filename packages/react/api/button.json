@@ -112,13 +112,13 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"button\"][data-part=\"button:root\"]",
+        "type": "[data-part~=\"button:root\"]",
         "notes": "ButtonRoot",
         "source": "button.anatomy.ts:6"
       },
       {
         "name": "loadingIndicator",
-        "type": "[data-scope=\"button\"][data-part=\"button:loading-indicator\"]",
+        "type": "[data-part~=\"button:loading-indicator\"]",
         "notes": "ButtonLoadingIndicator",
         "source": "button.anatomy.ts:7"
       }

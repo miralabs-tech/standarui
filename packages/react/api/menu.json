@@ -552,103 +552,103 @@
     "rows": [
       {
         "name": "trigger",
-        "type": "[data-scope=\"menu\"][data-part=\"menu:trigger\"]",
+        "type": "[data-part~=\"menu:trigger\"]",
         "notes": "MenuTrigger",
         "source": "menu.anatomy.ts:41"
       },
       {
         "name": "contextTrigger",
-        "type": "[data-scope=\"menu\"][data-part=\"menu:context-trigger\"]",
+        "type": "[data-part~=\"menu:context-trigger\"]",
         "notes": "MenuContextTrigger",
         "source": "menu.anatomy.ts:42"
       },
       {
         "name": "indicator",
-        "type": "[data-scope=\"menu\"][data-part=\"menu:indicator\"]",
+        "type": "[data-part~=\"menu:indicator\"]",
         "notes": "MenuIndicator",
         "source": "menu.anatomy.ts:43"
       },
       {
         "name": "backdrop",
-        "type": "[data-scope=\"menu\"][data-part=\"menu:backdrop\"]",
+        "type": "[data-part~=\"menu:backdrop\"]",
         "notes": "MenuBackdrop",
         "source": "menu.anatomy.ts:44"
       },
       {
         "name": "positioner",
-        "type": "[data-scope=\"menu\"][data-part=\"menu:positioner\"]",
+        "type": "[data-part~=\"menu:positioner\"]",
         "notes": "MenuPositioner",
         "source": "menu.anatomy.ts:45"
       },
       {
         "name": "content",
-        "type": "[data-scope=\"menu\"][data-part=\"menu:content\"]",
+        "type": "[data-part~=\"menu:content\"]",
         "notes": "MenuContent",
         "source": "menu.anatomy.ts:46"
       },
       {
         "name": "itemGroup",
-        "type": "[data-scope=\"menu\"][data-part=\"menu:item-group\"]",
+        "type": "[data-part~=\"menu:item-group\"]",
         "notes": "MenuItemGroup",
         "source": "menu.anatomy.ts:47"
       },
       {
         "name": "itemGroupLabel",
-        "type": "[data-scope=\"menu\"][data-part=\"menu:item-group-label\"]",
+        "type": "[data-part~=\"menu:item-group-label\"]",
         "notes": "MenuItemGroupLabel",
         "source": "menu.anatomy.ts:48"
       },
       {
         "name": "item",
-        "type": "[data-scope=\"menu\"][data-part=\"menu:item\"]",
+        "type": "[data-part~=\"menu:item\"]",
         "notes": "MenuItem",
         "source": "menu.anatomy.ts:49"
       },
       {
         "name": "triggerItem",
-        "type": "[data-scope=\"menu\"][data-part=\"menu:trigger-item\"]",
+        "type": "[data-part~=\"menu:trigger-item\"]",
         "notes": "MenuTriggerItem",
         "source": "menu.anatomy.ts:50"
       },
       {
         "name": "itemSymbol",
-        "type": "[data-scope=\"menu\"][data-part=\"menu:item-symbol\"]",
+        "type": "[data-part~=\"menu:item-symbol\"]",
         "notes": "MenuItemSymbol",
         "source": "menu.anatomy.ts:51"
       },
       {
         "name": "itemText",
-        "type": "[data-scope=\"menu\"][data-part=\"menu:item-text\"]",
+        "type": "[data-part~=\"menu:item-text\"]",
         "notes": "MenuItemText",
         "source": "menu.anatomy.ts:52"
       },
       {
         "name": "itemDescription",
-        "type": "[data-scope=\"menu\"][data-part=\"menu:item-description\"]",
+        "type": "[data-part~=\"menu:item-description\"]",
         "notes": "MenuItemDescription",
         "source": "menu.anatomy.ts:53"
       },
       {
         "name": "itemIndicator",
-        "type": "[data-scope=\"menu\"][data-part=\"menu:item-indicator\"]",
+        "type": "[data-part~=\"menu:item-indicator\"]",
         "notes": "MenuItemIndicator",
         "source": "menu.anatomy.ts:54"
       },
       {
         "name": "itemShortcut",
-        "type": "[data-scope=\"menu\"][data-part=\"menu:item-shortcut\"]",
+        "type": "[data-part~=\"menu:item-shortcut\"]",
         "notes": "MenuItemShortcut",
         "source": "menu.anatomy.ts:55"
       },
       {
         "name": "separator",
-        "type": "[data-scope=\"menu\"][data-part=\"menu:separator\"]",
+        "type": "[data-part~=\"menu:separator\"]",
         "notes": "MenuSeparator",
         "source": "menu.anatomy.ts:56"
       },
       {
         "name": "cancelTrigger",
-        "type": "[data-scope=\"menu\"][data-part=\"menu:cancel-trigger\"]",
+        "type": "[data-part~=\"menu:cancel-trigger\"]",
         "notes": "MenuCancelTrigger",
         "source": "menu.anatomy.ts:57"
       }

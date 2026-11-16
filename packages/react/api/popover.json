@@ -362,61 +362,61 @@
     "rows": [
       {
         "name": "trigger",
-        "type": "[data-scope=\"popover\"][data-part=\"popover:trigger\"]",
+        "type": "[data-part~=\"popover:trigger\"]",
         "notes": "PopoverTrigger",
         "source": "popover.anatomy.ts:32"
       },
       {
         "name": "anchor",
-        "type": "[data-scope=\"popover\"][data-part=\"popover:anchor\"]",
+        "type": "[data-part~=\"popover:anchor\"]",
         "notes": "PopoverAnchor",
         "source": "popover.anatomy.ts:33"
       },
       {
         "name": "backdrop",
-        "type": "[data-scope=\"popover\"][data-part=\"popover:backdrop\"]",
+        "type": "[data-part~=\"popover:backdrop\"]",
         "notes": "PopoverBackdrop",
         "source": "popover.anatomy.ts:34"
       },
       {
         "name": "positioner",
-        "type": "[data-scope=\"popover\"][data-part=\"popover:positioner\"]",
+        "type": "[data-part~=\"popover:positioner\"]",
         "notes": "PopoverPositioner",
         "source": "popover.anatomy.ts:35"
       },
       {
         "name": "content",
-        "type": "[data-scope=\"popover\"][data-part=\"popover:content\"]",
+        "type": "[data-part~=\"popover:content\"]",
         "notes": "PopoverContent",
         "source": "popover.anatomy.ts:36"
       },
       {
         "name": "arrow",
-        "type": "[data-scope=\"popover\"][data-part=\"popover:arrow\"]",
+        "type": "[data-part~=\"popover:arrow\"]",
         "notes": "PopoverArrow",
         "source": "popover.anatomy.ts:37"
       },
       {
         "name": "arrowTip",
-        "type": "[data-scope=\"popover\"][data-part=\"popover:arrow-tip\"]",
+        "type": "[data-part~=\"popover:arrow-tip\"]",
         "notes": "",
         "source": "popover.anatomy.ts:38"
       },
       {
         "name": "title",
-        "type": "[data-scope=\"popover\"][data-part=\"popover:title\"]",
+        "type": "[data-part~=\"popover:title\"]",
         "notes": "PopoverTitle",
         "source": "popover.anatomy.ts:39"
       },
       {
         "name": "description",
-        "type": "[data-scope=\"popover\"][data-part=\"popover:description\"]",
+        "type": "[data-part~=\"popover:description\"]",
         "notes": "PopoverDescription",
         "source": "popover.anatomy.ts:40"
       },
       {
         "name": "closeTrigger",
-        "type": "[data-scope=\"popover\"][data-part=\"popover:close-trigger\"]",
+        "type": "[data-part~=\"popover:close-trigger\"]",
         "notes": "PopoverCloseTrigger",
         "source": "popover.anatomy.ts:41"
       }

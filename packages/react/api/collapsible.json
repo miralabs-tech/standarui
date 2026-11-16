@@ -100,25 +100,25 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"collapsible\"][data-part=\"collapsible:root\"]",
+        "type": "[data-part~=\"collapsible:root\"]",
         "notes": "CollapsibleRoot",
         "source": "collapsible.anatomy.ts:6"
       },
       {
         "name": "trigger",
-        "type": "[data-scope=\"collapsible\"][data-part=\"collapsible:trigger\"]",
+        "type": "[data-part~=\"collapsible:trigger\"]",
         "notes": "CollapsibleTrigger",
         "source": "collapsible.anatomy.ts:7"
       },
       {
         "name": "indicator",
-        "type": "[data-scope=\"collapsible\"][data-part=\"collapsible:indicator\"]",
+        "type": "[data-part~=\"collapsible:indicator\"]",
         "notes": "CollapsibleIndicator",
         "source": "collapsible.anatomy.ts:8"
       },
       {
         "name": "content",
-        "type": "[data-scope=\"collapsible\"][data-part=\"collapsible:content\"]",
+        "type": "[data-part~=\"collapsible:content\"]",
         "notes": "CollapsibleContent",
         "source": "collapsible.anatomy.ts:9"
       }

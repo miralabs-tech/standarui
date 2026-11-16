@@ -100,19 +100,19 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"avatar\"][data-part=\"avatar:root\"]",
+        "type": "[data-part~=\"avatar:root\"]",
         "notes": "AvatarRoot",
         "source": "avatar.anatomy.ts:6"
       },
       {
         "name": "image",
-        "type": "[data-scope=\"avatar\"][data-part=\"avatar:image\"]",
+        "type": "[data-part~=\"avatar:image\"]",
         "notes": "AvatarImage",
         "source": "avatar.anatomy.ts:7"
       },
       {
         "name": "fallback",
-        "type": "[data-scope=\"avatar\"][data-part=\"avatar:fallback\"]",
+        "type": "[data-part~=\"avatar:fallback\"]",
         "notes": "AvatarFallback",
         "source": "avatar.anatomy.ts:8"
       }

@@ -444,61 +444,61 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"date-picker\"][data-part=\"date-picker:root\"]",
+        "type": "[data-part~=\"date-picker:root\"]",
         "notes": "DatePickerRoot",
         "source": "date-picker.anatomy.ts:31"
       },
       {
         "name": "label",
-        "type": "[data-scope=\"date-picker\"][data-part=\"date-picker:label\"]",
+        "type": "[data-part~=\"date-picker:label\"]",
         "notes": "DatePickerLabel",
         "source": "date-picker.anatomy.ts:32"
       },
       {
         "name": "trigger",
-        "type": "[data-scope=\"date-picker\"][data-part=\"date-picker:trigger\"]",
+        "type": "[data-part~=\"date-picker:trigger\"]",
         "notes": "DatePickerTrigger",
         "source": "date-picker.anatomy.ts:33"
       },
       {
         "name": "clearTrigger",
-        "type": "[data-scope=\"date-picker\"][data-part=\"date-picker:clear-trigger\"]",
+        "type": "[data-part~=\"date-picker:clear-trigger\"]",
         "notes": "DatePickerClearTrigger",
         "source": "date-picker.anatomy.ts:34"
       },
       {
         "name": "backdrop",
-        "type": "[data-scope=\"date-picker\"][data-part=\"date-picker:backdrop\"]",
+        "type": "[data-part~=\"date-picker:backdrop\"]",
         "notes": "DatePickerBackdrop",
         "source": "date-picker.anatomy.ts:35"
       },
       {
         "name": "positioner",
-        "type": "[data-scope=\"date-picker\"][data-part=\"date-picker:positioner\"]",
+        "type": "[data-part~=\"date-picker:positioner\"]",
         "notes": "DatePickerPositioner",
         "source": "date-picker.anatomy.ts:36"
       },
       {
         "name": "content",
-        "type": "[data-scope=\"date-picker\"][data-part=\"date-picker:content\"]",
+        "type": "[data-part~=\"date-picker:content\"]",
         "notes": "DatePickerContent",
         "source": "date-picker.anatomy.ts:37"
       },
       {
         "name": "title",
-        "type": "[data-scope=\"date-picker\"][data-part=\"date-picker:title\"]",
+        "type": "[data-part~=\"date-picker:title\"]",
         "notes": "DatePickerTitle",
         "source": "date-picker.anatomy.ts:38"
       },
       {
         "name": "cancelTrigger",
-        "type": "[data-scope=\"date-picker\"][data-part=\"date-picker:cancel-trigger\"]",
+        "type": "[data-part~=\"date-picker:cancel-trigger\"]",
         "notes": "DatePickerCancelTrigger",
         "source": "date-picker.anatomy.ts:39"
       },
       {
         "name": "closeTrigger",
-        "type": "[data-scope=\"date-picker\"][data-part=\"date-picker:close-trigger\"]",
+        "type": "[data-part~=\"date-picker:close-trigger\"]",
         "notes": "DatePickerCloseTrigger",
         "source": "date-picker.anatomy.ts:40"
       }

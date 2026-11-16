@@ -547,193 +547,193 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:root\"]",
+        "type": "[data-part~=\"color-picker:root\"]",
         "notes": "ColorPickerRoot",
         "source": "color-picker.anatomy.ts:52"
       },
       {
         "name": "label",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:label\"]",
+        "type": "[data-part~=\"color-picker:label\"]",
         "notes": "ColorPickerLabel",
         "source": "color-picker.anatomy.ts:53"
       },
       {
         "name": "trigger",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:trigger\"]",
+        "type": "[data-part~=\"color-picker:trigger\"]",
         "notes": "ColorPickerTrigger",
         "source": "color-picker.anatomy.ts:54"
       },
       {
         "name": "triggerSwatch",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:trigger-swatch\"]",
+        "type": "[data-part~=\"color-picker:trigger-swatch\"]",
         "notes": "ColorPickerTriggerSwatch",
         "source": "color-picker.anatomy.ts:55"
       },
       {
         "name": "valueText",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:value-text\"]",
+        "type": "[data-part~=\"color-picker:value-text\"]",
         "notes": "ColorPickerValueText",
         "source": "color-picker.anatomy.ts:56"
       },
       {
         "name": "hiddenInput",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:hidden-input\"]",
+        "type": "[data-part~=\"color-picker:hidden-input\"]",
         "notes": "ColorPickerHiddenInput",
         "source": "color-picker.anatomy.ts:57"
       },
       {
         "name": "backdrop",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:backdrop\"]",
+        "type": "[data-part~=\"color-picker:backdrop\"]",
         "notes": "ColorPickerBackdrop",
         "source": "color-picker.anatomy.ts:58"
       },
       {
         "name": "positioner",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:positioner\"]",
+        "type": "[data-part~=\"color-picker:positioner\"]",
         "notes": "ColorPickerPositioner",
         "source": "color-picker.anatomy.ts:59"
       },
       {
         "name": "content",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:content\"]",
+        "type": "[data-part~=\"color-picker:content\"]",
         "notes": "ColorPickerContent",
         "source": "color-picker.anatomy.ts:60"
       },
       {
         "name": "arrow",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:arrow\"]",
+        "type": "[data-part~=\"color-picker:arrow\"]",
         "notes": "ColorPickerArrow",
         "source": "color-picker.anatomy.ts:61"
       },
       {
         "name": "title",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:title\"]",
+        "type": "[data-part~=\"color-picker:title\"]",
         "notes": "ColorPickerTitle",
         "source": "color-picker.anatomy.ts:62"
       },
       {
         "name": "cancelTrigger",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:cancel-trigger\"]",
+        "type": "[data-part~=\"color-picker:cancel-trigger\"]",
         "notes": "ColorPickerCancelTrigger",
         "source": "color-picker.anatomy.ts:63"
       },
       {
         "name": "closeTrigger",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:close-trigger\"]",
+        "type": "[data-part~=\"color-picker:close-trigger\"]",
         "notes": "ColorPickerCloseTrigger",
         "source": "color-picker.anatomy.ts:64"
       },
       {
         "name": "area",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:area\"]",
+        "type": "[data-part~=\"color-picker:area\"]",
         "notes": "ColorPickerArea",
         "source": "color-picker.anatomy.ts:65"
       },
       {
         "name": "areaBackground",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:area-background\"]",
+        "type": "[data-part~=\"color-picker:area-background\"]",
         "notes": "ColorPickerAreaBackground",
         "source": "color-picker.anatomy.ts:66"
       },
       {
         "name": "areaThumb",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:area-thumb\"]",
+        "type": "[data-part~=\"color-picker:area-thumb\"]",
         "notes": "ColorPickerAreaThumb",
         "source": "color-picker.anatomy.ts:67"
       },
       {
         "name": "areaXInput",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:area-x-input\"]",
+        "type": "[data-part~=\"color-picker:area-x-input\"]",
         "notes": "ColorPickerAreaXInput",
         "source": "color-picker.anatomy.ts:68"
       },
       {
         "name": "areaYInput",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:area-y-input\"]",
+        "type": "[data-part~=\"color-picker:area-y-input\"]",
         "notes": "ColorPickerAreaYInput",
         "source": "color-picker.anatomy.ts:69"
       },
       {
         "name": "channelSlider",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:channel-slider\"]",
+        "type": "[data-part~=\"color-picker:channel-slider\"]",
         "notes": "ColorPickerChannelSlider",
         "source": "color-picker.anatomy.ts:70"
       },
       {
         "name": "channelLabel",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:channel-label\"]",
+        "type": "[data-part~=\"color-picker:channel-label\"]",
         "notes": "ColorPickerChannelLabel",
         "source": "color-picker.anatomy.ts:71"
       },
       {
         "name": "channelSliderTrack",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:channel-slider-track\"]",
+        "type": "[data-part~=\"color-picker:channel-slider-track\"]",
         "notes": "ColorPickerChannelSliderTrack",
         "source": "color-picker.anatomy.ts:72"
       },
       {
         "name": "channelSliderRange",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:channel-slider-range\"]",
+        "type": "[data-part~=\"color-picker:channel-slider-range\"]",
         "notes": "ColorPickerChannelSliderRange",
         "source": "color-picker.anatomy.ts:73"
       },
       {
         "name": "channelSliderThumb",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:channel-slider-thumb\"]",
+        "type": "[data-part~=\"color-picker:channel-slider-thumb\"]",
         "notes": "ColorPickerChannelSliderThumb",
         "source": "color-picker.anatomy.ts:74"
       },
       {
         "name": "channelInput",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:channel-input\"]",
+        "type": "[data-part~=\"color-picker:channel-input\"]",
         "notes": "ColorPickerChannelInput",
         "source": "color-picker.anatomy.ts:75"
       },
       {
         "name": "formatSelect",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:format-select\"]",
+        "type": "[data-part~=\"color-picker:format-select\"]",
         "notes": "ColorPickerFormatSelect",
         "source": "color-picker.anatomy.ts:76"
       },
       {
         "name": "swatchGroup",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:swatch-group\"]",
+        "type": "[data-part~=\"color-picker:swatch-group\"]",
         "notes": "ColorPickerSwatchGroup",
         "source": "color-picker.anatomy.ts:77"
       },
       {
         "name": "swatchRow",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:swatch-row\"]",
+        "type": "[data-part~=\"color-picker:swatch-row\"]",
         "notes": "ColorPickerSwatchRow",
         "source": "color-picker.anatomy.ts:78"
       },
       {
         "name": "swatch",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:swatch\"]",
+        "type": "[data-part~=\"color-picker:swatch\"]",
         "notes": "ColorPickerSwatch",
         "source": "color-picker.anatomy.ts:79"
       },
       {
         "name": "swatchIndicator",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:swatch-indicator\"]",
+        "type": "[data-part~=\"color-picker:swatch-indicator\"]",
         "notes": "ColorPickerSwatchIndicator",
         "source": "color-picker.anatomy.ts:80"
       },
       {
         "name": "swatchTrigger",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:swatch-trigger\"]",
+        "type": "[data-part~=\"color-picker:swatch-trigger\"]",
         "notes": "ColorPickerSwatchTrigger",
         "source": "color-picker.anatomy.ts:81"
       },
       {
         "name": "eyedropperTrigger",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:eyedropper-trigger\"]",
+        "type": "[data-part~=\"color-picker:eyedropper-trigger\"]",
         "notes": "ColorPickerEyedropperTrigger",
         "source": "color-picker.anatomy.ts:82"
       },
       {
         "name": "transparencyGrid",
-        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:transparency-grid\"]",
+        "type": "[data-part~=\"color-picker:transparency-grid\"]",
         "notes": "ColorPickerTransparencyGrid",
         "source": "color-picker.anatomy.ts:83"
       }

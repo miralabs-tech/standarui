@@ -153,43 +153,43 @@
     "rows": [
       {
         "name": "frame",
-        "type": "[data-scope=\"toggle-group\"][data-part=\"toggle-group:frame\"]",
+        "type": "[data-part~=\"toggle-group:frame\"]",
         "notes": "ToggleGroupFrame",
         "source": "toggle-group.anatomy.ts:13"
       },
       {
         "name": "root",
-        "type": "[data-scope=\"toggle-group\"][data-part=\"toggle-group:root\"]",
+        "type": "[data-part~=\"toggle-group:root\"]",
         "notes": "ToggleGroupRoot",
         "source": "toggle-group.anatomy.ts:14"
       },
       {
         "name": "label",
-        "type": "[data-scope=\"toggle-group\"][data-part=\"toggle-group:label\"]",
+        "type": "[data-part~=\"toggle-group:label\"]",
         "notes": "ToggleGroupLabel",
         "source": "toggle-group.anatomy.ts:15"
       },
       {
         "name": "item",
-        "type": "[data-scope=\"toggle-group\"][data-part=\"toggle-group:item\"]",
+        "type": "[data-part~=\"toggle-group:item\"]",
         "notes": "ToggleGroupItem",
         "source": "toggle-group.anatomy.ts:16"
       },
       {
         "name": "indicator",
-        "type": "[data-scope=\"toggle-group\"][data-part=\"toggle-group:indicator\"]",
+        "type": "[data-part~=\"toggle-group:indicator\"]",
         "notes": "ToggleGroupIndicator",
         "source": "toggle-group.anatomy.ts:17"
       },
       {
         "name": "scrollbar",
-        "type": "[data-scope=\"toggle-group\"][data-part=\"toggle-group:scrollbar\"]",
+        "type": "[data-part~=\"toggle-group:scrollbar\"]",
         "notes": "ToggleGroupScrollbar",
         "source": "toggle-group.anatomy.ts:18"
       },
       {
         "name": "thumb",
-        "type": "[data-scope=\"toggle-group\"][data-part=\"toggle-group:thumb\"]",
+        "type": "[data-part~=\"toggle-group:thumb\"]",
         "notes": "ToggleGroupThumb",
         "source": "toggle-group.anatomy.ts:19"
       }

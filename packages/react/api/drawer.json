@@ -146,25 +146,25 @@
     "rows": [
       {
         "name": "positioner",
-        "type": "[data-scope=\"drawer\"][data-part=\"drawer:positioner\"]",
+        "type": "[data-part~=\"drawer:positioner\"]",
         "notes": "DrawerPositioner",
         "source": "drawer.anatomy.ts:22"
       },
       {
         "name": "backdrop",
-        "type": "[data-scope=\"drawer\"][data-part=\"drawer:backdrop\"]",
+        "type": "[data-part~=\"drawer:backdrop\"]",
         "notes": "DrawerBackdrop",
         "source": "drawer.anatomy.ts:23"
       },
       {
         "name": "content",
-        "type": "[data-scope=\"drawer\"][data-part=\"drawer:content\"]",
+        "type": "[data-part~=\"drawer:content\"]",
         "notes": "DrawerContent",
         "source": "drawer.anatomy.ts:24"
       },
       {
         "name": "grabber",
-        "type": "[data-scope=\"drawer\"][data-part=\"drawer:grabber\"]",
+        "type": "[data-part~=\"drawer:grabber\"]",
         "notes": "DrawerGrabber",
         "source": "drawer.anatomy.ts:25"
       }

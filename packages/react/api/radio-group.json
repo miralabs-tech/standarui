@@ -131,43 +131,43 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"radio-group\"][data-part=\"radio-group:root\"]",
+        "type": "[data-part~=\"radio-group:root\"]",
         "notes": "RadioGroupRoot",
         "source": "radio-group.anatomy.ts:13"
       },
       {
         "name": "label",
-        "type": "[data-scope=\"radio-group\"][data-part=\"radio-group:label\"]",
+        "type": "[data-part~=\"radio-group:label\"]",
         "notes": "RadioGroupLabel",
         "source": "radio-group.anatomy.ts:14"
       },
       {
         "name": "item",
-        "type": "[data-scope=\"radio-group\"][data-part=\"radio-group:item\"]",
+        "type": "[data-part~=\"radio-group:item\"]",
         "notes": "RadioGroupItem",
         "source": "radio-group.anatomy.ts:15"
       },
       {
         "name": "itemControl",
-        "type": "[data-scope=\"radio-group\"][data-part=\"radio-group:item-control\"]",
+        "type": "[data-part~=\"radio-group:item-control\"]",
         "notes": "RadioGroupItemControl",
         "source": "radio-group.anatomy.ts:16"
       },
       {
         "name": "itemText",
-        "type": "[data-scope=\"radio-group\"][data-part=\"radio-group:item-text\"]",
+        "type": "[data-part~=\"radio-group:item-text\"]",
         "notes": "RadioGroupItemText",
         "source": "radio-group.anatomy.ts:17"
       },
       {
         "name": "itemHiddenInput",
-        "type": "[data-scope=\"radio-group\"][data-part=\"radio-group:item-hidden-input\"]",
+        "type": "[data-part~=\"radio-group:item-hidden-input\"]",
         "notes": "RadioGroupItemHiddenInput",
         "source": "radio-group.anatomy.ts:18"
       },
       {
         "name": "indicator",
-        "type": "[data-scope=\"radio-group\"][data-part=\"radio-group:indicator\"]",
+        "type": "[data-part~=\"radio-group:indicator\"]",
         "notes": "RadioGroupIndicator",
         "source": "radio-group.anatomy.ts:19"
       }

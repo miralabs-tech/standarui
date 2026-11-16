@@ -225,49 +225,49 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"tabs\"][data-part=\"tabs:root\"]",
+        "type": "[data-part~=\"tabs:root\"]",
         "notes": "TabsRoot",
         "source": "tabs.anatomy.ts:20"
       },
       {
         "name": "list",
-        "type": "[data-scope=\"tabs\"][data-part=\"tabs:list\"]",
+        "type": "[data-part~=\"tabs:list\"]",
         "notes": "TabsList",
         "source": "tabs.anatomy.ts:21"
       },
       {
         "name": "trigger",
-        "type": "[data-scope=\"tabs\"][data-part=\"tabs:trigger\"]",
+        "type": "[data-part~=\"tabs:trigger\"]",
         "notes": "TabsTrigger",
         "source": "tabs.anatomy.ts:22"
       },
       {
         "name": "indicator",
-        "type": "[data-scope=\"tabs\"][data-part=\"tabs:indicator\"]",
+        "type": "[data-part~=\"tabs:indicator\"]",
         "notes": "TabsIndicator",
         "source": "tabs.anatomy.ts:23"
       },
       {
         "name": "content",
-        "type": "[data-scope=\"tabs\"][data-part=\"tabs:content\"]",
+        "type": "[data-part~=\"tabs:content\"]",
         "notes": "TabsContent",
         "source": "tabs.anatomy.ts:24"
       },
       {
         "name": "closeTrigger",
-        "type": "[data-scope=\"tabs\"][data-part=\"tabs:close-trigger\"]",
+        "type": "[data-part~=\"tabs:close-trigger\"]",
         "notes": "TabsCloseTrigger",
         "source": "tabs.anatomy.ts:25"
       },
       {
         "name": "scrollbar",
-        "type": "[data-scope=\"tabs\"][data-part=\"tabs:scrollbar\"]",
+        "type": "[data-part~=\"tabs:scrollbar\"]",
         "notes": "TabsScrollbar",
         "source": "tabs.anatomy.ts:26"
       },
       {
         "name": "thumb",
-        "type": "[data-scope=\"tabs\"][data-part=\"tabs:thumb\"]",
+        "type": "[data-part~=\"tabs:thumb\"]",
         "notes": "TabsThumb",
         "source": "tabs.anatomy.ts:27"
       }

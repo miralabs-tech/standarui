@@ -174,19 +174,19 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"input\"][data-part=\"input:root\"]",
+        "type": "[data-part~=\"input:root\"]",
         "notes": "InputRoot",
         "source": "input.anatomy.ts:6"
       },
       {
         "name": "control",
-        "type": "[data-scope=\"input\"][data-part=\"input:control\"]",
+        "type": "[data-part~=\"input:control\"]",
         "notes": "InputControl",
         "source": "input.anatomy.ts:7"
       },
       {
         "name": "visibilityTrigger",
-        "type": "[data-scope=\"input\"][data-part=\"input:visibility-trigger\"]",
+        "type": "[data-part~=\"input:visibility-trigger\"]",
         "notes": "InputVisibilityTrigger",
         "source": "input.anatomy.ts:8"
       }

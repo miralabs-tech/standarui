@@ -235,31 +235,31 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"pagination\"][data-part=\"pagination:root\"]",
+        "type": "[data-part~=\"pagination:root\"]",
         "notes": "PaginationRoot",
         "source": "pagination.anatomy.ts:13"
       },
       {
         "name": "item",
-        "type": "[data-scope=\"pagination\"][data-part=\"pagination:item\"]",
+        "type": "[data-part~=\"pagination:item\"]",
         "notes": "PaginationItem",
         "source": "pagination.anatomy.ts:14"
       },
       {
         "name": "ellipsis",
-        "type": "[data-scope=\"pagination\"][data-part=\"pagination:ellipsis\"]",
+        "type": "[data-part~=\"pagination:ellipsis\"]",
         "notes": "PaginationEllipsis",
         "source": "pagination.anatomy.ts:15"
       },
       {
         "name": "prevTrigger",
-        "type": "[data-scope=\"pagination\"][data-part=\"pagination:prev-trigger\"]",
+        "type": "[data-part~=\"pagination:prev-trigger\"]",
         "notes": "PaginationPrevTrigger",
         "source": "pagination.anatomy.ts:16"
       },
       {
         "name": "nextTrigger",
-        "type": "[data-scope=\"pagination\"][data-part=\"pagination:next-trigger\"]",
+        "type": "[data-part~=\"pagination:next-trigger\"]",
         "notes": "PaginationNextTrigger",
         "source": "pagination.anatomy.ts:17"
       }

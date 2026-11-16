@@ -86,31 +86,31 @@
     "rows": [
       {
         "name": "root",
-        "type": "[data-scope=\"empty-state\"][data-part=\"empty-state:root\"]",
+        "type": "[data-part~=\"empty-state:root\"]",
         "notes": "EmptyStateRoot",
         "source": "empty-state.ts:20"
       },
       {
         "name": "indicator",
-        "type": "[data-scope=\"empty-state\"][data-part=\"empty-state:indicator\"]",
+        "type": "[data-part~=\"empty-state:indicator\"]",
         "notes": "EmptyStateIndicator",
         "source": "empty-state.ts:21"
       },
       {
         "name": "title",
-        "type": "[data-scope=\"empty-state\"][data-part=\"empty-state:title\"]",
+        "type": "[data-part~=\"empty-state:title\"]",
         "notes": "EmptyStateTitle",
         "source": "empty-state.ts:22"
       },
       {
         "name": "description",
-        "type": "[data-scope=\"empty-state\"][data-part=\"empty-state:description\"]",
+        "type": "[data-part~=\"empty-state:description\"]",
         "notes": "EmptyStateDescription",
         "source": "empty-state.ts:23"
       },
       {
         "name": "actions",
-        "type": "[data-scope=\"empty-state\"][data-part=\"empty-state:actions\"]",
+        "type": "[data-part~=\"empty-state:actions\"]",
         "notes": "EmptyStateActions",
         "source": "empty-state.ts:24"
       }
