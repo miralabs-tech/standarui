@@ -1,5 +1,5 @@
 {
-  "name": "standarui",
+  "name": "@standarx/ui",
   "version": "0.1.0",
   "description": "Copies standarui components into your app and keeps track of what it copied.",
   "license": "MIT",
@@ -12,7 +12,7 @@
   "bugs": "https://github.com/miralabs-tech/standarui/issues",
   "type": "module",
   "bin": {
-    "standarui": "./dist/cli.js"
+    "standarui": "dist/cli.js"
   },
   "files": [
     "dist"

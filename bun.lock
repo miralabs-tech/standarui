@@ -25,7 +25,7 @@
       },
     },
     "packages/cli": {
-      "name": "standarui",
+      "name": "@standarx/ui",
       "version": "0.1.0",
       "bin": {
         "standarui": "./dist/cli.js",
@@ -185,6 +185,8 @@
     "@standarui/react": ["@standarui/react@workspace:packages/react"],
 
     "@standarx/nav": ["@standarx/nav@0.4.1", "", { "peerDependencies": { "@angular/core": ">=20.0.0", "react": ">=18.3.0", "react-dom": ">=18.3.0", "svelte": ">=5.0.0", "vue": ">=3.3.0" }, "optionalPeers": ["@angular/core", "react", "react-dom", "svelte", "vue"] }, "sha512-GvM7hVBSDRrYHv31W0hROA248x6YphZ8LZ7m4Zls9aeqLoSwplBneOjrbhJKt7sqA1z0pXItORcdCuD/YrXqTA=="],
+
+    "@standarx/ui": ["@standarx/ui@workspace:packages/cli"],
 
     "@tybys/wasm-util": ["@tybys/wasm-util@0.10.4", "", { "dependencies": { "tslib": "^2.4.0" } }, "sha512-W3c4gRigFS0T/Ma4qIYF3GDAc5AQdHb1yL5znJT1Zv1YaD9Kitx656wBjvr19qbiosmZT8lWDM5BEMynUqX65A=="],
 
@@ -489,8 +491,6 @@
     "source-map-js": ["source-map-js@1.2.2", "", {}, "sha512-KGj/8Y43x35aZVDtt+J4mK1hoLGHULMYfSkODJNQjNDC3oW1PqPoxMwo0pLUsWM/UEGzON/NxeHywEfNXNP3Vw=="],
 
     "stackback": ["stackback@0.0.2", "", {}, "sha512-1XMJE5fQo1jGH6Y/7ebnwPOBEkIEnT4QF32d5R1+VXdXveM0IBMJt8zfaxX1P3QhVwrYe+576+jkANtSS2mBbw=="],
-
-    "standarui": ["standarui@workspace:packages/cli"],
 
     "std-env": ["std-env@4.3.0", "", {}, "sha512-OtU/EgQ1kIm5KwqQpBC6ZEMXrZRui11w8zgfTWp8cdO9B8OaPsbA8bTHO2P+HNo1VlUTGMVBwPhydu6poeXiag=="],
 

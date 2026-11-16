@@ -1,6 +1,6 @@
 # standarui
 
-[![CI](https://github.com/miralabs-tech/standarui/actions/workflows/ci.yml/badge.svg)](https://github.com/miralabs-tech/standarui/actions/workflows/ci.yml) [![npm](https://img.shields.io/npm/v/standarui)](https://www.npmjs.com/package/standarui) [![license](https://img.shields.io/badge/license-MIT-blue)](https://github.com/miralabs-tech/standarui/blob/main/LICENSE) [![node](https://img.shields.io/badge/node-%3E%3D20-green)](https://nodejs.org)
+[![CI](https://github.com/miralabs-tech/standarui/actions/workflows/ci.yml/badge.svg)](https://github.com/miralabs-tech/standarui/actions/workflows/ci.yml) [![npm](https://img.shields.io/npm/v/@standarx/ui)](https://www.npmjs.com/package/@standarx/ui) [![license](https://img.shields.io/badge/license-MIT-blue)](https://github.com/miralabs-tech/standarui/blob/main/LICENSE) [![node](https://img.shields.io/badge/node-%3E%3D20-green)](https://nodejs.org)
 
 > "The command line of standarui: copies headless components into your app, rewrites their imports to your aliases, and records what it copied."
 
@@ -40,15 +40,15 @@ import { Select } from "@/standarui/react/components/select";
 Node >= 20, or bun. Run it without installing:
 
 ```sh
-bunx standarui init
-npx standarui init
+bunx @standarx/ui init
+npx @standarx/ui init
 ```
 
 Or as a development dependency:
 
 ```sh
-bun add -d standarui
-npm install --save-dev standarui
+bun add -d @standarx/ui
+npm install --save-dev @standarx/ui
 ```
 
 The components need React 19 and `@standarx/nav` `^0.4.1`, which `init` adds to your `package.json`.

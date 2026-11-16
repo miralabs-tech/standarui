@@ -6,7 +6,7 @@ All notable changes to this project are documented in this file. The format foll
 
 ## [0.1.0] - 2026-11-16
 
-First release. Only the `standarui` CLI is published; core and react are copied by it.
+First release. Only the CLI is published, as `@standarx/ui` (its command is `standarui`); core and react are copied by it.
 
 ### Added
 
