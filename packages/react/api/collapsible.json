@@ -94,5 +94,53 @@
         "source": "composed.tsx:53"
       }
     ]
+  },
+  {
+    "name": "CollapsibleAnatomy",
+    "rows": [
+      {
+        "name": "root",
+        "type": "[data-scope=\"collapsible\"][data-part=\"collapsible:root\"]",
+        "notes": "CollapsibleRoot",
+        "source": "collapsible.anatomy.ts:6"
+      },
+      {
+        "name": "trigger",
+        "type": "[data-scope=\"collapsible\"][data-part=\"collapsible:trigger\"]",
+        "notes": "CollapsibleTrigger",
+        "source": "collapsible.anatomy.ts:7"
+      },
+      {
+        "name": "indicator",
+        "type": "[data-scope=\"collapsible\"][data-part=\"collapsible:indicator\"]",
+        "notes": "CollapsibleIndicator",
+        "source": "collapsible.anatomy.ts:8"
+      },
+      {
+        "name": "content",
+        "type": "[data-scope=\"collapsible\"][data-part=\"collapsible:content\"]",
+        "notes": "CollapsibleContent",
+        "source": "collapsible.anatomy.ts:9"
+      }
+    ]
+  },
+  {
+    "name": "CollapsibleCssVars",
+    "rows": [
+      {
+        "name": "--sui-collapsible-height",
+        "type": "\"<length>\"",
+        "notes": "Height of the content, measured while it opens and closes.",
+        "source": "collapsible.anatomy.ts:17",
+        "group": "written"
+      },
+      {
+        "name": "--sui-collapsible-width",
+        "type": "\"<length>\"",
+        "notes": "Width of the content, measured while it opens and closes.",
+        "source": "collapsible.anatomy.ts:19",
+        "group": "written"
+      }
+    ]
   }
 ]

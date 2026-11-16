@@ -204,5 +204,34 @@
         "source": "composed.tsx:7"
       }
     ]
+  },
+  {
+    "name": "SplitterAnatomy",
+    "rows": [
+      {
+        "name": "panel",
+        "type": "[data-scope=\"splitter\"][data-part=\"splitter:panel\"]",
+        "notes": "SplitterPanel",
+        "source": "splitter.anatomy.ts:5"
+      },
+      {
+        "name": "handle",
+        "type": "[data-scope=\"splitter\"][data-part=\"splitter:handle\"]",
+        "notes": "SplitterHandle",
+        "source": "splitter.anatomy.ts:5"
+      }
+    ]
+  },
+  {
+    "name": "SplitterCssVars",
+    "rows": [
+      {
+        "name": "--sui-splitter-size",
+        "type": "\"<length-percentage>\"",
+        "notes": "Size of the panel, in the splitter's unit.",
+        "source": "splitter.anatomy.ts:12",
+        "group": "written"
+      }
+    ]
   }
 ]

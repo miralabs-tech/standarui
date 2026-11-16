@@ -112,5 +112,52 @@
     "name": "UseSwitchProps",
     "extends": "switchMachine.SwitchMachineProps, MachineRuntimeProps",
     "rows": []
+  },
+  {
+    "name": "SwitchAnatomy",
+    "rows": [
+      {
+        "name": "root",
+        "type": "[data-scope=\"switch\"][data-part=\"switch:root\"]",
+        "notes": "SwitchRoot",
+        "source": "switch.anatomy.ts:6"
+      },
+      {
+        "name": "label",
+        "type": "[data-scope=\"switch\"][data-part=\"switch:label\"]",
+        "notes": "SwitchLabel",
+        "source": "switch.anatomy.ts:7"
+      },
+      {
+        "name": "control",
+        "type": "[data-scope=\"switch\"][data-part=\"switch:control\"]",
+        "notes": "SwitchControl",
+        "source": "switch.anatomy.ts:8"
+      },
+      {
+        "name": "thumb",
+        "type": "[data-scope=\"switch\"][data-part=\"switch:thumb\"]",
+        "notes": "SwitchThumb",
+        "source": "switch.anatomy.ts:9"
+      },
+      {
+        "name": "hiddenInput",
+        "type": "[data-scope=\"switch\"][data-part=\"switch:hidden-input\"]",
+        "notes": "SwitchHiddenInput",
+        "source": "switch.anatomy.ts:10"
+      }
+    ]
+  },
+  {
+    "name": "SwitchCssVars",
+    "rows": [
+      {
+        "name": "--sui-switch-progress",
+        "type": "\"<number>\"",
+        "notes": "How far the thumb has been dragged, from 0 to 1, written only while dragging.",
+        "source": "switch.anatomy.ts:18",
+        "group": "written"
+      }
+    ]
   }
 ]

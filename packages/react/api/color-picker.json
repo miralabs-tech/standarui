@@ -541,5 +541,319 @@
     "name": "ColorPickerPresentation",
     "definition": "\"popup\" | \"sheet\" | \"inline\"",
     "rows": []
+  },
+  {
+    "name": "ColorPickerAnatomy",
+    "rows": [
+      {
+        "name": "root",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:root\"]",
+        "notes": "ColorPickerRoot",
+        "source": "color-picker.anatomy.ts:52"
+      },
+      {
+        "name": "label",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:label\"]",
+        "notes": "ColorPickerLabel",
+        "source": "color-picker.anatomy.ts:53"
+      },
+      {
+        "name": "trigger",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:trigger\"]",
+        "notes": "ColorPickerTrigger",
+        "source": "color-picker.anatomy.ts:54"
+      },
+      {
+        "name": "triggerSwatch",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:trigger-swatch\"]",
+        "notes": "ColorPickerTriggerSwatch",
+        "source": "color-picker.anatomy.ts:55"
+      },
+      {
+        "name": "valueText",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:value-text\"]",
+        "notes": "ColorPickerValueText",
+        "source": "color-picker.anatomy.ts:56"
+      },
+      {
+        "name": "hiddenInput",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:hidden-input\"]",
+        "notes": "ColorPickerHiddenInput",
+        "source": "color-picker.anatomy.ts:57"
+      },
+      {
+        "name": "backdrop",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:backdrop\"]",
+        "notes": "ColorPickerBackdrop",
+        "source": "color-picker.anatomy.ts:58"
+      },
+      {
+        "name": "positioner",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:positioner\"]",
+        "notes": "ColorPickerPositioner",
+        "source": "color-picker.anatomy.ts:59"
+      },
+      {
+        "name": "content",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:content\"]",
+        "notes": "ColorPickerContent",
+        "source": "color-picker.anatomy.ts:60"
+      },
+      {
+        "name": "arrow",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:arrow\"]",
+        "notes": "ColorPickerArrow",
+        "source": "color-picker.anatomy.ts:61"
+      },
+      {
+        "name": "title",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:title\"]",
+        "notes": "ColorPickerTitle",
+        "source": "color-picker.anatomy.ts:62"
+      },
+      {
+        "name": "cancelTrigger",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:cancel-trigger\"]",
+        "notes": "ColorPickerCancelTrigger",
+        "source": "color-picker.anatomy.ts:63"
+      },
+      {
+        "name": "closeTrigger",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:close-trigger\"]",
+        "notes": "ColorPickerCloseTrigger",
+        "source": "color-picker.anatomy.ts:64"
+      },
+      {
+        "name": "area",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:area\"]",
+        "notes": "ColorPickerArea",
+        "source": "color-picker.anatomy.ts:65"
+      },
+      {
+        "name": "areaBackground",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:area-background\"]",
+        "notes": "ColorPickerAreaBackground",
+        "source": "color-picker.anatomy.ts:66"
+      },
+      {
+        "name": "areaThumb",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:area-thumb\"]",
+        "notes": "ColorPickerAreaThumb",
+        "source": "color-picker.anatomy.ts:67"
+      },
+      {
+        "name": "areaXInput",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:area-x-input\"]",
+        "notes": "ColorPickerAreaXInput",
+        "source": "color-picker.anatomy.ts:68"
+      },
+      {
+        "name": "areaYInput",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:area-y-input\"]",
+        "notes": "ColorPickerAreaYInput",
+        "source": "color-picker.anatomy.ts:69"
+      },
+      {
+        "name": "channelSlider",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:channel-slider\"]",
+        "notes": "ColorPickerChannelSlider",
+        "source": "color-picker.anatomy.ts:70"
+      },
+      {
+        "name": "channelLabel",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:channel-label\"]",
+        "notes": "ColorPickerChannelLabel",
+        "source": "color-picker.anatomy.ts:71"
+      },
+      {
+        "name": "channelSliderTrack",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:channel-slider-track\"]",
+        "notes": "ColorPickerChannelSliderTrack",
+        "source": "color-picker.anatomy.ts:72"
+      },
+      {
+        "name": "channelSliderRange",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:channel-slider-range\"]",
+        "notes": "ColorPickerChannelSliderRange",
+        "source": "color-picker.anatomy.ts:73"
+      },
+      {
+        "name": "channelSliderThumb",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:channel-slider-thumb\"]",
+        "notes": "ColorPickerChannelSliderThumb",
+        "source": "color-picker.anatomy.ts:74"
+      },
+      {
+        "name": "channelInput",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:channel-input\"]",
+        "notes": "ColorPickerChannelInput",
+        "source": "color-picker.anatomy.ts:75"
+      },
+      {
+        "name": "formatSelect",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:format-select\"]",
+        "notes": "ColorPickerFormatSelect",
+        "source": "color-picker.anatomy.ts:76"
+      },
+      {
+        "name": "swatchGroup",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:swatch-group\"]",
+        "notes": "ColorPickerSwatchGroup",
+        "source": "color-picker.anatomy.ts:77"
+      },
+      {
+        "name": "swatchRow",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:swatch-row\"]",
+        "notes": "ColorPickerSwatchRow",
+        "source": "color-picker.anatomy.ts:78"
+      },
+      {
+        "name": "swatch",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:swatch\"]",
+        "notes": "ColorPickerSwatch",
+        "source": "color-picker.anatomy.ts:79"
+      },
+      {
+        "name": "swatchIndicator",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:swatch-indicator\"]",
+        "notes": "ColorPickerSwatchIndicator",
+        "source": "color-picker.anatomy.ts:80"
+      },
+      {
+        "name": "swatchTrigger",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:swatch-trigger\"]",
+        "notes": "ColorPickerSwatchTrigger",
+        "source": "color-picker.anatomy.ts:81"
+      },
+      {
+        "name": "eyedropperTrigger",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:eyedropper-trigger\"]",
+        "notes": "ColorPickerEyedropperTrigger",
+        "source": "color-picker.anatomy.ts:82"
+      },
+      {
+        "name": "transparencyGrid",
+        "type": "[data-scope=\"color-picker\"][data-part=\"color-picker:transparency-grid\"]",
+        "notes": "ColorPickerTransparencyGrid",
+        "source": "color-picker.anatomy.ts:83"
+      }
+    ]
+  },
+  {
+    "name": "ColorPickerCssVars",
+    "rows": [
+      {
+        "name": "--sui-color-picker-value",
+        "type": "\"<color>\"",
+        "notes": "The current colour with its alpha.",
+        "source": "color-picker.anatomy.ts:91",
+        "group": "written"
+      },
+      {
+        "name": "--sui-color-picker-opaque",
+        "type": "\"<color>\"",
+        "notes": "The current colour without its alpha.",
+        "source": "color-picker.anatomy.ts:93",
+        "group": "written"
+      },
+      {
+        "name": "--sui-color-picker-hue",
+        "type": "\"<number>\"",
+        "notes": "Hue in degrees, for arithmetic.",
+        "source": "color-picker.anatomy.ts:95",
+        "group": "written"
+      },
+      {
+        "name": "--sui-color-picker-hue-color",
+        "type": "\"<color>\"",
+        "notes": "The hue at full saturation and mid lightness.",
+        "source": "color-picker.anatomy.ts:97",
+        "group": "written"
+      },
+      {
+        "name": "--sui-color-picker-alpha",
+        "type": "\"<number>\"",
+        "notes": "Alpha from 0 to 1.",
+        "source": "color-picker.anatomy.ts:99",
+        "group": "written"
+      },
+      {
+        "name": "--sui-color-picker-area-x",
+        "type": "\"<percentage>\"",
+        "notes": "Saturation, as the horizontal position of the area thumb.",
+        "source": "color-picker.anatomy.ts:101",
+        "group": "written"
+      },
+      {
+        "name": "--sui-color-picker-area-y",
+        "type": "\"<percentage>\"",
+        "notes": "Value, as the vertical position of the area thumb.",
+        "source": "color-picker.anatomy.ts:103",
+        "group": "written"
+      },
+      {
+        "name": "--sui-color-picker-channel-percent",
+        "type": "\"<percentage>\"",
+        "notes": "Position of a channel's thumb along its track.",
+        "source": "color-picker.anatomy.ts:105",
+        "group": "written"
+      },
+      {
+        "name": "--sui-color-picker-columns",
+        "type": "\"<integer>\"",
+        "notes": "Columns of the swatch grid.",
+        "source": "color-picker.anatomy.ts:107",
+        "group": "written"
+      },
+      {
+        "name": "--sui-color-picker-swatch-color",
+        "type": "\"<color>\"",
+        "notes": "The colour of one swatch.",
+        "source": "color-picker.anatomy.ts:109",
+        "group": "written"
+      },
+      {
+        "name": "--sui-transform-origin",
+        "type": "\"<position>\"",
+        "notes": "Where the surface grows from, so a scale-in starts at the anchor.",
+        "source": "color-picker.anatomy.ts:111",
+        "group": "written"
+      },
+      {
+        "name": "--sui-anchor-width",
+        "type": "\"<length>\"",
+        "notes": "Width of the anchor the surface is placed against.",
+        "source": "color-picker.anatomy.ts:113",
+        "group": "written"
+      },
+      {
+        "name": "--sui-anchor-height",
+        "type": "\"<length>\"",
+        "notes": "Height of the anchor the surface is placed against.",
+        "source": "color-picker.anatomy.ts:115",
+        "group": "written"
+      },
+      {
+        "name": "--sui-available-width",
+        "type": "\"<length>\"",
+        "notes": "Room left for the surface's width inside the boundary.",
+        "source": "color-picker.anatomy.ts:117",
+        "group": "written"
+      },
+      {
+        "name": "--sui-available-height",
+        "type": "\"<length>\"",
+        "notes": "Room left for the surface's height inside the boundary.",
+        "source": "color-picker.anatomy.ts:119",
+        "group": "written"
+      },
+      {
+        "name": "--sui-scrollbar-width",
+        "type": "\"<length>\"",
+        "notes": "Width of the page scrollbar the scroll lock hides, published on the root.",
+        "source": "color-picker.anatomy.ts:121",
+        "group": "written"
+      }
+    ]
   }
 ]

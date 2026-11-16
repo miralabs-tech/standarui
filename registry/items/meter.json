@@ -17,8 +17,8 @@
     {
       "layer": "core",
       "path": "components/meter/meter.anatomy.ts",
-      "sha256": "a76da7cfdf6e26a1700d6d9796e1cc40b702dd12f5f0a83d0147d45f4fb52075",
-      "content": "import { type Anatomy, type AnatomyPart, createAnatomy } from \"../../machine/anatomy\";\n\nexport type MeterPart = \"root\" | \"label\" | \"track\" | \"range\" | \"valueText\";\n\nexport const anatomy: Anatomy<MeterPart> = createAnatomy(\"meter\").parts(\n  \"root\",\n  \"label\",\n  \"track\",\n  \"range\",\n  \"valueText\",\n);\n\nexport const parts: Record<MeterPart, AnatomyPart> = anatomy.build();\n"
+      "sha256": "b447a4b0aaffd8fd2a57bb145c58717288872991e41bd505dc58ff426e7dfb41",
+      "content": "import { type Anatomy, type AnatomyPart, createAnatomy } from \"../../machine/anatomy\";\n\nexport type MeterPart = \"root\" | \"label\" | \"track\" | \"range\" | \"valueText\";\n\nexport const anatomy: Anatomy<MeterPart> = createAnatomy(\"meter\").parts(\n  \"root\",\n  \"label\",\n  \"track\",\n  \"range\",\n  \"valueText\",\n);\n\nexport const parts: Record<MeterPart, AnatomyPart> = anatomy.build();\n\nexport interface MeterCssVars {\n  // --- written ---\n  /** Where the value sits between the minimum and the maximum. */\n  \"--sui-meter-percent\": \"<percentage>\";\n}\n"
     },
     {
       "layer": "core",

@@ -44,6 +44,7 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { parseSync } from "oxc-parser";
+import { toKebabCase } from "../packages/core/src/utils/string";
 
 /** Where a member was declared, so a reader of the table can go and check it. */
 export interface ApiSource {
@@ -298,13 +299,19 @@ function toInterface(
     const isMethod = member.type === "TSMethodSignature" && member.kind === "method";
     if (member.type !== "TSPropertySignature" && !isMethod) continue;
     const key = asNode(member.key);
-    if (typeof key?.name !== "string") continue;
+    const keyName =
+      typeof key?.name === "string"
+        ? key.name
+        : key?.type === "Literal" && typeof key.value === "string"
+          ? key.value
+          : undefined;
+    if (key === undefined || keyName === undefined) continue;
     // A computed key's name is the expression inside the brackets, and the slice
     // below starts at the key's end: it would begin on the `]`.
     if (isMethod && member.computed === true) continue;
     const optional = member.optional === true;
     members.push({
-      name: key.name,
+      name: keyName,
       optional,
       type: isMethod ? methodTypeOf(source, member, key) : typeTextOf(source, member, optional),
       doc: docFor(source, comments, member.start),
@@ -608,12 +615,16 @@ export interface ComponentApi {
    * one the component takes. Narrowing the alias changed nothing on disk.
    */
   readonly aliases: readonly ApiTypeAlias[];
-  /** Everything written for this component: the seed tables and their closure. */
+  /** Everything written for this component: the seed tables and their closure, then the anatomy and the CSS variables. */
   readonly tables: readonly ApiTable[];
   /** Cited, declared elsewhere in the library, owed a shared-vocabulary section. */
   readonly shared: readonly string[];
   /** What was looked for and not found, so a miss is reported and never silent. */
   readonly missing: readonly string[];
+  /** The `<X>Anatomy` table, which `tables` carries after the props. */
+  readonly anatomy: ApiTable | undefined;
+  /** The `<X>CssVars` table, which `tables` carries after the anatomy. */
+  readonly cssVars: ApiTable | undefined;
 }
 
 /** `date-picker` → `DatePicker`, which is how every interface here is named. */
@@ -654,6 +665,154 @@ function isMachineProps(name: string): boolean {
 
 function isComposedProps(name: string): boolean {
   return name.endsWith("ComposedProps");
+}
+
+function isCssVars(name: string): boolean {
+  return name.endsWith("CssVars");
+}
+
+/** One part of an anatomy, where its key is written in the `.parts(...)` call. */
+export interface AnatomyPartSite {
+  readonly key: string;
+  /** What the element carries in `data-part`, scope included. */
+  readonly part: string;
+  readonly source: ApiSource;
+}
+
+export interface AnatomySite {
+  readonly scope: string;
+  readonly parts: readonly AnatomyPartSite[];
+}
+
+/**
+ * The file that declares a component's `anatomy`: `<name>.anatomy.ts`, or
+ * `<name>.ts` for the presentational components that keep it beside their connect.
+ */
+export function anatomyFile(component: string): string | undefined {
+  return [`${component}.anatomy.ts`, `${component}.ts`]
+    .map((file) => path.join(coreComponents, component, file))
+    .find(
+      (full) => existsSync(full) && /^export const anatomy\b/m.test(readFileSync(full, "utf8")),
+    );
+}
+
+function walk(value: unknown, visit: (node: Node) => void): void {
+  if (Array.isArray(value)) {
+    for (const item of value) walk(item, visit);
+    return;
+  }
+  const node = asNode(value);
+  if (node === undefined) return;
+  visit(node);
+  for (const child of Object.values(node)) {
+    if (typeof child === "object" && child !== null) walk(child, visit);
+  }
+}
+
+function stringLiteral(value: unknown): { readonly text: string; readonly start: number } | null {
+  const node = asNode(value);
+  return node?.type === "Literal" && typeof node.value === "string"
+    ? { text: node.value, start: node.start }
+    : null;
+}
+
+/**
+ * The scope and the parts of `createAnatomy("<scope>").parts("a", "b")`, each with
+ * the line its key is written on. Read from source for the line, which no import
+ * of the module can give.
+ */
+export function readAnatomy(component: string): AnatomySite | undefined {
+  const file = anatomyFile(component);
+  if (file === undefined) return undefined;
+  const source = readFileSync(file, "utf8");
+  const parsed = parseSync(file, source);
+  let found: AnatomySite | undefined;
+  walk(parsed.program.body, (node) => {
+    if (found !== undefined || node.type !== "CallExpression") return;
+    const callee = asNode(node.callee);
+    if (callee?.type !== "MemberExpression" || asNode(callee.property)?.name !== "parts") return;
+    const created = asNode(callee.object);
+    if (created?.type !== "CallExpression" || asNode(created.callee)?.name !== "createAnatomy") {
+      return;
+    }
+    const scope = stringLiteral((created.arguments as unknown[])[0]);
+    if (scope === null) return;
+    const parts: AnatomyPartSite[] = [];
+    for (const argument of node.arguments as unknown[]) {
+      const key = stringLiteral(argument);
+      if (key === null) continue;
+      parts.push({
+        key: key.text,
+        part: `${scope.text}:${toKebabCase(key.text)}`,
+        source: { file: path.basename(file), line: lineOf(source, key.start) },
+      });
+    }
+    found = { scope: scope.text, parts };
+  });
+  return found;
+}
+
+function isSourceFile(name: string): boolean {
+  return /\.tsx?$/.test(name) && !/\.(test|parity)\./.test(name);
+}
+
+function filesIn(folder: string): string[] {
+  if (!existsSync(folder)) return [];
+  return readdirSync(folder, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && isSourceFile(entry.name))
+    .map((entry) => path.join(folder, entry.name))
+    .sort();
+}
+
+/**
+ * The React component a part is rendered by, when the folder exports one under the
+ * name the library gives them — `TooltipTrigger` for `tooltip` and `trigger`.
+ */
+function reactPartNames(component: string): ReadonlySet<string> {
+  const names = new Set<string>();
+  for (const file of filesIn(path.join(reactComponents, component))) {
+    const source = readFileSync(file, "utf8");
+    for (const match of source.matchAll(
+      /export\s+(?:declare\s+)?(?:async\s+)?(?:function|const|class)\s+([A-Za-z0-9_]+)/g,
+    )) {
+      names.add(match[1] as string);
+    }
+  }
+  return names;
+}
+
+function anatomyTable(component: string): ApiTable | undefined {
+  const anatomy = readAnatomy(component);
+  if (anatomy === undefined) return undefined;
+  const exported = reactPartNames(component);
+  const prefix = pascalCase(component);
+  return {
+    name: `${prefix}Anatomy`,
+    extends: undefined,
+    definition: undefined,
+    rows: anatomy.parts.map((part) => {
+      const candidate = `${prefix}${part.key.charAt(0).toUpperCase()}${part.key.slice(1)}`;
+      return {
+        name: part.key,
+        type: `[data-scope="${anatomy.scope}"][data-part="${part.part}"]`,
+        notes: exported.has(candidate) ? candidate : "",
+        source: `${part.source.file}:${part.source.line}`,
+        group: undefined,
+      };
+    }),
+  };
+}
+
+/** The component's `<X>CssVars` interface, core files first and then React's. */
+function findCssVars(component: string): ApiInterface | undefined {
+  const folders = [path.join(coreComponents, component), path.join(reactComponents, component)];
+  for (const file of folders.flatMap(filesIn)) {
+    const source = readFileSync(file, "utf8");
+    if (!source.includes("CssVars")) continue;
+    const found = findInterface(source, file, isCssVars);
+    if (found !== undefined) return found;
+  }
+  return undefined;
 }
 
 export function collect(): ComponentApi[] {
@@ -711,9 +870,21 @@ export function collect(): ComponentApi[] {
         rows: [],
       })),
     ];
-    const { tables, shared } = expand(component, seed);
+    const { tables: expanded, shared } = expand(component, seed);
 
-    collected.push({ component, interfaces, aliases, tables, shared, missing });
+    // After the closure and never inside it: neither table cites a type, and both
+    // stay last so the props keep the order they had.
+    const anatomy = anatomyTable(component);
+    const cssVarsInterface = findCssVars(component);
+    const cssVars =
+      cssVarsInterface === undefined ? undefined : (toTables([cssVarsInterface])[0] as ApiTable);
+    const tables = [
+      ...expanded,
+      ...(anatomy === undefined ? [] : [anatomy]),
+      ...(cssVars === undefined ? [] : [cssVars]),
+    ];
+
+    collected.push({ component, interfaces, aliases, tables, shared, missing, anatomy, cssVars });
   }
   return collected;
 }

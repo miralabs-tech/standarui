@@ -68,5 +68,76 @@
         "source": "composed.tsx:23"
       }
     ]
+  },
+  {
+    "name": "ListAnatomy",
+    "rows": [
+      {
+        "name": "root",
+        "type": "[data-scope=\"list\"][data-part=\"list:root\"]",
+        "notes": "ListRoot",
+        "source": "list.ts:29"
+      },
+      {
+        "name": "section",
+        "type": "[data-scope=\"list\"][data-part=\"list:section\"]",
+        "notes": "ListSection",
+        "source": "list.ts:30"
+      },
+      {
+        "name": "header",
+        "type": "[data-scope=\"list\"][data-part=\"list:header\"]",
+        "notes": "ListHeader",
+        "source": "list.ts:31"
+      },
+      {
+        "name": "group",
+        "type": "[data-scope=\"list\"][data-part=\"list:group\"]",
+        "notes": "ListGroup",
+        "source": "list.ts:32"
+      },
+      {
+        "name": "row",
+        "type": "[data-scope=\"list\"][data-part=\"list:row\"]",
+        "notes": "ListRow",
+        "source": "list.ts:33"
+      },
+      {
+        "name": "action",
+        "type": "[data-scope=\"list\"][data-part=\"list:action\"]",
+        "notes": "ListAction",
+        "source": "list.ts:34"
+      },
+      {
+        "name": "leading",
+        "type": "[data-scope=\"list\"][data-part=\"list:leading\"]",
+        "notes": "ListLeading",
+        "source": "list.ts:35"
+      },
+      {
+        "name": "title",
+        "type": "[data-scope=\"list\"][data-part=\"list:title\"]",
+        "notes": "ListTitle",
+        "source": "list.ts:36"
+      },
+      {
+        "name": "subtitle",
+        "type": "[data-scope=\"list\"][data-part=\"list:subtitle\"]",
+        "notes": "ListSubtitle",
+        "source": "list.ts:37"
+      },
+      {
+        "name": "trailing",
+        "type": "[data-scope=\"list\"][data-part=\"list:trailing\"]",
+        "notes": "ListTrailing",
+        "source": "list.ts:38"
+      },
+      {
+        "name": "footer",
+        "type": "[data-scope=\"list\"][data-part=\"list:footer\"]",
+        "notes": "ListFooter",
+        "source": "list.ts:39"
+      }
+    ]
   }
 ]

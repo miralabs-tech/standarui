@@ -94,5 +94,28 @@
     "name": "AvatarStatus",
     "definition": "\"loading\" | \"loaded\" | \"error\"",
     "rows": []
+  },
+  {
+    "name": "AvatarAnatomy",
+    "rows": [
+      {
+        "name": "root",
+        "type": "[data-scope=\"avatar\"][data-part=\"avatar:root\"]",
+        "notes": "AvatarRoot",
+        "source": "avatar.anatomy.ts:6"
+      },
+      {
+        "name": "image",
+        "type": "[data-scope=\"avatar\"][data-part=\"avatar:image\"]",
+        "notes": "AvatarImage",
+        "source": "avatar.anatomy.ts:7"
+      },
+      {
+        "name": "fallback",
+        "type": "[data-scope=\"avatar\"][data-part=\"avatar:fallback\"]",
+        "notes": "AvatarFallback",
+        "source": "avatar.anatomy.ts:8"
+      }
+    ]
   }
 ]

@@ -84,3 +84,39 @@ export const anatomy: Anatomy<ColorPickerPart> = createAnatomy("color-picker").p
 );
 
 export const parts: Record<ColorPickerPart, AnatomyPart> = anatomy.build();
+
+export interface ColorPickerCssVars {
+  // --- written ---
+  /** The current colour with its alpha. */
+  "--sui-color-picker-value": "<color>";
+  /** The current colour without its alpha. */
+  "--sui-color-picker-opaque": "<color>";
+  /** Hue in degrees, for arithmetic. */
+  "--sui-color-picker-hue": "<number>";
+  /** The hue at full saturation and mid lightness. */
+  "--sui-color-picker-hue-color": "<color>";
+  /** Alpha from 0 to 1. */
+  "--sui-color-picker-alpha": "<number>";
+  /** Saturation, as the horizontal position of the area thumb. */
+  "--sui-color-picker-area-x": "<percentage>";
+  /** Value, as the vertical position of the area thumb. */
+  "--sui-color-picker-area-y": "<percentage>";
+  /** Position of a channel's thumb along its track. */
+  "--sui-color-picker-channel-percent": "<percentage>";
+  /** Columns of the swatch grid. */
+  "--sui-color-picker-columns": "<integer>";
+  /** The colour of one swatch. */
+  "--sui-color-picker-swatch-color": "<color>";
+  /** Where the surface grows from, so a scale-in starts at the anchor. */
+  "--sui-transform-origin": "<position>";
+  /** Width of the anchor the surface is placed against. */
+  "--sui-anchor-width": "<length>";
+  /** Height of the anchor the surface is placed against. */
+  "--sui-anchor-height": "<length>";
+  /** Room left for the surface's width inside the boundary. */
+  "--sui-available-width": "<length>";
+  /** Room left for the surface's height inside the boundary. */
+  "--sui-available-height": "<length>";
+  /** Width of the page scrollbar the scroll lock hides, published on the root. */
+  "--sui-scrollbar-width": "<length>";
+}

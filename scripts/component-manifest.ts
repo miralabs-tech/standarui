@@ -7,7 +7,7 @@ import type {
   ManifestPart,
   SheetNames,
 } from "../packages/cli/src/manifest-diff";
-import { collect, jsonName } from "./api-reference";
+import { anatomyFile, collect, jsonName } from "./api-reference";
 
 export type { ComponentManifest, Flow, ManifestComponent, ManifestPart, SheetNames };
 
@@ -17,7 +17,6 @@ interface AnatomyModule {
 }
 
 const root = path.resolve(import.meta.dirname, "..");
-const coreComponents = path.join(root, "packages/core/src/components");
 const reactComponents = path.join(root, "packages/react/src/components");
 const apiDir = path.join(root, "packages/react/api");
 
@@ -72,11 +71,6 @@ function readImports(component: string, known: ReadonlySet<string>): string[] {
 }
 
 export async function collectManifest(): Promise<ComponentManifest> {
-  const anatomyFile = (name: string): string | undefined =>
-    [`${name}.anatomy.ts`, `${name}.ts`].find((file) => {
-      const full = path.join(coreComponents, name, file);
-      return existsSync(full) && /^export const anatomy\b/m.test(readFileSync(full, "utf8"));
-    });
   const names = readdirSync(reactComponents, { withFileTypes: true })
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name)
@@ -88,11 +82,19 @@ export async function collectManifest(): Promise<ComponentManifest> {
     }
   ).version;
 
-  const tablesOf = new Map(collect().map((entry) => [entry.component, entry.tables]));
+  const collected = collect();
+  const tablesOf = new Map(
+    collected.map((entry) => [
+      entry.component,
+      entry.tables.filter((table) => table !== entry.anatomy && table !== entry.cssVars),
+    ]),
+  );
+  const cssVarsOf = new Map(collected.map((entry) => [entry.component, entry.cssVars]));
   const flowsOfComponent = flowsOf(tablesOf);
   const components: Record<string, ManifestComponent> = {};
   for (const name of names) {
-    const file = anatomyFile(name);
+    const full = anatomyFile(name);
+    const file = full === undefined ? undefined : path.basename(full);
     let scope: string | null = null;
     let parts: ManifestPart[] = [];
     if (file !== undefined) {
@@ -106,9 +108,14 @@ export async function collectManifest(): Promise<ComponentManifest> {
       }));
     }
     const tables = tablesOf.get(name) ?? [];
+    const cssRows = cssVarsOf.get(name)?.rows ?? [];
+    const channels = cssRows.filter((row) => row.group === "written").map((row) => row.name);
+    const reads = cssRows.filter((row) => row.group === "read").map((row) => row.name);
     components[name] = {
       scope,
       parts,
+      ...(reads.length === 0 ? {} : { reads: reads.sort() }),
+      ...(channels.length === 0 ? {} : { channels: channels.sort() }),
       imports: readImports(name, known),
       composed: existsSync(path.join(reactComponents, name, "composed.tsx")),
       api: existsSync(path.join(apiDir, jsonName(name))) ? jsonName(name) : null,

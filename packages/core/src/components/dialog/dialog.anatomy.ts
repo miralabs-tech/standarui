@@ -40,3 +40,9 @@ export const anatomy: Anatomy<DialogPart> = createAnatomy("dialog").parts(
 );
 
 export const parts: Record<DialogPart, AnatomyPart> = anatomy.build();
+
+export interface DialogCssVars {
+  // --- written ---
+  /** Width of the page scrollbar the scroll lock hides, published on the root. */
+  "--sui-scrollbar-width": "<length>";
+}

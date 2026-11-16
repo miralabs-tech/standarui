@@ -531,5 +531,147 @@
         "source": "select.types.ts:313"
       }
     ]
+  },
+  {
+    "name": "SelectAnatomy",
+    "rows": [
+      {
+        "name": "trigger",
+        "type": "[data-scope=\"select\"][data-part=\"select:trigger\"]",
+        "notes": "SelectTrigger",
+        "source": "select.anatomy.ts:32"
+      },
+      {
+        "name": "valueText",
+        "type": "[data-scope=\"select\"][data-part=\"select:value-text\"]",
+        "notes": "SelectValueText",
+        "source": "select.anatomy.ts:33"
+      },
+      {
+        "name": "indicator",
+        "type": "[data-scope=\"select\"][data-part=\"select:indicator\"]",
+        "notes": "SelectIndicator",
+        "source": "select.anatomy.ts:34"
+      },
+      {
+        "name": "hiddenSelect",
+        "type": "[data-scope=\"select\"][data-part=\"select:hidden-select\"]",
+        "notes": "SelectHiddenSelect",
+        "source": "select.anatomy.ts:35"
+      },
+      {
+        "name": "backdrop",
+        "type": "[data-scope=\"select\"][data-part=\"select:backdrop\"]",
+        "notes": "SelectBackdrop",
+        "source": "select.anatomy.ts:36"
+      },
+      {
+        "name": "positioner",
+        "type": "[data-scope=\"select\"][data-part=\"select:positioner\"]",
+        "notes": "SelectPositioner",
+        "source": "select.anatomy.ts:37"
+      },
+      {
+        "name": "content",
+        "type": "[data-scope=\"select\"][data-part=\"select:content\"]",
+        "notes": "SelectContent",
+        "source": "select.anatomy.ts:38"
+      },
+      {
+        "name": "itemGroup",
+        "type": "[data-scope=\"select\"][data-part=\"select:item-group\"]",
+        "notes": "SelectItemGroup",
+        "source": "select.anatomy.ts:39"
+      },
+      {
+        "name": "itemGroupLabel",
+        "type": "[data-scope=\"select\"][data-part=\"select:item-group-label\"]",
+        "notes": "SelectItemGroupLabel",
+        "source": "select.anatomy.ts:40"
+      },
+      {
+        "name": "item",
+        "type": "[data-scope=\"select\"][data-part=\"select:item\"]",
+        "notes": "SelectItem",
+        "source": "select.anatomy.ts:41"
+      },
+      {
+        "name": "itemSymbol",
+        "type": "[data-scope=\"select\"][data-part=\"select:item-symbol\"]",
+        "notes": "SelectItemSymbol",
+        "source": "select.anatomy.ts:42"
+      },
+      {
+        "name": "itemText",
+        "type": "[data-scope=\"select\"][data-part=\"select:item-text\"]",
+        "notes": "SelectItemText",
+        "source": "select.anatomy.ts:43"
+      },
+      {
+        "name": "itemIndicator",
+        "type": "[data-scope=\"select\"][data-part=\"select:item-indicator\"]",
+        "notes": "SelectItemIndicator",
+        "source": "select.anatomy.ts:44"
+      },
+      {
+        "name": "separator",
+        "type": "[data-scope=\"select\"][data-part=\"select:separator\"]",
+        "notes": "SelectSeparator",
+        "source": "select.anatomy.ts:45"
+      },
+      {
+        "name": "cancelTrigger",
+        "type": "[data-scope=\"select\"][data-part=\"select:cancel-trigger\"]",
+        "notes": "SelectCancelTrigger",
+        "source": "select.anatomy.ts:46"
+      }
+    ]
+  },
+  {
+    "name": "SelectCssVars",
+    "rows": [
+      {
+        "name": "--sui-transform-origin",
+        "type": "\"<position>\"",
+        "notes": "Where the surface grows from, so a scale-in starts at the anchor.",
+        "source": "select.anatomy.ts:54",
+        "group": "written"
+      },
+      {
+        "name": "--sui-anchor-width",
+        "type": "\"<length>\"",
+        "notes": "Width of the anchor the surface is placed against.",
+        "source": "select.anatomy.ts:56",
+        "group": "written"
+      },
+      {
+        "name": "--sui-anchor-height",
+        "type": "\"<length>\"",
+        "notes": "Height of the anchor the surface is placed against.",
+        "source": "select.anatomy.ts:58",
+        "group": "written"
+      },
+      {
+        "name": "--sui-available-width",
+        "type": "\"<length>\"",
+        "notes": "Room left for the surface's width inside the boundary.",
+        "source": "select.anatomy.ts:60",
+        "group": "written"
+      },
+      {
+        "name": "--sui-available-height",
+        "type": "\"<length>\"",
+        "notes": "Room left for the surface's height inside the boundary.",
+        "source": "select.anatomy.ts:62",
+        "group": "written"
+      },
+      {
+        "name": "--sui-scrollbar-width",
+        "type": "\"<length>\"",
+        "notes": "Width of the page scrollbar the scroll lock hides, published on the root.",
+        "source": "select.anatomy.ts:64",
+        "group": "written"
+      }
+    ]
   }
 ]

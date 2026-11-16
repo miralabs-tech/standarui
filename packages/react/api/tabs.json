@@ -219,5 +219,105 @@
         "source": "composed.tsx:117"
       }
     ]
+  },
+  {
+    "name": "TabsAnatomy",
+    "rows": [
+      {
+        "name": "root",
+        "type": "[data-scope=\"tabs\"][data-part=\"tabs:root\"]",
+        "notes": "TabsRoot",
+        "source": "tabs.anatomy.ts:20"
+      },
+      {
+        "name": "list",
+        "type": "[data-scope=\"tabs\"][data-part=\"tabs:list\"]",
+        "notes": "TabsList",
+        "source": "tabs.anatomy.ts:21"
+      },
+      {
+        "name": "trigger",
+        "type": "[data-scope=\"tabs\"][data-part=\"tabs:trigger\"]",
+        "notes": "TabsTrigger",
+        "source": "tabs.anatomy.ts:22"
+      },
+      {
+        "name": "indicator",
+        "type": "[data-scope=\"tabs\"][data-part=\"tabs:indicator\"]",
+        "notes": "TabsIndicator",
+        "source": "tabs.anatomy.ts:23"
+      },
+      {
+        "name": "content",
+        "type": "[data-scope=\"tabs\"][data-part=\"tabs:content\"]",
+        "notes": "TabsContent",
+        "source": "tabs.anatomy.ts:24"
+      },
+      {
+        "name": "closeTrigger",
+        "type": "[data-scope=\"tabs\"][data-part=\"tabs:close-trigger\"]",
+        "notes": "TabsCloseTrigger",
+        "source": "tabs.anatomy.ts:25"
+      },
+      {
+        "name": "scrollbar",
+        "type": "[data-scope=\"tabs\"][data-part=\"tabs:scrollbar\"]",
+        "notes": "TabsScrollbar",
+        "source": "tabs.anatomy.ts:26"
+      },
+      {
+        "name": "thumb",
+        "type": "[data-scope=\"tabs\"][data-part=\"tabs:thumb\"]",
+        "notes": "TabsThumb",
+        "source": "tabs.anatomy.ts:27"
+      }
+    ]
+  },
+  {
+    "name": "TabsCssVars",
+    "rows": [
+      {
+        "name": "--sui-active-index",
+        "type": "\"<integer>\"",
+        "notes": "Index of the selected tab.",
+        "source": "tabs.anatomy.ts:35",
+        "group": "written"
+      },
+      {
+        "name": "--sui-item-count",
+        "type": "\"<integer>\"",
+        "notes": "Number of tabs.",
+        "source": "tabs.anatomy.ts:37",
+        "group": "written"
+      },
+      {
+        "name": "--sui-indicator-offset",
+        "type": "\"<length>\"",
+        "notes": "Measured offset of the indicator, absent until it has been measured.",
+        "source": "tabs.anatomy.ts:39",
+        "group": "written"
+      },
+      {
+        "name": "--sui-indicator-size",
+        "type": "\"<length>\"",
+        "notes": "Measured size of the indicator, absent until it has been measured.",
+        "source": "tabs.anatomy.ts:41",
+        "group": "written"
+      },
+      {
+        "name": "--sui-scroll-thumb-length",
+        "type": "\"<length>\"",
+        "notes": "Length of the inline scrollbar thumb.",
+        "source": "tabs.anatomy.ts:43",
+        "group": "written"
+      },
+      {
+        "name": "--sui-scroll-thumb-offset",
+        "type": "\"<length>\"",
+        "notes": "Offset of the inline scrollbar thumb along its track.",
+        "source": "tabs.anatomy.ts:45",
+        "group": "written"
+      }
+    ]
   }
 ]

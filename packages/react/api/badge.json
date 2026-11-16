@@ -83,5 +83,16 @@
     "name": "BadgeRootProps",
     "extends": "badge.BadgeMachineProps, PartProps<\"span\", badge.BadgeMachineProps>",
     "rows": []
+  },
+  {
+    "name": "BadgeAnatomy",
+    "rows": [
+      {
+        "name": "root",
+        "type": "[data-scope=\"badge\"][data-part=\"badge:root\"]",
+        "notes": "BadgeRoot",
+        "source": "badge.ts:20"
+      }
+    ]
   }
 ]

@@ -44,3 +44,11 @@ export const anatomy: Anatomy<CalendarPart> = createAnatomy("calendar").parts(
 );
 
 export const parts: Record<CalendarPart, AnatomyPart> = anatomy.build();
+
+export interface CalendarCssVars {
+  // --- written ---
+  /** Columns of the grid: seven in the day view, fewer in the month and year views. */
+  "--sui-calendar-columns": "<integer>";
+  /** Rows of the grid in the current view. */
+  "--sui-calendar-rows": "<integer>";
+}

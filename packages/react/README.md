@@ -22,4 +22,6 @@ export function AirplaneMode() {
 
 Components: the folders of `src/components/`. Light/dark and densities follow `data-sui-theme` / `data-sui-density` on any subtree.
 
+API reference: `api/<component>.json` holds the props tables of a component, then its `<X>Anatomy` table (one row per part, with the selector it carries and the React part that renders it) and its `<X>CssVars` table (the `--sui-*` custom properties the engine writes or reads, grouped `written` and `read`). `bun run docs:api` regenerates them.
+
 MIT © miralabs.tech

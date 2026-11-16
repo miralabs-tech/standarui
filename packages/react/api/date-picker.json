@@ -438,5 +438,117 @@
     "name": "DatePickerPresentation",
     "definition": "\"popup\" | \"sheet\"",
     "rows": []
+  },
+  {
+    "name": "DatePickerAnatomy",
+    "rows": [
+      {
+        "name": "root",
+        "type": "[data-scope=\"date-picker\"][data-part=\"date-picker:root\"]",
+        "notes": "DatePickerRoot",
+        "source": "date-picker.anatomy.ts:31"
+      },
+      {
+        "name": "label",
+        "type": "[data-scope=\"date-picker\"][data-part=\"date-picker:label\"]",
+        "notes": "DatePickerLabel",
+        "source": "date-picker.anatomy.ts:32"
+      },
+      {
+        "name": "trigger",
+        "type": "[data-scope=\"date-picker\"][data-part=\"date-picker:trigger\"]",
+        "notes": "DatePickerTrigger",
+        "source": "date-picker.anatomy.ts:33"
+      },
+      {
+        "name": "clearTrigger",
+        "type": "[data-scope=\"date-picker\"][data-part=\"date-picker:clear-trigger\"]",
+        "notes": "DatePickerClearTrigger",
+        "source": "date-picker.anatomy.ts:34"
+      },
+      {
+        "name": "backdrop",
+        "type": "[data-scope=\"date-picker\"][data-part=\"date-picker:backdrop\"]",
+        "notes": "DatePickerBackdrop",
+        "source": "date-picker.anatomy.ts:35"
+      },
+      {
+        "name": "positioner",
+        "type": "[data-scope=\"date-picker\"][data-part=\"date-picker:positioner\"]",
+        "notes": "DatePickerPositioner",
+        "source": "date-picker.anatomy.ts:36"
+      },
+      {
+        "name": "content",
+        "type": "[data-scope=\"date-picker\"][data-part=\"date-picker:content\"]",
+        "notes": "DatePickerContent",
+        "source": "date-picker.anatomy.ts:37"
+      },
+      {
+        "name": "title",
+        "type": "[data-scope=\"date-picker\"][data-part=\"date-picker:title\"]",
+        "notes": "DatePickerTitle",
+        "source": "date-picker.anatomy.ts:38"
+      },
+      {
+        "name": "cancelTrigger",
+        "type": "[data-scope=\"date-picker\"][data-part=\"date-picker:cancel-trigger\"]",
+        "notes": "DatePickerCancelTrigger",
+        "source": "date-picker.anatomy.ts:39"
+      },
+      {
+        "name": "closeTrigger",
+        "type": "[data-scope=\"date-picker\"][data-part=\"date-picker:close-trigger\"]",
+        "notes": "DatePickerCloseTrigger",
+        "source": "date-picker.anatomy.ts:40"
+      }
+    ]
+  },
+  {
+    "name": "DatePickerCssVars",
+    "rows": [
+      {
+        "name": "--sui-transform-origin",
+        "type": "\"<position>\"",
+        "notes": "Where the surface grows from, so a scale-in starts at the anchor.",
+        "source": "date-picker.anatomy.ts:48",
+        "group": "written"
+      },
+      {
+        "name": "--sui-anchor-width",
+        "type": "\"<length>\"",
+        "notes": "Width of the anchor the surface is placed against.",
+        "source": "date-picker.anatomy.ts:50",
+        "group": "written"
+      },
+      {
+        "name": "--sui-anchor-height",
+        "type": "\"<length>\"",
+        "notes": "Height of the anchor the surface is placed against.",
+        "source": "date-picker.anatomy.ts:52",
+        "group": "written"
+      },
+      {
+        "name": "--sui-available-width",
+        "type": "\"<length>\"",
+        "notes": "Room left for the surface's width inside the boundary.",
+        "source": "date-picker.anatomy.ts:54",
+        "group": "written"
+      },
+      {
+        "name": "--sui-available-height",
+        "type": "\"<length>\"",
+        "notes": "Room left for the surface's height inside the boundary.",
+        "source": "date-picker.anatomy.ts:56",
+        "group": "written"
+      },
+      {
+        "name": "--sui-scrollbar-width",
+        "type": "\"<length>\"",
+        "notes": "Width of the page scrollbar the scroll lock hides, published on the root.",
+        "source": "date-picker.anatomy.ts:58",
+        "group": "written"
+      }
+    ]
   }
 ]

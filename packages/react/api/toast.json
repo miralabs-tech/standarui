@@ -416,5 +416,92 @@
         "source": "toast.types.ts:45"
       }
     ]
+  },
+  {
+    "name": "ToastAnatomy",
+    "rows": [
+      {
+        "name": "group",
+        "type": "[data-scope=\"toast\"][data-part=\"toast:group\"]",
+        "notes": "ToastGroup",
+        "source": "toast.anatomy.ts:24"
+      },
+      {
+        "name": "root",
+        "type": "[data-scope=\"toast\"][data-part=\"toast:root\"]",
+        "notes": "ToastRoot",
+        "source": "toast.anatomy.ts:25"
+      },
+      {
+        "name": "indicator",
+        "type": "[data-scope=\"toast\"][data-part=\"toast:indicator\"]",
+        "notes": "ToastIndicator",
+        "source": "toast.anatomy.ts:26"
+      },
+      {
+        "name": "title",
+        "type": "[data-scope=\"toast\"][data-part=\"toast:title\"]",
+        "notes": "ToastTitle",
+        "source": "toast.anatomy.ts:27"
+      },
+      {
+        "name": "description",
+        "type": "[data-scope=\"toast\"][data-part=\"toast:description\"]",
+        "notes": "ToastDescription",
+        "source": "toast.anatomy.ts:28"
+      },
+      {
+        "name": "actionTrigger",
+        "type": "[data-scope=\"toast\"][data-part=\"toast:action-trigger\"]",
+        "notes": "ToastActionTrigger",
+        "source": "toast.anatomy.ts:29"
+      },
+      {
+        "name": "closeTrigger",
+        "type": "[data-scope=\"toast\"][data-part=\"toast:close-trigger\"]",
+        "notes": "ToastCloseTrigger",
+        "source": "toast.anatomy.ts:30"
+      }
+    ]
+  },
+  {
+    "name": "ToastCssVars",
+    "rows": [
+      {
+        "name": "--sui-toast-count",
+        "type": "\"<integer>\"",
+        "notes": "Number of toasts in the region.",
+        "source": "toast.anatomy.ts:38",
+        "group": "written"
+      },
+      {
+        "name": "--sui-toast-index",
+        "type": "\"<integer>\"",
+        "notes": "Position of a toast in the stack, the front one first.",
+        "source": "toast.anatomy.ts:40",
+        "group": "written"
+      },
+      {
+        "name": "--sui-toast-offset",
+        "type": "\"<length>\"",
+        "notes": "Signed distance a toast sits from the front one when the stack is expanded.",
+        "source": "toast.anatomy.ts:42",
+        "group": "written"
+      },
+      {
+        "name": "--sui-toast-stack-size",
+        "type": "\"<length>\"",
+        "notes": "Space the expanded stack occupies.",
+        "source": "toast.anatomy.ts:44",
+        "group": "written"
+      },
+      {
+        "name": "--sui-toast-gap",
+        "type": "\"<length>\"",
+        "notes": "Space between expanded toasts, defaulting when it does not parse.",
+        "source": "toast.anatomy.ts:47",
+        "group": "read"
+      }
+    ]
   }
 ]

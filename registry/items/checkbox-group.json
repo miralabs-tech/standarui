@@ -13,8 +13,8 @@
     {
       "layer": "core",
       "path": "components/checkbox-group/checkbox-group.anatomy.ts",
-      "sha256": "dbaba33bfd0790eb76c7c4cdf29b710c0b964a4aadb197399d0d64dc43bc7899",
-      "content": "import { type Anatomy, type AnatomyPart, createAnatomy } from \"../../machine/anatomy\";\n\n/**\n * Two parts, and that is the whole component. The boxes are `checkbox`es — a\n * checkbox exists on its own, unlike a radio, so there is nothing here to\n * re-implement as `item*` parts.\n */\nexport type CheckboxGroupPart = \"root\" | \"label\";\n\nexport const anatomy: Anatomy<CheckboxGroupPart> = createAnatomy(\"checkbox-group\").parts(\n  \"root\",\n  \"label\",\n);\n\nexport const parts: Record<CheckboxGroupPart, AnatomyPart> = anatomy.build();\n"
+      "sha256": "4b3a527d2b6932ebb569c7686c017d400b6d68fa9633adbd9864d043097138d7",
+      "content": "import { type Anatomy, type AnatomyPart, createAnatomy } from \"../../machine/anatomy\";\n\n/**\n * Two parts, and that is the whole component. The boxes are `checkbox`es — a\n * checkbox exists on its own, unlike a radio, so there is nothing here to\n * re-implement as `item*` parts.\n */\nexport type CheckboxGroupPart = \"root\" | \"label\";\n\nexport const anatomy: Anatomy<CheckboxGroupPart> = createAnatomy(\"checkbox-group\").parts(\n  \"root\",\n  \"label\",\n);\n\nexport const parts: Record<CheckboxGroupPart, AnatomyPart> = anatomy.build();\n\nexport interface CheckboxGroupCssVars {\n  // --- written ---\n  /** Number of checkboxes in the group, at least 1. */\n  \"--sui-item-count\": \"<integer>\";\n}\n"
     },
     {
       "layer": "core",

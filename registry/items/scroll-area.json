@@ -17,8 +17,8 @@
     {
       "layer": "core",
       "path": "components/scroll-area/scroll-area.anatomy.ts",
-      "sha256": "7d031167a3896a130f96282f356c8ced94aa5bf87f02849875d2caf608f9c2ed",
-      "content": "import { type Anatomy, type AnatomyPart, createAnatomy } from \"../../machine/anatomy\";\n\nexport type ScrollAreaPart = \"root\" | \"viewport\" | \"content\" | \"scrollbar\" | \"thumb\" | \"corner\";\n\nexport const anatomy: Anatomy<ScrollAreaPart> = createAnatomy(\"scroll-area\").parts(\n  \"root\",\n  \"viewport\",\n  \"content\",\n  \"scrollbar\",\n  \"thumb\",\n  \"corner\",\n);\n\nexport const parts: Record<ScrollAreaPart, AnatomyPart> = anatomy.build();\n"
+      "sha256": "d34f5d4b51264f75d6bd927fb347815332dac0ea8432bfcb65a10171a66ba96b",
+      "content": "import { type Anatomy, type AnatomyPart, createAnatomy } from \"../../machine/anatomy\";\n\nexport type ScrollAreaPart = \"root\" | \"viewport\" | \"content\" | \"scrollbar\" | \"thumb\" | \"corner\";\n\nexport const anatomy: Anatomy<ScrollAreaPart> = createAnatomy(\"scroll-area\").parts(\n  \"root\",\n  \"viewport\",\n  \"content\",\n  \"scrollbar\",\n  \"thumb\",\n  \"corner\",\n);\n\nexport const parts: Record<ScrollAreaPart, AnatomyPart> = anatomy.build();\n\nexport interface ScrollAreaCssVars {\n  // --- written ---\n  /** Length of a scrollbar thumb. */\n  \"--sui-scroll-area-thumb-size\": \"<length>\";\n  /** Offset of a scrollbar thumb along its track. */\n  \"--sui-scroll-area-thumb-offset\": \"<length>\";\n}\n"
     },
     {
       "layer": "core",

@@ -42,3 +42,23 @@ export const anatomy: Anatomy<PopoverPart> = createAnatomy("popover").parts(
 );
 
 export const parts: Record<PopoverPart, AnatomyPart> = anatomy.build();
+
+export interface PopoverCssVars {
+  // --- written ---
+  /** Where the surface grows from, so a scale-in starts at the anchor. */
+  "--sui-transform-origin": "<position>";
+  /** Width of the anchor the surface is placed against. */
+  "--sui-anchor-width": "<length>";
+  /** Height of the anchor the surface is placed against. */
+  "--sui-anchor-height": "<length>";
+  /** Room left for the surface's width inside the boundary. */
+  "--sui-available-width": "<length>";
+  /** Room left for the surface's height inside the boundary. */
+  "--sui-available-height": "<length>";
+  /** Inline offset of the arrow within the surface. */
+  "--sui-arrow-x": "<length>";
+  /** Block offset of the arrow within the surface. */
+  "--sui-arrow-y": "<length>";
+  /** Width of the page scrollbar the scroll lock hides, published on the root. */
+  "--sui-scrollbar-width": "<length>";
+}

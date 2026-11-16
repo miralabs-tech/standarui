@@ -356,5 +356,131 @@
         "source": "popover.tsx:128"
       }
     ]
+  },
+  {
+    "name": "PopoverAnatomy",
+    "rows": [
+      {
+        "name": "trigger",
+        "type": "[data-scope=\"popover\"][data-part=\"popover:trigger\"]",
+        "notes": "PopoverTrigger",
+        "source": "popover.anatomy.ts:32"
+      },
+      {
+        "name": "anchor",
+        "type": "[data-scope=\"popover\"][data-part=\"popover:anchor\"]",
+        "notes": "PopoverAnchor",
+        "source": "popover.anatomy.ts:33"
+      },
+      {
+        "name": "backdrop",
+        "type": "[data-scope=\"popover\"][data-part=\"popover:backdrop\"]",
+        "notes": "PopoverBackdrop",
+        "source": "popover.anatomy.ts:34"
+      },
+      {
+        "name": "positioner",
+        "type": "[data-scope=\"popover\"][data-part=\"popover:positioner\"]",
+        "notes": "PopoverPositioner",
+        "source": "popover.anatomy.ts:35"
+      },
+      {
+        "name": "content",
+        "type": "[data-scope=\"popover\"][data-part=\"popover:content\"]",
+        "notes": "PopoverContent",
+        "source": "popover.anatomy.ts:36"
+      },
+      {
+        "name": "arrow",
+        "type": "[data-scope=\"popover\"][data-part=\"popover:arrow\"]",
+        "notes": "PopoverArrow",
+        "source": "popover.anatomy.ts:37"
+      },
+      {
+        "name": "arrowTip",
+        "type": "[data-scope=\"popover\"][data-part=\"popover:arrow-tip\"]",
+        "notes": "",
+        "source": "popover.anatomy.ts:38"
+      },
+      {
+        "name": "title",
+        "type": "[data-scope=\"popover\"][data-part=\"popover:title\"]",
+        "notes": "PopoverTitle",
+        "source": "popover.anatomy.ts:39"
+      },
+      {
+        "name": "description",
+        "type": "[data-scope=\"popover\"][data-part=\"popover:description\"]",
+        "notes": "PopoverDescription",
+        "source": "popover.anatomy.ts:40"
+      },
+      {
+        "name": "closeTrigger",
+        "type": "[data-scope=\"popover\"][data-part=\"popover:close-trigger\"]",
+        "notes": "PopoverCloseTrigger",
+        "source": "popover.anatomy.ts:41"
+      }
+    ]
+  },
+  {
+    "name": "PopoverCssVars",
+    "rows": [
+      {
+        "name": "--sui-transform-origin",
+        "type": "\"<position>\"",
+        "notes": "Where the surface grows from, so a scale-in starts at the anchor.",
+        "source": "popover.anatomy.ts:49",
+        "group": "written"
+      },
+      {
+        "name": "--sui-anchor-width",
+        "type": "\"<length>\"",
+        "notes": "Width of the anchor the surface is placed against.",
+        "source": "popover.anatomy.ts:51",
+        "group": "written"
+      },
+      {
+        "name": "--sui-anchor-height",
+        "type": "\"<length>\"",
+        "notes": "Height of the anchor the surface is placed against.",
+        "source": "popover.anatomy.ts:53",
+        "group": "written"
+      },
+      {
+        "name": "--sui-available-width",
+        "type": "\"<length>\"",
+        "notes": "Room left for the surface's width inside the boundary.",
+        "source": "popover.anatomy.ts:55",
+        "group": "written"
+      },
+      {
+        "name": "--sui-available-height",
+        "type": "\"<length>\"",
+        "notes": "Room left for the surface's height inside the boundary.",
+        "source": "popover.anatomy.ts:57",
+        "group": "written"
+      },
+      {
+        "name": "--sui-arrow-x",
+        "type": "\"<length>\"",
+        "notes": "Inline offset of the arrow within the surface.",
+        "source": "popover.anatomy.ts:59",
+        "group": "written"
+      },
+      {
+        "name": "--sui-arrow-y",
+        "type": "\"<length>\"",
+        "notes": "Block offset of the arrow within the surface.",
+        "source": "popover.anatomy.ts:61",
+        "group": "written"
+      },
+      {
+        "name": "--sui-scrollbar-width",
+        "type": "\"<length>\"",
+        "notes": "Width of the page scrollbar the scroll lock hides, published on the root.",
+        "source": "popover.anatomy.ts:63",
+        "group": "written"
+      }
+    ]
   }
 ]

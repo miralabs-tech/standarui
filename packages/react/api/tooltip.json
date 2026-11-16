@@ -236,5 +236,68 @@
         "source": "tooltip.tsx:111"
       }
     ]
+  },
+  {
+    "name": "TooltipAnatomy",
+    "rows": [
+      {
+        "name": "trigger",
+        "type": "[data-scope=\"tooltip\"][data-part=\"tooltip:trigger\"]",
+        "notes": "TooltipTrigger",
+        "source": "tooltip.anatomy.ts:23"
+      },
+      {
+        "name": "positioner",
+        "type": "[data-scope=\"tooltip\"][data-part=\"tooltip:positioner\"]",
+        "notes": "TooltipPositioner",
+        "source": "tooltip.anatomy.ts:24"
+      },
+      {
+        "name": "content",
+        "type": "[data-scope=\"tooltip\"][data-part=\"tooltip:content\"]",
+        "notes": "TooltipContent",
+        "source": "tooltip.anatomy.ts:25"
+      }
+    ]
+  },
+  {
+    "name": "TooltipCssVars",
+    "rows": [
+      {
+        "name": "--sui-transform-origin",
+        "type": "\"<position>\"",
+        "notes": "Where the surface grows from, so a scale-in starts at the anchor.",
+        "source": "tooltip.anatomy.ts:33",
+        "group": "written"
+      },
+      {
+        "name": "--sui-anchor-width",
+        "type": "\"<length>\"",
+        "notes": "Width of the anchor the surface is placed against.",
+        "source": "tooltip.anatomy.ts:35",
+        "group": "written"
+      },
+      {
+        "name": "--sui-anchor-height",
+        "type": "\"<length>\"",
+        "notes": "Height of the anchor the surface is placed against.",
+        "source": "tooltip.anatomy.ts:37",
+        "group": "written"
+      },
+      {
+        "name": "--sui-available-width",
+        "type": "\"<length>\"",
+        "notes": "Room left for the surface's width inside the boundary.",
+        "source": "tooltip.anatomy.ts:39",
+        "group": "written"
+      },
+      {
+        "name": "--sui-available-height",
+        "type": "\"<length>\"",
+        "notes": "Room left for the surface's height inside the boundary.",
+        "source": "tooltip.anatomy.ts:41",
+        "group": "written"
+      }
+    ]
   }
 ]

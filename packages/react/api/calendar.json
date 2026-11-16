@@ -272,5 +272,107 @@
         "source": "composed.tsx:65"
       }
     ]
+  },
+  {
+    "name": "CalendarAnatomy",
+    "rows": [
+      {
+        "name": "root",
+        "type": "[data-scope=\"calendar\"][data-part=\"calendar:root\"]",
+        "notes": "CalendarRoot",
+        "source": "calendar.anatomy.ts:31"
+      },
+      {
+        "name": "label",
+        "type": "[data-scope=\"calendar\"][data-part=\"calendar:label\"]",
+        "notes": "CalendarLabel",
+        "source": "calendar.anatomy.ts:32"
+      },
+      {
+        "name": "header",
+        "type": "[data-scope=\"calendar\"][data-part=\"calendar:header\"]",
+        "notes": "CalendarHeader",
+        "source": "calendar.anatomy.ts:33"
+      },
+      {
+        "name": "prevTrigger",
+        "type": "[data-scope=\"calendar\"][data-part=\"calendar:prev-trigger\"]",
+        "notes": "CalendarPrevTrigger",
+        "source": "calendar.anatomy.ts:34"
+      },
+      {
+        "name": "nextTrigger",
+        "type": "[data-scope=\"calendar\"][data-part=\"calendar:next-trigger\"]",
+        "notes": "CalendarNextTrigger",
+        "source": "calendar.anatomy.ts:35"
+      },
+      {
+        "name": "viewTrigger",
+        "type": "[data-scope=\"calendar\"][data-part=\"calendar:view-trigger\"]",
+        "notes": "CalendarViewTrigger",
+        "source": "calendar.anatomy.ts:36"
+      },
+      {
+        "name": "caption",
+        "type": "[data-scope=\"calendar\"][data-part=\"calendar:caption\"]",
+        "notes": "CalendarCaption",
+        "source": "calendar.anatomy.ts:37"
+      },
+      {
+        "name": "grid",
+        "type": "[data-scope=\"calendar\"][data-part=\"calendar:grid\"]",
+        "notes": "CalendarGrid",
+        "source": "calendar.anatomy.ts:38"
+      },
+      {
+        "name": "weekdayRow",
+        "type": "[data-scope=\"calendar\"][data-part=\"calendar:weekday-row\"]",
+        "notes": "CalendarWeekdayRow",
+        "source": "calendar.anatomy.ts:39"
+      },
+      {
+        "name": "weekday",
+        "type": "[data-scope=\"calendar\"][data-part=\"calendar:weekday\"]",
+        "notes": "CalendarWeekday",
+        "source": "calendar.anatomy.ts:40"
+      },
+      {
+        "name": "weekRow",
+        "type": "[data-scope=\"calendar\"][data-part=\"calendar:week-row\"]",
+        "notes": "CalendarWeekRow",
+        "source": "calendar.anatomy.ts:41"
+      },
+      {
+        "name": "weekNumber",
+        "type": "[data-scope=\"calendar\"][data-part=\"calendar:week-number\"]",
+        "notes": "CalendarWeekNumber",
+        "source": "calendar.anatomy.ts:42"
+      },
+      {
+        "name": "cell",
+        "type": "[data-scope=\"calendar\"][data-part=\"calendar:cell\"]",
+        "notes": "CalendarCell",
+        "source": "calendar.anatomy.ts:43"
+      }
+    ]
+  },
+  {
+    "name": "CalendarCssVars",
+    "rows": [
+      {
+        "name": "--sui-calendar-columns",
+        "type": "\"<integer>\"",
+        "notes": "Columns of the grid: seven in the day view, fewer in the month and year views.",
+        "source": "calendar.anatomy.ts:51",
+        "group": "written"
+      },
+      {
+        "name": "--sui-calendar-rows",
+        "type": "\"<integer>\"",
+        "notes": "Rows of the grid in the current view.",
+        "source": "calendar.anatomy.ts:53",
+        "group": "written"
+      }
+    ]
   }
 ]

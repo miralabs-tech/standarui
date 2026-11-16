@@ -17,8 +17,8 @@
     {
       "layer": "core",
       "path": "components/switch/switch.anatomy.ts",
-      "sha256": "41b962958d544e4dda237adb02071039c95c70f1c9727f429faa44b6e52dd9f8",
-      "content": "import { type Anatomy, type AnatomyPart, createAnatomy } from \"../../machine/anatomy\";\n\nexport type SwitchPart = \"root\" | \"label\" | \"control\" | \"thumb\" | \"hiddenInput\";\n\nexport const anatomy: Anatomy<SwitchPart> = createAnatomy(\"switch\").parts(\n  \"root\",\n  \"label\",\n  \"control\",\n  \"thumb\",\n  \"hiddenInput\",\n);\n\nexport const parts: Record<SwitchPart, AnatomyPart> = anatomy.build();\n"
+      "sha256": "ff2db22123d95958f813ef09e62bfa5af5c70efd4f365741f46dc13550ab4a92",
+      "content": "import { type Anatomy, type AnatomyPart, createAnatomy } from \"../../machine/anatomy\";\n\nexport type SwitchPart = \"root\" | \"label\" | \"control\" | \"thumb\" | \"hiddenInput\";\n\nexport const anatomy: Anatomy<SwitchPart> = createAnatomy(\"switch\").parts(\n  \"root\",\n  \"label\",\n  \"control\",\n  \"thumb\",\n  \"hiddenInput\",\n);\n\nexport const parts: Record<SwitchPart, AnatomyPart> = anatomy.build();\n\nexport interface SwitchCssVars {\n  // --- written ---\n  /** How far the thumb has been dragged, from 0 to 1, written only while dragging. */\n  \"--sui-switch-progress\": \"<number>\";\n}\n"
     },
     {
       "layer": "core",

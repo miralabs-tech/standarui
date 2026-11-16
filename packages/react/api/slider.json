@@ -277,5 +277,110 @@
         "source": "slider.tsx:202"
       }
     ]
+  },
+  {
+    "name": "SliderAnatomy",
+    "rows": [
+      {
+        "name": "root",
+        "type": "[data-scope=\"slider\"][data-part=\"slider:root\"]",
+        "notes": "SliderRoot",
+        "source": "slider.anatomy.ts:16"
+      },
+      {
+        "name": "label",
+        "type": "[data-scope=\"slider\"][data-part=\"slider:label\"]",
+        "notes": "SliderLabel",
+        "source": "slider.anatomy.ts:17"
+      },
+      {
+        "name": "valueText",
+        "type": "[data-scope=\"slider\"][data-part=\"slider:value-text\"]",
+        "notes": "SliderValueText",
+        "source": "slider.anatomy.ts:18"
+      },
+      {
+        "name": "control",
+        "type": "[data-scope=\"slider\"][data-part=\"slider:control\"]",
+        "notes": "SliderControl",
+        "source": "slider.anatomy.ts:19"
+      },
+      {
+        "name": "track",
+        "type": "[data-scope=\"slider\"][data-part=\"slider:track\"]",
+        "notes": "SliderTrack",
+        "source": "slider.anatomy.ts:20"
+      },
+      {
+        "name": "range",
+        "type": "[data-scope=\"slider\"][data-part=\"slider:range\"]",
+        "notes": "SliderRange",
+        "source": "slider.anatomy.ts:21"
+      },
+      {
+        "name": "thumb",
+        "type": "[data-scope=\"slider\"][data-part=\"slider:thumb\"]",
+        "notes": "SliderThumb",
+        "source": "slider.anatomy.ts:22"
+      },
+      {
+        "name": "hiddenInput",
+        "type": "[data-scope=\"slider\"][data-part=\"slider:hidden-input\"]",
+        "notes": "SliderHiddenInput",
+        "source": "slider.anatomy.ts:23"
+      },
+      {
+        "name": "markerGroup",
+        "type": "[data-scope=\"slider\"][data-part=\"slider:marker-group\"]",
+        "notes": "SliderMarkerGroup",
+        "source": "slider.anatomy.ts:24"
+      },
+      {
+        "name": "marker",
+        "type": "[data-scope=\"slider\"][data-part=\"slider:marker\"]",
+        "notes": "SliderMarker",
+        "source": "slider.anatomy.ts:25"
+      }
+    ]
+  },
+  {
+    "name": "SliderCssVars",
+    "rows": [
+      {
+        "name": "--sui-slider-percent",
+        "type": "\"<percentage>\"",
+        "notes": "Position of the value on the track.",
+        "source": "slider.anatomy.ts:33",
+        "group": "written"
+      },
+      {
+        "name": "--sui-slider-range-start",
+        "type": "\"<percentage>\"",
+        "notes": "Where the filled range starts.",
+        "source": "slider.anatomy.ts:35",
+        "group": "written"
+      },
+      {
+        "name": "--sui-slider-range-end",
+        "type": "\"<percentage>\"",
+        "notes": "Where the filled range ends.",
+        "source": "slider.anatomy.ts:37",
+        "group": "written"
+      },
+      {
+        "name": "--sui-slider-thumb-percent",
+        "type": "\"<percentage>\"",
+        "notes": "Position of one thumb on the track.",
+        "source": "slider.anatomy.ts:39",
+        "group": "written"
+      },
+      {
+        "name": "--sui-marker-percent",
+        "type": "\"<percentage>\"",
+        "notes": "Position of one marker on the track.",
+        "source": "slider.anatomy.ts:41",
+        "group": "written"
+      }
+    ]
   }
 ]
