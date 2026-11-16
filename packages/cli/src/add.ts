@@ -89,10 +89,18 @@ export async function installItems(
   write(path.join(cwd, LOCK_FILE), serializeLockfile(lock));
   dependencies.apply(options.install);
 
+  const styles = resolved
+    .flatMap(({ key }) => planned.get(key) ?? [])
+    .filter((file) => file.lockKey.startsWith("styles/"))
+    .map((file) => path.relative(cwd, file.target).split(path.sep).join("/"));
   context.out(`Added ${resolved.length} item(s), ${fileCount} file(s).`);
   context.out(`  items: ${resolved.map(({ key }) => key).join(", ")}`);
   if (dependencies.changed.length > 0) {
     const shown = dependencies.changed.map((name) => `${name}@${wanted[name]}`).join(", ");
     context.out(`  dependencies: ${shown}`);
+  }
+  if (styles.length > 0) {
+    context.out("Styles files copied (import them in your app):");
+    for (const file of styles) context.out(`  ${file}`);
   }
 }

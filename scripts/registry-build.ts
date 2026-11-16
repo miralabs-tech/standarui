@@ -12,15 +12,15 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseSync } from "oxc-parser";
 import type {
+  CodeLayer,
   RegistryFile,
   RegistryIndex,
   RegistryItem,
-  RegistryLayer,
   RegistrySpecifier,
 } from "../packages/cli/src/registry-types";
 
-const LAYERS: readonly RegistryLayer[] = ["core", "react"];
-const NAV_FILES: Readonly<Record<RegistryLayer, string>> = { core: "nav.ts", react: "nav.tsx" };
+const LAYERS: readonly CodeLayer[] = ["core", "react"];
+const NAV_FILES: Readonly<Record<CodeLayer, string>> = { core: "nav.ts", react: "nav.tsx" };
 const API_FILES: readonly string[] = ["manifest.json", "renames.json"];
 const HARNESS_FILES: ReadonlySet<string> = new Set([
   "core:components/harness.ts",
@@ -29,7 +29,7 @@ const HARNESS_FILES: ReadonlySet<string> = new Set([
 
 export interface SourceFile {
   readonly key: string;
-  readonly layer: RegistryLayer;
+  readonly layer: CodeLayer;
   readonly path: string;
   readonly content: string;
 }
@@ -44,7 +44,7 @@ export interface CollectedRegistry {
   readonly baseImportsOfComponents: readonly string[];
 }
 
-export function isExcludedByName(layer: RegistryLayer, relPath: string): boolean {
+export function isExcludedByName(layer: CodeLayer, relPath: string): boolean {
   const base = path.posix.basename(relPath);
   return (
     /\.test\./.test(base) ||
@@ -73,13 +73,13 @@ function json(value: unknown): string {
   return `${JSON.stringify(value, null, 2)}\n`;
 }
 
-function readPackage(root: string, layer: RegistryLayer): Record<string, unknown> {
+function readPackage(root: string, layer: CodeLayer): Record<string, unknown> {
   return JSON.parse(
     readFileSync(path.join(root, "packages", layer, "package.json"), "utf8"),
   ) as Record<string, unknown>;
 }
 
-function readSources(root: string, layer: RegistryLayer): SourceFile[] {
+function readSources(root: string, layer: CodeLayer): SourceFile[] {
   const srcDir = path.join(root, "packages", layer, "src");
   const found: SourceFile[] = [];
   for (const entry of readdirSync(srcDir, { recursive: true, encoding: "utf8" })) {
@@ -200,7 +200,7 @@ function item(
 
 function peerRanges(
   root: string,
-  layer: RegistryLayer,
+  layer: CodeLayer,
   names: readonly string[],
 ): Record<string, string> {
   const peers = readPackage(root, layer).peerDependencies as Record<string, string>;

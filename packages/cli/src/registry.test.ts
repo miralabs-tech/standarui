@@ -115,7 +115,12 @@ function localClient(directory: string): ReturnType<typeof createRegistryClient>
   return createRegistryClient(context, config, "0.0.0", undefined);
 }
 
-function acmeItem(file: { path: string; content: string; sha256?: string }): string {
+function acmeItem(file: {
+  path: string;
+  content: string;
+  sha256?: string;
+  layer?: string;
+}): string {
   return JSON.stringify({
     name: "card",
     registryDependencies: [],
@@ -136,6 +141,24 @@ describe("third-party item validation", () => {
   it("accepts an item whose sha256 matches", async () => {
     writeFileSync(path.join(directory, "ok.json"), acmeItem({ path: "a.ts", content: "x\n" }));
     expect((await localClient(directory).loadItem("@acme", "ok")).name).toBe("card");
+  });
+
+  it("accepts an item with a styles file", async () => {
+    writeFileSync(
+      path.join(directory, "styled.json"),
+      acmeItem({ path: "acme/a.css", content: ".a {}\n", layer: "styles" }),
+    );
+    expect((await localClient(directory).loadItem("@acme", "styled")).name).toBe("card");
+  });
+
+  it("refuses an unknown layer", async () => {
+    writeFileSync(
+      path.join(directory, "odd-layer.json"),
+      acmeItem({ path: "a.css", content: ".a {}\n", layer: "themes" }),
+    );
+    await expect(localClient(directory).loadItem("@acme", "odd-layer")).rejects.toThrow(
+      /malformed file entry/,
+    );
   });
 
   it("refuses an item whose sha256 does not match its content", async () => {

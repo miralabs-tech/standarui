@@ -103,7 +103,7 @@ function checkItem(value: unknown, where: string): RegistryItem {
   for (const file of value.files as unknown[]) {
     if (
       !isRecord(file) ||
-      (file.layer !== "core" && file.layer !== "react") ||
+      (file.layer !== "core" && file.layer !== "react" && file.layer !== "styles") ||
       typeof file.content !== "string"
     ) {
       throw new CliError(`${where}: malformed file entry`);

@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
-import { LAYERS, type StandaruiConfig } from "./config";
+import { CODE_LAYERS, type StandaruiConfig } from "./config";
 
 function stripJsonc(text: string): string {
   let out = "";
@@ -114,7 +114,7 @@ function suggestion(alias: string, dir: string): string {
 export function missingPathLines(cwd: string, config: StandaruiConfig): string[] {
   const paths = readPaths(cwd);
   const lines = new Set<string>();
-  for (const layer of LAYERS) {
+  for (const layer of CODE_LAYERS) {
     const alias = config.aliases[layer];
     if (!pathsResolve(alias, paths) || !pathsResolve(`${alias}/x`, paths)) {
       lines.add(suggestion(alias, config.dirs[layer]));
