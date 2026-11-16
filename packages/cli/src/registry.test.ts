@@ -1,4 +1,8 @@
-import { describe, expect, it } from "vitest";
+import { createHash } from "node:crypto";
+import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import path from "node:path";
+import { afterAll, describe, expect, it } from "vitest";
 import { defaultConfig } from "./config";
 import type { CliContext } from "./context";
 import { createRegistryClient, expandHeaders, parseRef } from "./registry";
@@ -94,4 +98,64 @@ describe("parseRef", () => {
     expect(parseRef("@acme/card", "@standarui")).toEqual({ registry: "@acme", name: "card" });
     expect(() => parseRef("@acme", "@standarui")).toThrow();
   });
+});
+
+function localClient(directory: string): ReturnType<typeof createRegistryClient> {
+  const context: CliContext = {
+    cwd: directory,
+    env: {},
+    fetch: (async () => new Response("{}")) as typeof fetch,
+    out: () => {},
+    err: () => {},
+  };
+  const config = {
+    ...defaultConfig(),
+    registries: { "@acme": { url: `${directory}/{name}.json` } },
+  };
+  return createRegistryClient(context, config, "0.0.0", undefined);
+}
+
+function acmeItem(file: { path: string; content: string; sha256?: string }): string {
+  return JSON.stringify({
+    name: "card",
+    registryDependencies: [],
+    files: [
+      {
+        layer: "react",
+        sha256: createHash("sha256").update(file.content).digest("hex"),
+        ...file,
+      },
+    ],
+  });
+}
+
+describe("third-party item validation", () => {
+  const directory = mkdtempSync(path.join(tmpdir(), "standarui-items-"));
+  afterAll(() => rmSync(directory, { recursive: true, force: true }));
+
+  it("accepts an item whose sha256 matches", async () => {
+    writeFileSync(path.join(directory, "ok.json"), acmeItem({ path: "a.ts", content: "x\n" }));
+    expect((await localClient(directory).loadItem("@acme", "ok")).name).toBe("card");
+  });
+
+  it("refuses an item whose sha256 does not match its content", async () => {
+    writeFileSync(
+      path.join(directory, "bad-hash.json"),
+      acmeItem({ path: "a.ts", content: "x\n", sha256: "0".repeat(64) }),
+    );
+    await expect(localClient(directory).loadItem("@acme", "bad-hash")).rejects.toThrow(/sha256/);
+  });
+
+  it.each(["../evil.ts", "a/../../evil.ts", "/abs.ts", "C:/abs.ts", "..\\evil.ts", "\\abs.ts"])(
+    "refuses the file path %s",
+    async (filePath) => {
+      writeFileSync(
+        path.join(directory, "bad-path.json"),
+        acmeItem({ path: filePath, content: "x\n" }),
+      );
+      await expect(localClient(directory).loadItem("@acme", "bad-path")).rejects.toThrow(
+        /refusing the file path/,
+      );
+    },
+  );
 });

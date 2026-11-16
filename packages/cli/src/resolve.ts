@@ -37,7 +37,7 @@ export async function resolveItems(
     if (!options.overwrite && options.installed.has(key)) return;
     const item = await options.load(ref);
     for (const dependency of item.registryDependencies) {
-      await visit(parseRef(dependency, ref.registry));
+      await visit(parseRef(dependency, options.defaultRegistry));
     }
     resolved.push({ ref, key, item });
   };

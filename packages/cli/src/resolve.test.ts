@@ -22,6 +22,7 @@ const items: Record<string, RegistryItem> = {
   "alert-dialog": item("alert-dialog", ["core-base", "react-base", "dialog"]),
   select: item("select", ["core-base", "react-base"]),
   "acme/card": item("acme/card", ["@standarui/core-base", "@standarui/select"]),
+  "acme/bare": item("acme/bare", ["select", "@acme/card"]),
 };
 
 function options(installed: string[] = [], overwrite = false): Parameters<typeof resolveItems>[1] {
@@ -76,6 +77,17 @@ describe("resolveItems", () => {
       "react-base",
       "select",
       "@acme/card",
+    ]);
+  });
+
+  it("sends a bare dependency of a third-party item to @standarui", async () => {
+    const resolved = await resolveItems(["@acme/bare"], options());
+    expect(resolved.map((entry) => [entry.ref.registry, entry.ref.name])).toEqual([
+      ["@standarui", "core-base"],
+      ["@standarui", "react-base"],
+      ["@standarui", "select"],
+      ["@acme", "card"],
+      ["@acme", "bare"],
     ]);
   });
 });

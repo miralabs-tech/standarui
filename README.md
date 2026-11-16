@@ -19,6 +19,11 @@ Version `0.0.0`, pre-release. The packages are not published.
 Both packages arrive in follow-up pull requests; this repository currently holds
 the root tooling only.
 
+## Registries
+
+The format of a registry, and how to declare or publish a third-party one, is in
+[`docs/registry.md`](docs/registry.md).
+
 ## Development
 
 ```sh

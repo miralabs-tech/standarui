@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { DEFAULT_REGISTRY, type RegistryDefinition, type StandaruiConfig } from "./config";
 import type { CliContext } from "./context";
 import { CliError } from "./errors";
+import { sha256 } from "./files";
 import type { RegistryIndex, RegistryItem } from "./registry-types";
 
 export type Place =
@@ -85,7 +86,12 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 function checkPath(value: unknown, where: string): void {
   if (typeof value !== "string" || value === "") throw new CliError(`${where}: invalid file path`);
-  if (value.startsWith("/") || /^[a-zA-Z]:/.test(value) || value.split("/").includes("..")) {
+  if (
+    value.startsWith("/") ||
+    value.startsWith("\\") ||
+    /^[a-zA-Z]:/.test(value) ||
+    value.split(/[\\/]/).includes("..")
+  ) {
     throw new CliError(`${where}: refusing the file path "${value}"`);
   }
 }
@@ -103,6 +109,9 @@ function checkItem(value: unknown, where: string): RegistryItem {
       throw new CliError(`${where}: malformed file entry`);
     }
     checkPath(file.path, where);
+    if (typeof file.sha256 !== "string" || file.sha256 !== sha256(file.content)) {
+      throw new CliError(`${where}: the sha256 of "${file.path}" does not match its content`);
+    }
   }
   const dependencies = value.registryDependencies;
   if (
