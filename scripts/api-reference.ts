@@ -815,6 +815,17 @@ function findCssVars(component: string): ApiInterface | undefined {
   return undefined;
 }
 
+export function sharedReactCssVars(): ApiTable[] {
+  const tables: ApiTable[] = [];
+  for (const file of filesIn(path.join(root, "packages/react/src"))) {
+    const source = readFileSync(file, "utf8");
+    if (!source.includes("CssVars")) continue;
+    const found = findInterface(source, file, isCssVars);
+    if (found !== undefined) tables.push(...toTables([found]));
+  }
+  return tables;
+}
+
 export function collect(): ComponentApi[] {
   // The union of both packages, not the core's list: `alert-dialog` is a React
   // composed layer over the dialog machine and has no core folder at all, so

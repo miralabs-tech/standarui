@@ -3262,5 +3262,10 @@
     }
   },
   "schema": 1,
+  "shared": {
+    "react-base": {
+      "channels": ["--sui-virtual-size", "--sui-virtual-start"]
+    }
+  },
   "version": "0.1.0"
 }
