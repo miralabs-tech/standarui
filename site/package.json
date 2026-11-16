@@ -4,19 +4,16 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "standardoc": "bun run scripts/standardoc.ts",
-    "build": "mdocs build --chrome=static",
-    "dev": "mdocs dev --chrome=static"
+    "build": "mdocs build",
+    "dev": "mdocs dev"
   },
   "dependencies": {
-    "@standardoc/cli": "file:./.standardoc/standardoc-cli.tgz",
-    "@standardoc/kit": "file:./.standardoc/standardoc-kit.tgz",
     "@standarui/core": "file:../packages/core",
     "@standarui/react": "file:../packages/react",
+    "@standarx/mdocs": "^0.2.0",
     "@standarx/nav": "^0.4.1"
   },
   "overrides": {
-    "@standardoc/kit": "file:./.standardoc/standardoc-kit.tgz",
     "@standarui/core": "file:../packages/core"
   }
 }

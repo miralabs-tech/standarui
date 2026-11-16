@@ -1,4 +1,4 @@
-import { defineConfig } from "@standardoc/cli";
+import { defineConfig } from "@standarx/mdocs/config";
 
 export default defineConfig({
   siteName: "standarui",
@@ -17,5 +17,6 @@ export default defineConfig({
       blurb: "Headless parts and their composed forms.",
     },
   ],
-  stylesheets: ["@standardoc/kit/styles/docs.css", "./demo.css"],
+  matrix: [{}],
+  stylesheets: ["@standarx/mdocs/styles/docs.css", "./demo.css"],
 });
