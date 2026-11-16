@@ -284,8 +284,16 @@ describe("the composed pagination — axe", () => {
           id="p"
           count={95}
           defaultPage={10}
-          prevLabel={<span aria-hidden="true">‹</span>}
-          nextLabel={<span aria-hidden="true">›</span>}
+          prevLabel={
+            <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16" focusable={false}>
+              <path d="M10 3L5 8l5 5" fill="none" stroke="currentcolor" strokeWidth="1.5" />
+            </svg>
+          }
+          nextLabel={
+            <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16" focusable={false}>
+              <path d="M6 3l5 5-5 5" fill="none" stroke="currentcolor" strokeWidth="1.5" />
+            </svg>
+          }
         />
       </main>,
     );

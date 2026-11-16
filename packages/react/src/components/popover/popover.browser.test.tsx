@@ -79,7 +79,7 @@ function Share(props: ShareProps): React.ReactNode {
             {title === null ? null : <PopoverTitle>{title}</PopoverTitle>}
             <PopoverDescription>Anyone with the link can view.</PopoverDescription>
             {children}
-            <PopoverCloseTrigger aria-label="Close">Done</PopoverCloseTrigger>
+            <PopoverCloseTrigger>Done</PopoverCloseTrigger>
           </PopoverContent>
           <PopoverArrow />
         </PopoverPositioner>
