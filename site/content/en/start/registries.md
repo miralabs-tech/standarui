@@ -1,6 +1,8 @@
 ---
 title: Registries
 description: Declare third-party registries by namespace and what the CLI checks
+sidebar:
+  order: 4
 ---
 
 ## Declare a registry

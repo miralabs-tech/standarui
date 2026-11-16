@@ -1,6 +1,8 @@
 ---
 title: Installation
 description: Prérequis, lancement de la CLI et ce que standarui init écrit
+sidebar:
+  order: 2
 ---
 
 ## Prérequis

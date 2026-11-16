@@ -1,6 +1,8 @@
 ---
 title: Registres
 description: Déclarer des registres tiers par espace de noms, et ce que la CLI vérifie
+sidebar:
+  order: 4
 ---
 
 ## Déclarer un registre

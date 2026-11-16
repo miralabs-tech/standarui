@@ -1,6 +1,8 @@
 ---
 title: CLI
 description: add, diff et update, et les fichiers que la CLI garde dans votre dépôt
+sidebar:
+  order: 3
 ---
 
 ## Commandes

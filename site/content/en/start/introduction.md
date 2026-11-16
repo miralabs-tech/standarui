@@ -1,6 +1,8 @@
 ---
 title: Introduction
 description: A headless UI engine in TypeScript with a React 19 adapter, copied into your app by a CLI
+sidebar:
+  order: 1
 ---
 
 standarui is a headless UI engine: state machines written in TypeScript, focus management and the ARIA patterns of the WAI-ARIA Authoring Practices Guide, built on `@standarx/nav` for input intents (keyboard, pointer, gamepad). A React 19 adapter turns each machine into part components (`SelectTrigger`, `DialogContent`, ...) and into a composed form (`<Select options={...}/>`) that renders exactly the same parts.
