@@ -1,6 +1,6 @@
 {
   "name": "@standarui/core",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Headless UI engine — state machines, focus management, ARIA, on the @standarx/nav intent layer for keyboard, gamepad and spatial navigation.",
   "license": "MIT",
   "repository": {
@@ -65,7 +65,7 @@
     "./package.json": "./package.json"
   },
   "peerDependencies": {
-    "@standarx/nav": "0.4.1"
+    "@standarx/nav": "^0.4.1"
   },
   "scripts": {
     "build": "tsdown",

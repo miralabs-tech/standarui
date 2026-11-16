@@ -2,7 +2,7 @@
   "$schema": "../schema.json",
   "name": "core-base",
   "type": "registry:base",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "registryDependencies": [
     "nav"
   ],
