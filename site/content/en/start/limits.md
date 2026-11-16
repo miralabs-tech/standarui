@@ -1,6 +1,8 @@
 ---
 title: Limits
 description: What copying the code means for tests, git, nav, styles and accessibility
+sidebar:
+  order: 6
 ---
 
 ## Limits

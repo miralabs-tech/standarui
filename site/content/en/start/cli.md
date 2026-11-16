@@ -1,6 +1,8 @@
 ---
 title: CLI
 description: add, diff and update, and the files the CLI keeps in your repository
+sidebar:
+  order: 3
 ---
 
 ## Commands

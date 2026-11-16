@@ -1,6 +1,8 @@
 ---
 title: Theming
 description: Style the headless parts with data attributes and --sui-* variables, with themes and densities on any subtree
+sidebar:
+  order: 5
 ---
 
 standarui ships no style. Every part renders its element with attributes your stylesheet selects, and the engine writes a few custom properties your CSS reads.

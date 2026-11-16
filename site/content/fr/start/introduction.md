@@ -1,6 +1,8 @@
 ---
 title: Introduction
 description: Un moteur d'UI headless en TypeScript avec un adaptateur React 19, copié dans votre app par une CLI
+sidebar:
+  order: 1
 ---
 
 standarui est un moteur d'UI headless : des machines à états écrites en TypeScript, la gestion du focus et les motifs ARIA de l'APG (WAI-ARIA Authoring Practices Guide), posés sur `@standarx/nav` pour les intentions d'entrée (clavier, pointeur, manette). Un adaptateur React 19 transforme chaque machine en composants de parties (`SelectTrigger`, `DialogContent`, ...) et en une forme composée (`<Select options={...}/>`) qui rend exactement les mêmes parties.

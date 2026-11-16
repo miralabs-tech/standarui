@@ -17,6 +17,5 @@ export default defineConfig({
       blurb: "Headless parts and their composed forms.",
     },
   ],
-  matrix: [{}],
   stylesheets: ["@standarx/mdocs/styles/docs.css", "./demo.css"],
 });

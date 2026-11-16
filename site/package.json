@@ -10,7 +10,7 @@
   "dependencies": {
     "@standarui/core": "file:../packages/core",
     "@standarui/react": "file:../packages/react",
-    "@standarx/mdocs": "^0.2.0",
+    "@standarx/mdocs": "^0.3.0",
     "@standarx/nav": "^0.4.1"
   },
   "overrides": {

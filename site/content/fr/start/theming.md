@@ -1,6 +1,8 @@
 ---
 title: Thèmes
 description: Styler les parties headless avec les attributs data et les variables --sui-*, avec thèmes et densités sur n'importe quel sous-arbre
+sidebar:
+  order: 5
 ---
 
 standarui ne fournit aucun style. Chaque partie rend son élément avec des attributs que votre feuille de style sélectionne, et le moteur écrit quelques propriétés personnalisées que votre CSS lit.

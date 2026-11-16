@@ -1,6 +1,8 @@
 ---
 title: Installation
 description: Requirements, running the CLI and what standarui init writes
+sidebar:
+  order: 2
 ---
 
 ## Requirements
