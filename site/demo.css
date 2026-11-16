@@ -1,0 +1,25 @@
+[data-part~="button:root"] {
+  --sui-button-bg: #1f4fd8;
+  --sui-button-fg: #ffffff;
+  --sui-button-ring: #9db4f5;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
+  background: var(--sui-button-bg);
+  color: var(--sui-button-fg);
+  font: inherit;
+  cursor: pointer;
+}
+
+[data-part~="button:root"]:focus-visible {
+  outline: 2px solid var(--sui-button-ring);
+  outline-offset: 2px;
+}
+
+[data-part~="button:root"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
