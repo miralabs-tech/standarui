@@ -12,4 +12,5 @@ The code is not installed from npm. The `standarui` CLI copies it into your app,
 - [Installation](installation.md)
 - [CLI](cli.md)
 - [Registries](registries.md)
+- [Theming](theming.md)
 - [Limits](limits.md)
