@@ -1,4 +1,3 @@
-.standardoc/
 node_modules/
 dist/
 bun.lock
