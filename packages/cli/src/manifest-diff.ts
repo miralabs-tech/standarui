@@ -33,6 +33,12 @@ export interface ComponentManifest {
   readonly tokens?: readonly string[];
   readonly sheets?: Readonly<Record<string, SheetNames>>;
   readonly components: Readonly<Record<string, ManifestComponent>>;
+  readonly shared?: Readonly<Record<string, ManifestShared>>;
+}
+
+export interface ManifestShared {
+  readonly reads?: readonly string[];
+  readonly channels?: readonly string[];
 }
 
 export type RenameKind = "part" | "token" | "hook" | "prop" | "component";

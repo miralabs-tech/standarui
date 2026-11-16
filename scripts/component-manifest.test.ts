@@ -26,6 +26,13 @@ describe("the committed component manifest", () => {
     expect(manifest.schema).toBe(1);
     expect(manifest.version).toBe(version);
   });
+
+  it("lists the channels written by the shared react-base files", () => {
+    expect(manifest.shared?.["react-base"]?.channels).toEqual([
+      "--sui-virtual-size",
+      "--sui-virtual-start",
+    ]);
+  });
 });
 
 describe("what it records", () => {

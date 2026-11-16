@@ -5,11 +5,19 @@ import type {
   Flow,
   ManifestComponent,
   ManifestPart,
+  ManifestShared,
   SheetNames,
 } from "../packages/cli/src/manifest-diff";
-import { anatomyFile, collect, jsonName } from "./api-reference";
+import { anatomyFile, collect, jsonName, sharedReactCssVars } from "./api-reference";
 
-export type { ComponentManifest, Flow, ManifestComponent, ManifestPart, SheetNames };
+export type {
+  ComponentManifest,
+  Flow,
+  ManifestComponent,
+  ManifestPart,
+  ManifestShared,
+  SheetNames,
+};
 
 interface AnatomyModule {
   readonly anatomy: { readonly name: string; keys(): string[] };
@@ -132,7 +140,19 @@ export async function collectManifest(): Promise<ComponentManifest> {
       flows: flowsOfComponent.get(name) ?? {},
     };
   }
-  return { schema: 1, version, components };
+  const sharedRows = sharedReactCssVars().flatMap((table) => table.rows);
+  const sharedChannels = sharedRows.filter((row) => row.group === "written").map((row) => row.name);
+  const sharedReads = sharedRows.filter((row) => row.group === "read").map((row) => row.name);
+  const reactBase: ManifestShared = {
+    ...(sharedReads.length === 0 ? {} : { reads: sortedUnique(sharedReads) }),
+    ...(sharedChannels.length === 0 ? {} : { channels: sortedUnique(sharedChannels) }),
+  };
+  return {
+    schema: 1,
+    version,
+    components,
+    ...(Object.keys(reactBase).length === 0 ? {} : { shared: { "react-base": reactBase } }),
+  };
 }
 
 function sortKeys(value: unknown): unknown {
