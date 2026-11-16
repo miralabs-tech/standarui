@@ -28,4 +28,26 @@ describe("mergeDependencies", () => {
     expect(changed).toEqual(["react"]);
     expect((pkg.dependencies as Record<string, string>).react).toBe("^19.0.0");
   });
+
+  it("keeps a higher nav version when the range is a caret", () => {
+    const original = { dependencies: { "@standarx/nav": "0.4.3" } };
+    const { pkg, changed } = mergeDependencies(original, { "@standarx/nav": "^0.4.1" });
+    expect(changed).toEqual([]);
+    expect(pkg).toEqual(original);
+  });
+
+  it("raises a lower nav version to the caret range", () => {
+    const { pkg, changed } = mergeDependencies(
+      { dependencies: { "@standarx/nav": "0.4.0" } },
+      { "@standarx/nav": "^0.4.1" },
+    );
+    expect(changed).toEqual(["@standarx/nav"]);
+    expect((pkg.dependencies as Record<string, string>)["@standarx/nav"]).toBe("^0.4.1");
+  });
+
+  it("adds the caret range when nav is absent", () => {
+    const { pkg, changed } = mergeDependencies({ dependencies: {} }, { "@standarx/nav": "^0.4.1" });
+    expect(changed).toEqual(["@standarx/nav"]);
+    expect((pkg.dependencies as Record<string, string>)["@standarx/nav"]).toBe("^0.4.1");
+  });
 });

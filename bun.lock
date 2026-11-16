@@ -26,26 +26,26 @@
     },
     "packages/cli": {
       "name": "standarui",
-      "version": "0.0.0",
+      "version": "0.1.0",
       "bin": {
         "standarui": "./dist/cli.js",
       },
     },
     "packages/core": {
       "name": "@standarui/core",
-      "version": "0.0.0",
+      "version": "0.1.0",
       "peerDependencies": {
-        "@standarx/nav": "0.4.1",
+        "@standarx/nav": "^0.4.1",
       },
     },
     "packages/react": {
       "name": "@standarui/react",
-      "version": "0.0.0",
+      "version": "0.1.0",
       "dependencies": {
         "@standarui/core": "workspace:^",
       },
       "peerDependencies": {
-        "@standarx/nav": "0.4.1",
+        "@standarx/nav": "^0.4.1",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
       },

@@ -74,7 +74,7 @@ function buildRegistryV2(target: string): void {
     version: string;
     files: { layer: string; path: string; sha256: string; content: string }[];
   };
-  item.version = "0.0.1";
+  item.version = "0.1.1";
   const file = item.files.find((entry) => `${entry.layer}/${entry.path}` === ANATOMY);
   if (file === undefined) throw new Error("select.anatomy.ts is not in the select item");
   file.content = file.content.replace(ORIGINAL, UPSTREAM);
@@ -86,7 +86,7 @@ function buildRegistryV2(target: string): void {
     version: string;
     components: Record<string, { props: Record<string, string[]> }>;
   };
-  manifest.version = "0.0.1";
+  manifest.version = "0.1.1";
   const tables = manifest.components.select?.props;
   const props = tables?.SelectComposedProps;
   if (tables === undefined || props === undefined) {
@@ -102,7 +102,7 @@ function buildRegistryV2(target: string): void {
       schema: 1,
       renames: [
         {
-          since: "0.0.1",
+          since: "0.1.1",
           kind: "prop",
           component: "select",
           table: "SelectComposedProps",
@@ -200,7 +200,7 @@ describe("update without --write", () => {
     expect(result.err).toBe("");
     expect(result.code).toBe(0);
     expect(snapshot(apps.clean)).toEqual(before);
-    expect(result.out).toContain("select 0.0.0 -> 0.0.1");
+    expect(result.out).toContain("select 0.1.0 -> 0.1.1");
     expect(result.out).toMatch(
       /merge\s+src\/standarui\/core\/components\/select\/select\.anatomy\.ts/,
     );
@@ -257,7 +257,7 @@ describe("update --write", () => {
     const lock = JSON.parse(
       readFileSync(path.join(apps.clean, "standarui.lock.json"), "utf8"),
     ) as Lockfile;
-    expect(lock.items.select?.version).toBe("0.0.1");
+    expect(lock.items.select?.version).toBe("0.1.1");
     expect(lock.items.select?.files[ANATOMY]).toBe(sha256(base));
   });
 

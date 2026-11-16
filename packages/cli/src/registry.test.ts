@@ -5,7 +5,7 @@ import path from "node:path";
 import { afterAll, describe, expect, it } from "vitest";
 import { defaultConfig } from "./config";
 import type { CliContext } from "./context";
-import { createRegistryClient, expandHeaders, parseRef } from "./registry";
+import { createRegistryClient, defaultRegistry, expandHeaders, parseRef } from "./registry";
 
 const placeholder = (name: string): string => ["$", "{", name, "}"].join("");
 
@@ -158,4 +158,13 @@ describe("third-party item validation", () => {
       );
     },
   );
+});
+
+describe("defaultRegistry", () => {
+  it("points at the tag matching the CLI version", () => {
+    const registry = defaultRegistry("0.1.0");
+    const base = "https://raw.githubusercontent.com/miralabs-tech/standarui/v0.1.0/registry";
+    expect(registry.url).toBe(`${base}/items/{name}.json`);
+    expect(registry.index).toBe(`${base}/index.json`);
+  });
 });
