@@ -11,6 +11,6 @@ bun install
 bun run build            # writes site/dist
 ```
 
-Only `content/en` is built. `content/fr` holds the French pages until standardoc-web delivers locales (request standardoc-web#55f4230c05); the site goes online with that request.
+Both locales are built, under `/en/` and `/fr/`, and served under the base `/standarui/`. `.github/workflows/pages.yml` deploys the site to GitHub Pages.
 
 `bunfig.toml` sets `peer = false` on purpose: `@standarui/react` is linked from `../packages/react` and resolves React from the root `node_modules`, but its own React peer would install a second copy here and break hooks during prerender. The site reads `react` and `react-dom` from the root install.

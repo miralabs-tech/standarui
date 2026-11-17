@@ -8,7 +8,7 @@
     "url": "git+https://github.com/miralabs-tech/standarui.git",
     "directory": "packages/react"
   },
-  "homepage": "https://github.com/miralabs-tech/standarui#readme",
+  "homepage": "https://miralabs-tech.github.io/standarui/",
   "bugs": "https://github.com/miralabs-tech/standarui/issues",
   "type": "module",
   "sideEffects": false,
