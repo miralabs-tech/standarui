@@ -6,6 +6,7 @@
     "type": "git",
     "url": "git+https://github.com/miralabs-tech/standarui.git"
   },
+  "homepage": "https://miralabs-tech.github.io/standarui/",
   "private": true,
   "type": "module",
   "workspaces": [
