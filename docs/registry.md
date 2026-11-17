@@ -26,7 +26,7 @@ An item is one JSON file. The shape is described by
 | `description`          | Optional.                                                                   |
 | `dependencies`         | Optional map of npm package to range, added to the app's `package.json`.    |
 | `registryDependencies` | Items to install first (see [Dependency names](#dependency-names)).         |
-| `files[]`              | The files to write: `layer`, `path`, `sha256`, `content`.                   |
+| `files[]`              | The files to write: `layer`, `path`, `sha256`, `content`. May be empty.     |
 
 Each entry of `files[]`:
 
@@ -88,6 +88,10 @@ In `registryDependencies` and in `standarui add`:
 
 An item of your registry that needs another item of your registry writes
 `@acme/other`.
+
+An item with `files: []` and only `registryDependencies` is an alias:
+`standarui add` installs its dependencies and writes nothing of its own.
+For example, `"registryDependencies": ["alert-dialog", "@acme/dialog"], "files": []`.
 
 ## Build and serve your own registry
 
