@@ -2,7 +2,7 @@
   "$schema": "../schema.json",
   "name": "popover",
   "type": "registry:component",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "registryDependencies": [
     "core-base",
     "react-base"

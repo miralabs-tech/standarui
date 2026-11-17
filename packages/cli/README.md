@@ -14,7 +14,7 @@
 
 standarui is a headless UI engine (state machines in TypeScript, focus and ARIA patterns, a React 19 adapter) built on `@standarx/nav`. Its code is not installed from npm: this CLI copies it into your app, rewrites its imports to your aliases, and records every file with its sha256. The files then belong to your app, and `standarui update` merges the registry's later changes into your edits. Only this CLI is published on npm. The project is described in the [main README](https://github.com/miralabs-tech/standarui/blob/main/README.md).
 
-**Status: 0.1.0.**
+**Status: 0.2.0.**
 
 ---
 

@@ -2,7 +2,7 @@
   "$schema": "../schema.json",
   "name": "nav",
   "type": "registry:nav",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "dependencies": {
     "@standarx/nav": "^0.4.1"
   },

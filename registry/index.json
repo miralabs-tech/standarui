@@ -1,7 +1,7 @@
 {
   "$schema": "./schema.json",
   "name": "standarui",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "manifest": "manifest.json",
   "renames": "renames.json",
   "specifiers": {

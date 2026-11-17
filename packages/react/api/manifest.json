@@ -3267,5 +3267,5 @@
       "channels": ["--sui-virtual-size", "--sui-virtual-start"]
     }
   },
-  "version": "0.1.0"
+  "version": "0.2.0"
 }
