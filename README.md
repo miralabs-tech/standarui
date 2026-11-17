@@ -16,7 +16,7 @@ standarui is a headless UI engine: state machines written in TypeScript, focus m
 
 The code is not installed from npm. The `standarui` CLI copies it into your app, rewrites its imports to your aliases and records what it copied, the way shadcn does. From then on the files are yours: you edit them, and `standarui update` merges later changes of the registry into your edits. Only the CLI is published on npm; `core` and `react` are not.
 
-**Status: 0.1.0.**
+**Status: 0.2.0.**
 
 ---
 

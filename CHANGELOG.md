@@ -4,6 +4,20 @@ All notable changes to this project are documented in this file. The format foll
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-17
+
+### Added
+
+- Styles layer in the registry and the CLI: `files[].layer: "styles"`, an optional `dirs.styles` that defaults to `src/standarui/styles`, `standarui init --styles-dir`, and `standarui add` prints the paths of the styles it copied.
+- The `shared.react-base` channels `--sui-virtual-size` and `--sui-virtual-start` in `registry/manifest.json`.
+- Anatomy and CSS variable tables in the API reference.
+- `standarui init` warns when the app's TypeScript `lib` is below `es2023`.
+- Docs site in English and French on GitHub Pages: <https://miralabs-tech.github.io/standarui/>.
+
+### Changed
+
+- `registry/schema.json` accepts `@ns/name` in `registryDependencies` and items with no files (aliases), as [docs/registry.md](./docs/registry.md) already said; the CLI already accepted both.
+
 ## [0.1.0] - 2026-11-16
 
 First release. Only the CLI is published, as `@standarx/ui` (its command is `standarui`); core and react are copied by it.
@@ -20,5 +34,6 @@ First release. Only the CLI is published, as `@standarx/ui` (its command is `sta
 - Third-party registries by namespace, with headers that read `${VAR}` from the environment and are sent only to their own registry.
 - [docs/registry.md](./docs/registry.md): the registry format, how to declare or publish a third-party registry, the lockfile and the security notes.
 
-[Unreleased]: https://github.com/miralabs-tech/standarui/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/miralabs-tech/standarui/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/miralabs-tech/standarui/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/miralabs-tech/standarui/releases/tag/v0.1.0

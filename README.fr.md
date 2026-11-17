@@ -16,7 +16,7 @@ standarui est un moteur d'UI headless : des machines à états écrites en TypeS
 
 Le code ne s'installe pas depuis npm. La CLI `standarui` le copie dans votre app, réécrit ses imports vers vos alias et note ce qu'elle a copié, à la manière de shadcn. Les fichiers deviennent les vôtres : vous les modifiez, et `standarui update` fusionne les changements ultérieurs du registre avec vos modifications. Seule la CLI est publiée sur npm ; `core` et `react` ne le sont pas.
 
-**Statut : 0.1.0.**
+**Statut : 0.2.0.**
 
 ---
 
