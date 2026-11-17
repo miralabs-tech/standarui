@@ -410,3 +410,50 @@
   font-size: 0.8125rem;
   transform-origin: var(--sui-transform-origin);
 }
+
+[data-part~="select:hidden-select"],
+[data-part~="switch:hidden-input"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+[data-part~="select:indicator"] {
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-top: -0.25rem;
+  border-right: 2px solid var(--sui-color-muted);
+  border-bottom: 2px solid var(--sui-color-muted);
+  transform: rotate(45deg);
+}
+
+[data-part~="select:indicator"][data-state="open"] {
+  margin-top: 0.25rem;
+  transform: rotate(225deg);
+}
+
+[data-part~="slider:root"] {
+  grid-template-columns: 1fr auto;
+}
+
+[data-part~="slider:label"] {
+  grid-column: 1;
+}
+
+[data-part~="slider:value-text"] {
+  grid-column: 2;
+  color: var(--sui-color-muted);
+}
+
+[data-part~="slider:control"] {
+  grid-column: 1 / -1;
+}
+
+[data-part~="switch:root"] {
+  position: relative;
+}
